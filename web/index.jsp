@@ -8,9 +8,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
-    <title>$Title$</title>
+    <title>Quick salon</title>
   </head>
   <body>
-  $END$
+
+  <p>Welcome to Quick salon </p>
+
+  <form action="<% request.getContextPath();%>/exploded_war_quicksalon/login.jsp">
+    <input type="submit" value="Login">
+  </form>
+
   </body>
 </html>
