@@ -1,0 +1,111 @@
+body {
+    font-family: "Lato", sans-serif;
+  }
+
+  .sidenav {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    position: fixed;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+
+  }
+
+  #mySideNav
+  {
+    z-index: 10;
+    width: 250px;
+  }
+
+  #main
+  {
+    margin-left: 250px;
+  }
+
+  .sidenav a {
+    padding: 0.4rem 0.4rem 0.4rem 1.25rem;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s ease;
+  }
+
+  .sidenav a:last-child {
+    margin-top: auto;
+  }
+
+  .sidenav a:hover {
+    color: #f1f1f1;
+    padding-left: 1.8rem;
+  }
+
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+
+  .navIcon
+  {
+    font-size:30px;
+    width: 30px;
+    height: 30px;
+    cursor:pointer;
+    background-color: #435a66;
+    border-radius: 6px;
+    display: none;
+
+  }
+
+  .navIcon:hover{
+    background-color: #128ea1;
+  }
+
+  .navIcon img
+  {
+    width: 20px;
+    height: 20px;
+    margin: 4px auto auto 4px;
+  }
+
+  .closeIcon
+  {
+    display: none;
+  }
+
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+
+  @media screen and (max-width:1200px)
+  {
+    #mySidenav
+    {
+      width: 0px;
+    }
+
+    #main
+    {
+      margin-left: 0px;
+    }
+
+    .navIcon
+    {
+      display: block;
+    }
+    
+    .closeIcon
+    {
+      display: block;
+    }
+  }

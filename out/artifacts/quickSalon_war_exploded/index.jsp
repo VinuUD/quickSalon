@@ -14,7 +14,7 @@
 
   <p>Welcome to Quick salon </p>
 
-  <form action="<% request.getContextPath();%>/exploded_war_quicksalon/login.jsp">
+  <form>
     <input type="submit" value="Login">
   </form>
 
