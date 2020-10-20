@@ -1,1 +1,0 @@
-Create all the manager's views in this folder
