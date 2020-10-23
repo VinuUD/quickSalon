@@ -1,0 +1,169 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="addLeave.css">
+    <link rel="stylesheet" href="34.css">
+    <link rel="stylesheet" href="../sideNavBar/sideNavBar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Add Leave</title>
+</head>
+<body onresize="whenResizing()">
+    <!-- check schedule -->
+    <div id="mainPopupDivSchedule" class="mainPopupDiv">
+        <div class="innerPopupDiv">
+            <div class="top1">
+                <i><img style="height: 20px; width: 20px; margin-right: 10px; cursor: pointer;" onclick="hideSchedule()" src="cross.png" alt=""></i>
+                <b style="margin: 0px auto 0px auto;">Schedule</b> 
+            </div>
+            <div class="tableDiv34">
+                <table class="table34">
+                    <tr>
+                        <th>Date</th>
+                        <th >Time</th>
+                        <th>Service ID</th>
+                    </tr>
+                    <tr>
+                        <td>01/01/2020</td>
+                        <td>11.00 AM</td>
+                        <td>S001</td>
+                    </tr>
+                    <tr>
+                        <td>01/01/2020</td>
+                        <td>11.00 AM</td>
+                        <td>S001</td>
+                    </tr>
+                    <tr>
+                        <td>01/01/2020</td>
+                        <td>11.00 AM</td>
+                        <td>S001</td>
+                    </tr>
+
+                    <tr>
+                        <td>01/01/2020</td>
+                        <td>11.00 AM</td>
+                        <td>S001</td>
+                    </tr>
+
+                    <tr>
+                        <td>01/01/2020</td>
+                        <td>11.00 AM</td>
+                        <td>S001</td>
+                    </tr>
+                    <tr>
+                        <td>01/01/2020</td>
+                        <td>11.00 AM</td>
+                        <td>S001</td>
+                    </tr>
+                    
+                </table>
+            </div>
+
+            <div class="pButton">
+                
+                <button style="font-size: 14px;" onclick="hideSchedule()" class="btn-success34">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- main popupDiv -->
+    <div id="mainPopupDiv" class="mainPopupDiv">
+        <div class="innerPopupDiv">
+            <div class="popupText">
+                <h3>All data Will be lost. Do you want to continue?</h3>
+            </div>
+
+            <div class="pButton">
+                <button onclick="hide()" class="btn-danger34">yes</button>
+                <button onclick="hide()" class="btn-success34">no</button>
+            </div>
+        </div>
+   </div>
+
+  
+
+<!-- side nav bar -->
+<div id="mySidenav" class="sidenav">
+    <div class="closeIcon"><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></div>
+   <a href="#">View Salon Schedule</a>
+    <a href="#">Service Management</a>
+    <a href="#">Employee Management</a>
+    <a href="#">Stock Management</a>
+    <a href="#">Reports</a>
+  </div>
+
+<!-- ////////////////////////////// -->
+
+<div id="main">
+    <div class="back">
+        <div id="navIcon" onclick="openNav()" class="navIcon"  ><img  src="three.png" alt="Ooops" ></div>
+        <button onclick="change()" class="btn34">back</button>
+        </div>
+    
+        <div class="topBar">
+            <b>Add Leave</b> 
+         </div>
+    
+        <div class="mainDiv">
+    
+            <div  class="innerDiv">
+                <div class="sn" style=" width: 600px; padding: 5px;" ><input type="text" placeholder="Search">
+                    <button style="margin-right: 10px;"><i class="fa fa-search"></i></button>
+                 
+                    
+                    <select name="" id="">
+                        <option value="">Name</option>
+                        <option value="">shehan</option>
+                        <option value="">namal</option>
+                        <option value="">somadasa</option>
+                    </select>
+                </div>
+            </div>
+            <div class="innerDiv">
+               
+            </div>
+            <div class="innerDiv">
+                <div><b>From Date</b></div>  <div class="inputDiv"><input  type="date"></div>
+            </div>
+    
+            <div class="innerDiv">
+                <div style="margin-right: 10px;"><b>To Date &nbsp;</b></div>  <div class="inputDiv"><input type="date"> </div>
+            </div>
+    
+            <div  class="buttonDiv">
+                <button style="width: 250px; height: 30px;" class="btn-success34" onclick="showSchedule()">Check Schedule</button>
+            </div>
+    
+            <div class="innerDiv">
+                
+                <div>
+                    <label for="bla"><b>Leave Type</b></label>
+                </div>
+                <div class="inputDiv" style="margin-left: 0px;">
+                    <select style="width: 150px; height: 30px;" name="bla" id="">
+                        <option value="">Name</option>
+                        <option value="">shehan</option>
+                        <option value="">namal</option>
+                        <option value="">somadasa</option>
+                    </select>
+                </div>
+               
+            </div>
+    
+            <div style="margin-top: 30px;" class="buttonDiv">
+                <button class="btn-success34">Add Leave</button>
+            </div>
+        </div>
+    
+        <div class="confirm">
+            <button onclick="change()" class="btn34">confirm</button>
+        </div>
+    
+</div>
+
+<script src="calendar.js"></script>
+<script src="addLeave.js"></script>
+<script src="../sideNavBar/sideNavBar.js"></script>
+</body>
+</html>
