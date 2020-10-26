@@ -1,0 +1,155 @@
+.popup1  /* remove manager popup */
+{
+    
+    display: none;
+    text-align: center;
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px);   
+    
+}
+
+.popup1 .popup21
+{
+    margin: 10% auto 15% auto;
+    width: 500px;
+    height: 250px;
+    background-color:white;
+    box-shadow: -14px 9px 28px 0px rgba(0,0,0,0.54);
+    
+
+}
+
+.popup21  .button1
+{
+   
+    display: flex;
+    flex-direction: row;
+    
+    justify-content: center;
+}
+
+.pwd
+{
+    display: flex;
+    flex-direction: column;
+    margin-right: 40px;
+    margin-left: 40px;
+}
+
+.pwd > input
+{
+    margin-top: 20px;
+    height: 30px;
+   
+}
+
+.popup21 > .button1
+{
+    margin-top: 30px;
+}
+
+
+
+@media screen and (max-width:490px)
+{
+    .popup1 .popup21
+    {
+        width: 70%;
+        height: 200px;
+    }
+
+    .popup21 > .button1
+    {
+        margin-top: 30px;
+    }
+
+    .pwd
+    {
+        flex-direction: column;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
+    .pwd > input
+    {
+        margin-top: 10px;
+        height: 30px;
+       
+    }
+
+    .button1 button
+    {
+        
+        height: 30px;
+        font-size: 14px;
+    }
+}
+
+/* ////////////////////////// */
+/* update manager popup */
+.popup3
+{
+    
+    display: none;
+    text-align: center;
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px);   
+    
+}
+
+.popup3 .popup23
+{
+    margin: 10% auto 15% auto;
+    width: 500px;
+    height: 300px;
+    background-color:white;
+    box-shadow: -14px 9px 28px 0px rgba(0,0,0,0.54);
+    
+
+}
+
+.popup23 > .button3
+{
+    margin-top: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+
+
+.button1
+{
+    margin-top: 20px;
+}
+
+@media screen and (max-width:700px)
+{
+    .popup3 .popup23
+    {
+        width: 70%;
+        height: 280px;
+    }
+
+    .popup23 > .button3
+    {
+        margin-top: 50px;
+    }
+
+    .button3 button
+    {
+        height: 35px;
+    }
+
+   
+
+   
+}
+
+
