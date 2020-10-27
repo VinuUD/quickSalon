@@ -14,7 +14,7 @@
 
   <p>Welcome to Quick salon </p>
 
-  <form>
+  <form action="login.jsp">
     <input type="submit" value="Login">
   </form>
 

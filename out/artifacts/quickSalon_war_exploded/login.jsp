@@ -12,28 +12,31 @@
  <div id="background" class="background">
     </div>
 
-
     <div class="mainDiv">
 
         <div class="innerDiv">
            <img style="width: 150px; height: 150px; opacity: 0.5;"  src="resources/icons/user.png" alt="">
         </div>
-        
-        <div class="innerDiv">
-            <input class="input" type="text" style="font-family:Arial, FontAwesome"  placeholder=' &#xF007 &nbsp Username'>
-        </div>
 
-        <div class="innerDiv">
-            <input class="input" type="text" style="font-family:Arial, FontAwesome"  placeholder=' &#xF023 &nbsp Password'>
-        </div>
+        <form action="login" method="POST">
+            <div class="innerDiv">
+                <input class="input" name="username" type="text" style="font-family:Arial, FontAwesome"  placeholder=' &#xF007 &nbsp Username'>
+            </div>
 
-        <div class="buttonDiv">
-            <button > <b>Log In</b> </button>
-        </div>
+            <div class="innerDiv">
+                <input class="input" type="password" name="password" style="font-family:Arial, FontAwesome"  placeholder=' &#xF023 &nbsp Password'>
+            </div>
 
-        <div  style="margin-top: 15px;" class="innerDiv">
-            <small style="color: white;">Forgot Password?</small>
-        </div>
+            <div class="buttonDiv">
+
+                <button type="submit"> <b>Log In</b> </button>
+            </div>
+
+            <div  style="margin-top: 15px;" class="innerDiv">
+                <small style="color: white;">Forgot Password?</small>
+            </div>
+
+        </form>
         
      
  </div>
