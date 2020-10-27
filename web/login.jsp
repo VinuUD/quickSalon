@@ -12,7 +12,6 @@
  <div id="background" class="background">
     </div>
 
-
     <div class="mainDiv">
 
         <div class="innerDiv">

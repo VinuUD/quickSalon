@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
 
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) {
