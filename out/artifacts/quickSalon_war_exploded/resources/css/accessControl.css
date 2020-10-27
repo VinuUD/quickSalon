@@ -1,0 +1,237 @@
+body
+{
+    min-width: 300px;
+    min-height: 500px;
+    margin: 0px;
+    
+}
+
+
+.bar
+{
+   
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 10px;
+    /* border: 2px solid black; */   
+}
+.mainDiv
+{
+    margin-top: 0px;
+    margin-bottom: 80px;
+}
+
+.bar > div,input
+{
+    font-size: 17px;
+}
+
+.back
+{
+    padding-top: 10px;
+    /* border: 2px solid black; */
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: flex-end;
+    direction: rtl;
+
+}
+
+@media screen and (max-width:1200px)
+{
+    .back
+    {
+        direction: ltr;
+    }
+}
+
+.mainDiv
+{
+    border: 4px solid #03396c;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* margin-top: 200px; */
+    /* margin-bottom: 200px; */
+    margin: 0px auto 100px auto;
+    padding: 30px 0px 20px 0px;
+    
+
+}
+
+.topBar
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: #ddd;
+    background-color:#03396c;
+    height: 40px;
+   
+    margin: 0px auto 0px auto;
+    
+    
+    
+}
+
+@media screen and (min-width:900px)
+{
+    .mainDiv
+    {
+        width: 900px;
+    }
+
+    .back
+    {
+        width: 900px;
+        margin: 0px auto 0px auto;
+    }
+
+    .confirm
+    {
+        width: 900px;
+        margin: 0px auto 0px auto;
+    }
+
+    .topBar
+    {
+        width: 908px;
+    }
+}
+
+
+
+@media screen and (max-width:490px)
+{
+    .bar
+    {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .bar div,input
+    {
+        font-size: 17px;
+        
+    }  
+    .bar  div
+    {
+        /* border: 2px solid red; */
+        padding-left: 3vw;
+        margin-bottom: 4vw;
+        width: 94%;
+    }
+
+    .back  .btn34
+    {
+        height: 40px;
+        width: 70px;
+        
+        
+    }
+
+    .back
+    {
+        padding-left: 4px;
+        padding-right: 4px;
+    }
+
+    div > input[type="text"]
+    {
+        width: 100%;
+        height: 30px;
+        margin-top: 2vw;
+    }
+
+    .mainDiv
+    {
+        margin-top: 0px;
+        margin-bottom: 80px;
+    }
+}
+
+
+
+td > div
+{
+    display: flex;
+    flex-direction: row;
+}
+
+.submit
+{
+    display: flex;
+    
+    margin-top: 40px;
+    float: right;
+}
+
+.popup
+{
+    
+    display: none;
+    text-align: center;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px);   
+    
+}
+
+.popup .popup2
+{
+    margin: 10% auto 15% auto;
+    width: 500px;
+    height: 250px;
+    background-color:white;
+    box-shadow: -14px 9px 28px 0px rgba(0,0,0,0.54);
+    border-radius: 30px;
+
+}
+
+.popup2 > .button
+{
+    margin-top: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.ptext
+{
+    margin-left: 20px;
+    margin-right: 20px;
+    /* border: 2px solid black; */
+    padding-top: 20px;
+    
+}
+
+@media screen and (max-width:800px)
+{
+    .popup .popup2
+    {
+        width: 70%;
+        height: 200px;
+    }
+
+    .ptext
+    {
+        font-size: 14px;
+        padding-top: 10px;
+        
+    }
+
+    .popup2 > .button
+    {
+        margin-top: 50px;
+    }
+}
+
+
+
+
+
+
