@@ -30,6 +30,23 @@ body
     direction: rtl;
 }
 
+.pButton button
+{
+    font-size: 14px;
+}
+
+.topImg
+{
+    height: 20px; 
+    width: 20px; 
+    margin-right: 10px; 
+    cursor: pointer;
+}
+.topName
+{
+    margin: 0px auto 0px auto;
+}
+
 .topBar
 {
     display: flex;
