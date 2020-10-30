@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Page Title</title>
+    <link rel='stylesheet' type='text/css' media='screen' href='../resources/css/main.css'>
+    <link rel="stylesheet" href="../resources/css/normal.css">
+    <link rel="stylesheet" href="../resources/css/sideNavbar.css">
+    <link rel="stylesheet" href="../resources/css/mainDiv.css">
+    <link rel="stylesheet" href="../resources/css/34.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    <script defer src='../resources/javascript/main2.js'></script>
+
+   
+
+</head>
+
+<body onresize="whenResizing()">
+  <!-- side nav bar -->
+      <div id="mySidenav" class="sidenav">
+          <div class="closeIcon"><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></div>
+         <a href="#">About</a>
+          <a href="#">Services</a>
+          <a href="#">Clients</a>
+          <a href="#">Contact</a>
+        </div>
+        
+       
+
+<!-- ////////////////////////////// -->
+<div id="main">
+
+  <div class="back">
+      <div id="navIcon" onclick="openNav()" class="navIcon"  ><img  src="three.png" alt="Ooops" ></div>
+      <button class="btn34">back</button>
+  </div>
+  <br><br>
+
+  <div class="topBar">
+      <b> Saloon shedule</b> 
+  </div>
+
+  <div class="mainDiv">
+     <pre>
+      <div class ="ss"> 
+        <form action="/action_page.php">
+        
+          <input type="date" id="from" name="from">
+                  
+            <input type="submit"  class = "ssbut" value="See shedule">
+          </form>
+    
+        </div>
+    
+          <table id="t01" class = "center">
+           
+            <tr>
+              <th>Appointment id</th>
+              <th>Customer id</th>
+              <th>Date</th>
+              <th>Start time</th>
+              <th>Duration</th>
+              <th>View</th>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>
+                      
+                  <button data-modal-target="#modal">*</button>
+                  <div class="modal" id="modal">
+                    <div class="modal-header">
+                      <div class="title">appointment id</div>
+                      <button data-close-button class="close-button">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                                          
+                            <table id="t01" class = "center">
+                              <tr>
+                                <td>Custmer id</td>
+                                <td></td>             
+                              </tr>
+                              <tr>
+                                <td>Appointment id </td>
+                                <td></td>
+                              </tr>
+                            </table>
+     
+                            <table id="t01" class = "center">  
+                              <tr>
+                                <td>Date</td>
+                                <td></td> 
+                                <td>Time</td>
+                                  <td></td>            
+                              </tr>
+                            </table>
+    
+                            <table id="t01" class = "">
+                              <tr>
+                                <td>Service</td>
+                                <td>Service provider</td>             
+                              </tr>
+                              <tr>
+                                <td> </td>
+                                <td></td>
+                              </tr>
+                            </table>
+                    </div>
+                  </div>
+                  <div id="overlay"></div>
+    
+              </td>
+            </tr>
+          </table>
+    
+     </pre>
+
+  </div>  
+</div> 
+<script src="../resources/javascript/sideNavbar.js"></script>
+</body>
+
+
+</html>
