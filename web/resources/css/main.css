@@ -1,0 +1,554 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+  }
+  
+  .modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    border: 1px solid black;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: white;
+    width: 500px;
+    max-width: 80%;
+  }
+  
+  .modal.active {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  .modal-header {
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+  }
+  
+  .modal-header .title {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  .modal-header .close-button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  .modal-body {
+    padding: 10px 15px;
+  }
+  
+  #overlay {
+    position: fixed;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    pointer-events: none;
+  }
+  
+  #overlay.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+
+
+
+
+
+/* table div class */
+.tableDiv34
+{
+    overflow-x:auto;
+    overflow-y: auto;
+    padding: 3vw;
+    /* min-width: 400px; */
+    
+}
+
+/* table class */
+.table34 
+{
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 4px solid #03396c;
+}
+
+/* table class table headers and table data */
+.table34 th,td
+{
+    text-align: left;
+    padding: 12px;
+}
+
+.table34 th
+{
+    background-color: #03396c;
+    color: #ddd;
+}
+  
+/* color even rows in the table */
+tr:nth-child(even)
+{
+    background-color: #f2f2f2
+}
+
+/* ///////////////////////////////////////////////////////////////////////////////// */
+
+.btn-danger34
+{
+    width: 80px;
+    height: 40px;
+    cursor: pointer;
+
+    border-radius: 6px;
+    background-color:#03396c;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 17px;
+
+}
+
+.btn-danger34:hover
+{
+    background-color: #f4511e;
+   
+}
+
+.btn-success34
+{
+   
+    cursor: pointer;
+    border-radius: 6px;
+    background-color:#03396c;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 17px;
+
+}
+
+.btn-success34:hover
+{
+    background-color:#03a827;
+   
+}
+
+.btn34
+{
+    margin : 10px ;
+    
+    cursor: pointer;
+
+    border-radius: 6px;
+    background-color:#03396c;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 17px;
+
+}
+
+.btn39
+{
+    margin : 10px ;
+    
+    cursor: pointer;
+
+    border-radius: 6px;
+    background-color:#03396c;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 17px;
+    float: right;
+
+}
+
+
+.btn34:hover
+{
+    background-color:#096ecc;
+}
+
+  
+form {
+    text-align: center;
+    padding: 50px;
+    margin: 50px;
+  }
+
+
+  .buton355
+  {
+      height: 80px;
+      background-color:gray ;
+      color: white;
+      border-radius: 6px;
+      min-width: 200px;
+  }
+
+  .empman
+  {
+
+    text-align: center;
+    
+  }
+
+table {
+    width: auto;
+    
+}
+table, th, td {
+  //border: 1px solid black;
+  //border-collapse: collapse;
+}
+th, td {
+ // padding: 15px;
+  text-align: left;
+}
+#t01 tr:nth-child(even) {
+  background-color: rgb(253, 253, 253);
+}
+#t01 tr:nth-child(odd) {
+ background-color: rgb(253, 253, 253);
+}
+#t01 th {
+  background-color: black;
+  color: white;
+}
+table.center {
+  margin-left:auto; 
+  margin-right:auto;
+  
+}
+
+
+.cdeaail
+{
+    text-align: center;
+}
+
+.ss 
+{
+ 
+    
+}
+
+.ssbut
+{
+    margin : 10px ;
+    
+    cursor: pointer;
+
+    border-radius: 6px;
+    background-color:#03396c;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 17px;
+    float: center;
+
+}
+
+
+.buttoncus{
+    cursor: pointer;
+    padding: 10px;
+    margin: 5px;
+    height: 80px;
+    width :250px;
+    border-radius: 6px;
+    background-color:#95396f;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 17px;
+    align : center ;
+}
+
+
+*, *::after, *::before {
+    box-sizing: border-box;
+  }
+  
+  .modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    border: 1px solid black;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: white;
+    width: 500px;
+    max-width: 80%;
+  }
+  
+  .modal.active {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  .modal-header {
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+  }
+  
+  .modal-header .title {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  .modal-header .close-button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  .modal-body {
+    padding: 10px 15px;
+  }
+  
+  #overlay {
+    position: fixed;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    pointer-events: none;
+  }
+  
+  #overlay.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+
+
+
+
+
+/* table div class */
+.tableDiv34
+{
+    overflow-x:auto;
+    overflow-y: auto;
+    padding: 3vw;
+    /* min-width: 400px; */
+    
+}
+
+/* table class */
+.table34 
+{
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 4px solid #03396c;
+}
+
+/* table class table headers and table data */
+.table34 th,td
+{
+    text-align: left;
+    padding: 12px;
+}
+
+.table34 th
+{
+    background-color: #03396c;
+    color: #ddd;
+}
+  
+/* color even rows in the table */
+tr:nth-child(even)
+{
+    background-color: #f2f2f2
+}
+
+/* ///////////////////////////////////////////////////////////////////////////////// */
+
+.btn-danger34
+{
+    width: 80px;
+    height: 40px;
+    cursor: pointer;
+
+    border-radius: 6px;
+    background-color:#03396c;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 17px;
+
+}
+
+.btn-danger34:hover
+{
+    background-color: #f4511e;
+   
+}
+
+.btn-success34
+{
+   
+    cursor: pointer;
+    border-radius: 6px;
+    background-color:#03396c;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 17px;
+
+}
+
+.btn-success34:hover
+{
+    background-color:#03a827;
+   
+}
+
+.btn34
+{
+    margin : 10px ;
+    
+    cursor: pointer;
+
+    border-radius: 6px;
+    background-color:#03396c;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 17px;
+
+}
+
+.btn39
+{
+    margin : 10px ;
+    
+    cursor: pointer;
+
+    border-radius: 6px;
+    background-color:#03396c;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 17px;
+    float: right;
+
+}
+
+
+.btn34:hover
+{
+    background-color:#096ecc;
+}
+
+  
+form {
+    text-align: center;
+    padding: 50px;
+    margin: 50px;
+  }
+
+
+  .buton355
+  {
+      height: 80px;
+      background-color:gray ;
+      color: white;
+      border-radius: 6px;
+      min-width: 200px;
+  }
+
+  .empman
+  {
+
+    text-align: center;
+    
+  }
+
+table {
+    width: auto;
+    
+}
+table, th, td {
+  //border: 1px solid black;
+  //border-collapse: collapse;
+}
+th, td {
+ // padding: 15px;
+  text-align: left;
+}
+#t01 tr:nth-child(even) {
+  background-color: rgb(253, 253, 253);
+}
+#t01 tr:nth-child(odd) {
+ background-color: rgb(253, 253, 253);
+}
+#t01 th {
+  background-color: black;
+  color: white;
+}
+table.center {
+  margin-left:auto; 
+  margin-right:auto;
+  
+}
+
+
+.cdeaail
+{
+    text-align: center;
+}
+
+.ss 
+{
+ 
+    
+}
+
+.ssbut
+{
+    margin : 10px ;
+    
+    cursor: pointer;
+
+    border-radius: 6px;
+    background-color:#03396c;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 17px;
+    float: center;
+
+}
+
+
+
+

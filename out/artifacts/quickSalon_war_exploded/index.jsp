@@ -14,7 +14,11 @@
 
   <p>Welcome to Quick salon </p>
 
+<<<<<<< HEAD
   <form action="login.jsp" method="post">
+=======
+  <form action="login.jsp">
+>>>>>>> e435ff51c8d670f6ff430556c7e4bceef3cc5e17
     <input type="submit" value="Login">
   </form>
 
