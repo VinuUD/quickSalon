@@ -30,23 +30,6 @@ body
     direction: rtl;
 }
 
-.pButton button
-{
-    font-size: 14px;
-}
-
-.topImg
-{
-    height: 20px; 
-    width: 20px; 
-    margin-right: 10px; 
-    cursor: pointer;
-}
-.topName
-{
-    margin: 0px auto 0px auto;
-}
-
 .topBar
 {
     display: flex;
@@ -106,34 +89,6 @@ body
 .sn
 {
     margin-left: 40px;
-    width: 600px;
-     padding: 5px;
-}
-
-.searchButton
-{
-    margin-right: 10px;
-}
-
-.todo
-{
-    margin-right: 10px;
-}
-
-.classAddLeaveBtnDiv
-{
-    margin-top: 30px;
-}
-
-.buttonDiv button
-{
-    width: 250px; 
-    height: 30px;
-}
-
-.select
-{
-    width: 150px; height: 30px;
 }
 
 .back
@@ -254,7 +209,6 @@ body
 .innerDiv .inputDiv
 {
     display: flex;
-    margin-left: 0px;
 }
 
 @media screen and (max-width:490px)

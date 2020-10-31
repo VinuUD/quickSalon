@@ -31,11 +31,7 @@ body
     padding: 30px 0px 20px 0px;
     transform: translate(-50%, -50%);
     position: absolute;
-<<<<<<< HEAD
     top: 40%;
-=======
-    top: 36%;
->>>>>>> e435ff51c8d670f6ff430556c7e4bceef3cc5e17
     left: 50%;
     z-index: 2; 
     
@@ -123,20 +119,8 @@ body
     outline: none;
     background-color: rgb(30, 95, 126, 0.6);
     color: black;
-<<<<<<< HEAD
 }
 
-=======
-    cursor: pointer;
-}
-
-.buttonDiv button:hover
-{
-    background-color: rgb(30, 95, 126, 0.8);
-}
-
-
->>>>>>> e435ff51c8d670f6ff430556c7e4bceef3cc5e17
 @media screen and (min-width:900px)
 {
     .mainDiv
