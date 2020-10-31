@@ -1,0 +1,261 @@
+body
+{
+    min-width: 300px;
+}
+
+.topBar
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: #ddd;
+    background-color:#03396c;
+    height: 40px;
+    /* margin-top: 30px; */
+    margin: 40px auto 0px auto; 
+    
+}
+
+.top1
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #ddd;
+    background-color:#03396c;
+    margin-bottom: 0px;
+    height: 40px;
+    margin-left: 3vw;
+    margin-right: 3vw;
+    margin-top: 40px;
+    direction: rtl;
+}
+
+img
+{
+    cursor: pointer;
+}
+
+/* me tyenne popups thunema topbar eke css tika */
+.popup2 >  .top1
+{
+    margin-left: 0vw;
+    margin-right: 0vw;
+    margin-bottom: 20px;
+    margin-top: 0px;
+}
+
+.popup21 >  .top1
+{
+    margin-left: 0vw;
+    margin-right: 0vw;
+    margin-bottom: 20px;
+    margin-top: 0px;
+}
+
+.popup23 >  .top1
+{
+    margin-left: 0vw;
+    margin-right: 0vw;
+    margin-bottom: 20px;
+    margin-top: 0px;
+}
+/* ///////////////////////////////////////////// */
+
+
+.table34 .btn34
+{
+    width: 40px;
+}
+
+/* ///////////////////////////////////////////////// */
+
+/* me tyenne view butto eka click krhma ena popup ekee css tika */
+.popup
+{
+    
+    display: none;
+    text-align: center;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px);   
+    
+}
+
+.popup .popup2
+{
+    margin: 20px auto 15% auto;
+    width: 500px;
+    height: 80%;
+    background-color:white;
+    box-shadow: -14px 9px 28px 0px rgba(0,0,0,0.54);
+    overflow: auto;
+    
+
+}
+
+.popup2 > .button
+{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.ptext
+{
+    margin-left: 20px;
+    margin-right: 20px;
+    /* border: 2px solid black; */
+    padding-top: 20px;
+    
+}
+
+/* /////////////////////////////// */
+
+.mainDiv
+{
+    border: 4px solid #03396c;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* margin-top: 200px; */
+    /* margin-bottom: 200px; */
+    margin: 0px auto 40px auto;
+    padding: 20px 0px 20px 0px; 
+}
+
+.bar
+{
+   
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    /* border: 2px solid black; */
+    text-align: left;
+    margin-right: 40px;
+    margin-left: 40px;
+    
+    
+}
+
+.bar >div,input
+{
+    font-size: 17px;
+    
+}
+
+.button
+{
+    margin-bottom: 20px;
+    
+}
+.button > button
+{
+    font-size: 13px;
+}
+
+.bar  input
+{
+    width: 100%;
+    margin-top: 0px;
+}
+
+.bar div
+{
+    margin-bottom: 8px;
+}
+.back
+{
+    padding-top: 10px;
+    /* border: 2px solid black; */
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: flex-end;
+    direction: rtl;
+
+}
+
+@media screen and (max-width:1200px)
+{
+    .back
+    {
+        direction: ltr;
+    }
+}
+
+
+
+@media screen and (max-width:490px)
+{
+    /* me tikath ooone popup wlata */
+    .popup .popup2
+    {
+        width: 90%;
+        height: 80%;
+        margin-left: 4vw;
+        margin-top: 20px;
+    }
+
+
+    .popup2 > .button
+    {
+        margin-top: 50px;
+    }
+    /* /////////////////////////// */
+
+    .bar
+    {
+        flex-direction: column;
+        text-align: left;
+    }
+
+    .bar div,input
+    {
+        font-size: 13px;
+        
+    }  
+    .bar > div
+    {
+        /* border: 2px solid red; */
+        
+        margin-bottom: 5px;
+        width: 100%;
+        
+    }
+
+    .bar input
+    {
+        width: 90%;
+    }
+
+    .back button
+    {
+        margin-top: 40px;
+    }
+
+ 
+}
+
+@media screen and (min-width:900px)
+{
+    .mainDiv
+    {
+        width: 900px;
+    }
+
+    .topBar
+    {
+        width: 908px;
+    }
+
+    .back
+    {
+        width: 900px;
+        margin: 0px auto 0px auto;
+    }
+
+}
