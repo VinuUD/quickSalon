@@ -1,4 +1,11 @@
-<%--
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="com.g34.quicksalon.entity.ServiceProvider" %>
+<%@ page import="com.g34.quicksalon.model.ServiceProviderModel" %>
+<%@ page import="com.g34.quicksalon.database.DBConnection" %>
+<%@ page import="java.sql.ResultSet" %>
+<%@ page import="java.sql.*" %>
+<%@ page import="java.io.PrintWriter" %>
+<%@ page import="java.util.HashMap" %><%--
   Created by IntelliJ IDEA.
   User: SDW
   Date: 11/1/2020
@@ -35,13 +42,11 @@
     <a href="#">Contact</a>
 </div>
 
-
-
 <!-- ////////////////////////////// -->
 <div id="main">
 
     <div class="back">
-        <div id="navIcon" onclick="openNav()" class="navIcon"><img src="/resources/icons/three.png" alt="Ooops">
+        <div id="navIcon" onclick="openNav()" class="navIcon"><img src="../resources/icons/three.png" alt="Ooops">
         </div>
         <button class="btn34">Back</button>
     </div>
@@ -73,21 +78,24 @@
                         <option>Option 5</option>
                     </select>
                 </div>
-
-
                 <!-- Service provider -->
                 <div>
                     <select class="select-sp">
-                        <option>
-                            <Select:d>Service Provider</Select:d>
-                        </option>
-                        <option>Amal Perera</option>
-                        <option> Master Waruna</option>
-                        <option>Ama Fernando</option>
+                        <option>Default</option>
+                        <%
+                            HashMap<String, String> spList = new HashMap<String, String>();
+//                            This will return empId, and the full name
+                            ServiceProviderModel serviceProviderModel = new ServiceProviderModel();
+                            if(serviceProviderModel!=null){
+                                spList=serviceProviderModel.getSPList();
+                            }
+                            for (String i : spList.values()) {
+                            %>
+                                <option><%=i%></option>
+                            <%}%>
                     </select>
                 </div>
             </div>
-
 
 
             <div class="row-2">
@@ -191,7 +199,6 @@
         </div>
     </div>
 </div>
-
 
 <script src="../resources/javascript/side_navbar.js"></script>
 <script src="../resources/javascript/calendar.js"></script>
