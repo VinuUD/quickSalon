@@ -1,0 +1,222 @@
+
+body{
+
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+.subDiv{
+
+    display: flex;
+    flex-direction: column;
+    height: auto;
+}
+
+/* Pop up */
+.close-btn{
+    position: relative;
+    left: 95%;
+    color:red ;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 5px 10px;
+
+}
+
+
+
+.t-modal-close{
+    position: absolute;
+    left: 90%;
+    top: 15px;
+    padding: 6px;
+    color: red;
+}
+
+.t-modal-close:hover{
+    background-color: rgb(241, 99, 99);
+
+}
+
+.check-box{
+    width: 15px;
+}
+
+
+/* Time pop up table */
+
+.time-modal{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.8);
+}
+
+.time-popup{
+
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%;
+}
+
+.modal-header{
+    background-color: aqua;
+    position: relative;
+    top: 0;
+    text-align: center;
+    font-size: medium;
+}
+
+
+.modal-content{
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    background-color: white;
+    height: 500px;
+
+    font-size: 20px;
+    font-family: serif;
+    border-radius: 15px;
+}
+
+.modal-btn{
+    position: absolute;
+    left: 50%;
+    bottom: 5%;
+    transform: translate(-50%, -50%);
+}
+
+
+.row-1{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    grid-template-rows: 35% 35% 20%;
+
+}
+
+.row-1 > div{
+    margin: 10px;
+}
+
+.row-2{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    height: auto;
+}
+
+.table{
+    flex: 1;
+    height: fit-content;
+    height: auto;
+    margin: 0;
+}
+.calendar{
+
+    width: fit-content;
+    margin-left: 10%;
+}
+
+.calDiv{
+    flex: 1;
+    height: auto;
+}
+
+
+.add-btn{
+    flex: 2;
+    margin-left: 150px;
+    margin: 20px;
+    margin-left: 40%;
+
+}
+.cancel-btn{
+    display: inline;
+    margin-left: 10%;
+
+}
+.confirm-btn{
+    display: inline;
+    margin-left: 40%;
+}
+
+
+.subDiv > div{
+    margin: 0px 0px 10px 10px;
+}
+
+.name-txt{
+
+    border-radius: 15px;
+    width: 400px;
+    height: fit-content;
+    background-color: white;
+    border: 5px solid #96e6b3ff;
+
+}
+
+
+
+/*Customer name Text Box */
+
+
+
+input{
+    border: none;
+    outline: none;
+    width: 350px;
+    padding: 15px;
+    border-radius: 16px;
+
+}
+
+.name-txt:hover{
+    border: 5px solid #48676c;
+}
+
+
+
+select {
+    border: 5px solid #96e6b3ff;
+    border-radius:15px ;
+    height: 40px;
+    color: black;
+    padding: 5px;
+    width: 250px;
+    font-size: 11px;
+    outline: none;
+}
+
+select:hover{
+    border: 5px solid #48676c;
+}
+
+
+@media screen and (max-width:800px)
+{
+    .row-1
+    {
+        justify-items: center;
+    }
+
+
+    .row-2{
+        flex-direction: column;
+    }
+}
+
