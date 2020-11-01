@@ -19,16 +19,13 @@ public class ServiceProviderModel {
             while (resultSet.next()){
                 serviceProviders.add(new ServiceProvider(resultSet.getInt("employeeID"),resultSet.getString("nicNo"),resultSet.getString("firstName"),resultSet.getString("lastName"),resultSet.getInt("salary"),resultSet.getString("enrollDate"),resultSet.getString("resignDate"),resultSet.getInt("isUpperStaffFlag"),resultSet.getInt("onLeaveFlag"),resultSet.getInt("removedFlag")));
             }
-
         } catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
         }
-
         return serviceProviders;
-
-
     }
 
+//    This will return the id->full name pair of all sps
     public HashMap<String,String> getSPList() {
         HashMap<String, String> spList = new HashMap<String, String>();
         try {

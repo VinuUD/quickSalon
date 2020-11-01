@@ -69,13 +69,17 @@
                 <!--Select box  -->
                 <div>
                     <select class="select-opt">
-                        <option>
-                            <Select:d>Service </Select:d>
-                        </option>
-                        <option>Hair Cut</option>
-                        <option>Option 3</option>
-                        <option>Option 4</option>
-                        <option>Option 5</option>
+                        <%
+                            HashMap<String, String> spList = new HashMap<String, String>();
+//                            This will return empId, and the full name
+                            ServiceProviderModel serviceProviderModel = new ServiceProviderModel();
+                            if(serviceProviderModel!=null){
+                                spList=serviceProviderModel.getSPList();
+                            }
+                            for (String i : spList.values()) {
+                        %>
+                        <option><%=i%></option>
+                        <%}%>
                     </select>
                 </div>
                 <!-- Service provider -->
