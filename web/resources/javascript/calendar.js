@@ -11,9 +11,7 @@ function settingDate(date,day){
 
 //date range
 function getDatesBetween(date1,date2){
-
     let dates=[];
-
     let range1=new Date(date1);
     let range2= new Date(date2);
 
@@ -36,15 +34,15 @@ function getDatesBetween(date1,date2){
     ///console.log(dates);
     let content="";
     let lastDate,firstDate;
-   
+
     let weekDays=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
     for(let i=0; i<dates.length; i++){
         lastDate=dates[i];
         firstDate=new Date(dates[i].getFullYear(),dates[i].getMonth(),1);
 
-        
 
-        content+="<div class='calendar-table calendarDiv' id='calendarTable_"+(i+1)+"'>";
+
+        content+="<div class='calendarDiv' id='calendarTable_"+(i+1)+"'>";
 
         content+="<div class='month'> <ul> <li class='prev' id='prev' onclick='callPrev()'>&#10094;</li> <li class='nxt' id='nxt' onclick='callNxt()' >&#10095;</li> <li>"+firstDate.toString().split(" ")[1]+"-"+firstDate.getFullYear()+"</li></ul></div>";
         content+="<table class='calendar-table'>"
@@ -74,12 +72,12 @@ function getDatesBetween(date1,date2){
                     j++;
                 }
             }
-           
+
             content+=" </tr>";
         }
         content+="</tbody></table></div>";
     }
-    
+
     return content;
 }
 
@@ -106,26 +104,26 @@ function callPrev(){
     }
 
     let allTables=document.getElementsByClassName("calendarDiv");
-    
+
     calendarShow--;
 
     for(let i=0; i<allTables.length; i++){
         allTables[i].style.display="none";
     }
-    
+
 
     document.getElementById("calendarTable_" +calendarShow).style.display="block";
 }
 
 function freeSlots(obj){
-    
+
     var m=obj.id.split('/')[1];
     var monthInt=parseInt(m);
-   
+
     if(monthInt<10){
         m='0'+monthInt.toString()
     }
-    
+
     document.getElementById("day-slots").innerHTML=obj.id.split('/')[0]+'/'+m+'/'+obj.id.split('/')[2];
     document.getElementById("time-popup").style.display='block'
 
