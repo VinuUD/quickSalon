@@ -1,7 +1,4 @@
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="com.g34.quicksalon.entity.ServiceProvider" %>
-<%@ page import="com.g34.quicksalon.model.ServiceProviderModel" %>
-<%@ page import="com.g34.quicksalon.database.DBConnection" %>
 <%@ page import="java.sql.ResultSet" %>
 <%@ page import="java.sql.*" %>
 <%@ page import="java.io.PrintWriter" %>
@@ -22,7 +19,7 @@
     <link rel="stylesheet" href="../resources/css/mainDiv.css">
     <link rel="stylesheet" href="../resources/css/34.css">
     <link rel="stylesheet" href="../resources/css/sideNavbar.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<%--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>--%>
     <link rel="stylesheet" href="../resources/css/enqueuecustomer.css">
     <link rel="stylesheet" href="../resources/css/calendar.css">
     <link rel="stylesheet" href="../resources/css/modal.css">
@@ -30,6 +27,40 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <title>Enqueue Customer</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            //GET service Provider List
+            $.get("http://localhost:8080/quickSalon_war_exploded/serviceProvider/enqueue_customer.jsp/serviceProviderList", function(responseJson) {
+                var $select = $("#spdropdownlist");
+                // $select.find("option").remove();
+                $.each(responseJson, function(index, sp) {
+                     $("<option>").val(sp.employeeId).text(sp.firstName +' '+ sp.lastName).appendTo($select);
+                });
+
+            });
+
+            //GET service List
+            $.get("http://localhost:8080/quickSalon_war_exploded/serviceProvider/enqueue_customer.jsp/serviceList", function(responseJson) {
+                var $select = $("#servicedropdownlist");
+                $.each(responseJson, function(index, service) {
+                    $("<option>").val(service.serviceID).text(service.serviceName).appendTo($select);
+                });
+            });
+
+        });
+
+        //POST REQUESTs
+        // $(document).on("click", "#buttonSubmit", function() {
+        //     var params = {category : $("#dropdownlist option:selected").text()};
+        //     $.post("listajax", $.param(params), function(responseText) {
+        //         alert(responseText);
+        //     });
+        // });
+    </script>
+
 </head>
 
 <body onresize="whenResizing()">
@@ -68,35 +99,14 @@
 
                 <!--Select box  -->
                 <div>
-                    <select class="select-opt">
-                        <%
-                            HashMap<String, String> spList = new HashMap<String, String>();
-//                            This will return empId, and the full name
-                            ServiceProviderModel serviceProviderModel = new ServiceProviderModel();
-                            if(serviceProviderModel!=null){
-                                spList=serviceProviderModel.getSPList();
-                            }
-                            for (String i : spList.values()) {
-                        %>
-                        <option><%=i%></option>
-                        <%}%>
+                    <select id="servicedropdownlist" class="select-opt">
+
                     </select>
                 </div>
                 <!-- Service provider -->
                 <div>
-                    <select class="select-sp">
+                    <select id="spdropdownlist" class="select-sp">
                         <option>Default</option>
-                        <%
-                            HashMap<String, String> spList = new HashMap<String, String>();
-//                            This will return empId, and the full name
-                            ServiceProviderModel serviceProviderModel = new ServiceProviderModel();
-                            if(serviceProviderModel!=null){
-                                spList=serviceProviderModel.getSPList();
-                            }
-                            for (String i : spList.values()) {
-                            %>
-                                <option><%=i%></option>
-                            <%}%>
                     </select>
                 </div>
             </div>
@@ -109,7 +119,7 @@
                     <div class="calendar" id="calendar"></div>
 
                     <div class="add-btn">
-                        <button class="btn34">Add</button>
+                        <button id="buttonLoad" class="btn34">Add</button>
                     </div>
                 </div>
 

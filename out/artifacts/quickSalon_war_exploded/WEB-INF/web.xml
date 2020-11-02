@@ -7,11 +7,28 @@
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>com.g34.quicksalon.controller.LoginServlet</servlet-class>
     </servlet>
-    
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>ServiceProviderList</servlet-name>
+        <servlet-class>com.g34.quicksalon.controller.serviceProvider.ServiceProviderListServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServiceProviderList</servlet-name>
+        <url-pattern>/serviceProvider/enqueue_customer.jsp/serviceProviderList</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>ServiceListServlet</servlet-name>
+        <servlet-class>com.g34.quicksalon.controller.serviceProvider.ServiceListServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServiceListServlet</servlet-name>
+        <url-pattern>/serviceProvider/enqueue_customer.jsp/serviceList</url-pattern>
+    </servlet-mapping>
 
 </web-app>

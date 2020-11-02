@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="resources/css/login.css">
     <link rel="stylesheet" href="resources/css/34.css">
-    <title>Document</title>
+    <title>Login</title>
 </head>
 <body>
  <div id="background" class="background">
