@@ -1,0 +1,63 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="closeSaloon.css">
+    <link rel="stylesheet" href="../../resources/css/34.css">
+    <link rel="stylesheet" href="calendar.css">
+    <link rel="stylesheet" href="../../resources/css/closeSaloon.css">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="mainPopupDiv" class="mainPopupDiv">
+        <div class="innerPopupDiv">
+            <div class="popupText">
+                <h3>All data Will be lost. Do you want to continue?</h3>
+            </div>
+
+            <div class="pButton">
+                <button onclick="hide()" class="btn-danger34">yes</button>
+                <button onclick="hide()" class="btn-success34">no</button>
+            </div>
+        </div>
+   </div>
+
+   <div id="mainPopupDivCal" class="mainPopupDivCal">
+    <div class="innerPopupDivCal">
+        <div id="calendar"></div>
+    </div>
+</div>
+
+   <div class="back">
+    <button onclick="change()" class="btn34">back</button>
+    </div>
+
+    <div class="topBar">
+        <b>Close Saloon</b> 
+     </div>
+
+    <div class="mainDiv">
+        <div class="innerDiv">
+            <div><b>From Date</b></div>  <div class="inputDiv"><input  type="text"> <img src="calendarIcon.png" alt="" style="height: 40px; width: 40px; cursor: pointer;" onclick="show()"></div>
+        </div>
+
+        <div class="innerDiv">
+            <div><b>To Date &nbsp;</b></div>  <div class="inputDiv"><input type="text"> <img src="calendarIcon.png" alt="" style="height: 40px; width: 40px; cursor: pointer;"></div>
+        </div>
+
+        <div class="innerDiv">
+            <div><b>Message</b></div>  <div><textarea name="" id="" cols="30" rows="10"></textarea></div>
+        </div>
+    </div>
+
+    <div class="confirm">
+        <button onclick="change()" class="btn34">confirm</button>
+    </div>
+
+
+
+<script src="calendar.js"></script>
+<script src="closeSaloon.js"></script>
+</body>
+</html>
