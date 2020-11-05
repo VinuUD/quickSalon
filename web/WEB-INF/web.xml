@@ -21,7 +21,6 @@
         <url-pattern>/serviceProvider/enqueue_customer.jsp/serviceProviderList</url-pattern>
     </servlet-mapping>
 
-
     <servlet>
         <servlet-name>ServiceListServlet</servlet-name>
         <servlet-class>com.g34.quicksalon.controller.serviceProvider.ServiceListServlet</servlet-class>

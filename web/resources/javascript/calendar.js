@@ -41,7 +41,6 @@ function getDatesBetween(date1,date2){
         firstDate=new Date(dates[i].getFullYear(),dates[i].getMonth(),1);
 
 
-
         content+="<div class='calendarDiv' id='calendarTable_"+(i+1)+"'>";
 
         content+="<div class='month'> <ul> <li class='prev' id='prev' onclick='callPrev()'>&#10094;</li> <li class='nxt' id='nxt' onclick='callNxt()' >&#10095;</li> <li>"+firstDate.toString().split(" ")[1]+"-"+firstDate.getFullYear()+"</li></ul></div>";
@@ -58,7 +57,6 @@ function getDatesBetween(date1,date2){
                 displayNum=j< 10 ? "0" + j : j;
                 if(j ==1){
                     if(firstDate.toString().split(" ")[0]==weekDays[k].toString() ){
-
                         // td id='2020/1/01' format
                         content+="<td id="+dates[i].getFullYear()+'/'+(dates[i].getMonth()+1)+'/'+displayNum+" onclick='freeSlots(this)'>"+ displayNum +"</td>"
                         j++;
