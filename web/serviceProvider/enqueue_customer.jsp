@@ -198,7 +198,7 @@
         var serviceDetails=new Array();
         var i=0;
         //GET service List
-        $.get("http://localhost:8080/quickSalon_war_exploded/serviceProvider/enqueue_customer.jsp/serviceList", function(responseJson) {
+        $.get("enqueue_customer.jsp/serviceList", function(responseJson) {
             var $select = $("#servicedropdownlist");
             $.each(responseJson, function(index, service) {
                 $("<option>").val(service.serviceID).text(service.serviceName).appendTo($select);
@@ -209,6 +209,10 @@
                 })
             });
         });
+
+    //    Get all Appointments
+
+
     });
 
 
@@ -235,10 +239,10 @@
         //GET service Provider List according to the service
 
 
-
+    var spList;
     $("#servicedropdownlist").change(function (){
         var sid = $("#servicedropdownlist option:selected").val();
-        $.get("http://localhost:8080/quickSalon_war_exploded/serviceProvider/enqueue_customer.jsp/serviceProviderList?sid="+sid, function(responseJSON) {
+        $.get("enqueue_customer.jsp/serviceProviderList?sid="+sid, function(responseJSON) {
             var $select = $("#spdropdownlist");
             spList=responseJSON;
             $select.find("option").remove();
@@ -248,6 +252,8 @@
 
         });
     });
+
+
 
 
 
