@@ -5,6 +5,9 @@ body
     min-height: 500px;
     margin: 0px;
 }
+
+
+
 .mainPopupDiv
 {
     
@@ -18,19 +21,7 @@ body
     
 }
 
-.topBar
-{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    color: #ddd;
-    background-color:#03396c;
-    height: 40px;
-    /* margin-top: 30px; */
-    margin: 40px auto 0px auto; 
-    
-}
+
 
 .mainPopupDiv .innerPopupDiv
 {
@@ -83,7 +74,7 @@ body
 
 
 
-/* ////////////////////////////////////////////////////// */
+/* /////////////////////////normal///////////////////////////////////////////////////////////////////// */
 
 .mainDiv
 {
@@ -98,6 +89,21 @@ body
     
 
 }
+
+.topBar
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: #ddd;
+    background-color:#03396c;
+    height: 40px;
+    /* margin-top: 30px; */
+    margin: 40px auto 0px auto; 
+    
+}
+
 .back
 {
     padding-top: 10px;
@@ -115,6 +121,33 @@ body
     margin-left: 30px;
 }
 
+
+
+.confirm
+{
+    direction: rtl; 
+}
+
+
+.innerDiv
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+
+.innerDiv:not(:last-child)
+{
+    margin-bottom: 40px;
+}
+
+.innerDiv .inputDiv
+{
+    display: flex;
+}
+
 @media screen and (max-width:1200px)
 {
     .back
@@ -123,10 +156,6 @@ body
     }
 }
 
-.confirm
-{
-    direction: rtl; 
-}
 @media screen and (min-width:900px)
 {
     .mainDiv
@@ -150,25 +179,6 @@ body
     {
         width: 908px;
     }
-}
-
-.innerDiv
-{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    
-}
-
-.innerDiv:not(:last-child)
-{
-    margin-bottom: 40px;
-}
-
-.innerDiv .inputDiv
-{
-    display: flex;
 }
 
 @media screen and (max-width:490px)
