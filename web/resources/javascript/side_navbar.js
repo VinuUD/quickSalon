@@ -3,7 +3,7 @@ function openNav() {
 
   if(window.matchMedia("(max-width: 490px)").matches)
   {
-    document.getElementById("mySidenav").style.width = "180px";
+    document.getElementById("mySidenav").style.width = "220px";
   }
   else
   {
