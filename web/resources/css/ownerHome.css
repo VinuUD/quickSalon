@@ -1,117 +1,56 @@
-.topBar
-{
-    margin-top: 5px;
-    display: flex;
-    direction: rtl;
+#main{
+  display:block;
+  align-items: center;
+  background: url("../images/marketing-for-your-beauty-salon-2.jpg") no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  transition: .5s;
+  /* position: relative;  */
+  /* adoooh meka weda neeh */
 }
 
-.topBar:after {
-    content: "";
-    clear: both;
-    display: table;
-  }
-
-  .topBar button
-  {
-    border: 1px solid green
-    
-  }
-  
-  .topBar button:not(:last-child) {
-    border-left: none; /* Prevent double borders */
-  }
-
-.topBar  div,button
-{
-    text-align: center;
-    line-height: 40px;
-    
+#welcome-message{
+  position: flex;
+  padding:15px 25px;
+  width: 50%;
+  background: rgba(67, 90, 102, .5);
+  background-position: center;
+  border-radius: 5px;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 5px #48676c;
+  font-weight: 600;
+  font-size: 50px;
+  color:white;
+  top:10%;
+  left: 10%;
+  right: 10%;
+  text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: all .5s;
 }
 
-.icon
-{
-    margin-left: 5vw;
-    
+#profile-picture{
+  width: 50px;
+  height:50px;
+  background: url("../icons/download.png") no-repeat;
+  background-size: cover;
+  border-radius: 50px;
+  float: right;
+  /* margin-top: 1rem; */
+  margin-top: 12px;
+  margin-right: 40px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: all 0.1s;
 }
 
-a
-{
-    color: black;
-    text-decoration: none;
+#profile-picture:hover{
+  width: 52px;
+  height:52px;
+  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
 }
 
-
-@media screen and (max-width:600px)
-{
-    .topBar
-    {
-        float: none;
-        justify-content: center;
-    }
-
-    .topBar a.icon
-    {
-        position: absolute;
-        right: 0;
-        margin-right: 6px;
-    }
+#navIcon{
+  margin-top: 20px !important;
+  display: flex;
 }
-
-.menu
-{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    
-    height: 94%;
-    align-items: center;
-    min-height: 420px;  
-}
-
-.menu:after {
-    content: "";
-    clear: both;
-    display: table;
-  }
-  
-  .menu button:not(:last-child) {
-    border-right: none; /* Prevent double borders */
-  }
-  
-
-.menu  button
-{
-    height: 150px;
-    width: 160px;
-    cursor: pointer;
-    border: 1px solid green
-}
-
-@media screen and (max-width:850px)
-{
-    .menu
-    {
-       
-        flex-direction: column;
-    }
-
-    .menu button
-    {
-        height: 70px;
-        width: 200px;
-        
-    }
-
-    .menu button:not(:last-child) {
-        border-right: 1px solid green;
-        border-bottom: none; /* Prevent double borders */
-      }
-}
-
-
-
-
-
-
-
-

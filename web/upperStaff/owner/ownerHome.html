@@ -1,34 +1,47 @@
-<html lang="en">
-<head>
+<!DOCTYPE html>
+  <head>
+    <title>Home</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="ownerHome.css">
-    <script src="ownerHome.css"></script>
-    <title>ownerHome</title>
-</head>
-<body>
-    <div class="topBar">
+    <link rel="stylesheet" type="text/css" href="../../resources/css/34.css">
+    <link rel="stylesheet" type="text/css" href="../../resources/css/manager_home.css">
+    <link rel="stylesheet" type="text/css" href="../../resources/css/sideNavbar.css">
+    <link rel="stylesheet" type="text/css" href="../../resources/css/mainDiv.css">
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script type="text/javascript" src="../../resources/javascript/manager_home.js"></script>
+    <script type="text/javascript" src="../../resources/javascript/side_navbar.js"></script>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body onresize="whenResizing()">
+
+    <div id="mySidenav" class="sidenav">
+      <div class="closeIcon"><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></div>
+        <a href="#"><i class = "fas fa-balance-scale-left"> Stock Management</i></a>
+        <a href="#"><i class = "fas fa-users"> Employee Management</i></a>
+        <a href="#"><i class = "fas fa-sliders-h"> Service Management</i></a>
+        <a href="#"><i class = "fas fa-arrow-alt-circle-up"> Enqueue Customer</i></a>
+        <a href="#"><i class = "fas fa-arrow-alt-circle-down"> Dequeue Customer</i></a>
+        <a href="#"><i class = "fas fa-sign-out-alt"> Logout</i></a>
+
+    </div> <!-- sidebar -->
+
+    <div id="main">
+      <div class="back">
+          <div id="navIcon" onclick="openNav()" class="navIcon" ><img  src="../../resources/icons/three.png" alt="Ooops" ></div>
+      </div>
+      <div id="bg-manager-home">
+        <div id="profile-picture"></div>
+        <center>
+          <div id="welcome-message">Welcome!</div>
+        </center>
 
        
-       
-        <div><a class="icon" href="#"><img  src="assets/accountIcon.png" alt="" style="height: 40px; width: 40px;"></a></div>
-        <button><a href="#">Close saloon</a></button>
-       <button><a href="#">Open saloon</a></button>
-     
-    </div>
 
-    <div class="menu">
-        <button>View Salon Schedule</button>
-        <button>Service Management</button>
-        <button>Employee Management</button>
-        <button>Stock Management</button>
-        <button>Reports</button>
-    </div>
+      </div> <!-- bg-manager-home -->
 
-    
-   
-   
-   
-    
-</body>
+    </div>
+  </body>
 </html>
