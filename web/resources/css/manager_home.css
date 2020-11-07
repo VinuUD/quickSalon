@@ -11,24 +11,43 @@
 }
 
 #welcome-message{
-  position: flex;
+  
   padding:15px 25px;
-  width: 50%;
+  width: 80%;
   background: rgba(67, 90, 102, .5);
-  background-position: center;
+  
   border-radius: 5px;
   text-transform: uppercase;
   text-shadow: 2px 2px 5px #48676c;
   font-weight: 600;
   font-size: 50px;
   color:white;
-  top:10%;
-  left: 10%;
-  right: 10%;
+  margin-top: 10%;
   text-align: center;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   transition: all .5s;
 }
+
+@media screen and (min-width:1000px)
+{
+  #welcome-message
+  {
+    width:50%;
+
+  }
+}
+
+@media screen and (max-width:490px)
+{
+  #welcome-message
+  {
+    width:60%;
+    font-weight: 230;
+    font-size: 30px;
+    margin-top: 150px;
+  }
+}
+
 
 #profile-picture{
   width: 50px;
@@ -50,7 +69,3 @@
   box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
 }
 
-#navIcon{
-  margin-top: 20px !important;
-  display: flex;
-}
