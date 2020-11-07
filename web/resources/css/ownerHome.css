@@ -1,0 +1,117 @@
+.topBar
+{
+    margin-top: 5px;
+    display: flex;
+    direction: rtl;
+}
+
+.topBar:after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  .topBar button
+  {
+    border: 1px solid green
+    
+  }
+  
+  .topBar button:not(:last-child) {
+    border-left: none; /* Prevent double borders */
+  }
+
+.topBar  div,button
+{
+    text-align: center;
+    line-height: 40px;
+    
+}
+
+.icon
+{
+    margin-left: 5vw;
+    
+}
+
+a
+{
+    color: black;
+    text-decoration: none;
+}
+
+
+@media screen and (max-width:600px)
+{
+    .topBar
+    {
+        float: none;
+        justify-content: center;
+    }
+
+    .topBar a.icon
+    {
+        position: absolute;
+        right: 0;
+        margin-right: 6px;
+    }
+}
+
+.menu
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+    height: 94%;
+    align-items: center;
+    min-height: 420px;  
+}
+
+.menu:after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  .menu button:not(:last-child) {
+    border-right: none; /* Prevent double borders */
+  }
+  
+
+.menu  button
+{
+    height: 150px;
+    width: 160px;
+    cursor: pointer;
+    border: 1px solid green
+}
+
+@media screen and (max-width:850px)
+{
+    .menu
+    {
+       
+        flex-direction: column;
+    }
+
+    .menu button
+    {
+        height: 70px;
+        width: 200px;
+        
+    }
+
+    .menu button:not(:last-child) {
+        border-right: 1px solid green;
+        border-bottom: none; /* Prevent double borders */
+      }
+}
+
+
+
+
+
+
+
+
