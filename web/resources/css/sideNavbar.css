@@ -11,18 +11,29 @@ body {
     z-index: 0;
     top: 0;
     left: 0;
-    background-color: #111;
+    background-color:#33373e;
     overflow-x: hidden;
     transition: 0.3s;
-    padding-top: 60px;
+   
+    
 
   }
 
-  #mySideNav
+  .imgIcon
   {
-    z-index: 10;
-    width: 300px;
+    width: 100px; height: 100px;
+   
   }
+
+  .imgDiv
+  {
+    /* border: 1px solid white; */
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+ 
+
 
   #main
   {
@@ -33,15 +44,37 @@ body {
     
     padding: 0.4rem 0.4rem 0.4rem 1.25rem;
     text-decoration: none;
-    font-size: 22px;
-    color: #818181;
-    display: block;
+    font-size: 17px;
+    border-top: 0px solid white;
+    border-bottom: 0.1px solid rgba(255,255,255,.05);
+    font-weight: 200;
+
+    height: 60px;
+    color:white;
+    display: flex;
     transition: 0.5s ease;
-    margin-top: 10px;
-    justify-content: space-between;
-   
+    align-items: center;
 
   }
+
+  .sidenav a:first-child 
+  {
+    border-top: 0px ;
+    border-bottom: 0px ;
+    height: 10px;
+    
+  }
+
+  
+
+
+  .sidenav a:nth-child(5)
+  {
+    border-top: 0.1px solid rgba(255,255,255,.05);
+  }
+  
+
+  
 
   @media screen and (max-width:490px)
   {
@@ -55,21 +88,36 @@ body {
 
   .sidenav a:last-child {
 
-    margin-top:auto; margin-bottom: 70px;
+    margin-top:auto; margin-bottom: 20px;
+    border-top: 0.1px solid rgba(255,255,255,.05);
+
     
   }
 
   .sidenav a:hover {
     color: #f1f1f1;
-    padding-left: 1.8rem;
+    padding-left: 2.3rem;
+    font-weight: 700;
   }
 
   .sidenav .closebtn {
     position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
+   
+    font-size: 25px;
+   
+    /* border: 2px solid white; */
+    
+  }
+
+  .closeIcon
+  {
+    
+    display: none;
+    height: 30px;
+    direction: rtl;
+    padding-right: 10px;
+    font-size: 40px;
+    /* border: 2px solid white; */
   }
 
   .navIcon
@@ -95,10 +143,7 @@ body {
     margin: 4px auto auto 4px;
   }
 
-  .closeIcon
-  {
-    display: none;
-  }
+  
 
   @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
