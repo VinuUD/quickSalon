@@ -51,7 +51,7 @@
 }
 
 .calendar-btn button {
-    padding: 6px 12px;
+ padding: 6px 12px;
     font-size: 15px;
     border-radius: 6px;
     cursor: pointer;
@@ -77,4 +77,3 @@
 }
 
 .calendar-body tr:hover {background-color:gray;}
-

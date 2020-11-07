@@ -115,7 +115,7 @@ tr:nth-child(even)
 
 .btn34
 {
-    width: 80px;
+    min-width: 80px;
     height: 40px;
     cursor: pointer;
 
@@ -125,6 +125,8 @@ tr:nth-child(even)
     color: #FFFFFF;
     text-align: center;
     font-size: 17px;
+	padding:2px;
+	margin:2px;
 
 }
 
