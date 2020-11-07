@@ -19,7 +19,6 @@
     <link rel="stylesheet" href="../resources/css/mainDiv.css">
     <link rel="stylesheet" href="../resources/css/34.css">
     <link rel="stylesheet" href="../resources/css/sideNavbar.css">
-<%--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>--%>
     <link rel="stylesheet" href="../resources/css/enqueuecustomer.css">
     <link rel="stylesheet" href="../resources/css/calendar.css">
     <link rel="stylesheet" href="../resources/css/modal.css">
@@ -30,36 +29,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <script>
-        $(document).ready(function() {
-            //GET service Provider List
-            $.get("http://localhost:8080/quickSalon_war_exploded/serviceProvider/enqueue_customer.jsp/serviceProviderList", function(responseJson) {
-                var $select = $("#spdropdownlist");
-                // $select.find("option").remove();
-                $.each(responseJson, function(index, sp) {
-                     $("<option>").val(sp.employeeId).text(sp.firstName +' '+ sp.lastName).appendTo($select);
-                });
 
-            });
-
-            //GET service List
-            $.get("http://localhost:8080/quickSalon_war_exploded/serviceProvider/enqueue_customer.jsp/serviceList", function(responseJson) {
-                var $select = $("#servicedropdownlist");
-                $.each(responseJson, function(index, service) {
-                    $("<option>").val(service.serviceID).text(service.serviceName).appendTo($select);
-                });
-            });
-
-        });
-
-        //POST REQUESTs
-        // $(document).on("click", "#buttonSubmit", function() {
-        //     var params = {category : $("#dropdownlist option:selected").text()};
-        //     $.post("listajax", $.param(params), function(responseText) {
-        //         alert(responseText);
-        //     });
-        // });
-    </script>
 
 </head>
 
@@ -100,6 +70,7 @@
                 <!--Select box  -->
                 <div>
                     <select id="servicedropdownlist" class="select-opt">
+                        <option value="0">Not Select</option>
 
                     </select>
                 </div>
@@ -219,6 +190,81 @@
 <script src="../resources/javascript/modal.js"></script>
 
 <script src="../resources/javascript/enqueue_customer.js"></script>
+
+<script>
+
+    //Get all services
+    $(document).ready(function() {
+        var serviceDetails=new Array();
+        var i=0;
+        //GET service List
+        $.get("enqueue_customer.jsp/serviceList", function(responseJson) {
+            var $select = $("#servicedropdownlist");
+            $.each(responseJson, function(index, service) {
+                $("<option>").val(service.serviceID).text(service.serviceName).appendTo($select);
+                serviceDetails.push({
+                    id:index,
+                    serviceId:service.serviceID,
+                    time:service.timeTaken
+                })
+            });
+        });
+
+    //    Get all Appointments
+
+
+    });
+
+
+
+        //POST service Provider List according to the service
+
+        // $("#servicedropdownlist").change(function (){
+        //     var selectedservice =serviceDetails[$(this).children("option:selected").val()].serviceId;
+        //     $.ajax({
+        //         url:'http://localhost:8080/quickSalon_war_exploded/service'Provider/enqueue_customer.jsp/serviceProviderList',
+        //         data:{
+        //             empId:1,
+        //             serviceID:selectedservice
+        //         },
+        //         type:'POST',
+        //         success:function (result){
+        //             alert(result);
+        //         }
+        //     })
+        //     // var selectedservice = $(this).children("option:selected").val();
+        //
+        // });
+
+        //GET service Provider List according to the service
+
+
+    var spList;
+    $("#servicedropdownlist").change(function (){
+        var sid = $("#servicedropdownlist option:selected").val();
+        $.get("enqueue_customer.jsp/serviceProviderList?sid="+sid, function(responseJSON) {
+            var $select = $("#spdropdownlist");
+            spList=responseJSON;
+            $select.find("option").remove();
+            $.each(responseJSON, function(index, sp) {
+                $("<option>").val(sp).text(sp).appendTo($select);
+            });
+
+        });
+    });
+
+
+
+
+
+    //POST REQUESTs
+    // $(document).on("click", "#buttonSubmit", function() {
+    //     var params = {category : $("#dropdownlist option:selected").text()};
+    //     $.post("listajax", $.param(params), function(responseText) {
+    //         alert(responseText);
+    //     });
+    // });
+</script>
 </body>
 
 </html>
