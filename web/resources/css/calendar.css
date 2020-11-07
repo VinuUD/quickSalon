@@ -68,9 +68,11 @@
 
 .calendar-body td:hover{ background-color: blue;}
 
-.freeslot-table table th, td{
 
-    padding: 5px;
+
+.freeslot-table table th, td{
+    text-align: center;
+    padding: 3px;
     cursor: pointer;
     border-bottom: 1px solid #ddd;
 

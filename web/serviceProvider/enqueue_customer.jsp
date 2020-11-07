@@ -189,7 +189,7 @@
 <script src="../resources/javascript/calendar.js"></script>
 <script src="../resources/javascript/modal.js"></script>
 
-<script src="../resources/javascript/enqueue_customer.js"></script>
+<%--<script src="../resources/javascript/enqueue_customer.js"></script>--%>
 
 <script>
 
@@ -211,34 +211,22 @@
         });
 
     //    Get all Appointments
+        $.get("enqueue_customer.jsp/appointments", function(responseJson) {
+            // var $select = $("#servicedropdownlist");
+            $.each(responseJson, function(index, appointments) {
+                 //set date into 2020Jan05 format
+                 res = appointments.date.replace(",", "").split(" ");
+                 day=res[1]< 10 ? "0" + res[1] :res[1] ;
+                 selectId=res[2]+res[0]+day;
+                $('#'+selectId).css('background-color', '#F58F79')
+            });
+        });
 
 
     });
 
 
-
-        //POST service Provider List according to the service
-
-        // $("#servicedropdownlist").change(function (){
-        //     var selectedservice =serviceDetails[$(this).children("option:selected").val()].serviceId;
-        //     $.ajax({
-        //         url:'http://localhost:8080/quickSalon_war_exploded/service'Provider/enqueue_customer.jsp/serviceProviderList',
-        //         data:{
-        //             empId:1,
-        //             serviceID:selectedservice
-        //         },
-        //         type:'POST',
-        //         success:function (result){
-        //             alert(result);
-        //         }
-        //     })
-        //     // var selectedservice = $(this).children("option:selected").val();
-        //
-        // });
-
         //GET service Provider List according to the service
-
-
     var spList;
     $("#servicedropdownlist").change(function (){
         var sid = $("#servicedropdownlist option:selected").val();
@@ -246,6 +234,7 @@
             var $select = $("#spdropdownlist");
             spList=responseJSON;
             $select.find("option").remove();
+            $("<option>").val(0).text("Auto").appendTo($select);
             $.each(responseJSON, function(index, sp) {
                 $("<option>").val(sp).text(sp).appendTo($select);
             });
@@ -253,17 +242,6 @@
         });
     });
 
-
-
-
-
-    //POST REQUESTs
-    // $(document).on("click", "#buttonSubmit", function() {
-    //     var params = {category : $("#dropdownlist option:selected").text()};
-    //     $.post("listajax", $.param(params), function(responseText) {
-    //         alert(responseText);
-    //     });
-    // });
 </script>
 </body>
 
