@@ -7,7 +7,7 @@ function openNav() {
   }
   else
   {
-    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("mySidenav").style.width = "300px";
   }
   
 
@@ -26,7 +26,7 @@ function whenResizing()
 {
   if(window.matchMedia("(min-width: 1200px)").matches)
   {
-    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("mySidenav").style.width = "300px";
     // console.log("mona magulakda");
   }
   else

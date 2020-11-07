@@ -20,6 +20,24 @@ body
   /* adoooh meka weda neeh */
 }
 
+/* #mySidenav
+{
+  width: 300px !important;
+  
+} */
+.userImg
+{
+  /* border: 2px solid white; */
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.userImg img
+{
+  width: 120px; 
+  height: 120px;
+}
+
 #welcome-message{
   
   padding:15px 25px;
