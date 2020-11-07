@@ -15,20 +15,7 @@ body
     width: 100%;
     height: 100%;
     backdrop-filter: blur(5px);   
-    margin-left: -6px;
-    margin-top: -10px;
     
-}
-
-.top1
-{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    color: #ddd;
-    background-color:#03396c;
-    height: 40px;
-    direction: rtl;
 }
 
 .topBar
@@ -47,19 +34,18 @@ body
 
 .mainPopupDiv .innerPopupDiv
 {
-    margin: 80px auto 15% auto;
+    margin: 10% auto 15% auto;
     width: 500px;
-    height: 700px;
+    height: 250px;
     background-color:white;
     box-shadow: -14px 9px 28px 0px rgba(0,0,0,0.54);
-    overflow: auto;
-    
+    border-radius: 30px;
 
 }
 
 .innerPopupDiv > .pButton
 {
-    margin-top: 20px;
+    margin-top: 60px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -73,54 +59,12 @@ body
     
 }
 
-.buttonDiv
-{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin-bottom: 30px;
-}
-
-.buttonDiv button
-{
-    font-size: 14px;
-   
-}
-
-.sn
-{
-    margin-left: 40px;
-}
-
-.back
-{
-    padding-top: 10px;
-    /* border: 2px solid black; */
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    align-items: flex-end;
-    direction: rtl;
-
-}
-
-@media screen and (max-width:1200px)
-{
-    .back
-    {
-        direction: ltr;
-    }
-}
-
-@media screen and (max-width:490px)
+@media screen and (max-width:800px)
 {
     .mainPopupDiv .innerPopupDiv
     {
-        width: 90%;
-        height: 500px;
-        margin: 20px auto 15% auto;
-        overflow: auto;
-       
+        width: 70%;
+        height: 200px;
     }
 
     .popupText
@@ -134,18 +78,9 @@ body
     {
         margin-top: 50px;
     }
-
-    .buttonDiv button
-    {
-        font-size: 14px;
-        height: 35px;
-    }
 }
 
-.back button
-{
-   
-}
+
 
 
 /* ////////////////////////////////////////////////////// */
@@ -162,6 +97,30 @@ body
     padding: 20px 0px 20px 0px;
     
 
+}
+.back
+{
+    padding-top: 10px;
+    /* border: 2px solid black; */
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: flex-end;
+    direction: rtl;
+
+}
+
+.msg
+{
+    margin-left: 30px;
+}
+
+@media screen and (max-width:1200px)
+{
+    .back
+    {
+        direction: ltr;
+    }
 }
 
 .confirm
@@ -232,7 +191,13 @@ body
 
     .back button
     {
-        margin-top: 40px;
+        margin-top: 0px;
+    }
+
+    .back
+    {
+        padding-left: 4px;
+        padding-right: 4px;
     }
 
 
