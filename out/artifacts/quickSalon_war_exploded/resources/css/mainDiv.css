@@ -93,7 +93,7 @@ input::-webkit-clear-button {
 }
 
 input  {
-  display: inline-block;
+    display: inline-block;
     appearance: none;
     -webkit-appearance: none;
     color: #95a5a6;

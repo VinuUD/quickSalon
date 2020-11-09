@@ -1,7 +1,8 @@
 package com.g34.quicksalon.controller.serviceProvider;
 
+import com.g34.quicksalon.entity.Appointment;
 import com.g34.quicksalon.entity.ServiceProvider;
-import com.g34.quicksalon.model.ServiceModel;
+import com.g34.quicksalon.model.AppointmentModel;
 import com.g34.quicksalon.model.ServiceProviderModel;
 import com.google.gson.Gson;
 
@@ -12,23 +13,31 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
-public class ServiceProviderListServlet extends HttpServlet {
+public class SpAppointmentServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        String date=request.getParameter("date");
+        int spId= Integer.parseInt(request.getParameter("spId"));
+
+
+
+        String json = new Gson().toJson(date+spId);
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+        response.getWriter().write(json);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        ArrayList<ServiceProvider> spList=new ArrayList<>();
-        int serviceId= Integer.parseInt(request.getParameter("sid"));
+        ArrayList<Integer> qIds=new ArrayList<Integer>();
+        int spId= Integer.parseInt(request.getParameter("spId"));
         try {
-            ServiceProviderModel serviceProviderModel=new ServiceProviderModel();
-            spList=serviceProviderModel.getServiceProvidersByID(serviceId);
-            String json = new Gson().toJson(spList);
+            AppointmentModel appointmentModel=new AppointmentModel();
+            qIds=appointmentModel.getAllAppointmentsBySP(spId);
+            String json = new Gson().toJson(qIds);
             response.setContentType("application/json");
             response.setCharacterEncoding("UTF-8");
             response.getWriter().write(json);

@@ -182,6 +182,8 @@ input{
     width: 350px;
     padding: 15px;
     border-radius: 16px;
+    appearance: auto !important;
+    -webkit-appearance: checkbox !important;
 
 }
 

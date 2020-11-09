@@ -29,8 +29,6 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-
-
 </head>
 
 <body onresize="whenResizing()">
@@ -77,7 +75,7 @@
                 <!-- Service provider -->
                 <div>
                     <select id="spdropdownlist" class="select-sp">
-                        <option>Default</option>
+                        <option value="0">Default</option>
                     </select>
                 </div>
             </div>
@@ -146,13 +144,12 @@
                 <button class="close t-modal-close"><i class="fa fa-close"></i></button>
             </div>
             <div class="tableDiv34">
-
                 <table class="table34">
                     <thead>
                     <th>Time</th>
                     <th>Select</th>
                     </thead>
-                    <tbody>
+                    <tbody id="timeSlots">
                     <tr>
                         <td>7.00 am - 9.00 am </td>
                         <td><input class="check-box" type="checkbox" ></td>
@@ -192,10 +189,11 @@
 <%--<script src="../resources/javascript/enqueue_customer.js"></script>--%>
 
 <script>
+    var serviceDetails=new Array();
+    var appointments=new Array();
 
     //Get all services
     $(document).ready(function() {
-        var serviceDetails=new Array();
         var i=0;
         //GET service List
         $.get("enqueue_customer.jsp/serviceList", function(responseJson) {
@@ -203,8 +201,8 @@
             $.each(responseJson, function(index, service) {
                 $("<option>").val(service.serviceID).text(service.serviceName).appendTo($select);
                 serviceDetails.push({
-                    id:index,
                     serviceId:service.serviceID,
+                    service:service.serviceName,
                     time:service.timeTaken
                 })
             });
@@ -213,20 +211,26 @@
     //    Get all Appointments
         $.get("enqueue_customer.jsp/appointments", function(responseJson) {
             // var $select = $("#servicedropdownlist");
-            $.each(responseJson, function(index, appointments) {
+            $.each(responseJson, function(index, appointment) {
                  //set date into 2020Jan05 format
-                 res = appointments.date.replace(",", "").split(" ");
+                 res = appointment.date.replace(",", "").split(" ");
                  day=res[1]< 10 ? "0" + res[1] :res[1] ;
                  selectId=res[2]+res[0]+day;
                 $('#'+selectId).css('background-color', '#F58F79')
+                appointments.push({
+                    qId:appointment.qId,
+                    date:appointment.date,
+                    startTime:appointment.startTime,
+                    endTime:appointment.endTime
+                })
             });
+
         });
 
 
     });
 
-
-        //GET service Provider List according to the service
+    //GET service Provider List according to the service
     var spList;
     $("#servicedropdownlist").change(function (){
         var sid = $("#servicedropdownlist option:selected").val();
@@ -234,13 +238,87 @@
             var $select = $("#spdropdownlist");
             spList=responseJSON;
             $select.find("option").remove();
-            $("<option>").val(0).text("Auto").appendTo($select);
+            $("<option>").val(0).text("Default").appendTo($select);
             $.each(responseJSON, function(index, sp) {
-                $("<option>").val(sp).text(sp).appendTo($select);
+                $("<option>").val(sp.employeeId).text(sp.firstName+' '+sp.lastName).appendTo($select);
             });
-
         });
     });
+
+    var queueIds=new Array();
+
+    //Populate Free Times for selected Service Provider
+    $("#spdropdownlist").change(function (){
+        var qIds=new Array();
+        var spId = $("#spdropdownlist option:selected").val();
+
+        $.get("enqueue_customer.jsp/spappointments?spId="+spId, function(responseJSON) {
+            $.each(responseJSON, function(index,qId) {
+                qIds.push(qId)
+            });
+            $.each(appointments, function(index,apt) {
+                res = apt.date.replace(",", "").split(" ");
+                day=res[1]< 10 ? "0" + res[1] :res[1] ;
+                selectId=res[2]+res[0]+day;
+                if(qIds.includes(apt.qId)){
+                    $('#'+selectId).css('background-color', '#F58F79')
+                }else{
+                    $('#'+selectId).css('background-color', 'inherit')
+                }
+            });
+       });
+        queueIds=qIds;
+    });
+
+
+    // qId:appointment.qId,
+    //     date:appointment.date,
+    //     startTime:appointment.startTime,
+    //     endTime:appointment.endTime
+
+    // serviceDetails.push({
+    //     serviceId:service.serviceID,
+    //     service:service.serviceName,
+    //     time:service.timeTaken
+    // })
+
+    //console.log(appointments[0].date)
+    // queueIds.forEach(qid=>{
+    //     appointments
+    // })
+
+    function freeSlots(obj){
+        var year=obj.id.substr(0,4)
+        var month=obj.id.substr(4,3)
+        var day=obj.id.substr(7,)
+        // Print date top of the modal (Heading)
+        document.getElementById("day-slots").innerHTML=year+"-"+month+"-"+day;
+        document.getElementById("time-popup").style.display='block'
+        //Get the serviceId of selectd Service
+        var sp=document.getElementById("spdropdownlist").value
+        var m=new Date(obj.id).getMonth()
+
+
+
+      $.post("enqueue_customer.jsp/spappointments",
+        {
+              spId: sp,
+              date: year+'-'+m+'-'+day
+           },
+          function(data, status){
+              alert("Data: " + data + "\nStatus: " + status);
+          });
+
+
+
+
+
+
+    }
+
+
+
+
 
 </script>
 </body>

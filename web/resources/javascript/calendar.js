@@ -110,19 +110,7 @@ function callPrev(){
     document.getElementById("calendarTable_" +calendarShow).style.display="block";
 }
 
-function freeSlots(obj){
 
-    var m=obj.id.split('/')[1];
-    var monthInt=parseInt(m);
-
-    if(monthInt<10){
-        m='0'+monthInt.toString()
-    }
-
-    document.getElementById("day-slots").innerHTML=obj.id;
-    document.getElementById("time-popup").style.display='block'
-
-}
 
 function closePopup(){
     document.getElementById("time-popup").style.display='none'
