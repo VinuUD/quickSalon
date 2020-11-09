@@ -41,8 +41,6 @@ function closeModal(modal) {
 
 
 
-
-
 function clickedhold() {
     if (confirm('Hold service?')) {
         yourformelement.submit();
@@ -58,3 +56,6 @@ function clickedhold() {
         return false;
     }
  }
+
+
+ 
