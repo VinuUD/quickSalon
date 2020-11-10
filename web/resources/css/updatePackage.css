@@ -80,6 +80,10 @@
     margin-right: 10px;
     cursor: pointer;
 }
+.price
+{
+    margin-right: 40px;
+}
 @media screen and (max-width:1200px)
 {
     .back
