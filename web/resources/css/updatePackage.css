@@ -16,7 +16,7 @@
 {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: center; 
     align-items: center;
     color: #ddd;
     background-color:#03396c;
@@ -47,6 +47,25 @@
     flex-direction: row;
     justify-content: space-around;
     margin-top: 40px;
+}
+.back
+{
+    padding-top: 10px;
+    /* border: 2px solid black; */
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: flex-end;
+    direction: rtl;
+
+}
+
+@media screen and (max-width:1200px)
+{
+    .back
+    {
+        direction: ltr;
+    }
 }
 @media screen and (min-width:900px)
 {
@@ -157,6 +176,20 @@
     {
         /* border: 2px solid red; */
         font-size: 14px;
+    }
+
+    .back  .btn34
+    {
+        height: 40px;
+        width: 70px;
+        
+        
+    }
+
+    .back
+    {
+        padding-left: 4px;
+        padding-right: 4px;
     }
 
 }

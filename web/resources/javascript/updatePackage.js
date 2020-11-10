@@ -18,7 +18,7 @@ function add()
     select.setAttribute("id","sel");
     select.onchange = function ()
     {
-        td.innerHTML =  document.getElementById("sel").value;
+        td.innerHTML =  document.getElementById("sel").value; 
     }
     
     
@@ -52,7 +52,7 @@ function add()
     };
 
     var image = document.createElement("img");
-    image.src = "cross.png";
+    image.src = "../../resources/icons/cross.png";
     image.style.width = "20px";
     image.style.height = "20px";
     image.style.marginRight = "10px";
