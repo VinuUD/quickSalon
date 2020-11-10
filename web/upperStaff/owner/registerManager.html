@@ -12,8 +12,8 @@
     <div id="mainPopupDiv" class="mainPopupDiv">
         <div class="innerPopupDiv">
             <div class="top1">
-                <i><img style="height: 20px; width: 20px; margin-right: 10px;" onclick="hide()" src="cross.png" alt=""></i>
-                <b style="margin: 0px auto 0px auto;">Remove Manager</b> 
+                <i><img class="crsImg" onclick="hide()" src="../../resources/icons/cross.png" alt=""></i>
+                <b >Remove Manager</b> 
             </div>
             <div class="popupText">
                 <h3>All data Will be lost. Do you want to continue?</h3>
@@ -30,8 +30,8 @@
    <div id="mainPopupDivContinue" class="mainPopupDiv">
         <div class="innerPopupDiv">
             <div class="top1">
-                <i><img style="height: 20px; width: 20px; margin-right: 10px; cursor: pointer;" onclick="hideContinue()" src="../../resources/icons/cross.png" alt=""></i>
-                <b style="margin: 0px auto 0px auto;">Confirm Registration</b> 
+                <i><img class="crsImg" onclick="hideContinue()" src="../../resources/icons/cross.png" alt=""></i>
+                <b >Confirm Registration</b> 
             </div>
             <div class="popupText">
                 <h3>Continue to Access Control?</h3>
@@ -73,6 +73,8 @@
      </div>
 
     <div class="mainDiv">
+        <div class="inDiv">
+        
         <div class="innerDiv">
             <div><b>Employee ID</b></div>  <div class="inputDiv"><input  type="text" disabled></div>
         </div>
@@ -90,7 +92,7 @@
         </div>
 
         <div class="innerDiv">
-            <div><b class="b" style="margin-right: 50px;">Birthday</b></div>  <div style="margin-right: -35px;" class="inputDiv"><input  type="text"> <img src="calendarIcon.png" alt="" style="height: 40px; width: 40px; cursor: pointer;" onclick="show()"></div>
+            <div><b class="b" style="margin-right: 50px;">Birthday</b></div>  <div style="margin-right: 5px;" class="inputDiv"><input  type="date" class="birthday"> </div>
         </div>
 
         <div class="innerDiv">
@@ -101,7 +103,7 @@
             <div><b>Salary &nbsp;</b></div>  <div style="margin-left: 45px;" class="inputDiv"><input  type="text"> </div>
         </div>
 
-       
+    </div>
 
         
     </div>

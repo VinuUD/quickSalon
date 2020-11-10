@@ -19,6 +19,23 @@ body
 
 }
 
+.crsImg
+{
+    height: 20px; width: 20px; margin-right: 10px; cursor: pointer;
+
+}
+
+.top1 b
+{
+    margin: 0px auto 0px auto;
+
+}
+
+.birthday
+{
+    width: 183px;
+}
+
 .topBar
 {
     display: flex;
@@ -34,6 +51,19 @@ body
     
     
 }
+
+/* .inDiv
+{
+    border: 2px solid black;
+    margin-left: 120;
+    margin-right: 120;
+}
+
+.inDiv2
+{
+    display: flex;
+    justify-content: space-between;
+} */
 .confirm
 {
     direction: rtl; 
@@ -238,5 +268,11 @@ body
     .innerPopupDiv > .pButton
     {
         margin-top: 50px;
+    }
+
+    .pButton button
+    {
+        width: 60px ;
+        height: 35px;
     }
 }
