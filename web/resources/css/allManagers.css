@@ -1,7 +1,7 @@
 body
 {
     min-width: 300px;
-    min-height: 500px;
+    min-height: 500px; 
     margin: 0px;
 }
 
@@ -213,7 +213,7 @@ img
     .popup .popup2
     {
         width: 90%;
-        height: 80%;
+        height: 85%;
         margin-left: 4vw;
         margin-top: 20px;
     }
@@ -253,6 +253,10 @@ img
     .back button
     {
         margin-top: 40px;
+    }
+    body
+    {
+        padding: 10px;
     }
 
  
