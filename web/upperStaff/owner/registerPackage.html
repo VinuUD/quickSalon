@@ -1,0 +1,137 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../resources/css/registerPackage.css">
+    <link rel="stylesheet" href="../../resources/css/34.css">
+    <link rel="stylesheet" href="../../resources/css/sideNavbar.css">
+    <title>Register package</title>
+</head>
+<body onresize="whenResizing()">
+
+    <!-- continue popup -->
+   <div id="mainPopupDivContinue" class="mainPopupDiv">
+        <div class="innerPopupDiv">
+            <div class="top1">
+                <i><img style="height: 20px; width: 20px; margin-right: 10px; cursor: pointer;" onclick="hideContinue()" src="../../resources/icons/cross.png" alt=""></i>
+                <b style="margin: 0px auto 0px auto;">Hair Cut</b> 
+            </div>
+            <div class="tableDiv34">
+                <table class="table34">
+                    <tr>
+                        <th>Service Provider</th>
+                        <th >Select</th>
+                    </tr>
+                    <tr>
+                        <td>Kamal</td>
+                        <td><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>Sunil</td>
+                        <td><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>Sajith</td>
+                        <td><input type="checkbox"></td>
+                    </tr>
+                    
+                </table>
+            </div>
+
+            <div class="pButton">
+                
+                <button onclick="hideContinue()" class="btn-success34">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="mySidenav" class="sidenav">
+        <div class="closeIcon">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        </div>
+        <br><br>
+        <!-- when i change here i should change nth child css -->
+        <div class="imgDiv"><img class="imgIcon"  src="../../resources/icons/user.png" alt=""></div>
+        <a href="#"><i class="fa fa-calendar"></i> &nbsp;&nbsp; View Salon  Schedule</a>
+        <a href="#"><i class="fa fa-tasks" ></i> &nbsp;&nbsp; Service Management</a>
+        <a href="#"><i class="fa fa-users" ></i> &nbsp;&nbsp; Employee Management</a>
+        <a href="#"><i class = "fas fa-balance-scale-left"></i> &nbsp;&nbsp; Stock Management</a>
+        <a href="#"><i class="fa fa-file" ></i>  &nbsp;&nbsp;&nbsp;&nbsp;Reports</a>
+          <a href="#"><i class = "fas fa-sign-out-alt"></i> &nbsp;&nbsp; Logout</a>
+  
+      </div> <!-- sidebar -->
+
+<div id="main">
+
+    <div class="back">
+        <div id="navIcon" onclick="openNav()" class="navIcon"  ><img  src="../../resources/icons/three.png" alt="Ooops" ></div>
+        <button onclick="change()" class="btn34">back</button>
+    </div>
+
+    <div class="topBar">
+        <b>Register Package</b> 
+     </div>
+
+    <div class="mainDiv">
+        <div class="innerDiv">
+            <div><b>Package Title</b></div>  <div class="inputDiv"><input  type="text"></div>
+        </div>
+
+        <div class="innerDiv">
+            <div><b>Description &nbsp;</b></div>  <div class="inputDiv"><input type="text"> </div>
+        </div>
+
+        <div class="innerDiv">
+            <div><b style="margin-right: 50px;">Type </b></div>  <div  class="inputDiv">
+                <select name="" id="">
+                    <option value="Select">Select Type</option>
+                    <option value="special">Special</option>
+                    <option value="shashira">Normal</option>
+                    
+
+                </select>
+            </div>
+        </div>
+
+        <div class="innerDiv">
+            <div><b style="margin-right: 50px;">Price </b></div>  <div class="inputDiv"><input type="text"> </div>
+        </div>
+
+        <div>
+            <div class="tableDiv34">
+                <table class="table34"  >
+                    <tr>
+                        <th >Service</th>
+                        <th style="text-align: center;">Service providers</th>
+                    </tr>
+                    <tr>
+                        <td>Shehan sandeepa</td>
+                        <td style="text-align: center;"> <button class = 'btn34' onclick="showContinue()"></button> </td>
+                    </tr>
+                    <!-- <tr>
+                        <td>Vinu Dayarathne</td>
+                        <td style="text-align: center;"> <button class = 'btn34' onclick="showContinue()"></button> </td>
+
+                    </tr> -->
+                   <tbody id="add">
+
+                   </tbody>
+                    <tr>
+                        <td><img src="../../resources/icons/plus.png" alt="" class="plus"  onclick="add()"></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="buttonDiv">
+            <button  class="btn-success34">Register</button>
+        </div>
+
+    </div>
+</div>
+    
+<script src="../../resources/javascript/registerPackage.js"></script>
+<script src="../../resources/javascript/side_navbar.js"></script>
+</body>
+</html>

@@ -1,9 +1,3 @@
-body
-{
-    min-width: 300px;
-    min-height: 500px;
-}
-
 .mainDiv
 {
     border: 4px solid #03396c;
@@ -12,58 +6,36 @@ body
     justify-content: center;
     /* margin-top: 200px; */
     /* margin-bottom: 200px; */
-    margin: 0px auto 30px auto;
-    padding: 30px 0px 20px 0px; 
-    overflow: auto;
+    margin: 0px auto 100px auto;
+    padding: 30px 0px 20px 0px;
     
 
-}
-
-.crsImg
-{
-    height: 20px; width: 20px; margin-right: 10px; cursor: pointer;
-
-}
-
-.top1 b
-{
-    margin: 0px auto 0px auto;
-
-}
-
-.birthday
-{
-    width: 183px;
 }
 
 .topBar
 {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: center; 
     align-items: center;
     color: #ddd;
     background-color:#03396c;
     height: 40px;
     /* margin-top: 30px; */
-    margin: 30px auto 0px auto;
+    margin: 40px auto 0px auto;
     
     
     
 }
 
-/* .inDiv
+.table34 .btn34
 {
-    border: 2px solid black;
-    margin-left: 120;
-    margin-right: 120;
+    width: 30px;
+    height: 30px;
+    margin: 0px auto 0px auto;
 }
 
-.inDiv2
-{
-    display: flex;
-    justify-content: space-between;
-} */
+
 .confirm
 {
     direction: rtl; 
@@ -87,6 +59,13 @@ body
     align-items: flex-end;
     direction: rtl;
 
+}
+
+.plus
+{
+    width: 30px; 
+    height: 30px;
+    cursor: pointer;
 }
 
 @media screen and (max-width:1200px)
@@ -146,19 +125,48 @@ body
     height: 25px;
 }
 
+.blo
+{
+    
+    
+    font-size: 16px;
+}
+
+.tr
+{
+    margin: 10px;
+    font-size: 18px;
+}
+
+#option
+{
+    background-color: #03a827;
+}
+
+#option:hover
+{
+    background-color: none;
+}
+
 @media screen and (max-width:490px)
 {
+    textarea
+    {
+        width: 200px;   
+    }
 
     .mainDiv
     {
         margin-top: 0px;
-        margin-bottom: 30px;
+        margin-bottom: 80px;
     }
 
     .innerDiv input
     {
         width: 150px;
     }
+
+  
 
     .buttonDiv button
     {
@@ -170,6 +178,15 @@ body
     {
         width: 150px;
         height: 20px;
+    }
+
+    .blo
+    {
+        /* border: 2px solid red; */
+        margin: 10px;
+        width: 150px;
+        height: 20px;
+        font-size: 14px;
     }
 
     .back  .btn34
@@ -186,11 +203,9 @@ body
         padding-right: 4px;
     }
 
-
 }
 
-/* back popup */
-
+/* popup */
 
 .mainPopupDiv
 {
@@ -201,6 +216,8 @@ body
     z-index: 1;
     width: 100%;
     height: 100%;
+    margin-left: -6px;
+    margin-top: -50px;
     backdrop-filter: blur(5px);   
     
 }
@@ -212,26 +229,24 @@ body
     align-items: center;
     color: #ddd;
     background-color:#03396c;
-    margin-bottom: 0px;
     height: 40px;
-    margin-top: 40px;
     direction: rtl;
 }
 
 .pButton button
 {
     font-size: 12px;
+    margin-top: -40px;
 }
 
-.mainPopupDiv .innerPopupDiv
+.innerPopupDiv
 {
-    margin: 10% auto 15% auto;
+    margin: 80px auto 15% auto;
     width: 500px;
-    height: 250px;
+    height: 600px;
     background-color:white;
     box-shadow: -14px 9px 28px 0px rgba(0,0,0,0.54);
     
-
 }
 
 .innerPopupDiv > .pButton
@@ -250,12 +265,14 @@ body
     
 }
 
-@media screen and (max-width:800px)
+@media screen and (max-width:490px)
 {
-    .mainPopupDiv .innerPopupDiv
+    .innerPopupDiv
     {
-        width: 70%;
-        height: 200px;
+        width: 90%;
+        height: 500px;
+        margin: 10% auto 15% auto;
+        
     }
 
     .popupText
@@ -269,11 +286,4 @@ body
     {
         margin-top: 50px;
     }
-
-    .pButton button
-    {
-        width: 60px ;
-        height: 35px;
-    }
 }
-
