@@ -58,6 +58,18 @@
     height: 30px; 
     cursor: pointer;
 }
+.price
+{
+    margin-right: 50px;
+}
+.time
+{
+    margin-left: -10px;
+}
+.type
+{
+    margin-right: 50px;
+}
 @media screen and (max-width:1200px)
 {
     .back
