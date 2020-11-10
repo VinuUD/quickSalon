@@ -18,17 +18,20 @@
     <div id="pop3" class="popup3">
         <div class="popup23">
             <div class="top1">
-                <i><img  onclick="hide3()" src="../../resources/icons/cross.png" alt=""></i>
+                <i><img  onclick="hide3(), show()" src="../../resources/icons/cross.png" alt=""></i>
                 <b >Update EMP001</b> 
             </div>
 
             <div class="bar">
+                <div> <b>Emplyee ID </b>  <input  type="text" value="0710157140" ></div>
+                <div> <b>Name </b>  <input type="text" value="1000000" ></div>
                 <div> <b>Contact Num </b>  <input  type="text" value="0710157140" ></div>
                 <div> <b>Salary </b>  <input type="text" value="1000000" ></div>
+                <div> <b>NIC </b>  <input  type="text" value="0710157140" ></div>
             </div>
 
             <div class="button3">
-                <button onclick="hide3()" class="btn-success34">Save</button>
+                <button onclick="hide3(), show()" class="btn-success34">Save</button>
             </div>
         </div>
    </div>
@@ -37,7 +40,7 @@
     <div id="pop1" class="popup1">
         <div class="popup21">
             <div class="top1">
-                <i><img  onclick="hide2()" src="../../resources/icons/cross.png" alt=""></i>
+                <i><img  onclick="hide2(), show()" src="../../resources/icons/cross.png" alt=""></i>
                 <b >Remove Manager</b> 
             </div>
             <div class="pwd"> <b> Enter password </b>  <input  type="password" ></div>
@@ -82,8 +85,8 @@
            
 
             <div class="button">
-                <button onclick="show2()" class="danger34">Remove</button>
-                <button onclick="show3()" class="btn-danger34">Update</button>
+                <button onclick="show2(), hide()" class="danger34">Remove</button>
+                <button onclick="show3(),hide()" class="btn-danger34">Update</button>
                 <button onclick="hide()" class="btn-success34">Control access</button>
                 
 
