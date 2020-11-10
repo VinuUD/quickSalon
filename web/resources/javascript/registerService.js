@@ -13,7 +13,7 @@ function add()
     option.innerHTML = "waruna";
 
     var option1 = document.createElement("option");
-    option1.setAttribute("id","option");
+    option1.setAttribute("id","option"); 
     option1.innerHTML = "praba";
 
     select.appendChild(option);

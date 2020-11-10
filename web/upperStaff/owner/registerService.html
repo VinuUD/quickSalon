@@ -7,13 +7,39 @@
     <link rel="stylesheet" href="../../resources/css/sideNavbar.css">
     <title>Register Service</title>
 </head>
-<body>
+<body onresize="whenResizing()">
+
+    <div id="mySidenav" class="sidenav">
+        <div class="closeIcon">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        </div>
+        <br><br>
+        <!-- when i change here i should change nth child css -->
+        <div class="imgDiv"><img class="imgIcon"  src="../../resources/icons/user.png" alt=""></div>
+        <a href="#"><i class="fa fa-calendar"></i> &nbsp;&nbsp; View Salon  Schedule</a>
+        <a href="#"><i class="fa fa-tasks" ></i> &nbsp;&nbsp; Service Management</a>
+        <a href="#"><i class="fa fa-users" ></i> &nbsp;&nbsp; Employee Management</a>
+        <a href="#"><i class = "fas fa-balance-scale-left"></i> &nbsp;&nbsp; Stock Management</a>
+        <a href="#"><i class="fa fa-file" ></i>  &nbsp;&nbsp;&nbsp;&nbsp;Reports</a>
+          <a href="#"><i class = "fas fa-sign-out-alt"></i> &nbsp;&nbsp; Logout</a>
+  
+      </div> <!-- sidebar -->
+
+   <div id="main">
+
+    <div class="back">
+        <div id="navIcon" onclick="openNav()" class="navIcon"  ><img  src="../../resources/icons/three.png" alt="Ooops" ></div>
+        <button onclick="change()" class="btn34">back</button>
+    </div>
 
     <div class="topBar">
         <b>Register Service</b>  
      </div>
 
     <div class="mainDiv">
+
+       
+
         <div class="innerDiv">
             <div><b>Service Title</b></div>  <div class="inputDiv"><input  type="text"></div>
         </div>
@@ -23,7 +49,7 @@
         </div>
 
         <div class="innerDiv">
-            <div><b style="margin-right: 50px;">Price </b></div>  <div class="inputDiv"><input type="text"> </div>
+            <div><b class="price" style="margin-right: 50px;">Price </b></div>  <div class="inputDiv"><input type="text"> </div>
         </div>
 
         <div class="innerDiv">
@@ -61,7 +87,7 @@
 
                    </tbody>
                     <tr>
-                        <td><img src="plus.png" alt="" style="width: 30px; height: 30px; cursor: pointer;" onclick="add()"></td>
+                        <td><img src="../../resources/icons/plus.png" alt="" class="plus" onclick="add()"></td>
                     </tr>
                 </table>
             </div>
@@ -73,7 +99,7 @@
         </div>
 
     </div>
-
+</div>
     
 <script src="../../resources/javascript/registerService.js"></script>
 <script src="../../resources/javascript/side_navbar.js"></script>
