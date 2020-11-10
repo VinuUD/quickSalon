@@ -7,7 +7,7 @@ function add()
     var tr = document.createElement("tr");
     tr.setAttribute("class", "tr");
 
-    var td = document.createElement("td");
+    var td = document.createElement("td"); 
     td.style.fontSize = "16px";
     
    
@@ -52,7 +52,7 @@ function add()
     };
 
     var image = document.createElement("img");
-    image.src = "cross.png";
+    image.src = "../../resources/icons/cross.png";
     image.style.width = "20px";
     image.style.height = "20px";
     image.style.marginRight = "10px";
