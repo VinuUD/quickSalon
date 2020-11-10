@@ -3,6 +3,7 @@ package com.g34.quicksalon.model;
 import com.g34.quicksalon.database.DBConnection;
 import com.g34.quicksalon.entity.ServiceProvider;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -30,24 +31,21 @@ public class ServiceProviderModel {
         return serviceProviders;
     }
 
-//    This will return the id->full name pair of all sps
-    public HashMap<String,String> getSPList() {
+//    This will return the id->full name pair of sps whose provide given serviceId
+    public HashMap<String,String> getSPList(int serviceId) {
         HashMap<String, String> spList = new HashMap<String, String>();
         try {
-            ResultSet resultSet = DBConnection.getConnection().createStatement().executeQuery("SELECT employeeID,firstName,lastName FROM j4f9qe_employee WHERE isUpperStaffFlag=0;");
+            PreparedStatement stmt=DBConnection.getConnection().prepareStatement("SELECT employeeID, CONCAT(firstName,' ',lastName) AS fullName FROM j4f9qe_employee WHERE employeeID IN(SELECT serviceProviderID FROM j4f9qe_servicesprovided WHERE serviceID=?);");
+            stmt.setInt(1,serviceId);
+            ResultSet resultSet = stmt.executeQuery();
             while (resultSet.next()) {
-                spList.put(""+resultSet.getInt("employeeID"),resultSet.getString("firstName")+" "+resultSet.getString("lastName"));
+                spList.put(""+resultSet.getInt("employeeID"),resultSet.getString("fullName"));
             }
         } catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
         }
-
         return spList;
-
     }
-
-
-
 
 
 

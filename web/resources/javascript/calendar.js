@@ -57,7 +57,6 @@ function getDatesBetween(date1,date2){
                 displayNum=j< 10 ? "0" + j : j;
                 if(j ==1){
                     if(firstDate.toString().split(" ")[0]==weekDays[k].toString() ){
-
                         // td id='2020/1/01' format
                         content+="<td id="+dates[i].getFullYear()+'/'+(dates[i].getMonth()+1)+'/'+displayNum+" onclick='freeSlots(this)'>"+ displayNum +"</td>"
                         j++;

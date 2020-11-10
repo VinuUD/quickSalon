@@ -1,0 +1,167 @@
+body
+{
+    min-width: 300px;
+    min-height: 500px;
+    margin: 0px;
+    
+}
+
+
+
+#main{
+  display:block;
+  align-items: center;
+  background: url("../images/marketing-for-your-beauty-salon-2.jpg") no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  transition: .5s;
+  /* position: relative;  */
+  /* adoooh meka weda neeh */
+}
+
+/* #mySidenav
+{
+  width: 300px !important;
+  
+} */
+.userImg
+{
+  /* border: 2px solid white; */
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.userImg img
+{
+  width: 120px; 
+  height: 120px;
+}
+
+#welcome-message{
+  
+  padding:15px 25px;
+  width: 80%;
+  background: rgba(67, 90, 102, .5);
+  
+  border-radius: 5px;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 5px #48676c;
+  font-weight: 600;
+  font-size: 50px;
+  color:white;
+  margin-top: 10%;
+  text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: all .5s;
+}
+
+.homeBar
+{
+  display: flex;
+  /* border: 2px solid black; */
+  justify-content: space-between;
+  align-items: center;
+  direction: ltr;
+  padding: 10px;
+  height: 60px;
+}
+
+@media screen and (min-width:1000px)
+{
+  #welcome-message
+  {
+    width:50%;
+
+  }
+}
+
+@media screen and (min-width:1200px)
+{
+  .homeBar
+  {
+    direction: rtl;
+
+  }
+}
+
+.nav_icon
+{
+  font-size:20px;
+  width: 50px;
+  height: 50px;
+  cursor:pointer;
+  background-color: #435a66;
+  border-radius: 50px;
+  display: none;
+  text-align: center;
+  
+
+}
+
+.nav_icon:hover{
+  background-color: #128ea1;
+  width: 52px;
+  height:52px;
+  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
+}
+
+.nav_icon i
+{
+  
+  width: 20px;
+  height: 20px;
+  margin-top: 14px;
+  
+  color: white;
+  
+}
+
+@media screen and (max-width:1200px)
+{
+  .nav_icon
+    {
+      display: block;
+    }
+}
+
+
+
+
+@media screen and (max-width:490px)
+{
+  #welcome-message
+  {
+    width:60%;
+    font-weight: 230;
+    font-size: 30px;
+    margin-top: 150px;
+  }
+ 
+
+}
+
+
+
+#profile-picture{
+  width: 50px;
+  height:50px;
+  background: url("../icons/download.png") no-repeat;
+  background-size: cover;
+  border-radius: 50px;
+  
+  /* margin-top: 1rem; */
+  /* border: 2px solid black; */
+  
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: all 0.1s;
+}
+
+#profile-picture:hover{
+  width: 52px;
+  height:52px;
+  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
+}
+
+
+

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+  <head>
+    <title>Home</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../../resources/css/34.css">
+    <link rel="stylesheet" type="text/css" href="../../resources/css/ownerHome.css">
+    <link rel="stylesheet" type="text/css" href="../../resources/css/sideNavbar.css">
+    <link rel="stylesheet" type="text/css" href="../../resources/css/mainDiv.css">
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script type="text/javascript" src="../../resources/javascript/ownerHome.js"></script>
+    <script type="text/javascript" src="../../resources/javascript/side_navbar.js"></script>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body onresize="whenResizing()">
+
+    <div id="mySidenav" class="sidenav">
+      <div class="closeIcon">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      </div>
+      <br><br>
+      <!-- when i change here i should change nth child css -->
+      <div class="imgDiv"><img class="imgIcon"  src="../../resources/icons/user.png" alt=""></div>
+      <a href="#"><i class="fa fa-calendar"></i> &nbsp;&nbsp; View Salon  Schedule</a>
+      <a href="#"><i class="fa fa-tasks" ></i> &nbsp;&nbsp; Service Management</a>
+      <a href="#"><i class="fa fa-users" ></i> &nbsp;&nbsp; Employee Management</a>
+      <a href="#"><i class = "fas fa-balance-scale-left"></i> &nbsp;&nbsp; Stock Management</a>
+      <a href="#"><i class="fa fa-file" ></i>  &nbsp;&nbsp;&nbsp;&nbsp;Reports</a>
+        <a href="#"><i class = "fas fa-sign-out-alt"></i> &nbsp;&nbsp; Logout</a>
+
+    </div> <!-- sidebar -->
+
+    <div id="main">
+      <div class="homeBar">
+          <div id="navIcon" onclick="openNav()" class="nav_icon" ><i class="fas fa-bars"></i></div>
+           <div id="profile-picture"></div>
+      </div>
+      <div id="bg-manager-home">
+        
+        <center>
+          <div id="welcome-message">Welcome Owner!</div>
+        </center>
+
+       
+
+      </div> <!-- bg-manager-home -->
+
+    </div>
+  </body>
+</html>
