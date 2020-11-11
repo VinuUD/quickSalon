@@ -13,11 +13,11 @@ function add()
     
     var option = document.createElement("option");
     option.setAttribute("class","option");
-    option.innerHTML = "waruna";
+    option.innerHTML = "Tattoo";
 
     var option1 = document.createElement("option");
     option1.setAttribute("id","option");
-    option1.innerHTML = "praba";
+    option1.innerHTML = "Beard";
 
     td.appendChild(select);
     select.appendChild(option);
