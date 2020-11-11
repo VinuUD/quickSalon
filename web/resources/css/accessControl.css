@@ -51,14 +51,16 @@ body
 
 .mainDiv
 {
+   
+
     border: 4px solid #03396c;
     display: flex;
     flex-direction: column;
     justify-content: center;
     /* margin-top: 200px; */
     /* margin-bottom: 200px; */
-    margin: 0px auto 100px auto;
-    padding: 30px 10px 20px 10px;
+    margin: 0px auto 40px auto;
+    padding: 20px 0px 20px 0px;
     
 
 }
@@ -82,6 +84,7 @@ body
     height: 40px;
    
     margin: 0px auto 0px auto;
+   
     
     
     
@@ -100,6 +103,7 @@ body
     .mainDiv
     {
         width: 900px;
+       
     }
 
     .back
