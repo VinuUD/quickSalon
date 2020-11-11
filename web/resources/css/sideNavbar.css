@@ -46,6 +46,7 @@ body {
     display: flex;
     transition: 0.5s ease;
     align-items: center;
+    min-width: 300px;
 
   }
 
@@ -69,6 +70,7 @@ body {
     {
       font-size: 15px;
       height: 45px;
+      min-width: 180px;
     }
   }
 
