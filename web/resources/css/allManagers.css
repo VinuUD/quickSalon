@@ -196,7 +196,6 @@ img
 
 }
 
-
 @media screen and (max-width:1200px)
 {
     .back
@@ -257,6 +256,20 @@ img
     body
     {
         padding: 10px;
+    }
+
+    .back  .btn34
+    {
+        height: 40px;
+        width: 70px;
+        
+        
+    }
+
+    .back
+    {
+        padding-left: 4px;
+        padding-right: 4px;
     }
 
  
