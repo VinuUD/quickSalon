@@ -21,6 +21,7 @@ public class SpAppointmentServlet extends HttpServlet {
 
         String date=request.getParameter("date");
         int spId= Integer.parseInt(request.getParameter("spId"));
+        int serviceId= Integer.parseInt(request.getParameter("serviceId"));
 
 
 

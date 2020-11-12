@@ -191,6 +191,72 @@ input{
     border: 5px solid #48676c;
 }
 
+/*.flex-timebox {*/
+/*    margin-top: 0;*/
+/*    display: flex;*/
+/*    flex-wrap: wrap;*/
+/*    flex-direction: row;*/
+/*    width: auto;*/
+
+/*}*/
+
+/*.flex-timebox > div {*/
+/*    background-color: #f1f1f1;*/
+/*    width: 80px;*/
+/*    margin: 10px;*/
+/*    text-align: center;*/
+/*    line-height: 40px;*/
+/*    font-size: 20px;*/
+/*    cursor: pointer;*/
+
+/*}*/
+
+
+/*.hour >div:hover{*/
+/*    background-color: blue;*/
+/*}*/
+
+/*.min >div:hover{*/
+/*    background-color: green;*/
+/*}*/
+
+/*.ampm >div:hover{*/
+/*    background-color: red;*/
+/*}*/
+
+
+/* Radio */
+.radio-toolbar {
+    margin: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.radio-toolbar input[type="radio"] {
+
+    opacity: 0;
+    width: 0;
+}
+
+.radio-toolbar label {
+    display: block;
+    background-color: #f1f1f1;
+    width: 60px;
+    margin: 10px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 16px;
+    cursor: pointer;
+
+}
+
+.radio-toolbar label:hover {
+    background-color:rgb(164, 164, 216);
+}
+
+.radio-toolbar input[type="radio"]:checked + label {
+    background-color: blue;
+}
 
 
 select {

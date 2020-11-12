@@ -9,18 +9,18 @@ public class Appointment {
     private int customerId;
     private Date date;
     private Time startTime;
-    private Time endtTime;
+    private Time endTime;
     private int cancelledFlag;
 
     public Appointment() {
     }
 
-    public Appointment(int qId, int customerId, Date date, Time startTime, Time endtTime, int cancelledFlag) {
+    public Appointment(int qId, int customerId, Date date, Time startTime, Time endTime, int cancelledFlag) {
         this.qId = qId;
         this.customerId = customerId;
         this.date = date;
         this.startTime = startTime;
-        this.endtTime = endtTime;
+        this.endTime = endTime;
         this.cancelledFlag = cancelledFlag;
     }
 
@@ -56,12 +56,12 @@ public class Appointment {
         this.startTime = startTime;
     }
 
-    public Time getEndtTime() {
-        return endtTime;
+    public Time getEndTime() {
+        return endTime;
     }
 
-    public void setEndtTime(Time endtTime) {
-        this.endtTime = endtTime;
+    public void setEndTime(Time endtTime) {
+        this.endTime = endtTime;
     }
 
     public int getCancelledFlag() {

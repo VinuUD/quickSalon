@@ -68,7 +68,7 @@
                 <!--Select box  -->
                 <div>
                     <select id="servicedropdownlist" class="select-opt">
-                        <option value="0">Not Select</option>
+                        <option value="-1">Not Select</option>
 
                     </select>
                 </div>
@@ -143,29 +143,37 @@
                 <div id="day-slots"></div>
                 <button class="close t-modal-close"><i class="fa fa-close"></i></button>
             </div>
-            <div class="tableDiv34">
-                <table class="table34">
-                    <thead>
-                    <th>Time</th>
-                    <th>Select</th>
-                    </thead>
-                    <tbody id="timeSlots">
-                    <tr>
-                        <td>7.00 am - 9.00 am </td>
-                        <td><input class="check-box" type="checkbox" ></td>
-                    </tr>
+            <div>
+    <h>Hour</h>
+    <div class="radio-toolbar">
+        <input id='1' onclick="selectTime(this)" name='hour' type="radio" ><label  for="1">1</label>
+        <input id='2' onclick="selectTime(this)" type="radio" name='hour' ><label  for="2">2</label>
+        <input id='3' onclick="selectTime(this)" type="radio" name='hour'><label for="3">3</label>
+        <input id='4' onclick="selectTime(this)" type="radio" name='hour'><label for="4">4</label>
+        <input id='5' onclick="selectTime(this)" name='hour' type="radio" ><label for="5">5</label>
+        <input id='6' onclick="selectTime(this)" type="radio" name='hour' ><label for="6">6</label>
+        <input id='9' onclick="selectTime(this)" name='hour' type="radio" ><label for="9">9</label>
+        <input id='10' onclick="selectTime(this)" type="radio" name='hour' ><label for="10">10</label>
+        <input id='11' onclick="selectTime(this)" type="radio" name='hour'><label for="11">11</label>
+        <input id='12' onclick="selectTime(this)" type="radio" name='hour'><label for="12">12</label>
 
-                    <tr>
-                        <td>10.00 am - 12.00 pm </td>
-                        <td><input class="check-box" type="checkbox" ></td>
-                    </tr>
-                    <tr>
-                        <td>10.00 am - 12.00 pm </td>
-                        <td><input class="check-box" type="checkbox"></td>
-                    </tr>
+    </div>
 
-                    </tbody>
-                </table>
+    <h>Min</h>
+    <div class="radio-toolbar">
+        <input id='m0' name='min' type="radio" ><label id='0' for="m0">0</label>
+        <input id='m15' type="radio" name='min' ><label id='15' for="m15">15</label>
+        <input id='m30' type="radio" name='min'><label id='30' for="m30">30</label>
+        <input id='m45' type="radio" name='min'><label id='45' for="m45">45</label>
+
+    </div>
+
+    <h>AM/PM</h>
+    <div class="radio-toolbar">
+        <input id='am' name='ampm' type="radio" ><label id='lam' for="am">AM</label>
+        <input id='pm' type="radio" name='ampm' ><label id='lpm' for="pm">PM</label>
+
+    </div>
                 <button class="btn34 modal-btn" >Confirm</button>
             </div>
         </div>
@@ -189,6 +197,54 @@
 <%--<script src="../resources/javascript/enqueue_customer.js"></script>--%>
 
 <script>
+    class Time {
+        constructor(hour, min) {
+            this.hour = hour;
+            this.min = min;
+        }
+
+        sub(time){
+            var h=this.hour
+            if(h<8){
+                h=h+12;
+            }
+            var t1=h*60+this.min
+            var t2=time.hour*60+time.min
+            return new Time((Math.floor((t1-t2)/60)%12),(t1-t2)%60);
+        }
+        add(time){
+            var m=(this.min+time.min)%60
+            var h=this.hour+ time.hour+ Math.floor((this.min+time.min)/60)
+
+            if(h>12){
+                h=h%12;
+            }
+            return new Time(h,m);
+        }
+        getMinutes(){
+            return parseInt(this.hour)*60+this.min
+        }
+        greater(time){
+            var h1=this.hour
+            var h2=time.hour
+            if(h1<8){
+                h1=h1+12;
+            }
+            if(h2<8){
+                h2=h2+12;
+            }
+            if(h1>h2){
+                return true;
+            }else if(h1==h2 && this.min>=time.min){
+                return true;
+            }else{
+                return false
+            }
+        }
+
+    }
+
+
     var serviceDetails=new Array();
     var appointments=new Array();
 
@@ -199,11 +255,11 @@
         $.get("enqueue_customer.jsp/serviceList", function(responseJson) {
             var $select = $("#servicedropdownlist");
             $.each(responseJson, function(index, service) {
-                $("<option>").val(service.serviceID).text(service.serviceName).appendTo($select);
+                $("<option>").val(index).text(service.serviceName).appendTo($select);
                 serviceDetails.push({
                     serviceId:service.serviceID,
                     service:service.serviceName,
-                    time:service.timeTaken
+                    time:new Time(Math.floor(service.timeTaken/60),service.timeTaken%60)
                 })
             });
         });
@@ -220,20 +276,25 @@
                 appointments.push({
                     qId:appointment.qId,
                     date:appointment.date,
-                    startTime:appointment.startTime,
-                    endTime:appointment.endTime
+                    startTime:new Time(parseInt(appointment.startTime.substr(0,2)),parseInt(appointment.startTime.substr(3,2))),
+                    endTime:new Time(parseInt(appointment.endTime.substr(0,2)),parseInt(appointment.endTime.substr(3,2)))
                 })
             });
 
         });
-
 
     });
 
     //GET service Provider List according to the service
     var spList;
     $("#servicedropdownlist").change(function (){
-        var sid = $("#servicedropdownlist option:selected").val();
+       // var sid = $("#servicedropdownlist option:selected").val();
+        window.selectedServiceIndex=$("#servicedropdownlist option:selected").val();
+        var sid = serviceDetails[selectedServiceIndex].serviceId;
+
+        window.timeTaken=serviceDetails[selectedServiceIndex].time
+        //window.timeTaken=new Time(serviceDetails[selectedServiceIndex].time)
+
         $.get("enqueue_customer.jsp/serviceProviderList?sid="+sid, function(responseJSON) {
             var $select = $("#spdropdownlist");
             spList=responseJSON;
@@ -245,80 +306,93 @@
         });
     });
 
-    var queueIds=new Array();
 
     //Populate Free Times for selected Service Provider
     $("#spdropdownlist").change(function (){
-        var qIds=new Array();
+        window.queueIds=new Array();
+        window.apt_sp=new Array();
         var spId = $("#spdropdownlist option:selected").val();
 
         $.get("enqueue_customer.jsp/spappointments?spId="+spId, function(responseJSON) {
             $.each(responseJSON, function(index,qId) {
-                qIds.push(qId)
+                queueIds.push(qId)
             });
             $.each(appointments, function(index,apt) {
                 res = apt.date.replace(",", "").split(" ");
                 day=res[1]< 10 ? "0" + res[1] :res[1] ;
                 selectId=res[2]+res[0]+day;
-                if(qIds.includes(apt.qId)){
+                if(queueIds.includes(apt.qId)){
+                    apt_sp.push({
+                        qId:apt.qId,
+                        date:apt.date,
+                        startTime:apt.startTime,
+                        endTime:apt.endTime
+                    })
                     $('#'+selectId).css('background-color', '#F58F79')
                 }else{
                     $('#'+selectId).css('background-color', 'inherit')
                 }
             });
+
        });
-        queueIds=qIds;
+
     });
 
 
-    // qId:appointment.qId,
-    //     date:appointment.date,
-    //     startTime:appointment.startTime,
-    //     endTime:appointment.endTime
 
-    // serviceDetails.push({
-    //     serviceId:service.serviceID,
-    //     service:service.serviceName,
-    //     time:service.timeTaken
-    // })
-
-    //console.log(appointments[0].date)
-    // queueIds.forEach(qid=>{
-    //     appointments
-    // })
 
     function freeSlots(obj){
         var year=obj.id.substr(0,4)
         var month=obj.id.substr(4,3)
         var day=obj.id.substr(7,)
+        date=month+' '+day+', '+year;
+
         // Print date top of the modal (Heading)
         document.getElementById("day-slots").innerHTML=year+"-"+month+"-"+day;
         document.getElementById("time-popup").style.display='block'
-        //Get the serviceId of selectd Service
-        var sp=document.getElementById("spdropdownlist").value
-        var m=new Date(obj.id).getMonth()
 
+        var spId=document.getElementById("spdropdownlist").value
 
+        window.resTimes=new Array()
 
-      $.post("enqueue_customer.jsp/spappointments",
-        {
-              spId: sp,
-              date: year+'-'+m+'-'+day
-           },
-          function(data, status){
-              alert("Data: " + data + "\nStatus: " + status);
-          });
-
-
-
-
-
-
+        //Calculate restricted time slots
+        apt_sp.forEach(apt=>{
+            if(apt.date==date){
+                var t1=apt.startTime;
+                t1=t1.sub(timeTaken)
+                var t2=apt.endTime
+                t1=t1.add(new Time(0,15))
+                 while(!t1.greater(t2)){
+                     resTimes.push(t1)
+                     t1=t1.add(new Time(0,15))
+                }
+            }
+        })
     }
 
+    //Onclick hours
+    function selectTime(hour){
+        //Reset the form
+        document.getElementById('0').style.display='block'
+        document.getElementById('15').style.display='block'
+        document.getElementById('30').style.display='block'
+        document.getElementById('45').style.display='block'
+        document.getElementById("lpm").style.display='block'
+        document.getElementById("lam").style.display='block'
 
+        if(hour.id<9){
+            document.getElementById("lam").style.display='none'
+        }else{
+            document.getElementById("lpm").style.display='none'
+        }
 
-
+        //Filter time slots
+        for(i=0;i<resTimes.length;i++){
+            if(resTimes[i].hour==hour.id){
+                document.getElementById(resTimes[i].min).style.display='none'
+            }
+        }
+    }
 
 </script>
 </body>
