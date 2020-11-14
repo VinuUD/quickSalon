@@ -8,7 +8,7 @@ var journal = [
 
   var i,j;
 
-  for(i=0;i<journal.length;i++)
+  for(i=0;i<journal.length;i++) 
   {
       console.log(journal[i].name);
   }
@@ -59,6 +59,8 @@ function hide3()
 {
     document.getElementById("pop3").style.display="none";
 }
+
+
 
 
 

@@ -18,6 +18,7 @@
     height: 250px;
     background-color:white;
     box-shadow: -14px 9px 28px 0px rgba(0,0,0,0.54);
+    overflow: auto;
     
 
 }
@@ -107,9 +108,10 @@
 {
     margin: 10% auto 15% auto;
     width: 500px;
-    height: 300px;
+    height: 500px;
     background-color:white;
     box-shadow: -14px 9px 28px 0px rgba(0,0,0,0.54);
+    overflow: auto;
     
 
 }
@@ -134,7 +136,7 @@
     .popup3 .popup23
     {
         width: 70%;
-        height: 280px;
+        height: 420px;
     }
 
     .popup23 > .button3
@@ -146,10 +148,12 @@
     {
         height: 35px;
     }
-
    
+}
 
-   
+@media screen and (max-width:700px)
+{
+
 }
 
 

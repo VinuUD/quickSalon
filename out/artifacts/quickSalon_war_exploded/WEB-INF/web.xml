@@ -30,4 +30,14 @@
         <url-pattern>/serviceProvider/enqueue_customer.jsp/serviceList</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>viewManagerServlet</servlet-name>
+        <servlet-class>com.g34.quicksalon.controller.upperStaff.owner.ViewManagersServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>viewManagerServlet</servlet-name>
+        <url-pattern>/view</url-pattern>
+    </servlet-mapping>
+
 </web-app>
