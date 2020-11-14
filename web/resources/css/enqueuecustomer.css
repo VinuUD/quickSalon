@@ -1,13 +1,10 @@
 
 body{
-
     background-size: cover;
     background-repeat: no-repeat;
-
 }
 
 .subDiv{
-
     display: flex;
     flex-direction: column;
     height: auto;
@@ -23,8 +20,6 @@ body{
     padding: 5px 10px;
 
 }
-
-
 
 .t-modal-close{
     position: absolute;
@@ -86,7 +81,6 @@ body{
     width: 500px;
     background-color: white;
     height: 500px;
-
     font-size: 20px;
     font-family: serif;
     border-radius: 15px;
@@ -101,11 +95,9 @@ body{
 
 
 .row-1{
-    display: flex;
-    flex-direction: column;
+    display: inline-flex;
+    /*flex-direction: column;*/
     text-align: center;
-    grid-template-rows: 35% 35% 20%;
-
 }
 
 .row-1 > div{
@@ -115,7 +107,7 @@ body{
 .row-2{
     margin: 0;
     padding: 0;
-    display: flex;
+    display: -ms-flexbox;
     flex-direction: row;
     height: auto;
 }
@@ -125,15 +117,16 @@ body{
     height: fit-content;
     height: auto;
     margin: 0;
+    text-align: left !important;
 }
 .calendar{
-
     width: fit-content;
-    margin-left: 10%;
 }
 
 .calDiv{
-    flex: 1;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
     height: auto;
 }
 
@@ -152,7 +145,7 @@ body{
 }
 .confirm-btn{
     display: inline;
-    margin-left: 40%;
+    margin-left: 60%;
 }
 
 
@@ -162,26 +155,33 @@ body{
 
 .name-txt{
 
-    border-radius: 15px;
-    width: 400px;
-    height: fit-content;
-    background-color: white;
-    border: 5px solid #96e6b3ff;
-
+    border: 5px solid #48676c;
+    border-radius:15px ;
+    height: 40px;
+    color: black;
+    padding: 5px;
+    width: 200px;
+    font-size: 11px;
+    outline: none;
 }
-
 
 
 /*Customer name Text Box */
 
-
-
 input{
-    border: none;
-    outline: none;
-    width: 350px;
-    padding: 15px;
-    border-radius: 16px;
+
+    margin-top: 0 !important;
+    background-color: white;
+    color: black !important;
+    font-size: 14px !important;
+    appearance: auto !important;
+    -webkit-appearance: checkbox !important;
+
+}
+.row-1 label{
+    color: black;
+    font-style: italic;
+    font-size: 14px;
 
 }
 
@@ -190,20 +190,53 @@ input{
 }
 
 
+/* Radio */
+.radio-toolbar {
+    margin: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.radio-toolbar input[type="radio"] {
+
+    opacity: 0;
+    width: 0;
+}
+
+.radio-toolbar label {
+    display: block;
+    background-color: #f1f1f1;
+    width: 60px;
+    margin: 10px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 16px;
+    cursor: pointer;
+
+}
+
+.radio-toolbar label:hover {
+    background-color:rgb(164, 164, 216);
+}
+
+.radio-toolbar input[type="radio"]:checked + label {
+    background-color: blue;
+}
+
 
 select {
-    border: 5px solid #96e6b3ff;
+    border: 5px solid #48676c;
     border-radius:15px ;
     height: 40px;
     color: black;
     padding: 5px;
-    width: 250px;
-    font-size: 11px;
+    width: 150px;
+    font-size: 14px ;
     outline: none;
 }
 
 select:hover{
-    border: 5px solid #48676c;
+    border: 5px solid #96e6b3ff;
 }
 
 
