@@ -12,23 +12,32 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Map;
 
 public class SpAppointmentServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String date=request.getParameter("date");
+        PrintWriter out=response.getWriter();
         int spId= Integer.parseInt(request.getParameter("spId"));
-        int serviceId= Integer.parseInt(request.getParameter("serviceId"));
+        int serviceID= Integer.parseInt(request.getParameter("serviceID"));
+        String customerName= request.getParameter("customerName");
+        String telephone= request.getParameter("telephone");
+        String date=request.getParameter("date");
+        String time=request.getParameter("time");
+        String timeTaken=request.getParameter("timeTaken");
+
+//        this.qId = qId;
+//        this.customerId = customerId;
+//        this.date = date;
+//        this.startTime = startTime;
+//        this.endTime = endTime;
+//        this.cancelledFlag = cancelledFlag;
 
 
-
-        String json = new Gson().toJson(date+spId);
-        response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
-        response.getWriter().write(json);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -47,4 +56,6 @@ public class SpAppointmentServlet extends HttpServlet {
             response.getWriter().println(e.getMessage());
         }
     }
+    
+
 }
