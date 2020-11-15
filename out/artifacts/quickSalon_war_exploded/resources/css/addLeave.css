@@ -3,6 +3,7 @@ body
 {
     min-width: 300px;
     min-height: 500px;
+    margin: 0px;
 }
 .mainPopupDiv
 {
@@ -28,6 +29,19 @@ body
     background-color:#03396c;
     height: 40px;
     direction: rtl;
+}
+
+.top1 img
+{
+    height: 20px;
+    width: 20px;
+    margin-right: 10px; 
+    cursor: pointer;
+}
+
+.top1 b
+{
+    margin: 0px auto 0px auto;
 }
 
 .topBar
@@ -89,6 +103,7 @@ body
 .sn
 {
     margin-left: 40px;
+    width: 600px; padding: 5px;
 }
 
 .back
@@ -101,6 +116,11 @@ body
     align-items: flex-end;
     direction: rtl;
 
+}
+
+.btn-success34.saveChanges_btn
+{
+    font-size: 14px;
 }
 
 @media screen and (max-width:1200px)
@@ -167,6 +187,7 @@ body
 {
     direction: rtl; 
 }
+
 @media screen and (min-width:900px)
 {
     .mainDiv
@@ -199,6 +220,25 @@ body
     justify-content: space-around;
     align-items: center;
     
+}
+
+.buttonDiv.addLeave_btn
+{
+    margin-top: 30px;
+}
+.inputDiv select
+{
+    width: 150px; height: 30px;
+}
+
+.btn-success34.lng_btn
+{
+    width: 250px; height: 30px;
+}
+
+.toDate
+{
+    margin-right: 10px;
 }
 
 .innerDiv:not(:last-child)

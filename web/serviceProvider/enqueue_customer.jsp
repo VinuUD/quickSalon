@@ -29,8 +29,6 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-
-
 </head>
 
 <body onresize="whenResizing()">
@@ -64,59 +62,52 @@
             <div class="row-1">
                 <!-- Name box -->
                 <div>
-                    <input class="name-txt" placeholder="Enter Customer Name" id="name" type="text">
+                    <label for="cname">Customer Name</label>
+                    <input id="cname" class="name-txt" placeholder="Enter Customer Name" type="text" required>
                 </div>
+
+                <div>
+                    <label for="teleno">Telephone No</label>
+                    <input id="teleno" class="name-txt" placeholder="Enter telephone number" type="text" required>
+                </div>
+            </br>
 
                 <!--Select box  -->
                 <div>
-                    <select id="servicedropdownlist" class="select-opt">
-                        <option value="0">Not Select</option>
-
+                    <label for="servicedropdownlist">Service</label>
+                    <select id="servicedropdownlist" class="select-opt" >
+                        <option value="0">Not selected</option>
                     </select>
                 </div>
                 <!-- Service provider -->
                 <div>
+                    <label for="spdropdownlist">Service</label>
                     <select id="spdropdownlist" class="select-sp">
-                        <option>Default</option>
+                        <option value="0">Default</option>
                     </select>
                 </div>
             </div>
 
 
             <div class="row-2">
-
                 <!-- Calendar -->
                 <div class="calDiv">
                     <div class="calendar" id="calendar"></div>
-
-                    <div class="add-btn">
-                        <button id="buttonLoad" class="btn34">Add</button>
-                    </div>
                 </div>
 
-
                 <div class="tableDiv34 table">
-                    <table id='table_temp' class="table34">
+                    <table id="apt-table" class="table34">
                         <thead>
                         <tr>
                             <th>Service</th>
                             <th>Service Provider</th>
+                            <th>Date</th>
                             <th>Time</th>
+                            <th>Remove</th>
                         </tr>
                         </thead>
-                        <tbody>
-                        <tr>
+                        <tbody id='table_appointment'>
 
-                            <td>Hair Cut</td>
-                            <td>H K James</td>
-                            <td>10.30 a.m</td>
-                        </tr>
-
-                        <tr>
-                            <td>Beard Trim</td>
-                            <td>H P Perera</td>
-                            <td>11.30 a.m</td>
-                        </tr>
                         </tbody>
                     </table>
                     </br>
@@ -126,7 +117,7 @@
                     </div>
 
                     <diV class="confirm-btn">
-                        <button  id="confirm"  class="btn34">Confirm</button>
+                            <button type="submit" id="confirm" class="btn34" >Confirm</button>
                     </div>
 
                 </div>
@@ -138,38 +129,43 @@
 
     <!-- Pop up time box -->
     <div class="time-modal" id="time-popup">
-
         <div class="modal-content">
-
             <div class="title">
                 <div id="day-slots"></div>
                 <button class="close t-modal-close"><i class="fa fa-close"></i></button>
             </div>
-            <div class="tableDiv34">
+            <div>
+    <h>Hour</h>
+    <div class="radio-toolbar">
+        <input id='1' onclick="selectTime(this)" name='hour' type="radio" ><label  for="1">1</label>
+        <input id='2' onclick="selectTime(this)" type="radio" name='hour' ><label  for="2">2</label>
+        <input id='3' onclick="selectTime(this)" type="radio" name='hour'><label for="3">3</label>
+        <input id='4' onclick="selectTime(this)" type="radio" name='hour'><label for="4">4</label>
+        <input id='5' onclick="selectTime(this)" name='hour' type="radio" ><label for="5">5</label>
+        <input id='6' onclick="selectTime(this)" type="radio" name='hour' ><label for="6">6</label>
+        <input id='9' onclick="selectTime(this)" name='hour' type="radio" ><label for="9">9</label>
+        <input id='10' onclick="selectTime(this)" type="radio" name='hour' ><label for="10">10</label>
+        <input id='11' onclick="selectTime(this)" type="radio" name='hour'><label for="11">11</label>
+        <input id='12' onclick="selectTime(this)" type="radio" name='hour'><label for="12">12</label>
 
-                <table class="table34">
-                    <thead>
-                    <th>Time</th>
-                    <th>Select</th>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>7.00 am - 9.00 am </td>
-                        <td><input class="check-box" type="checkbox" ></td>
-                    </tr>
+    </div>
 
-                    <tr>
-                        <td>10.00 am - 12.00 pm </td>
-                        <td><input class="check-box" type="checkbox" ></td>
-                    </tr>
-                    <tr>
-                        <td>10.00 am - 12.00 pm </td>
-                        <td><input class="check-box" type="checkbox"></td>
-                    </tr>
+    <h>Min</h>
+    <div class="radio-toolbar">
+        <input id='m_0' name='min' type="radio" ><label id='0' for="m_0">0</label>
+        <input id='m_15' type="radio" name='min' ><label id='15' for="m_15">15</label>
+        <input id='m_30' type="radio" name='min'><label id='30' for="m_30">30</label>
+        <input id='m_45' type="radio" name='min'><label id='45' for="m_45">45</label>
 
-                    </tbody>
-                </table>
-                <button class="btn34 modal-btn" >Confirm</button>
+    </div>
+
+    <h>AM/PM</h>
+    <div class="radio-toolbar">
+        <input id='am' name='ampm' type="radio" ><label id='lam' for="am">AM</label>
+        <input id='pm' type="radio" name='ampm' ><label id='lpm' for="pm">PM</label>
+
+    </div>
+                <button id="add" onclick="addAppointment()" class="btn34 modal-btn" >Add</button>
             </div>
         </div>
     </div>
@@ -180,7 +176,7 @@
             <div class="title">Please Confirm !</div>
             <div class="cont">Are you sure you want to continue ?</div>
             <button id='cancel' class="cancel-modal-btn btn-danger34">Cancel</button>
-            <button class="confirm-modal-btn btn-success34">Confirm</button>
+            <button class="confirm-modal-btn btn-success34" onclick="placeAppointment()">Confirm</button>
         </div>
     </div>
 </div>
@@ -188,83 +184,8 @@
 <script src="../resources/javascript/side_navbar.js"></script>
 <script src="../resources/javascript/calendar.js"></script>
 <script src="../resources/javascript/modal.js"></script>
+<script src="../resources/javascript/enqueuecustomer.js"></script>
 
-<script src="../resources/javascript/enqueue_customer.js"></script>
-
-<script>
-
-    //Get all services
-    $(document).ready(function() {
-        var serviceDetails=new Array();
-        var i=0;
-        //GET service List
-        $.get("enqueue_customer.jsp/serviceList", function(responseJson) {
-            var $select = $("#servicedropdownlist");
-            $.each(responseJson, function(index, service) {
-                $("<option>").val(service.serviceID).text(service.serviceName).appendTo($select);
-                serviceDetails.push({
-                    id:index,
-                    serviceId:service.serviceID,
-                    time:service.timeTaken
-                })
-            });
-        });
-
-    //    Get all Appointments
-
-
-    });
-
-
-
-        //POST service Provider List according to the service
-
-        // $("#servicedropdownlist").change(function (){
-        //     var selectedservice =serviceDetails[$(this).children("option:selected").val()].serviceId;
-        //     $.ajax({
-        //         url:'http://localhost:8080/quickSalon_war_exploded/service'Provider/enqueue_customer.jsp/serviceProviderList',
-        //         data:{
-        //             empId:1,
-        //             serviceID:selectedservice
-        //         },
-        //         type:'POST',
-        //         success:function (result){
-        //             alert(result);
-        //         }
-        //     })
-        //     // var selectedservice = $(this).children("option:selected").val();
-        //
-        // });
-
-        //GET service Provider List according to the service
-
-
-    var spList;
-    $("#servicedropdownlist").change(function (){
-        var sid = $("#servicedropdownlist option:selected").val();
-        $.get("enqueue_customer.jsp/serviceProviderList?sid="+sid, function(responseJSON) {
-            var $select = $("#spdropdownlist");
-            spList=responseJSON;
-            $select.find("option").remove();
-            $.each(responseJSON, function(index, sp) {
-                $("<option>").val(sp).text(sp).appendTo($select);
-            });
-
-        });
-    });
-
-
-
-
-
-    //POST REQUESTs
-    // $(document).on("click", "#buttonSubmit", function() {
-    //     var params = {category : $("#dropdownlist option:selected").text()};
-    //     $.post("listajax", $.param(params), function(responseText) {
-    //         alert(responseText);
-    //     });
-    // });
-</script>
 </body>
 
 </html>

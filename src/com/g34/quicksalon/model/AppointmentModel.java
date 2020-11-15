@@ -1,60 +1,48 @@
 package com.g34.quicksalon.model;
 
+import com.g34.quicksalon.database.DBConnection;
+import com.g34.quicksalon.entity.Appointment;
+
+import java.sql.Array;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class AppointmentModel {
-    private int qId;
-    private int customerId;
-    private  String date;
-    private String startTime;
-    private String endtTime;
 
-    public AppointmentModel() {
+    private ArrayList<Appointment> appointments=new ArrayList<>();
+
+    public ArrayList<Appointment> getAllAppointments() {
+        try {
+            ResultSet resultSet = DBConnection.getConnection().createStatement().executeQuery("SELECT * FROM j4f9qe_appointments;");
+            while (resultSet.next()) {
+                appointments.add(new Appointment(resultSet.getInt(1), resultSet.getInt(2), resultSet.getDate(3), resultSet.getTime(4), resultSet.getTime(5),  resultSet.getInt(6)));
+            }
+        } catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+        return appointments;
     }
 
-    public AppointmentModel(int qId, int customerId, String date, String startTime, String endtTime) {
-        this.qId = qId;
-        this.customerId = customerId;
-        this.date = date;
-        this.startTime = startTime;
-        this.endtTime = endtTime;
-    }
+    public ArrayList<Integer> getAllAppointmentsBySP(int spId) {
 
-    public int getqId() {
-        return qId;
-    }
+          ArrayList<Integer> qIds=new ArrayList<Integer>();
 
-    public void setqId(int qId) {
-        this.qId = qId;
-    }
+        try {
+            PreparedStatement stmt=DBConnection.getConnection().prepareStatement("SELECT qID FROM j4f9qe_appointmentsassigned WHERE employeeID=?;");
+            stmt.setInt(1,spId);
+            ResultSet resultSet = stmt.executeQuery();
 
-    public int getCustomerId() {
-        return customerId;
-    }
+            while (resultSet.next()) {
 
-    public void setCustomerId(int customerId) {
-        this.customerId = customerId;
-    }
+               qIds.add(resultSet.getInt(1));
 
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public String getStartTime() {
-        return startTime;
-    }
-
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
-    }
-
-    public String getEndtTime() {
-        return endtTime;
-    }
-
-    public void setEndtTime(String endtTime) {
-        this.endtTime = endtTime;
+            }
+        } catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+        return qIds;
     }
 }

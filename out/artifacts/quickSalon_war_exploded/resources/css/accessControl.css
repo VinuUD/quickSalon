@@ -16,11 +16,11 @@ body
     margin-top: 10px;
     /* border: 2px solid black; */   
 }
-.mainDiv
+/* .mainDiv
 {
     margin-top: 0px;
     margin-bottom: 80px;
-}
+} */
 
 .bar > div,input
 {
@@ -75,6 +75,14 @@ body
     
     
     
+}
+
+@media screen and (max-width:915px)
+{
+    body
+    {
+        padding: 0px 10px 0px 10px;
+    }
 }
 
 @media screen and (min-width:900px)
