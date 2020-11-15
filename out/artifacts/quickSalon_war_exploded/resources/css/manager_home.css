@@ -12,6 +12,7 @@
 
 #welcome-message{
   position: flex;
+  margin-top: 100px;
   padding:15px 25px;
   width: 50%;
   background: rgba(67, 90, 102, .5);
@@ -51,6 +52,6 @@
 }
 
 #navIcon{
-  margin-top: 20px !important;
-  display: flex;
+  margin-top: 20px;
+  /* display: flex; */
 }

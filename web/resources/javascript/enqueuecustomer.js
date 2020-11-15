@@ -236,7 +236,8 @@ function addAppointment(){
     appointmentArray.push({
         spId: spId,
         serviceID: sid,
-        customerName:document.getElementById('cname').value,
+        fname:document.getElementById('cname').value.split(' ')[0],
+        lname:document.getElementById('cname').value.split(' ')[1],
         telephone:document.getElementById('teleno').value,
         service: serviceDetails[selectedServiceIndex].service,
         spName:selectedSp.options[selectedSp.selectedIndex].text,
@@ -290,14 +291,15 @@ function getSelectedOption(sel) {
 //Confirm data
 function placeAppointment(){
         var len = document.getElementById("apt-table").rows.length-1;
-        var json
+
 
         appointmentArray.forEach(appointment=>{
             $.post("enqueue_customer.jsp/spappointments",
                 {
                     spId: appointment.spId,
                     serviceID: appointment.serviceID,
-                    customerName:appointment.customerName,
+                    fname:appointment.fname,
+                    lname:appointment.lname,
                     telephone:appointment.telephone,
                     date:date,
                     time: appointment.time,

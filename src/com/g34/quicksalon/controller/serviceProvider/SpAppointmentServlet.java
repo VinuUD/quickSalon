@@ -19,12 +19,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SpAppointmentServlet extends HttpServlet {
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         PrintWriter out=response.getWriter();
         int spId= Integer.parseInt(request.getParameter("spId"));
         int serviceID= Integer.parseInt(request.getParameter("serviceID"));
-        String customerName= request.getParameter("customerName");
+        String fName= request.getParameter("fname");
+        String lName= request.getParameter("lname");
         String telephone= request.getParameter("telephone");
         String date=request.getParameter("date");
         String time=request.getParameter("time");
@@ -36,6 +38,12 @@ public class SpAppointmentServlet extends HttpServlet {
 //        this.startTime = startTime;
 //        this.endTime = endTime;
 //        this.cancelledFlag = cancelledFlag;
+
+    //        1-add Walk-in customer
+
+
+
+
 
 
     }
@@ -56,6 +64,6 @@ public class SpAppointmentServlet extends HttpServlet {
             response.getWriter().println(e.getMessage());
         }
     }
-    
+
 
 }
