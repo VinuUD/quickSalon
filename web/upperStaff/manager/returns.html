@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../../resources/css/34.css">
+    <link rel="stylesheet" type="text/css" href="../../resources/css/sideNavbar.css">
+    <link rel="stylesheet" type="text/css" href="../../resources/css/mainDiv.css">
+    <link rel="stylesheet" type="text/css" href="../../resources/css/goods_received.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <title>Returns</title>
+  </head>
+  <body onresize="whenResizing()">
+
+    <div id="pop" class="popup"> <!-- popup for viewing GRN details -->
+      <div class="popup2">
+        <div class="top1">
+          <i><img onclick="hide()" src="../../resources/icons/cross.png" alt=""></i>
+          <b>AOD 001 01/02/2020 Returns</b>
+        </div>
+
+        <div class="bar">
+          <div> <b>AOD number </b>  <input  type="text" value="AOD001" disabled></div>
+          <div> <b>Customer ID </b>  <input type="text" value="CST001" disabled></div>
+          <div> <b>Customer Name </b>  <input type="text" value="James Bond" disabled></div>
+          <div> <b>Date </b>  <input type="text" value="01/01/2020" disabled></div>
+          <div> <b>Time </b>  <input type="text" value="14:00" disabled></div>
+          <div> <b>Acceptor ID &nbsp;</b>  <input type="text" value="EMP001" disabled></div>
+          <div> <b>Acceptor</b>  <input type="text" value="Kamal Bandara" disabled></div>
+
+        </div> <!-- bar -->
+
+        <div class="tableDiv34">
+          <table class="table34">
+            <tr>
+              <th>Product ID</th>
+              <th>Product Name</th>
+              <th>Size</th>
+              <th>Qty</th>
+              <th>Unit Price</th>
+            </tr>
+            <tbody id="tbl-popup"></tbody>
+          </table>
+        </div> <!-- tableDiv34 -->
+
+        <div class="button">
+          <button onclick="hide()" class="danger34">Back</button>
+        </div>
+      </div> <!--popup2 -->
+    </div> <!-- popup -->
+
+
+
+    <div id="mySidenav" class="sidenav">
+      <div class="closeIcon"><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></div>
+        <a href="#"><i class = "fas fa-balance-scale-left"> Stock Management</i></a>
+        <a href="#"><i class = "fas fa-users"> Employee Management</i></a>
+        <a href="#"><i class = "fas fa-sliders-h"> Service Management</i></a>
+        <a href="#"><i class = "fas fa-arrow-alt-circle-up"> Enqueue Customer</i></a>
+        <a href="#"><i class = "fas fa-arrow-alt-circle-down"> Dequeue Customer</i></a>
+        <a href="#"><i class = "fas fa-sign-out-alt"> Logout</i></a>
+
+    </div> <!-- sidebar -->
+
+    <div id="main">
+      <div class="back">
+          <div id="navIcon" onclick="openNav()" class="navIcon" ><img  src="../../resources/icons/three.png" alt="Ooops" ></div>
+      </div>
+      <br><br>
+
+      <div class="topBar">
+        <b>Goods Received</b>
+      </div> <!-- top bar -->
+
+      <div class="mainDiv">
+        <div class="setDate">
+
+          <div class="from-date">
+            <label for="fromDate"> From :</label>
+            <input type="date" name="fromDate">
+          </div> <!--- from-date  -->
+
+          <div class="to-date">
+            <label for="toDate"> To   :</label>
+            <input type="date" name="toDate">
+          </div> <!-- to-date -->
+
+          <div class="search-container">
+            <input type="text" name="search" placeholder="Search.." id="search-bar">
+            <button type="submit" class="btn-search" id="btn-search"><i class="fas fa-search"></i></button>
+          </div> <!-- search-container -->
+        </div><!-- setDate -->
+
+        <div class="tableDiv34">
+          <table class="table34">
+            <tr>
+              <th>AOD no</th>
+              <th>Customer ID</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Acceptor ID</th>
+              <th width="90px">View</th>
+            </tr>
+            <tbody id="tbl"></tbody>
+          </table><!-- table34 -->
+        </div><!--tableDiv34-->
+
+        <div class="buttonDiv">
+            <button onclick="window.location.href='manager_home.html'" class="danger34">Back</button>
+            <button onclick="window.location.href='#'" class="btn-success34">New Goods</button>
+        </div><!-- buttonDiv -->
+      </div><!-- mainDiv -->
+
+      <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script type="text/javascript" src="../../resources/javascript/returns.js"></script>
+      <script type="text/javascript" src="../../resources/javascript/side_navbar.js"></script>
+
+    </body>
+</html>
