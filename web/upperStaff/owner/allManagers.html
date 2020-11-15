@@ -25,7 +25,7 @@
                 <b >Update EMP001</b> 
             </div>
 
-            <div class="bar">
+            <div  class="bar">
                 <div> <b>Emplyee ID </b>  <input  type="text" value="0710157140" disabled></div>
                 <div> <b>Name </b>  <input type="text" value="1000000" disabled ></div>
                 <div> <b>Contact Num </b>  <input  type="text" value="0710157140" ></div>
@@ -62,7 +62,7 @@
                 <b >EMP001</b> 
             </div>
 
-            <div class="bar">
+            <div id="inDiv" class="bar">
                 <div> <b>Employee Id </b>  <input  type="text" value="Shehan Sandeepa" disabled></div>
                 <div> <b>Name </b>  <input type="text" value="emp001" disabled></div>
                 <div> <b>Contact Num </b>  <input type="text" value="emp001" disabled></div>
@@ -137,18 +137,16 @@
             </table>
         </div>
     </div>
-     <form action="view" method="GET">
-         <input type="text">
-         <input type="submit">
-     </form>
+
 </div>
 
-    <script type="text/javascript">
+   <script type="text/javascript">
 
         $("document").ready(function(){
+        	console.log("helloooooooooooo");
+            $.get("allManagers.html/view", function(response) {
+            	
 
-            $.get("view", function(response) {
-                console.log("helloooooooooooo");
                 response.map(function(x){
 
                     $("#tbl").append(
@@ -157,6 +155,7 @@
                         "<td>" + x.firstName + x.lastName + "</td>" +
                         "<td>" + x.contactNum + "</td>" +
                         "<td>" + x.nic + "</td>" +
+                        "<td style='display:none'>" + x.salary + "</td>" +
                         "<td>" + "<button title='view employee details' class = 'btn34' onclick = 'show(event)'>" + "<i class='fa fa-eye'>"+ "</i>" +  "</button>" + "</td>" +
                         "</tr>"
                     );
@@ -172,12 +171,14 @@
                     var col2=currentRow.find("td:eq(1)").text();
                     var col3=currentRow.find("td:eq(2)").text();
                     var col4=currentRow.find("td:eq(3)").text();
+                    var col5=currentRow.find("td:eq(4)").text();
                     var data=col1+"\n"+col2+"\n"+col3+"\n"+col4;
 
                     var inputFields = document.getElementById("inDiv").getElementsByTagName("input");
                     inputFields[0].value = col1;
                     inputFields[1].value = col2;
                     inputFields[2].value = col3;
+                    inputFields[3].value = col5;
                     inputFields[4].value = col4;
                     console.log(inputFields);
 
@@ -190,7 +191,7 @@
 
     </script>
 
-
+ 
 
 
     <script src="../../resources/javascript/allManagers.js"></script>
