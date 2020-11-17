@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="../../resources/css/goods_received.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-    <title>Goods Received</title>
+    <title>Purchases</title>
   </head>
   <body onresize="whenResizing()">
 
@@ -16,16 +16,14 @@
       <div class="popup2">
         <div class="top1">
           <i><img onclick="hide()" src="../../resources/icons/cross.png" alt=""></i>
-          <b>GRN001</b>
+          <b>PO001</b>
         </div>
 
         <div class="bar">
-          <div> <b>GRN number </b>  <input  type="text" value="GRN001" disabled></div>
-          <div> <b>PO number </b>  <input type="text" value="PO001" disabled></div>
+          <div> <b>PO number </b>  <input  type="text" value="GRN001" disabled></div>
           <div> <b>Date </b>  <input type="text" value="01/01/2020" disabled></div>
           <div> <b>Vendor ID </b>  <input type="text" value="VND001" disabled></div>
           <div> <b>Vendor</b>  <input type="text" value="Best Shop" disabled></div>
-          <div> <b>Acceptor ID &nbsp;</b>  <input type="text" value="EMP001" disabled></div>
         </div> <!-- bar -->
 
         <div class="tableDiv34">
@@ -67,7 +65,7 @@
       <br><br>
 
       <div class="topBar">
-        <b>Goods Received</b>
+        <b>Purchases</b>
       </div> <!-- top bar -->
 
       <div class="mainDiv">
@@ -92,26 +90,24 @@
         <div class="tableDiv34">
           <table class="table34">
             <tr>
-              <th>GRN no</th>
               <th>PO no</th>
               <th>Date</th>
               <th>Vendor ID</th>
-              <th>Acceptor ID</th>
               <th width="90px">View</th>
             </tr>
             <tbody id="tbl"></tbody>
-          </table><!-- table34 -->
-        </div><!--tableDiv34-->
+          </table>
+        </div>
 
         <div class="buttonDiv">
             <button onclick="window.location.href='manager_home.html'" class="danger34">Back</button>
-            <button onclick="window.location.href='#'" class="btn-success34">New Goods</button>
+            <button onclick="window.location.href='#'" class="btn-success34">New Purchase</button>
         </div><!-- buttonDiv -->
       </div><!-- mainDiv -->
 
       <script src="https://kit.fontawesome.com/a076d05399.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-      <script type="text/javascript" src="../../resources/javascript/goods_received.js"></script>
+      <script type="text/javascript" src="../../resources/javascript/purchases.js"></script>
       <script type="text/javascript" src="../../resources/javascript/side_navbar.js"></script>
 
     </body>

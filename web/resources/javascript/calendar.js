@@ -38,12 +38,14 @@ function getDatesBetween(date1,date2){
     let weekDays=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
     for(let i=0; i<dates.length; i++){
         lastDate=dates[i];
+        //get te month
         firstDate=new Date(dates[i].getFullYear(),dates[i].getMonth(),1);
 
 
         content+="<div class='calendarDiv' id='calendarTable_"+(i+1)+"'>";
 
-        content+="<div class='month'> <ul> <li class='prev' id='prev' onclick='callPrev()'>&#10094;</li> <li class='nxt' id='nxt' onclick='callNxt()' >&#10095;</li> <li>"+firstDate.toString().split(" ")[1]+"-"+firstDate.getFullYear()+"</li></ul></div>";
+        //Month id=Jan/2020
+        content+="<div id="+dates[i].getFullYear()+'/'+firstDate.toString().split(" ")[1] +" class='month'> <ul> <li class='prev' id='prev' onclick='callPrev()'>&#10094;</li> <li class='nxt' id='nxt' onclick='callNxt()' >&#10095;</li> <li>"+firstDate.toString().split(" ")[1]+"-"+firstDate.getFullYear()+"</li></ul></div>";
         content+="<table class='calendar-table'>"
         content+= "<thead> <th>Mon</th> <th>Tue</th> <th>Wed</th> <th>Thu</th> <th>Fri</th> <th>Sat</th> <th>Sun</th> </thead>";
         content+="<tbody class='calendar-body'>";
@@ -52,13 +54,12 @@ function getDatesBetween(date1,date2){
 
         while(j<=lastDate.getDate()){
             content+="<tr>"
-
             for(let k=0; k<7; k++){
                 displayNum=j< 10 ? "0" + j : j;
                 if(j ==1){
                     if(firstDate.toString().split(" ")[0]==weekDays[k].toString() ){
-                        // td id='2020/1/01' format
-                        content+="<td id="+dates[i].getFullYear()+'/'+(dates[i].getMonth()+1)+'/'+displayNum+" onclick='freeSlots(this)'>"+ displayNum +"</td>"
+                        // td id='2020Jan1' format
+                        content+="<td id="+dates[i].getFullYear()+firstDate.toString().split(" ")[1]+displayNum+" onclick='freeSlots(this)'>"+ displayNum +"</td>"
                         j++;
                     }else{
                         content+="<td> </td>";
@@ -66,7 +67,8 @@ function getDatesBetween(date1,date2){
                 }else if(j>lastDate.getDate()){
                     content+="<td> </td>";
                 }else{
-                    content+="<td id="+dates[i].getFullYear()+'/'+(dates[i].getMonth()+1)+'/'+displayNum+" onclick='freeSlots(this)'>"+displayNum+"</td>"
+                    // td id='2020/Jan/1' format
+                    content+="<td id="+dates[i].getFullYear()+firstDate.toString().split(" ")[1]+displayNum+" onclick='freeSlots(this)'>"+displayNum+"</td>"
                     j++;
                 }
             }
@@ -78,10 +80,10 @@ function getDatesBetween(date1,date2){
 }
 
 function callNxt(){
-    if(calendarShow==12){
+    //for 3 months
+    if(calendarShow==3){
         return;
     }
-
     let allTables=document.getElementsByClassName("calendarDiv");
     document.getElementById("prev").disabled=false;
     calendarShow++;
@@ -90,9 +92,8 @@ function callNxt(){
         allTables[i].style.display="none";
     }
 
-    document.getElementById("calendarTable_" +calendarShow).style.display="block";
+   document.getElementById("calendarTable_" +calendarShow).style.display="block";
 }
-
 
 function callPrev(){
     if(calendarShow==1){
@@ -109,19 +110,7 @@ function callPrev(){
     document.getElementById("calendarTable_" +calendarShow).style.display="block";
 }
 
-function freeSlots(obj){
 
-    var m=obj.id.split('/')[1];
-    var monthInt=parseInt(m);
-
-    if(monthInt<10){
-        m='0'+monthInt.toString()
-    }
-
-    document.getElementById("day-slots").innerHTML=obj.id.split('/')[0]+'/'+m+'/'+obj.id.split('/')[2];
-    document.getElementById("time-popup").style.display='block'
-
-}
 
 function closePopup(){
     document.getElementById("time-popup").style.display='none'
@@ -141,9 +130,11 @@ span.onclick=function(){
     modal.style.display = "none";
 }
 
-
-
-let content=getDatesBetween("2020/01/01","2021/01/01");
+var range1 = new Date();
+var range2 = new Date();
+range2.setDate(range2.getDate()+100);
+console.log(range2)
+let content=getDatesBetween(range1,range2);
 
 
 document.getElementById('calendar').innerHTML=content;

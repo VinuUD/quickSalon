@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  text-decoration: none;
 }
 
 body{
@@ -54,7 +55,7 @@ img{
 .popup .popup2
 {
     margin: 20px auto 15% auto;
-    width: 500px;
+    width: 800px;
     height: 80%;
     background-color:white;
     box-shadow: -14px 9px 28px 0px rgba(0,0,0,0.54);
@@ -191,6 +192,19 @@ img{
   overflow: auto !important;
 }
 
+.buttonDiv
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 40px;
+}
+
+
+.buttonDiv a{
+  padding: auto 0;
+}
+
 @media screen and (max-width:490px)
 {
   .popup .popup2
@@ -239,6 +253,14 @@ img{
 
 
 @media screen and (max-width: 780px) {
+  .popup .popup2
+  {
+      width: 90%;
+      height: 80%;
+      margin-left: 4vw;
+      margin-top: 20px;
+  }
+
   .setDate{
     flex-direction: column;
   }

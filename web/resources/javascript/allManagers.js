@@ -8,7 +8,7 @@ var journal = [
 
   var i,j;
 
-  for(i=0;i<journal.length;i++) 
+  for(i=0;i<journal.length;i++)
   {
       console.log(journal[i].name);
   }
@@ -17,14 +17,14 @@ var journal = [
 var text= "";
 for(i=0;i<journal.length;i++)
 {
-    text = text + "<tr>" + 
+    text = text + "<tr>" +
     "<td>" + journal[i].empId + "</td>" +
     "<td>" + journal[i].name + "</td>" +
     "<td>" + journal[i].cNum + "</td>" +
     "<td>" + journal[i].nic + "</td>" +
     "<td>" + "<button title='view employee details' class = 'btn34' onclick = 'show()'>" + "<i class='fa fa-eye'>"+ "</i>" +  "</button>" + "</td>" +
      "</tr>";
-    
+
 }
 
 document.getElementById("tbl").innerHTML = text;
@@ -59,14 +59,3 @@ function hide3()
 {
     document.getElementById("pop3").style.display="none";
 }
-
-
-
-
-
-
-
-
-
-
-  

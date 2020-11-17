@@ -1,13 +1,15 @@
 package com.g34.quicksalon.entity;
 
+import java.util.Date;
+
 public class ServiceProvider {
     private int employeeId;
     private String nicNo;
     private String firstName;
     private String lastName;
-    private int salary;
-    private String enrollDate;
-    private String resignDate;
+    private float salary;
+    private Date enrollDate;
+    private Date resignDate;
     private int isUpperStaffFlag;
     private int onLeaveFlag;
     private int removedFlag;
@@ -21,7 +23,7 @@ public class ServiceProvider {
         this.lastName = lastName;
     }
 
-    public ServiceProvider(int employeeId, String nicNo, String firstName, String lastName, int salary, String enrollDate, String resignDate, int isUpperStaffFlag, int onLeaveFlag, int removedFlag) {
+    public ServiceProvider(int employeeId, String nicNo, String firstName, String lastName, float salary, Date enrollDate, Date resignDate, int isUpperStaffFlag, int onLeaveFlag, int removedFlag) {
         this.employeeId = employeeId;
         this.nicNo = nicNo;
         this.firstName = firstName;
@@ -66,27 +68,27 @@ public class ServiceProvider {
         this.lastName = lastName;
     }
 
-    public int getSalary() {
+    public float getSalary() {
         return salary;
     }
 
-    public void setSalary(int salary) {
+    public void setSalary(float salary) {
         this.salary = salary;
     }
 
-    public String getEnrollDate() {
+    public Date getEnrollDate() {
         return enrollDate;
     }
 
-    public void setEnrollDate(String enrollDate) {
+    public void setEnrollDate(Date enrollDate) {
         this.enrollDate = enrollDate;
     }
 
-    public String getResignDate() {
+    public Date getResignDate() {
         return resignDate;
     }
 
-    public void setResignDate(String resignDate) {
+    public void setResignDate(Date resignDate) {
         this.resignDate = resignDate;
     }
 
