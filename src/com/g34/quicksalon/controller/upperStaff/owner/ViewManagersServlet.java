@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import  java.io.PrintWriter;
 
 public class ViewManagersServlet extends HttpServlet {
     public void doGet(HttpServletRequest req, HttpServletResponse res ) throws IOException, ServletException
@@ -20,24 +21,24 @@ public class ViewManagersServlet extends HttpServlet {
         try
         {
             ViewManagerModel manager = new ViewManagerModel();
-            ArrayList<ManagerDetailsForView> managerDetails =	manager.getManagersDetails();
-////
+            ArrayList<ManagerDetailsForView> managerDetails = new ArrayList<>();
+            managerDetails = manager.getManagersDetails();
+            int name = managerDetails.get(0).getEmpId();
+            
+
             String json = new Gson().toJson(managerDetails);
             res.setContentType("application/json");
             res.setCharacterEncoding("UTF-8");
             res.getWriter().write(json);
+            
 
 
 
 
-        }
-
-        catch (ClassNotFoundException | SQLException e)
-        {
-            e.printStackTrace();
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
+            System.out.println(e);
         }
 
 
