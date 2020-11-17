@@ -1,34 +1,30 @@
 package com.g34.quicksalon.entity;
 
 public class ManagerDetails {
-    private int empId;
     private String nic;
     private String firstName;
-    private String salary;
+    private String lastName;
+    private int salary;
     private String enrollDate;
     private String resignDate;
     private int isUpperStaffFlag;
     private int onLeaveFlag;
     private int removedFlag;
+    private int cNum;
 
-    public ManagerDetails(int empId, String nic, String firstName, String salary, String enrollDate, String resignDate, int isUpperStaffFlag, int onLeaveFlag, int removedFlag) {
-        this.empId = empId;
+    
+
+	public ManagerDetails(String nic, String firstName, String lastName, int salary, String enrollDate, String resignDate, int isUpperStaffFlag, int onLeaveFlag, int removedFlag, int cNum) {
         this.nic = nic;
         this.firstName = firstName;
+        this.lastName = lastName;
         this.salary = salary;
         this.enrollDate = enrollDate;
         this.resignDate = resignDate;
         this.isUpperStaffFlag = isUpperStaffFlag;
         this.onLeaveFlag = onLeaveFlag;
         this.removedFlag = removedFlag;
-    }
-
-    public int getEmpId() {
-        return empId;
-    }
-
-    public void setEmpId(int empId) {
-        this.empId = empId;
+        this.cNum = cNum;
     }
 
     public String getNic() {
@@ -46,12 +42,21 @@ public class ManagerDetails {
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
+    
+    public String getLastName() {
+        return lastName;
+    }
 
-    public String getSalary() {
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+
+    public int getSalary() {
         return salary;
     }
 
-    public void setSalary(String salary) {
+    public void setSalary(int salary) {
         this.salary = salary;
     }
 
@@ -94,12 +99,14 @@ public class ManagerDetails {
     public void setRemovedFlag(int removedFlag) {
         this.removedFlag = removedFlag;
     }
+    
+    public int getcNum() {
+		return cNum;
+	}
 
-
-
-
-
-
+	public void setcNum(int cNum) {
+		this.cNum = cNum;
+	}
 
 
 
