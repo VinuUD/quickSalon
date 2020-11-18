@@ -1,46 +1,98 @@
 package com.g34.quicksalon.controller.serviceProvider;
 
 import com.g34.quicksalon.entity.Appointment;
-import com.g34.quicksalon.entity.ServiceProvider;
 import com.g34.quicksalon.model.AppointmentModel;
+import com.g34.quicksalon.model.CustomerModel;
+import com.g34.quicksalon.model.ServiceModel;
 import com.g34.quicksalon.model.ServiceProviderModel;
 import com.google.gson.Gson;
-
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Date;
+import java.sql.SQLException;
+import java.sql.Time;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 public class SpAppointmentServlet extends HttpServlet {
+
+
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         PrintWriter out=response.getWriter();
         int spId= Integer.parseInt(request.getParameter("spId"));
         int serviceID= Integer.parseInt(request.getParameter("serviceID"));
-        String customerName= request.getParameter("customerName");
+        String fName= request.getParameter("fname");
+        String lName= request.getParameter("lname");
         String telephone= request.getParameter("telephone");
-        String date=request.getParameter("date");
+        long d= Long.parseLong(request.getParameter("date"));
+        Date date=new Date(d);
         String time=request.getParameter("time");
         String timeTaken=request.getParameter("timeTaken");
 
-//        this.qId = qId;
-//        this.customerId = customerId;
-//        this.date = date;
-//        this.startTime = startTime;
-//        this.endTime = endTime;
-//        this.cancelledFlag = cancelledFlag;
+
+        int customerId=0;
+        int qId=0;
+        boolean assignService;
+        boolean assignedService;
+        Time startTime= Time.valueOf(timeStrToTime(time));
+        Time endTime=Time.valueOf(plusTime(timeStrToTime(time),timeTaken));
+
+        CustomerModel customerModel=new CustomerModel();
+        AppointmentModel appointmentModel=new AppointmentModel();
+        ServiceProviderModel serviceProviderModel=new ServiceProviderModel();
+        ServiceModel serviceModel=new ServiceModel();
+
+        try {
+            //Add add Walk-in customer to customer table
+            customerId=customerModel.addWalkingCustomers(fName,lName,telephone);
+
+            if(customerId!=0){
+                Appointment appointment=new Appointment(0,customerId,date,startTime,endTime,0);
+                 //Place an appointment
+                qId= appointmentModel.placeAppointment(appointment);
+                if(qId!=0){
+                    //Appointment done//Update the appointmentAssigned table
+                    assignService=serviceProviderModel.assignedService(qId,spId);
+                    if(assignService){
+                        //sp assigned for appointment// Update the  j4f9qe_appointmentservice table
+                        assignedService=serviceModel.addServicetoAppointments(qId,serviceID);
+                        if(assignedService){
+                            out.println("Success");
+                        }else{
+                            //Rollback
+                            out.println("Error occurred in appointmentservice table--");
+                        }
+
+                    }else {
+                        //Rollback
+                        out.println("Error occurred in assignService table--");
+                    }
+
+                }
+
+            }else {
+                //Rollback
+                out.println("Error occurred in assignService table--");
+            }
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+//        out.println("Time-"+startTime+","+endTime+"--"+customerId);
+
 
 
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException,NumberFormatException {
 
         ArrayList<Integer> qIds=new ArrayList<Integer>();
         int spId= Integer.parseInt(request.getParameter("spId"));
@@ -56,6 +108,58 @@ public class SpAppointmentServlet extends HttpServlet {
             response.getWriter().println(e.getMessage());
         }
     }
-    
+
+    public String timeStrToTime(String time){
+        //Covert String time to Time- 18:30:00
+        String[] arrOft = time.split(":", 2);
+        int h= Integer.parseInt(arrOft[0]);
+        String m= arrOft[1].split(" ",2)[0];
+        if(m.length()==1){
+            m='0'+m;
+        }
+        //        Convert 12 to 24
+        if(arrOft[1].split(" ",2)[1].equals("pm")){
+            h=h+12;
+        }
+        if(h<10){
+            return "0"+h+":"+m+":00";
+        }else{
+            return ""+h+":"+m+":00";
+        }
+
+    }
+
+    public String plusTime(String time,String timeTaken){
+        String[] arrOftt = timeTaken.split(":", 2);
+        int h1=Integer.parseInt(arrOftt[0]);
+        int m1=Integer.parseInt(arrOftt[1]);
+
+        int m;
+        // time=18:30:00
+        String[] arrOft = time.split(":", 3);
+        int ht=Integer.parseInt(arrOft[0]);
+        int mt=Integer.parseInt(arrOft[1]);
+
+        if((m1+mt)>60){
+            m=(m1+mt)%60;
+            ht++;
+        }else{
+            m=mt+m1;
+        }
+
+        if(m==0){
+            mt='0'+mt;
+        }
+        ht=ht+h1;
+
+        if(ht<10){
+            return "0"+ht+":"+m+":00";
+        }else{
+            return ""+ht+":"+m+":00";
+        }
+
+    }
+
+
 
 }

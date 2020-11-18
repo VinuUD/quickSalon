@@ -1,0 +1,40 @@
+*
+{
+ margin: 0px;
+ padding: 0px;
+ font-family: monospace;
+ color: white;
+ text-decoration: none;
+}
+
+body{
+
+  height: 100vh;
+  background: url("../images/marketing-for-your-beauty-salon-2.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+  font-size: 30px;
+}
+
+#header{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+a{
+  margin-top: 10px;
+  margin-right: 10px;
+  display: block;
+  align-items: none;
+  justify-content: none;
+  background: none;
+  float: right;
+}
+
+a:hover{
+  color: #ccc;
+}
