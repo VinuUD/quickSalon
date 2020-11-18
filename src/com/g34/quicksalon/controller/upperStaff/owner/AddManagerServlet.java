@@ -22,7 +22,7 @@ public class AddManagerServlet extends HttpServlet {
 		String lastName = req.getParameter("lastName");
 		int salary = Integer.parseInt(req.getParameter("salary"));
 		String enrollDate = obj.toString();
-		String resignDate = "0000-00-00";
+		String resignDate = "1111-11-11";
 		int upFlag = 1;
 		int leaveFlag = 0;
 		int removeFlag = 0;
