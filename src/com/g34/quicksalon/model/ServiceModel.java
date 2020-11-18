@@ -4,6 +4,8 @@ import com.g34.quicksalon.database.DBConnection;
 import com.g34.quicksalon.entity.Service;
 import com.g34.quicksalon.entity.ServiceProvider;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -22,5 +24,21 @@ public class ServiceModel {
             throwables.printStackTrace();
         }
         return services;
+    }
+
+
+    public boolean  addServicetoAppointments(int qId,int serviceId) throws SQLException, ClassNotFoundException {
+
+        Connection connection =DBConnection.getConnection();
+        PreparedStatement stmt= connection.prepareStatement("INSERT INTO j4f9qe_appointmentservice VALUES (?,?)");
+        stmt.setInt(1,qId);
+        stmt.setInt(2,serviceId);
+
+        int success=stmt.executeUpdate();
+        if(success>0){
+            return true;
+        }else{
+            return false;
+        }
     }
 }

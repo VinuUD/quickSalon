@@ -89,6 +89,8 @@ $("#servicedropdownlist").change(function (){
     sid = serviceDetails[selectedServiceIndex].serviceId;
     window.timeTaken=serviceDetails[selectedServiceIndex].time
 
+   // alert(timeTaken)
+
     $.get("enqueue_customer.jsp/serviceProviderList?sid="+sid, function(responseJSON) {
         var $select = $("#spdropdownlist");
         spList=responseJSON;
@@ -135,6 +137,7 @@ $("#spdropdownlist").change(function (){
 
 var myAppointment=[];
 var date;
+var apt_date;
 
 function freeSlots(obj){
     if(sid==null){
@@ -151,6 +154,8 @@ function freeSlots(obj){
     var month=obj.id.substr(4,3)
     var day=obj.id.substr(7,)
     date=month+' '+day+', '+year;
+    //new Date("25 Mar 2015")
+    apt_date=new Date(day+' '+month+' '+year);
 
     // Print date top of the modal (Heading)
     document.getElementById("day-slots").innerHTML=year+"-"+month+"-"+day;
@@ -241,13 +246,13 @@ function addAppointment(){
         telephone:document.getElementById('teleno').value,
         service: serviceDetails[selectedServiceIndex].service,
         spName:selectedSp.options[selectedSp.selectedIndex].text,
-        date:date,
+        date:apt_date,
         time: hour+":"+min+" "+ampm,
         timeTaken:timeTaken
     });
 
     appointmentArray.forEach((appointment,index) =>{
-        tableContent+="<tr><td>"+appointment.service+"</td><td>"+appointment.spName+"</td><td>"+appointment.date+"</td><td>"+appointment.time+"</td><td><button onclick='removeApt("+index+")'>x</button></td></tr>"
+        tableContent+="<tr><td>"+appointment.service+"</td><td>"+appointment.spName+"</td><td>"+appointment.date.getFullYear()+'-'+appointment.date.getMonth()+'-'+appointment.date.getDate()+"</td><td>"+appointment.time+"</td><td><button onclick='removeApt("+index+")'>x</button></td></tr>"
     })
 
     document.getElementById("table_appointment").innerHTML=tableContent
@@ -260,7 +265,7 @@ function removeApt(index){
     appointmentArray.splice(index,1);
 
     appointmentArray.forEach((appointment,index) =>{
-        content+="<tr><td>"+appointment.service+"</td><td>"+appointment.spName+"</td><td>"+appointment.date+"</td><td>"+appointment.time+"</td><td><button onclick='removeApt("+index+")'>x</button></td></tr>"
+        content+="<tr><td>"+appointment.service+"</td><td>"+appointment.spName+"</td><td>"+appointment.date.getFullYear()+'-'+appointment.date.getMonth()+'-'+appointment.date.getDate()+"</td><td>"+appointment.time+"</td><td><button onclick='removeApt("+index+")'>x</button></td></tr>"
     })
     document.getElementById("table_appointment").innerHTML=content
 
@@ -278,21 +283,12 @@ function getSelectedOption(sel) {
     return opt;
 }
 
-// spId: spId,
-//     serviceID: sid,
-//     customerName:document.getElementById('cname').value,
-//     telephone:document.getElementById('teleno').value,
-//     service: serviceDetails[selectedServiceIndex].service,
-//     spName:selectedSp.options[selectedSp.selectedIndex].text,
-//     date:date,
-//     time: hour+":"+min+" "+ampm,
-//     timeTaken:timeTaken
-
 //Confirm data
 function placeAppointment(){
+
         var len = document.getElementById("apt-table").rows.length-1;
 
-
+       // alert(timeTaken.hour+"-"+timeTaken.min)
         appointmentArray.forEach(appointment=>{
             $.post("enqueue_customer.jsp/spappointments",
                 {
@@ -301,21 +297,16 @@ function placeAppointment(){
                     fname:appointment.fname,
                     lname:appointment.lname,
                     telephone:appointment.telephone,
-                    date:date,
+                    date:appointment.date.getTime(),
                     time: appointment.time,
-                    timeTaken:appointment.timeTaken
+                    timeTaken:timeTaken.hour+':'+timeTaken.min
                 },
                 function(data, status){
-                    console.log("Data: " + data + "\nStatus: " + status);
+                    alert("Data: " + data + "\nStatus: " + status);
                 });
         })
-        for (i=0;i<len-1;i++){
 
-
-
-        }
-      // json =JSON.stringify(appointmentArray)
-
+    // location.reload();
 
 
 }
