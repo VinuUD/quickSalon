@@ -41,7 +41,7 @@
             </div>
 
             <div class="pButton">
-                <button onclick="hideContinue()" class="btn-danger34">Leave default</button>
+                <button onclick="hideContinue(), res()" type="submit" form="myForm" class="btn-danger34">Leave default</button>
                 <button onclick="hideContinue()" class="btn-success34">Yes</button>
                 <button onclick="hideContinue()" class="btn-danger34">Cancel</button>
             </div>
@@ -77,34 +77,31 @@
 
     <div class="mainDiv">
         <div class="inDiv">
-        
+       <form id="myForm"  onsubmit="return false" action="registerManager.html/addManager"  method="GET">
+       
+
         <div class="innerDiv">
-            <div><b>Employee ID</b></div>  <div class="inputDiv"><input  type="text" disabled></div>
+            <div><b>First Name &nbsp;&nbsp;&nbsp;&nbsp;</b></div>  <div class="inputDiv"><input type="text" name="firstName"> </div>
         </div>
 
         <div class="innerDiv">
-            <div><b>First Name &nbsp;&nbsp;&nbsp;&nbsp;</b></div>  <div class="inputDiv"><input type="text"> </div>
+            <div><b>Last Name &nbsp;&nbsp;&nbsp;&nbsp;</b></div>  <div class="inputDiv"><input type="text" name="lastName"> </div>
         </div>
 
         <div class="innerDiv">
-            <div><b>Last Name &nbsp;&nbsp;&nbsp;&nbsp;</b></div>  <div class="inputDiv"><input type="text"> </div>
+            <div><b>Contact Number &nbsp;</b></div>  <div class="inputDiv"><input type="text" name="cNum" style="margin-left: -28px;"> </div>
+        </div>
+
+      
+
+        <div class="innerDiv">
+            <div><b>NIC &nbsp;</b></div>  <div class="inputDiv"><input style="margin-left: 60px;" type="text" name="nic"> </div>
         </div>
 
         <div class="innerDiv">
-            <div><b>Contact Number &nbsp;</b></div>  <div class="inputDiv"><input type="text" style="margin-left: -28px;"> </div>
+            <div><b>Salary &nbsp;</b></div>  <div style="margin-left: 45px;" class="inputDiv"><input  type="text" name="salary"> </div>
         </div>
-
-        <div class="innerDiv">
-            <div><b class="b" style="margin-right: 50px;">Birthday</b></div>  <div style="margin-right: 5px;" class="inputDiv"><input  type="date" class="birthday"> </div>
-        </div>
-
-        <div class="innerDiv">
-            <div><b>NIC &nbsp;</b></div>  <div class="inputDiv"><input style="margin-left: 60px;" type="text"> </div>
-        </div>
-
-        <div class="innerDiv">
-            <div><b>Salary &nbsp;</b></div>  <div style="margin-left: 45px;" class="inputDiv"><input  type="text"> </div>
-        </div>
+        </form>
 
     </div>
 
@@ -116,6 +113,36 @@
     </div>
 
 </div>
+
+<script type="text/javascript">
+	
+$(document).ready(function(){
+	var form = $('#myForm');
+	form.submit(function () {
+	 
+	$.ajax({
+	type: form.attr('method'),
+	url: form.attr('action'),
+	data: form.serialize()
+	
+	});
+	 
+	return false;
+	});
+	
+	
+	
+});
+
+function res(event)
+{
+	
+	location.reload();
+	
+}
+
+</script>
+   
    
 <script src="../../resources/javascript/registerManager.js"></script>
 <script src="../../resources/javascript/side_navbar.js"></script>
