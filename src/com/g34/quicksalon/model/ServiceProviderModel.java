@@ -3,9 +3,7 @@ package com.g34.quicksalon.model;
 import com.g34.quicksalon.database.DBConnection;
 import com.g34.quicksalon.entity.ServiceProvider;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -48,6 +46,21 @@ public class ServiceProviderModel {
             throwables.printStackTrace();
         }
         return spList;
+    }
+
+    public boolean assignedService(int qId,int employeeId) throws SQLException, ClassNotFoundException {
+
+        Connection connection =DBConnection.getConnection();
+        PreparedStatement stmt= connection.prepareStatement("INSERT INTO j4f9qe_appointmentsassigned VALUES (?,?)");
+        stmt.setInt(1,qId);
+        stmt.setInt(2,employeeId);
+
+        int success=stmt.executeUpdate();
+        if(success>0){
+            return true;
+        }else{
+            return false;
+        }
     }
 
 
