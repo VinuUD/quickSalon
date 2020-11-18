@@ -8,7 +8,7 @@ var journal = [
 
   var i,j;
 
-  for(i=0;i<journal.length;i++)
+  for(i=0;i<journal.length;i++) 
   {
       console.log(journal[i].name);
   }

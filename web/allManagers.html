@@ -1,6 +1,6 @@
 <html lang="en">
 <head>
-
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../resources/css/allManagers.css">
@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-
-
+    
+    
     <title>All Managers</title>
 </head>
 <body onresize="whenResizing()">
@@ -22,10 +22,10 @@
         <div class="popup23">
             <div class="top1">
                 <i><img  onclick="hide3(), show()" src="../../resources/icons/cross.png" alt=""></i>
-                <b >Update EMP001</b>
+                <b >Update EMP001</b> 
             </div>
 
-            <div  class="bar">
+            <div class="bar">
                 <div> <b>Emplyee ID </b>  <input  type="text" value="0710157140" disabled></div>
                 <div> <b>Name </b>  <input type="text" value="1000000" disabled ></div>
                 <div> <b>Contact Num </b>  <input  type="text" value="0710157140" ></div>
@@ -44,7 +44,7 @@
         <div class="popup21">
             <div class="top1">
                 <i><img  onclick="hide2(), show()" src="../../resources/icons/cross.png" alt=""></i>
-                <b >Remove Manager</b>
+                <b >Remove Manager</b> 
             </div>
             <div class="pwd"> <b> Enter password </b>  <input  type="password" ></div>
 
@@ -59,15 +59,15 @@
         <div class="popup2">
             <div class="top1">
                 <i><img  onclick="hide()" src="../../resources/icons/cross.png" alt=""></i>
-                <b >EMP001</b>
+                <b >EMP001</b> 
             </div>
 
-            <div id="inDiv" class="bar">
+            <div class="bar">
                 <div> <b>Employee Id </b>  <input  type="text" value="Shehan Sandeepa" disabled></div>
                 <div> <b>Name </b>  <input type="text" value="emp001" disabled></div>
                 <div> <b>Contact Num </b>  <input type="text" value="emp001" disabled></div>
                 <div> <b>Salary </b>  <input type="text" value="emp001" disabled></div>
-                <div> <b>NIC &nbsp;</b>  <input type="text" value="emp001" disabled></div>
+                <div> <b>NIC &nbsp;</b>  <input type="text" value="emp001" disabled></div>   
             </div>
             <br>
 
@@ -77,21 +77,21 @@
                         <th>Control functions</th>
                     </tr>
                     <tr>
-                       <td>Add service provider</td>
+                       <td>Add service provider</td> 
                     </tr>
                     <tr>
                         <td>Remove service provider</td>
                     </tr>
                 </table>
             </div>
-
-
+            
+           
 
             <div class="button">
                 <button onclick="show2(), hide()" class="danger34">Remove</button>
                 <button onclick="show3(),hide()" class="btn-danger34">Update</button>
                 <button onclick="hide()" class="btn-success34">Control access</button>
-
+                
 
             </div>
         </div>
@@ -121,7 +121,7 @@
     </div>
 
     <div class="topBar">
-       <b>Managers</b>
+       <b>Managers</b> 
     </div>
     <div class="mainDiv">
         <div class="tableDiv34">
@@ -138,16 +138,15 @@
         </div>
     </div>
 
+     hjbsdfjsdhfgajlhdfgajhdhhdhhdhdhhdhdhdhhdhhdhhdhhdhdhhdhhdh
 </div>
 
-
-   <script type="text/javascript">
+    <script type="text/javascript">
 
         $("document").ready(function(){
-        	
-            $.get("allManagers.html/view", function(response) {
-            	
-				
+            console.log("helloooooooooooo");
+            $.get("view", function(response) {
+
                 response.map(function(x){
 
                     $("#tbl").append(
@@ -156,7 +155,6 @@
                         "<td>" + x.firstName + x.lastName + "</td>" +
                         "<td>" + x.contactNum + "</td>" +
                         "<td>" + x.nic + "</td>" +
-                        "<td style='display:none'>" + x.salary + "</td>" +
                         "<td>" + "<button title='view employee details' class = 'btn34' onclick = 'show(event)'>" + "<i class='fa fa-eye'>"+ "</i>" +  "</button>" + "</td>" +
                         "</tr>"
                     );
@@ -172,14 +170,12 @@
                     var col2=currentRow.find("td:eq(1)").text();
                     var col3=currentRow.find("td:eq(2)").text();
                     var col4=currentRow.find("td:eq(3)").text();
-                    var col5=currentRow.find("td:eq(4)").text();
                     var data=col1+"\n"+col2+"\n"+col3+"\n"+col4;
 
                     var inputFields = document.getElementById("inDiv").getElementsByTagName("input");
                     inputFields[0].value = col1;
                     inputFields[1].value = col2;
                     inputFields[2].value = col3;
-                    inputFields[3].value = col5;
                     inputFields[4].value = col4;
                     console.log(inputFields);
 
@@ -192,14 +188,10 @@
 
     </script>
 
- 
 
 
-   
 
-
-<script src="../../resources/javascript/allManagers.js"></script>
-
+    <script src="../../resources/javascript/allManagers.js"></script>
 <script src="../../resources/javascript/side_navbar.js"></script>
 </body>
 </html>

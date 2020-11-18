@@ -12,7 +12,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
-
     <title>All Managers</title>
 </head>
 <body onresize="whenResizing()">
@@ -21,6 +20,7 @@
     <div id="pop3" class="popup3">
         <div class="popup23">
             <div class="top1">
+
                 <i><img  onclick="hide3(), show()" src="../../resources/icons/cross.png" alt=""></i>
                 <b >Update EMP001</b>
             </div>
@@ -43,8 +43,10 @@
     <div id="pop1" class="popup1">
         <div class="popup21">
             <div class="top1">
+
                 <i><img  onclick="hide2(), show()" src="../../resources/icons/cross.png" alt=""></i>
                 <b >Remove Manager</b>
+
             </div>
             <div class="pwd"> <b> Enter password </b>  <input  type="password" ></div>
 
@@ -125,7 +127,7 @@
     </div>
     <div class="mainDiv">
         <div class="tableDiv34">
-            <table class="table34">
+            <table id="myTable" class="table34">
                 <tr>
                     <th>Employee ID</th>
                     <th>Name</th>
@@ -137,12 +139,60 @@
             </table>
         </div>
     </div>
+     <form action="view" method="GET">
+         <input type="text">
+         <input type="submit">
+     </form>
 </div>
 
+    <script type="text/javascript">
+
+        $("document").ready(function(){
+
+            $.get("view", function(response) {
+                console.log("helloooooooooooo");
+                response.map(function(x){
+
+                    $("#tbl").append(
+                        "<tr>" +
+                        "<td>" + x.empId + "</td>" +
+                        "<td>" + x.firstName + x.lastName + "</td>" +
+                        "<td>" + x.contactNum + "</td>" +
+                        "<td>" + x.nic + "</td>" +
+                        "<td>" + "<button title='view employee details' class = 'btn34' onclick = 'show(event)'>" + "<i class='fa fa-eye'>"+ "</i>" +  "</button>" + "</td>" +
+                        "</tr>"
+                    );
 
 
+                });
 
-<script src="../../resources/javascript/allManagers.js"></script>
-<script src="../../resources/javascript/side_navbar.js"></script>
+                $("#myTable").on('click','.btn34',function(){
+
+                    var currentRow=$(this).closest("tr");
+
+                    var col1=currentRow.find("td:eq(0)").text();
+                    var col2=currentRow.find("td:eq(1)").text();
+                    var col3=currentRow.find("td:eq(2)").text();
+                    var col4=currentRow.find("td:eq(3)").text();
+                    var data=col1+"\n"+col2+"\n"+col3+"\n"+col4;
+
+                    var inputFields = document.getElementById("inDiv").getElementsByTagName("input");
+                    inputFields[0].value = col1;
+                    inputFields[1].value = col2;
+                    inputFields[2].value = col3;
+                    inputFields[4].value = col4;
+                    console.log(inputFields);
+
+
+                });
+
+            });
+
+        });
+
+    </script>
+
+    <script src="../../resources/javascript/allManagers.js"></script>
+    <script src="../../resources/javascript/side_navbar.js"></script>
 </body>
 </html>
