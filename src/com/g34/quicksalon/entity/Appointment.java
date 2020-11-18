@@ -15,7 +15,7 @@ public class Appointment {
     public Appointment() {
     }
 
-    public Appointment(int qId, int customerId, Date date, Time startTime, Time endTime, int cancelledFlag) {
+    public Appointment(int qId, int customerId, Date date, Time startTime,Time endTime, int cancelledFlag) {
         this.qId = qId;
         this.customerId = customerId;
         this.date = date;
