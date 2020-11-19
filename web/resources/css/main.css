@@ -243,11 +243,7 @@ table.center {
     text-align: center;
 }
 
-.ss 
-{
- 
-    
-}
+
 
 .ssbut
 {
@@ -351,44 +347,6 @@ table.center {
 
 
 
-
-/* table div class */
-.tableDiv34
-{
-    overflow-x:auto;
-    overflow-y: auto;
-    padding: 3vw;
-    /* min-width: 400px; */
-    
-}
-
-/* table class */
-.table34 
-{
-    border-collapse: collapse;
-    border-spacing: 0;
-    width: 100%;
-    border: 4px solid #03396c;
-}
-
-/* table class table headers and table data */
-.table34 th,td
-{
-    text-align: left;
-    padding: 12px;
-}
-
-.table34 th
-{
-    background-color: #03396c;
-    color: #ddd;
-}
-  
-/* color even rows in the table */
-tr:nth-child(even)
-{
-    background-color: #f2f2f2
-}
 
 /* ///////////////////////////////////////////////////////////////////////////////// */
 

@@ -4,7 +4,7 @@
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <title>Page Title</title>
-    <link rel='stylesheet' type='text/css' media='screen' href='../resources/css/main.css'>
+    <link rel="stylesheet" href="../resources/css/normal.css">
     <link rel="stylesheet" href="../resources/css/sideNavbar.css">
     <link rel="stylesheet" href="../resources/css/mainDiv.css">
     <link rel="stylesheet" href="../resources/css/34.css">
@@ -17,10 +17,12 @@
     <!-- side nav bar -->
         <div id="mySidenav" class="sidenav">
             <div class="closeIcon"><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></div>
-           <a href="#">About</a>
-            <a href="#">Services</a>
-            <a href="#">Clients</a>
+            <a href="#">Place appointment</a>
+            <a href="#">Manage appointment</a>
+            <a href="#">Service / Packages</a>
+            <a href="#">Complaint</a>
             <a href="#">Contact</a>
+            
           </div>
           
          
@@ -29,7 +31,7 @@
 <div id="main">
   
     <div class="back">
-        <div id="navIcon" onclick="openNav()" class="navIcon"  ><img  src="three.png" alt="Ooops" ></div>
+        <div id="navIcon" onclick="openNav()" class="navIcon"  ><img  src="../resources/icons/three.png" alt="Ooops" ></div>
         <button class="btn34">back</button>
     </div>
     <br><br>
@@ -39,10 +41,10 @@
     </div>
 
     <div class="mainDiv">
-       <pre>
-        <table id="t01"  class = "center" >
+     
+        <table id="t01"    class = "innerDiv"  >
        
-            <tr>
+            <tr  style="background-color: white; ">
               <td>Date</td>
               <td></td>
               <td>Time</td>
@@ -50,7 +52,7 @@
               
             </tr>
 
-            <tr>
+            <tr  style="background-color: white; ">
                 <td></td>
                 <td></td>
                 <td></td>
@@ -64,12 +66,12 @@
                       </div>
                       <div class="modal-body">
                                             
-                              <table id="t01" class = "center">
-                                <tr>
+                              <table id="t01" class = "innerDiv" >
+                                <tr  style="background-color: white; ">
                                   <th>Service</th>
                                   <th>Service provider</th>             
                                 </tr>
-                                <tr>
+                                <tr  style="background-color: white; ">
                                   <td>Hair cut </td>
                                   <td>
 
@@ -83,12 +85,10 @@
                                 </tr>
                               </table>
 
-                              <div class = "btn35">
-                                <button class = "back-button">cancel</button>
-                            </div>
-
-                            <div class = "btn34">
-                                <button class = "back-button">Confirm</button>  
+                              <div  class = "innerDiv" >
+                                <button class = "btn34">cancel</button>
+                          
+                                <button class = "btn34">Confirm</button>  
                             </div>
                         
        
@@ -103,8 +103,8 @@
           </table>
 
 
-          <div class = "form-container2">
-            <form action ="" method="get">
+          <div class = "form-container2" >
+            <form action ="" method="get" class = "innerDiv"  >
                 <label for="date">reshedule to date</label>
                 <input type="date" id="date" name="date">
                 <label for="time">Time</label>
@@ -116,9 +116,9 @@
 
 
         
-
+ <div  class = "innerDiv"  style ="padding:30px;">
   <div class="calendar" id="calendar"></div>
-  
+</div>
   <!-- Pop up time box -->
 <div class="time-modal" id="time-popup">
 <div class="time-popup">
@@ -134,11 +134,11 @@
  <tbody>
      <tr>
          <td>7.00 am - 9.00 am </td>
-         <td><input type="checkbox"></td>
+         <td><button class = "btn34">select the time</button></td>
      </tr>
      <tr>
          <td>10.00 am - 12.00 pm </td>
-         <td><input type="checkbox"></td>
+         <td><button class = "btn34">select the time</button></td>
      </tr>
 
  </tbody>
@@ -146,20 +146,11 @@
 </div>
 
  <script src='../resources/javascript/calendar.js'></script>
- <link rel='stylesheet' type='text/css' media='screen' href='../resources/css/calendar.css'>
+ <link rel='stylesheet' type='text/css' media='screen' href='../resources/css/calendar2.css'>
  
-
-
-
-
-
-
-
-       </pre>
-
     </div>  
 </div> 
-<script src="../resources/javascript/sideNavbar.js"></script>
+<script src="../resources/javascript/side_navbar.js"></script>
 </body>
 
 </html>
