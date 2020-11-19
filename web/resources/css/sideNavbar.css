@@ -1,5 +1,7 @@
 body {
     font-family: "Lato", sans-serif;
+    margin: 0;
+    padding: 10px;
 
   }
 
@@ -13,6 +15,7 @@ body {
     left: 0;
     background-color:#33373e;
     overflow-x: hidden;
+   
     transition: 0.3s;
   }
 
@@ -44,10 +47,30 @@ body {
     height: 60px;
     color:white;
     display: flex;
-    transition: 0.5s ease;
+    transition: 0.2s ease;
     align-items: center;
     min-width: 300px;
 
+  }
+
+  .sidenav a:hover {
+    color: #f1f1f1;
+    padding-left: 2.3rem;
+    font-weight: 700;
+  }
+
+  a.subMenu
+  {
+    
+    font-size: 14px;
+    padding-left: 80px;
+    
+   
+  }
+
+  a.subMenu:hover
+  {
+    padding-left: 90px;
   }
 
   .sidenav a:first-child 
@@ -82,11 +105,7 @@ body {
     
   }
 
-  .sidenav a:hover {
-    color: #f1f1f1;
-    padding-left: 2.3rem;
-    font-weight: 700;
-  }
+  
 
   .sidenav .closebtn {
     position: absolute;
