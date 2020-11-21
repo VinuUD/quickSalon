@@ -1,1 +1,0 @@
-Create all the upper staff's common views in this folder
