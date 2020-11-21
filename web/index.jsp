@@ -6,17 +6,21 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
   <head>
-    <title>Quick salon</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="resources/css/home.css">
+    <link rel="stylesheet" href="resources/css/34.css">
+    <title>Home</title>
   </head>
   <body>
-
-  <p>Welcome to Quick salon </p>
-
-  <form action="index.html" method="post">
-    <input type="submit" value="Login">
-  </form>
+    <a href="login.jsp">Login</a>
+    <div id="header">
+      <h1>Quick Salon</h1>
+    </div>
 
   </body>
 </html>
