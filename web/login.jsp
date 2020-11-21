@@ -37,7 +37,7 @@
 
         </form>
         <div  style="margin-top: 15px;" class="innerDiv">
-            <small style="color: white;">Forgot Password?</small>
+            <small style="color: white;"><a class="fPassword" href="#">Forgot password</a></small>
         </div>
 
 
