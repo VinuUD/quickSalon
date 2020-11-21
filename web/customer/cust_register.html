@@ -1,135 +1,81 @@
 <!DOCTYPE html>
-<html lang = "en">
+<html lang="en">
+
 <head>
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <title>Page Title</title>
-    
+
     <link rel="stylesheet" href="../resources/css/sideNavbar.css">
     <link rel="stylesheet" href="../resources/css/mainDiv.css">
     <link rel="stylesheet" href="../resources/css/34.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
-    <link rel="stylesheet" href="../resources/css/normal.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../resources/css/customerRegister.css">
     <script src='../resources/javascript/main.js'></script>
     <script src="../resources/javascript/side_navbar.js"></script>
 
 </head>
 
-<body onresize="whenResizing()">
-
-                 
-  
-<!-- ////////////////////////////// -->
-<div id="main">
-  
-    <div class="back">
-        <div id="navIcon" onclick="openNav()" class="navIcon"  ><img  src="../resources/icons/three.png" alt="Ooops" ></div>
-        <button class="btn34">back</button>
-	 <button class="btn34">Sign in</button>
-    
-    </div>
-    <br><br>
-
-    <div class="topBar">
-        <b>Sign up</b> 
+<body>
+    <div id="background" class="background">
     </div>
 
-    <div class="mainDiv">
-      
-        <!-- <div class = "custregisterlog">
-            <div><button class = "btn34" style="float:right;">Sign up with google</button></div>
-            <div><button class = "btn34" style="float:right;">Sign up with facebook</button></div>
-            
-             
-        </div> -->
+        <button class="back-login"> <b>Login</b> </button>
     
-        
-        <div >
-            <form action ="" method="POST">
 
+    <div class="formDiv">
+
+        <form >
+            <div class="innerDiv">
                 <label for="fname"><b>First Name</b></label>
-                <input type="text" placeholder="Enter First Name" name="fname" id="fname" required>
-        
+                <input class="input" type="text" placeholder="Enter First Name" name="fname" id="fname" required>
+            </div>
+
+            <div class="innerDiv">
                 <label for="lname"><b>Last Name</b></label>
-                <input type="text" placeholder="Enter Last Name" name="lname" id="lname" required>
-        
+                <input class="input" type="text" placeholder="Enter Last Name" name="lname" id="lname" required>
+            </div>
+
+            <div class="innerDiv">
                 <label for="uname"><b>User Name</b></label>
-                <input type="text" placeholder="Username " name="uname" id="uname" required>
+                <input class="input" type="text" placeholder="Username " name="uname" id="uname" required>
+            </div>
 
+            <div class="innerDiv"> 
                 <label for="contactno"><b>Contact No</b></label>
-                <input type="text" placeholder="Enter Contact No" name="contactno" id="contactno" required>
-        
+                <input class="input" type="text" placeholder="Enter Contact No" name="contactno" id="contactno" required>
+            </div>
+
+            <div class="innerDiv">
                 <label for="NIC"><b>NIC No</b></label>
-                <input type="text" placeholder="Enter NIC No" name="nic" id="nic" required>
-        
+                <input class="input" type="text" placeholder="Enter NIC No" name="nic" id="nic" required>
+            </div>
+
+            <div class="innerDiv">
                 <label for="email"><b>Email</b></label>
-                <input type="text" placeholder="Enter Email" name="email" id="email" required>
-        
+                <input class="input" type="text" placeholder="Enter Email" name="email" id="email" required>
+            </div>
+
+            <div class="innerDiv">
                 <label for="Address"><b>Address</b></label>
-                <input type="text" placeholder="Enter Address" name="address" id="address" required>
-        
+                <input class="input" type="text" placeholder="Enter Address" name="address" id="address" required>
+            </div>
+
+            <div class="innerDiv">
                 <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="password" id="psw" required>
-        
+                <input class="input" type="password" placeholder="Enter Password" name="password" id="psw" required>
+            </div>
+
+            <div class="innerDiv">
                 <label for="psw-repeat"><b>Repeat Password</b></label>
-                <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
+                <input class="input" type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
+            </div>
 
+            <div class="buttonDiv">
+                <button > <b>Sign Up</b> </button>
+            </div>
 
-                <input type ="submit"  class ="btn34" >
-                
-                 
-                            <!-- <td style="background-color: white; ">
-                                 <label for="fname" class ="">First name</label></td>
-                            <td style="background-color: white; "> <input type="text" class ="k" id="fname" name="fname"></td> 
-                        </tr>
-                        <tr>
-                            <td style="background-color: white; ">  <label for="lname" class ="k">last name</label></td>
-                            <td style="background-color: white; ">  <input type="text" class ="k" id="lname" name="lname"></td> 
-                        </tr>
+        </form>
 
-                        <tr style="background-color: white; ">
-                            <td ><label for="uname" class ="k" >user name</label></td>
-                            <td > <input type="text" class ="k" id="uname" name="uname"></td> 
-                        </tr>
-                        <tr style="background-color: white; ">
-                            <td ><label for="cnum" class ="k" >contact number</label></td>
-                            <td > <input type="text" class ="k" id="cnum" name="cnum"></td> 
-                        </tr>
-                        <tr>
-                            <td >    <label for="nic" class ="k" >NIC</label></td>
-                            <td > <input type="text"  class ="k" id="nic" name="nic"></td> 
-                        </tr>
-                        <tr style="background-color: white; ">
-                            <td > <label for="email" class ="k" >E mail</label></td>
-                            <td ><input type="text"  class ="k" id="email" name="email"></td> 
-                        </tr>
-                        <tr style="background-color: white; ">
-                            <td > <label for="address" class ="k" >Address</label></td>
-                            <td >   <input type="text"  class ="k" id="address" name="address"></td> 
-                        </tr >
-                        <tr style="background-color: white; "> 
-                            <td > <label for="password" class ="k" >Password</label></td>
-                            <td ><input type="password"  class ="k" id="password" name="password"></td> 
-                        </tr>
-                        <tr>
-                            <td ><label for="repassword" class ="k" >Re-enter password</label></td>
-                            <td ><input type="password"  class ="k" id="repassword" name="repassword"></td> 
-                        </tr>
-                        <tr style="background-color: white; ">
-                            <td ></td> 
-                          <td ><label for="agree" class ="k" >By registering you agree to user agreements</label></td> 
-                        </tr>
-                        <tr>
-                            <td ></td>
-                            <td ><input type ="submit"  class ="btn34" onclick="clicked2();"  value = "Register"></td> 
-                        </tr>                            
-                 </table>    -->
-             
-            </form>    
-        </div>
-    </div>  
-</div> 
-
+ </div>
 </body>
-
-
