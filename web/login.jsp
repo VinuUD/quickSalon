@@ -21,11 +21,11 @@
         <form action="login" method="post">
 
             <div class="innerDiv">
-                <input class="input" type="text" style="font-family:Arial, FontAwesome"  placeholder=' &#xF007 &nbsp Username'>
+                <input class="input" id="username" type="text" style="font-family:Arial, FontAwesome"  placeholder=' &#xF007 &nbsp Username'>
             </div>
 
             <div class="innerDiv">
-                <input class="input" type="text" style="font-family:Arial, FontAwesome"  placeholder=' &#xF023 &nbsp Password'>
+                <input class="input" id="password" type="text" style="font-family:Arial, FontAwesome"  placeholder=' &#xF023 &nbsp Password'>
             </div>
 
             <div class="buttonDiv">
@@ -41,8 +41,8 @@
         <div  style="margin-top: 15px;" class="innerDiv">
             <small style="color: white;">Forgot Password?</small>
         </div>
-        
-     
+
+
  </div>
 <script src="resources/javascript/login.js"></script>
 </body>
