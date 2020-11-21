@@ -1,0 +1,236 @@
+body
+{
+    margin: 0;
+    min-width: 350px;
+    min-height: 500px;
+    background-image: url(../images/login1.jpg);
+    
+}
+
+.formDiv{
+    margin: auto;
+    margin-top: 30px;
+    width: 600px;
+    padding: 50px;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.5); 
+}
+
+
+
+.background
+{
+    
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    /* filter: blur(8px);
+    -webkit-filter: blur(8px); */
+    
+   
+}
+
+
+.mainDiv
+{
+    margin-top: auto;
+    /* border: 4px solid #03396c; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 2; 
+    margin-top: 20px; 
+
+}
+
+
+.innerDiv
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: white;
+    
+}
+
+a.fPassword
+{
+    text-decoration: none;
+    color: white;
+}
+
+.input
+{
+    flex: 2;
+    background-color:rgba(255, 255, 255, 0.4);
+    /* background-color: white; */
+    color:black;
+    border: none;
+    outline:none;
+    width: 300px;
+    height:30px;
+    
+    
+    border-radius: 30px;
+    padding-left: 10px;
+    padding-left: 10px;
+    font-weight: bold;
+    font-size: 14px;
+    
+    
+
+}
+
+.back-login{
+
+    display: block;
+    float: right;
+    width: 150px;
+    height:40px;
+    border: 2px solid blue;
+    border-radius: 30px;
+    font-size: 16px;
+    outline: none;
+    background-color: rgb(30, 95, 126, 0.6);
+    color: black;
+    cursor: pointer;
+
+}
+
+.back-login:hover
+{
+    background-color: rgb(30, 95, 126, 0.8);
+}
+
+label{
+    flex: 1;
+    display: inline-block;
+    text-align: left;
+}
+
+::-webkit-input-placeholder { /* Edge */
+    color: white;
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer */
+    color: white;
+  }
+  
+  ::placeholder {
+    color: black;
+  }
+
+.innerDiv:not(:last-child)
+{
+    margin-bottom: 20px;
+}
+
+.innerDiv .inputDiv
+{
+    display: flex;
+}
+
+.inputDiv select
+{
+    width: 180px;
+    height: 25px;
+}
+
+.buttonDiv
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 0px;
+    
+}
+
+.buttonDiv button
+{
+    width: 250px;
+    height:40px;
+    margin-top: 15px;
+    border: 2px solid blue;
+    border-radius: 30px;
+    font-size: 16px;
+    outline: none;
+    background-color: rgb(30, 95, 126, 0.6);
+    color: black;
+    cursor: pointer;
+}
+
+.buttonDiv button:hover
+{
+    background-color: rgb(30, 95, 126, 0.8);
+}
+
+
+@media screen and (min-width:900px)
+{
+    .mainDiv
+    {
+        width: 900px;
+    }
+
+    .back
+    {
+        width: 900px;
+        margin: 0px auto 0px auto;
+    }
+
+    .confirm
+    {
+        width: 900px;
+        margin: 0px auto 0px auto;
+    }
+
+    .topBar
+    {
+        width: 908px;
+    }
+}
+
+@media screen and (max-width:490px)
+{
+    textarea
+    {
+        width: 200px;   
+    }
+
+    .mainDiv
+    {
+        margin-top: 50px;
+        margin-bottom: 80px;
+    }
+
+    .innerDiv input
+    {
+        width: 250px;
+    }
+    
+
+  
+
+    .buttonDiv button
+    {
+        font-size: 14px;
+        height: 50px;
+        width: 250px;
+    }
+
+    .inputDiv select
+    {
+        width: 150px;
+        height: 20px;
+    }
+
+    .blo
+    {
+        /* border: 2px solid red; */
+        font-size: 14px;
+    }
+
+}
