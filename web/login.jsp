@@ -33,9 +33,7 @@
                 <button type="submit"> <b>Log In</b> </button>
             </div>
 
-            <div  style="margin-top: 15px;" class="innerDiv">
-                <small style="color: white;">Forgot Password?</small>
-            </div>
+           
 
         </form>
         <div  style="margin-top: 15px;" class="innerDiv">
