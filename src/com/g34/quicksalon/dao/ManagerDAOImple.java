@@ -1,8 +1,10 @@
 package com.g34.quicksalon.model;
+
+import com.g34.quicksalon.model.ManagerDetails;
+
 import java.sql.*;
 
-import com.g34.quicksalon.entity.ManagerDetails;
-public class AddManagerModel {
+public class ManagerDAOImple {
 	
 	public void addManager(ManagerDetails manager) throws Exception
 	{
@@ -14,9 +16,6 @@ public class AddManagerModel {
 		PreparedStatement pst2 = con.prepareStatement(query2);
 		Statement st = con.createStatement();
 	    	
-		
-		
-		
 		pst.setString(1, manager.getNic());
 		pst.setString(2, manager.getFirstName());
 		pst.setString(3, manager.getLastName());

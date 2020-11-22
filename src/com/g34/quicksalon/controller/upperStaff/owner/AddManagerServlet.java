@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.time.LocalDate;
 
-import com.g34.quicksalon.entity.ManagerDetails;
-import com.g34.quicksalon.model.AddManagerModel;
+import com.g34.quicksalon.dao.ManagerDAOImple;
+import com.g34.quicksalon.model.ManagerDetails;
 
 public class AddManagerServlet extends HttpServlet {
 	
@@ -34,7 +34,7 @@ public class AddManagerServlet extends HttpServlet {
 		
 		ManagerDetails Manager = new ManagerDetails(nic, firstName, lastName, salary, enrollDate, resignDate, upFlag, leaveFlag, removeFlag, cNum);
 		
-		AddManagerModel model = new AddManagerModel();
+		ManagerDAOImple model = new ManagerDAOImple();
 		
 		try {
 			model.addManager(Manager);
