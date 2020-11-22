@@ -1,7 +1,7 @@
-package com.g34.quicksalon.model;
+package com.g34.quicksalon.dao;
 
 import com.g34.quicksalon.database.DBConnection;
-import com.g34.quicksalon.entity.ServiceProvider;
+import com.g34.quicksalon.model.ServiceProvider;
 
 import java.sql.*;
 import java.util.ArrayList;

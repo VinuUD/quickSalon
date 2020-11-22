@@ -1,4 +1,4 @@
-package com.g34.quicksalon.entity;
+package com.g34.quicksalon.model;
 public class CustomerDetails {
 
     private String firstName;

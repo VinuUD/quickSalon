@@ -1,4 +1,4 @@
-package com.g34.quicksalon.model;
+package com.g34.quicksalon.dao;
 
 import com.g34.quicksalon.database.DBConnection;
 
