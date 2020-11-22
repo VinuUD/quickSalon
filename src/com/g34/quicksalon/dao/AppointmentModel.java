@@ -27,6 +27,8 @@ public class AppointmentModel {
           ArrayList<Integer> qIds=new ArrayList<Integer>();
         try {
             PreparedStatement stmt=DBConnection.getConnection().prepareStatement("SELECT qID FROM j4f9qe_appointmentsassigned WHERE employeeID=?;");
+
+            // "SELECT qID FROM j4f9qe_appointmentsassigned WHERE employeeID LIKE "*";"
             stmt.setInt(1,spId);
             ResultSet resultSet = stmt.executeQuery();
 
