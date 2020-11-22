@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.time.LocalDate;
 
+import com.g34.quicksalon.dao.ManagerDAO;
 import com.g34.quicksalon.dao.ManagerDAOImple;
 import com.g34.quicksalon.model.ManagerDetails;
 
@@ -15,8 +16,6 @@ public class AddManagerServlet extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException
 	{
 		LocalDate obj = LocalDate.now();
-		
-		
 		String nic = req.getParameter("nic");
 		String firstName = req.getParameter("firstName");
 		String lastName = req.getParameter("lastName");
@@ -28,16 +27,14 @@ public class AddManagerServlet extends HttpServlet {
 		int removeFlag = 0;
 		int cNum = Integer.parseInt(req.getParameter("cNum"));
 		
-		
-		
-		
+
 		
 		ManagerDetails Manager = new ManagerDetails(nic, firstName, lastName, salary, enrollDate, resignDate, upFlag, leaveFlag, removeFlag, cNum);
 		
-		ManagerDAOImple model = new ManagerDAOImple();
+		ManagerDAO managerDAO = new ManagerDAOImple();
 		
 		try {
-			model.addManager(Manager);
+			managerDAO.addManager(Manager);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
