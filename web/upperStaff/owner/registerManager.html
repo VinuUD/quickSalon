@@ -116,30 +116,31 @@
 
 <script type="text/javascript">
 	
-$(document).ready(function(){
-	var form = $('#myForm');
-	form.submit(function () {
-	 
-	$.ajax({
-	type: form.attr('method'),
-	url: form.attr('action'),
-	data: form.serialize()
-	
-	});
-	 
-	return false;
-	});
-	
-	
-	
-});
+    $(document).ready(function()
+    {
+        var form = $('#myForm');
+        form.submit(function () {
 
-function res(event)
-{
-	
-	location.reload();
-	
-}
+        $.ajax({
+        type: form.attr('method'),
+        url: form.attr('action'),
+        data: form.serialize()
+
+    });
+
+    return false;
+    });
+
+
+
+    });
+
+    function res(event)
+    {
+
+    location.reload();
+
+    }
 
 </script>
    
