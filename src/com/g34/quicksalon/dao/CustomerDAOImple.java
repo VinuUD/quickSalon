@@ -7,9 +7,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class CustomerModel {
-
-    public int addWalkingCustomers(String fName,String lName,String telephone) throws SQLException, ClassNotFoundException {
+public class CustomerDAOImple implements CustomerDAO {
+    
+    public int addWalkInCustomers(String fName,String lName,String telephone) throws SQLException, ClassNotFoundException {
 
         Connection connection =DBConnection.getConnection();
         PreparedStatement stmt= connection.prepareStatement("INSERT INTO j4f9qe_customer (firstname,lastname,telephone,accountType,registeredDate) VALUES (?,?,?,?,?)");

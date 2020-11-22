@@ -2,7 +2,7 @@ package com.g34.quicksalon.controller.serviceProvider;
 
 import com.g34.quicksalon.dao.AppointmentDAO;
 import com.g34.quicksalon.dao.ApppointmentDAOImple;
-import com.g34.quicksalon.dao.CustomerModel;
+import com.g34.quicksalon.dao.CustomerDAOImple;
 import com.g34.quicksalon.dao.ServiceModel;
 import com.g34.quicksalon.dao.ServiceProviderModel;
 import com.g34.quicksalon.model.Appointment;
@@ -41,14 +41,14 @@ public class SpAppointmentServlet extends HttpServlet {
         Time startTime = Time.valueOf(timeStrToTime(time));
         Time endTime = Time.valueOf(plusTime(timeStrToTime(time), timeTaken));
 
-        CustomerModel customerModel = new CustomerModel();
+        CustomerDAOImple customerModel = new CustomerDAOImple();
         AppointmentDAO appointmentModel = new ApppointmentDAOImple();
         ServiceProviderModel serviceProviderModel=new ServiceProviderModel();
         ServiceModel serviceModel=new ServiceModel();
 
         try {
             //Add add Walk-in customer to customer table
-            customerId=customerModel.addWalkingCustomers(fName,lName,telephone);
+            customerId=customerModel.addWalkInCustomers(fName,lName,telephone);
 
             if(customerId!=0){
                 Appointment appointment=new Appointment(0,customerId,date,startTime,endTime,0);
