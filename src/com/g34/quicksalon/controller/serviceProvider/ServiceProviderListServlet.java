@@ -1,6 +1,6 @@
 package com.g34.quicksalon.controller.serviceProvider;
 
-import com.g34.quicksalon.dao.ServiceModel;
+import com.g34.quicksalon.dao.ServiceDAOImple;
 import com.g34.quicksalon.dao.ServiceProviderModel;
 import com.g34.quicksalon.model.ServiceProvider;
 import com.google.gson.Gson;
@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.Map;
 
 public class ServiceProviderListServlet extends HttpServlet {
+    
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
