@@ -1,0 +1,18 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="quickSalon:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/quickSalon_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="quickSalon/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="quickSalon" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="jstl" />
+          <element id="library" level="application" name="gson-2.8.2" />
+          <element id="library" level="application" name="mysql-connector-java-8.0.13" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

@@ -3,8 +3,8 @@ package com.g34.quicksalon.controller.serviceProvider;
 import com.g34.quicksalon.dao.AppointmentDAO;
 import com.g34.quicksalon.dao.ApppointmentDAOImple;
 import com.g34.quicksalon.dao.CustomerDAOImple;
-import com.g34.quicksalon.dao.ServiceModel;
-import com.g34.quicksalon.dao.ServiceProviderModel;
+import com.g34.quicksalon.dao.ServiceDAOImple;
+import com.g34.quicksalon.dao.ServiceProviderDAOImple;
 import com.g34.quicksalon.model.Appointment;
 import com.google.gson.Gson;
 import javax.servlet.ServletException;
@@ -43,8 +43,8 @@ public class SpAppointmentServlet extends HttpServlet {
 
         CustomerDAOImple customerModel = new CustomerDAOImple();
         AppointmentDAO appointmentModel = new ApppointmentDAOImple();
-        ServiceProviderModel serviceProviderModel=new ServiceProviderModel();
-        ServiceModel serviceModel=new ServiceModel();
+        ServiceProviderDAOImple serviceProviderModel=new ServiceProviderDAOImple();
+        ServiceDAOImple serviceModel=new ServiceDAOImple();
 
         try {
             //Add add Walk-in customer to customer table
@@ -96,7 +96,7 @@ public class SpAppointmentServlet extends HttpServlet {
         ArrayList<Integer> qIds=new ArrayList<Integer>();
         int spId= Integer.parseInt(request.getParameter("spId"));
         try {
-            AppointmentDAO appointmentModel=new ApppointmentDAOImple();
+            AppointmentDAO appointmentModel = new ApppointmentDAOImple();
             qIds=appointmentModel.getAllAppointmentsBySP(spId);
             String json = new Gson().toJson(qIds);
             response.setContentType("application/json");

@@ -2,7 +2,7 @@ package com.g34.quicksalon.controller;
 
 import com.g34.quicksalon.dao.AppointmentDAO;
 import com.g34.quicksalon.dao.ApppointmentDAOImple;
-import com.g34.quicksalon.dao.ServiceModel;
+import com.g34.quicksalon.dao.ServiceDAOImple;
 import com.g34.quicksalon.model.Appointment;
 import com.g34.quicksalon.model.Service;
 import com.google.gson.Gson;

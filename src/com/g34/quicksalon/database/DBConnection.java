@@ -12,7 +12,7 @@ public class DBConnection {
             //singleton pattern
             if(connection ==null){
                 Class.forName("com.mysql.jdbc.Driver");
-                connection= DriverManager.getConnection("jdbc:mysql://localhost:3306/quick_salon", "root", "");
+                connection= DriverManager.getConnection("jdbc:mysql://localhost:3306/quick_salon", "root","");
             }
             return connection;
         }
