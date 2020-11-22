@@ -1,10 +1,9 @@
-package com.g34.quicksalon.model;
+package com.g34.quicksalon.dao;
 
-import com.g34.quicksalon.model.ManagerDetails;
-
+import com.g34.quicksalon.model.*;
 import java.sql.*;
 
-public class ManagerDAOImple {
+public class ManagerDAOImple implements ManagerDAO {
 	
 	public void addManager(ManagerDetails manager) throws Exception
 	{
@@ -31,11 +30,7 @@ public class ManagerDAOImple {
 		pst2.setInt(1, rs.getInt(1));
 		pst2.setInt(2, manager.getcNum());
 		pst2.executeUpdate();
-		
-		
-		
-		
-		
+
 	}
 	
 
