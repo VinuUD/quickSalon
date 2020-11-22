@@ -1,5 +1,6 @@
 package com.g34.quicksalon.dao;
 
+import com.g34.quicksalon.database.DBConnection;
 import com.g34.quicksalon.model.ManagerDetails;
 import java.sql.*;
 
@@ -8,8 +9,9 @@ public class ManagerDAOImple implements ManagerDAO {
 	
 	public void addManager(ManagerDetails manager) throws Exception
 	{
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection	con = DriverManager.getConnection("jdbc:mysql://localhost:3306/quick_salon","root","");
+
+
+		Connection	con = DBConnection.getConnection();
 		String query = "insert into j4f9qe_employee (nicNo,firstName,lastName,salary,enrollDate,resignDate,isUpperStaffFlag,onLeaveFlag,removedFlag) values (?,?,?,?,?,?,?,?,?)";
 		String query2 = "insert into j4f9qe_employeecontacts (empID, contactNum) values (?,?)";
 		PreparedStatement pst = con.prepareStatement(query);
