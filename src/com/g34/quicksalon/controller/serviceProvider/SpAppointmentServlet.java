@@ -1,6 +1,7 @@
 package com.g34.quicksalon.controller.serviceProvider;
 
 import com.g34.quicksalon.dao.AppointmentDAO;
+import com.g34.quicksalon.dao.ApppointmentDAOImple;
 import com.g34.quicksalon.dao.CustomerModel;
 import com.g34.quicksalon.dao.ServiceModel;
 import com.g34.quicksalon.dao.ServiceProviderModel;
@@ -19,31 +20,29 @@ import java.util.ArrayList;
 
 public class SpAppointmentServlet extends HttpServlet {
 
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
+        PrintWriter out = response.getWriter();
+        int spId = Integer.parseInt(request.getParameter("spId"));
+        int serviceID = Integer.parseInt(request.getParameter("serviceID"));
+        String fName = request.getParameter("fname");
+        String lName = request.getParameter("lname");
+        String telephone = request.getParameter("telephone");
+        long d = Long.parseLong(request.getParameter("date"));
+        Date date = new Date(d);
+        String time = request.getParameter("time");
+        String timeTaken = request.getParameter("timeTaken");
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        PrintWriter out=response.getWriter();
-        int spId= Integer.parseInt(request.getParameter("spId"));
-        int serviceID= Integer.parseInt(request.getParameter("serviceID"));
-        String fName= request.getParameter("fname");
-        String lName= request.getParameter("lname");
-        String telephone= request.getParameter("telephone");
-        long d= Long.parseLong(request.getParameter("date"));
-        Date date=new Date(d);
-        String time=request.getParameter("time");
-        String timeTaken=request.getParameter("timeTaken");
-
-
-        int customerId=0;
-        int qId=0;
+        int customerId = 0;
+        int qId = 0;
         boolean assignService;
         boolean assignedService;
-        Time startTime= Time.valueOf(timeStrToTime(time));
-        Time endTime=Time.valueOf(plusTime(timeStrToTime(time),timeTaken));
+        Time startTime = Time.valueOf(timeStrToTime(time));
+        Time endTime = Time.valueOf(plusTime(timeStrToTime(time), timeTaken));
 
-        CustomerModel customerModel=new CustomerModel();
-        AppointmentDAO appointmentModel=new AppointmentDAO();
+        CustomerModel customerModel = new CustomerModel();
+        AppointmentDAO appointmentModel = new ApppointmentDAOImple();
         ServiceProviderModel serviceProviderModel=new ServiceProviderModel();
         ServiceModel serviceModel=new ServiceModel();
 
@@ -97,7 +96,7 @@ public class SpAppointmentServlet extends HttpServlet {
         ArrayList<Integer> qIds=new ArrayList<Integer>();
         int spId= Integer.parseInt(request.getParameter("spId"));
         try {
-            AppointmentDAO appointmentModel=new AppointmentDAO();
+            AppointmentDAO appointmentModel=new ApppointmentDAOImple();
             qIds=appointmentModel.getAllAppointmentsBySP(spId);
             String json = new Gson().toJson(qIds);
             response.setContentType("application/json");
