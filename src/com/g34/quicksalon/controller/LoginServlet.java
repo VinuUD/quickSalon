@@ -1,6 +1,6 @@
 package com.g34.quicksalon.controller;
 
-import com.g34.quicksalon.dao.LoginModel;
+import com.g34.quicksalon.dao.LoginDAOImple;
 import com.g34.quicksalon.model.LoginInfo;
 
 import javax.servlet.http.HttpServlet;
@@ -36,7 +36,7 @@ public class LoginServlet extends HttpServlet {
 //        out.println(hashedPW);
 
         LoginInfo user = new LoginInfo(username, hashedPW);
-        LoginModel loginModel=new LoginModel();
+        LoginDAOImple loginModel=new LoginDAOImple();
 
 
         // Get user details for sessions
