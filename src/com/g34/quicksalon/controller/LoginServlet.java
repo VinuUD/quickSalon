@@ -1,7 +1,7 @@
 package com.g34.quicksalon.controller;
 
-import com.g34.quicksalon.entity.LoginInfo;
-import com.g34.quicksalon.model.LoginModel;
+import com.g34.quicksalon.dao.LoginModel;
+import com.g34.quicksalon.model.LoginInfo;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;

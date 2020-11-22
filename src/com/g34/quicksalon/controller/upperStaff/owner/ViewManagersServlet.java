@@ -1,7 +1,7 @@
 package com.g34.quicksalon.controller.upperStaff.owner;
 
-import com.g34.quicksalon.entity.ManagerDetailsForView;
-import com.g34.quicksalon.model.ViewManagerModel;
+import com.g34.quicksalon.dao.ViewManagerModel;
+import com.g34.quicksalon.model.ManagerDetailsForView;
 import com.google.gson.Gson;
 
 import javax.servlet.ServletException;

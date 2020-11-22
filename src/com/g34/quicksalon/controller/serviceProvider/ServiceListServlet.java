@@ -1,6 +1,6 @@
 package com.g34.quicksalon.controller.serviceProvider;
-import com.g34.quicksalon.entity.Service;
-import com.g34.quicksalon.model.ServiceModel;
+import com.g34.quicksalon.dao.ServiceModel;
+import com.g34.quicksalon.model.Service;
 import com.google.gson.Gson;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

@@ -1,8 +1,8 @@
-package com.g34.quicksalon.model;
+package com.g34.quicksalon.dao;
 
 import com.g34.quicksalon.database.DBConnection;
-import com.g34.quicksalon.entity.Service;
-import com.g34.quicksalon.entity.ServiceProvider;
+import com.g34.quicksalon.model.Service;
+import com.g34.quicksalon.model.ServiceProvider;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

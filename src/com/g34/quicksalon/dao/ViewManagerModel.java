@@ -1,7 +1,8 @@
-package com.g34.quicksalon.model;
-import com.g34.quicksalon.entity.ManagerDetailsForView;
+package com.g34.quicksalon.dao;
 import java.sql.*;
 import java.util.ArrayList;
+
+import com.g34.quicksalon.model.ManagerDetailsForView;
 
 public class ViewManagerModel {
 

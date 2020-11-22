@@ -1,10 +1,10 @@
 package com.g34.quicksalon.controller.serviceProvider;
 
-import com.g34.quicksalon.entity.Appointment;
-import com.g34.quicksalon.model.AppointmentModel;
-import com.g34.quicksalon.model.CustomerModel;
-import com.g34.quicksalon.model.ServiceModel;
-import com.g34.quicksalon.model.ServiceProviderModel;
+import com.g34.quicksalon.dao.AppointmentModel;
+import com.g34.quicksalon.dao.CustomerModel;
+import com.g34.quicksalon.dao.ServiceModel;
+import com.g34.quicksalon.dao.ServiceProviderModel;
+import com.g34.quicksalon.model.Appointment;
 import com.google.gson.Gson;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

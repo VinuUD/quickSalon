@@ -1,9 +1,10 @@
 package com.g34.quicksalon.dao;
 
-import com.g34.quicksalon.model.*;
+import com.g34.quicksalon.model.ManagerDetails;
 import java.sql.*;
 
 public class ManagerDAOImple implements ManagerDAO {
+
 	
 	public void addManager(ManagerDetails manager) throws Exception
 	{
