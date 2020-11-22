@@ -1,6 +1,6 @@
 package com.g34.quicksalon.controller.serviceProvider;
 
-import com.g34.quicksalon.dao.AppointmentModel;
+import com.g34.quicksalon.dao.AppointmentDAO;
 import com.g34.quicksalon.dao.CustomerModel;
 import com.g34.quicksalon.dao.ServiceModel;
 import com.g34.quicksalon.dao.ServiceProviderModel;
@@ -43,7 +43,7 @@ public class SpAppointmentServlet extends HttpServlet {
         Time endTime=Time.valueOf(plusTime(timeStrToTime(time),timeTaken));
 
         CustomerModel customerModel=new CustomerModel();
-        AppointmentModel appointmentModel=new AppointmentModel();
+        AppointmentDAO appointmentModel=new AppointmentDAO();
         ServiceProviderModel serviceProviderModel=new ServiceProviderModel();
         ServiceModel serviceModel=new ServiceModel();
 
@@ -97,7 +97,7 @@ public class SpAppointmentServlet extends HttpServlet {
         ArrayList<Integer> qIds=new ArrayList<Integer>();
         int spId= Integer.parseInt(request.getParameter("spId"));
         try {
-            AppointmentModel appointmentModel=new AppointmentModel();
+            AppointmentDAO appointmentModel=new AppointmentDAO();
             qIds=appointmentModel.getAllAppointmentsBySP(spId);
             String json = new Gson().toJson(qIds);
             response.setContentType("application/json");

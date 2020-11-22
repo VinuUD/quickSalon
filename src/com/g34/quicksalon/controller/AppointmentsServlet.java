@@ -1,6 +1,7 @@
 package com.g34.quicksalon.controller;
 
-import com.g34.quicksalon.dao.AppointmentModel;
+import com.g34.quicksalon.dao.AppointmentDAO;
+import com.g34.quicksalon.dao.ApppointmentDAOImple;
 import com.g34.quicksalon.dao.ServiceModel;
 import com.g34.quicksalon.model.Appointment;
 import com.g34.quicksalon.model.Service;
@@ -14,16 +15,18 @@ import java.io.IOException;
 import java.util.List;
 
 public class AppointmentsServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
-        AppointmentModel appointmentModel=new AppointmentModel();
-        List<Appointment> appointments=appointmentModel.getAllAppointments();
+        // InterfaceDemo demo = new InterfaceDemoImpl();
+
+        AppointmentDAO appointmentModel = new ApppointmentDAOImple();
+        List<Appointment> appointments = appointmentModel.getAllAppointments();
         String json = new Gson().toJson(appointments);
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");

@@ -5,10 +5,9 @@ import com.g34.quicksalon.model.Appointment;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.HashMap;
 
-public class AppointmentModel {
-
+public class ApppointmentDAOImple implements AppointmentDAO {
+    
     private ArrayList<Appointment> appointments=new ArrayList<>();
 
     public ArrayList<Appointment> getAllAppointments() {
@@ -66,5 +65,4 @@ public class AppointmentModel {
 
         return qId;
     }
-
 }
