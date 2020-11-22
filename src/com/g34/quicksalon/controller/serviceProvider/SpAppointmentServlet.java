@@ -4,7 +4,7 @@ import com.g34.quicksalon.dao.AppointmentDAO;
 import com.g34.quicksalon.dao.ApppointmentDAOImple;
 import com.g34.quicksalon.dao.CustomerDAOImple;
 import com.g34.quicksalon.dao.ServiceDAOImple;
-import com.g34.quicksalon.dao.ServiceProviderModel;
+import com.g34.quicksalon.dao.ServiceProviderDAOImple;
 import com.g34.quicksalon.model.Appointment;
 import com.google.gson.Gson;
 import javax.servlet.ServletException;
@@ -43,7 +43,7 @@ public class SpAppointmentServlet extends HttpServlet {
 
         CustomerDAOImple customerModel = new CustomerDAOImple();
         AppointmentDAO appointmentModel = new ApppointmentDAOImple();
-        ServiceProviderModel serviceProviderModel=new ServiceProviderModel();
+        ServiceProviderDAOImple serviceProviderModel=new ServiceProviderDAOImple();
         ServiceDAOImple serviceModel=new ServiceDAOImple();
 
         try {

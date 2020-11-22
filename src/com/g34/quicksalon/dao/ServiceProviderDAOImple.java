@@ -7,7 +7,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class ServiceProviderModel {
+public class ServiceProviderDAOImple implements  ServiceProviderDAO{
 
     private ArrayList<ServiceProvider> serviceProviders=new ArrayList<>();
 
