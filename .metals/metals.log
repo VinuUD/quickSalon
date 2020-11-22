@@ -1,4 +1,0 @@
-2020.11.09 13:32:07 INFO  started: Metals version 0.9.4 in workspace '/home/shehan/Desktop/quickSalon' for client vscode.
-2020.11.09 13:32:09 INFO  time: initialize in 1.36s
-2020.11.09 13:32:10 WARN  no build tool detected in workspace '/home/shehan/Desktop/quickSalon'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
-2020.11.09 13:40:05 INFO  shutting down Metals

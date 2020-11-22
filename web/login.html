@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="resources/css/login.css">
     <link rel="stylesheet" href="resources/css/34.css">
     <title>Login</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
  <div id="background" class="background">
@@ -18,7 +19,7 @@
            <img style="width: 150px; height: 150px; opacity: 0.5;"  src="resources/icons/user.png" alt="">
         </div>
 
-        <form action="login" method="post">
+        <form >
 
             <div class="innerDiv">
                 <input class="input" id="username" type="text" style="font-family:Arial, FontAwesome"  placeholder=' &#xF007 &nbsp Username'>
@@ -30,7 +31,7 @@
 
             <div class="buttonDiv">
 
-                <button type="submit"> <b>Log In</b> </button>
+                <button id="submit" > <b>Log In</b> </button>
             </div>
             <br>
             <div class="buttonDiv">
@@ -45,5 +46,6 @@
 
  </div>
 <script src="resources/javascript/login.js"></script>
+
 </body>
 </html>
