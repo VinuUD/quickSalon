@@ -15,16 +15,16 @@ public class ServiceListServlet extends HttpServlet {
     }
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-    try {
-         ServiceModel serviceModel=new ServiceModel();
-         List<Service> services=serviceModel.getAllServices();
-         String json = new Gson().toJson(services);
-         response.setContentType("application/json");
-         response.setCharacterEncoding("UTF-8");
-         response.getWriter().write(json);
+        try {
+             ServiceModel serviceModel=new ServiceModel();
+             List<Service> services=serviceModel.getAllServices();
+             String json = new Gson().toJson(services);
+             response.setContentType("application/json");
+             response.setCharacterEncoding("UTF-8");
+             response.getWriter().write(json);
 
-     }catch (Exception e){
-         response.getWriter().println(e.getMessage());
-     }
+         }catch (Exception e){
+             response.getWriter().println(e.getMessage());
+         }
     }
 }
