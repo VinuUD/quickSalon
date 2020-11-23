@@ -5,6 +5,10 @@ body {
 
   }
 
+  #mySidenav
+    {
+      width: 300px;
+    }
   .sidenav {
     display: flex;
     flex-direction: column;
@@ -15,7 +19,7 @@ body {
     left: 0;
     background-color:#33373e;
     overflow-x: hidden;
-   
+    
     transition: 0.3s;
   }
 
@@ -51,6 +55,7 @@ body {
     align-items: center;
     min-width: 300px;
 
+   
   }
 
   .sidenav a:hover {
