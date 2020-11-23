@@ -3,7 +3,7 @@ function openNav() {
 
   if(window.matchMedia("(max-width: 490px)").matches)
   {
-    document.getElementById("mySidenav").style.width = "230px";
+    document.getElementById("mySidenav").style.width = "250px";
   }
   else
   {
@@ -56,3 +56,11 @@ function tgl()
     $("a.subMenuService").hide();
   }); 
 } 
+
+$(document).ready(function(){
+  $("#mySidenav").load("sideNav.html", function(){
+     tgl();
+  });
+  
+});
+
