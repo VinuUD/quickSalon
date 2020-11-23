@@ -98,8 +98,21 @@ body {
     {
       font-size: 15px;
       height: 45px;
-      min-width: 180px;
+      min-width: 200px;
     }
+
+    a.subMenu
+    {
+      
+      font-size: 12px;
+      padding-left: 50px;
+    }
+  
+    a.subMenu:hover
+    {
+      padding-left: 70px;
+    }
+
   }
 
   .sidenav a:last-child {
@@ -185,4 +198,6 @@ body {
     {
       display: block;
     }
+
+    
   }
