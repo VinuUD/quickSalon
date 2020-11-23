@@ -1,4 +1,4 @@
-$("#signup").click(function(){
+$('#signup').click(function(){
 
     // fname
     // lname
@@ -18,26 +18,38 @@ $("#signup").click(function(){
     var email = $("#email").val().trim();
     var address = $("#address").val().trim();
     var password = $("#password").val().trim();
-    var passwordRepeat = $("#password").val().trim();
+    var passwordRepeat = $("#password-repeat").val().trim();
 
     //alert(username+'='+password);
 
     //if validate pass
-    $.post("registercustomer",
-        {
-            fname:fname,
-            lname:lname,
-            uname:uname,
-            contactno:contactno,
-            nic:nic,
-            email:email,
-            address:address,
-            password:password
-        },
-        function(data, status){
-            alert("Data: " + data + "\nStatus: " + status);
+        $.ajax({
+            type: 'POST',
+            url: 'registercustomer',
+            data: {
+                        fname:fname,
+                        lname:lname,
+                        uname:uname,
+                        contactno:contactno,
+                        nic:nic,
+                        email:email,
+                        address:address,
+                        password:password
+                    },
+            success:( function(response)
+            {
 
-        }
-    );
+                if(response ==1)
+                {
+                    alert("Customer Added successfully!");
+                    window.location.replace("http://localhost:8080/quickSalon_war_exploded/login.html");
+                }
+                else if(response==0){
+                    alert("Customer added failed");
+                }
+
+            })
+
+        });
 
 });
