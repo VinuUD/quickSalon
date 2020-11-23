@@ -3,6 +3,7 @@ package com.g34.quicksalon.controller;
 import com.g34.quicksalon.dao.LoginDAOImple;
 import com.g34.quicksalon.model.LoginInfo;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -53,6 +54,12 @@ public class LoginServlet extends HttpServlet {
                 userID = userDetails.get("userID");
                 userType = userDetails.get("userType");
 
+                //Session
+                HttpSession session = request.getSession();
+                session.setAttribute("userID", userID);
+                session.setAttribute("username", username);
+                session.setAttribute("userType", userType);
+
                 switch (userType) {
                     case 1:     // owner
                         out.println("Welcome ! Owner");
@@ -60,8 +67,8 @@ public class LoginServlet extends HttpServlet {
                     case 2:     // manager
                         out.println("Welcome ! Manager");
                         break;
-                    case 3:     // service provider
-                        out.println("Welcome ! Service Provider");
+                    case 3:     // service provider/serviceProvider/sp_home.html
+                        out.println("serviceProvider/sp_home");
                         break;
                     case 4:     // customer
                         out.println("Welcome ! Customer");
@@ -71,12 +78,6 @@ public class LoginServlet extends HttpServlet {
 
                 }
 
-
-                //Session
-                HttpSession session = request.getSession();
-                session.setAttribute("userID", userID);
-                session.setAttribute("username", username);
-                session.setAttribute("userType", userType);
             }
 
         } catch (SQLException throwables) {
@@ -84,10 +85,6 @@ public class LoginServlet extends HttpServlet {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-
-
-
-
 
 
         // if(username in db)
