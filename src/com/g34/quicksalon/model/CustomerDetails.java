@@ -4,7 +4,7 @@ public class CustomerDetails {
     private String firstName;
     private String lastName;
     private String userName;
-    private String  contactNo;
+    private String contactNo;
     private String nic;
     private String email;
     private String address;

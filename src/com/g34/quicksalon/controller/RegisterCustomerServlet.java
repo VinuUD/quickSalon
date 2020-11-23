@@ -1,27 +1,26 @@
 package com.g34.quicksalon.controller;
 
+import com.g34.quicksalon.dao.CustomerDAO;
+import com.g34.quicksalon.dao.CustomerDAOImple;
+import com.g34.quicksalon.model.CustomerDetails;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.sql.SQLException;
 
 
 public class RegisterCustomerServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-//         String fname=request.getParameter("fname");
-//         lname
-//         uname
-//         contactno
-//         nic
-//         email
-//         address
-//         password
-//         password-repeat
+        PrintWriter out= response.getWriter();
+        boolean success=false;
 
         String fname=request.getParameter("fname");
         String lname=request.getParameter("lname");
@@ -32,8 +31,19 @@ public class RegisterCustomerServlet extends HttpServlet {
         String address=request.getParameter("address");
         String password=doHash(request.getParameter("password"));
 
+        CustomerDetails customerDetails=new CustomerDetails(fname,lname,uname,contactno,nic,email,address,password);
 
+        CustomerDAO customerDAO=new CustomerDAOImple();
 
+        try {
+            success=customerDAO.registerCustomer(customerDetails);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        out.println(success);
 
 
     }
