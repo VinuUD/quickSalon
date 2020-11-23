@@ -85,24 +85,15 @@ a.fPassword
 }
 
 .back-login{
-
-    display: block;
-    float: right;
-    width: 150px;
-    height:40px;
-    border: 2px solid blue;
-    border-radius: 30px;
-    font-size: 16px;
-    outline: none;
-    background-color: rgb(30, 95, 126, 0.6);
-    color: black;
-    cursor: pointer;
+  
+    float: left;
+    width: 200px !important;
 
 }
 
 .back-login:hover
 {
-    background-color: rgb(30, 95, 126, 0.8);
+    background-color: rgba(30, 95, 126, 0.8);
 }
 
 label{
@@ -141,11 +132,9 @@ label{
 
 .buttonDiv
 {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-top: 0px;
     
+    margin-top: 0px;
+    text-align: right;
 }
 
 .buttonDiv button
@@ -157,14 +146,14 @@ label{
     border-radius: 30px;
     font-size: 16px;
     outline: none;
-    background-color: rgb(30, 95, 126, 0.6);
+    background-color: rgba(30, 95, 126, 0.6);
     color: black;
     cursor: pointer;
 }
 
 .buttonDiv button:hover
 {
-    background-color: rgb(30, 95, 126, 0.8);
+    background-color: rgba(30, 95, 126, 0.8);
 }
 
 
