@@ -52,5 +52,15 @@
         <url-pattern>/serviceProvider/enqueue_customer.jsp/spappointments</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>RegisterCustomerServlet</servlet-name>
+        <servlet-class>com.g34.quicksalon.controller.RegisterCustomerServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>RegisterCustomerServlet</servlet-name>
+        <url-pattern>/registercustomer</url-pattern>
+    </servlet-mapping>
+
 
 </web-app>
