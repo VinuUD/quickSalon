@@ -36,38 +36,53 @@ public class CustomerDAOImple implements CustomerDAO {
     }
 
     //
-    public boolean registerCustomer(CustomerDetails customerDetails) throws SQLException, ClassNotFoundException{
+    public boolean registerCustomer(CustomerDetails customerDetails){
+        //get DBConnection
+        Connection connection = null;
+        try {
+            connection = DBConnection.getConnection();
+            connection.setAutoCommit(false);
 
-        //1) add Customer to customer table
-        int customerID=addCustomer(customerDetails);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
         int userID=0;
         Boolean success=false;
-        if(customerID==0){
-            //rollback
-        }else{
-            //2)add user to j4f9qe_user table
-            userID=registerUser(customerDetails);
-            if(userID==0){
-                //rollback
-            }else{
-                //3)Update `j4f9qe_registeredcustomers` table
-                success=addRegisterdCustomer(customerDetails,customerID,userID);
-                if(!success){
-                    //Rollback
-                }
-            }
 
+        int customerID= 0;
+        try {
+            //1) add Customer to customer table
+            customerID = addCustomer(customerDetails,connection);
+            //2)add user to j4f9qe_user table
+            userID=registerUser(customerDetails,connection);
+            //3)Update `j4f9qe_registeredcustomers` table
+            success=addRegisterdCustomer(customerDetails,customerID,userID,connection);
+
+            //if success
+            connection.commit();
+        } catch (SQLException | ClassNotFoundException throwables) {
+            //exception happen then, rollback
+            try {
+                connection.rollback();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            throwables.printStackTrace();
         }
+
 
         return success;
     }
 
     //add cutomer to j4f9qe_customer` table- returns customerID
-    public int addCustomer(CustomerDetails customerDetails) throws SQLException, ClassNotFoundException {
+    public int addCustomer(CustomerDetails customerDetails,Connection connection) throws SQLException, ClassNotFoundException {
 
         //for registeredCustomer usertype=1
         int userType=1;
-        Connection connection =DBConnection.getConnection();
+
         PreparedStatement stmt= connection.prepareStatement("INSERT INTO j4f9qe_customer (firstname,lastname,telephone,accountType,registeredDate) VALUES (?,?,?,?,?)");
         stmt.setString(1,customerDetails.getFirstName());
         stmt.setString(2,customerDetails.getLastName());
@@ -89,10 +104,9 @@ public class CustomerDAOImple implements CustomerDAO {
     }
 
     //add user to j4f9qe_user table-returs  userID
-    public int registerUser(CustomerDetails customerDetails) throws SQLException, ClassNotFoundException {
+    public int registerUser(CustomerDetails customerDetails,Connection connection) throws SQLException, ClassNotFoundException {
 
         int userType=4;
-        Connection connection =DBConnection.getConnection();
         PreparedStatement stmt= connection.prepareStatement("INSERT INTO j4f9qe_user (userName,password,userType) VALUES (?,?,?)");
         stmt.setString(1,customerDetails.getUserName());
         stmt.setString(2,customerDetails.getPassword());
@@ -112,9 +126,8 @@ public class CustomerDAOImple implements CustomerDAO {
     }
 
     //Update `j4f9qe_registeredcustomers` table
-    public boolean addRegisterdCustomer(CustomerDetails customerDetails, int customerID, int userID) throws SQLException, ClassNotFoundException {
+    public boolean addRegisterdCustomer(CustomerDetails customerDetails, int customerID, int userID,Connection connection) throws SQLException, ClassNotFoundException {
 
-        Connection connection =DBConnection.getConnection();
         PreparedStatement stmt= connection.prepareStatement("INSERT INTO j4f9qe_registeredcustomers VALUES (?,?,?,?,?)");
         stmt.setInt(1,userID);
         stmt.setInt(2,customerID);
