@@ -1,0 +1,26 @@
+.job-table-div{
+    overflow: auto;
+    align-items: center;
+
+}
+
+
+
+.tb-btn
+{
+    width: 80px;
+    height: 20px;
+    cursor: pointer;
+    border-radius: 6px;
+    background-color :#48676c;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+
+
+}
+
+.tb-btn:hover
+{
+    background-color:#03a827;
+}

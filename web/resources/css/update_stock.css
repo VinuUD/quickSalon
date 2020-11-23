@@ -1,0 +1,79 @@
+.search-box:hover{
+    border: 5px solid #96e6b3ff ;
+}
+
+.sub-div{
+    margin-top: 0;
+    display: -ms-flexbox;
+    flex-direction: row;
+}
+
+.sub-div>div{
+
+    margin: 10px 5px;
+    justify-content: center;
+}
+
+.update-form{
+    flex: 1;
+    height: 300px;
+    display: grid;
+}
+
+/* .update-form>div{
+  justify-content: center;
+} */
+
+.select-opt{
+    display: grid;
+    justify-content: center;
+}
+.qty-box{
+    display: grid;
+    justify-content: center;
+    border: 5px solid #48676c;
+}
+
+input{
+    color: black !important;
+    background-color: white !important;
+    outline: none;
+    padding: 5px;
+    width: 180px !important;
+    font-size: 11px !important;
+    border: none;
+    margin-bottom: 5px;
+    border-radius:15px ;
+    padding: 5px;
+
+}
+
+
+.select-purpose{
+    display: grid;
+    justify-content: center;
+}
+
+.add-btn{
+    display: grid;
+    justify-content: center;
+}
+
+
+/* Select product */
+
+.update-btn{
+    float: right;
+}
+
+select {
+    border: 5px solid #48676c;
+    border-radius:15px ;
+    height: 40px;
+    color: black;
+    padding: 5px;
+    width: 200px;
+    font-size: 11px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    outline: none;
+}

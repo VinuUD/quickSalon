@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link rel="stylesheet" href="../resources/css/update_stock.css">
+    <link rel="stylesheet" href="../resources/css/34.css">
+    <link rel="stylesheet" href="../resources/css/sideNavbar.css">
+    <link rel="stylesheet" href="../resources/css/mainDiv.css">
+
+    <link rel="stylesheet" href="../resources/css/modal.css">
+    <meta charset="UTF-8">
+    <title>Update Stock</title>
+</head>
+<body>
+<body onresize="whenResizing()">
+<!-- side nav bar -->
+<div id="mySidenav" class="sidenav">
+    <div class="closeIcon"><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></div>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Clients</a>
+    <a href="#">Contact</a>
+</div>
+
+
+<div id="main">
+
+    <div class="back">
+        <div id="navIcon" onclick="openNav()" class="navIcon"><img src="../resources/icons/three.png" alt="Ooops">
+        </div>
+        <button class="btn34">Back</button>
+    </div>
+    </br></br>
+
+    <div class="topBar">
+        <b>Update Stock</b>
+    </div>
+
+    <div class="mainDiv">
+
+        <!-- Table -->
+        <div class="tableDiv34">
+            <table id='table_temp' class="table34">
+                <thead>
+                <tr class="header">
+                    <th>Product Id</th>
+                    <th>Product Name</th>
+                    <th>Type</th>
+                    <th>Size</th>
+                    <th>Price</th>
+                    <th>Qty</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>PDT001</td>
+                    <td>Davoo Hair Colour</td>
+                    <td>Hair Colour</td>
+                    <td>200ml</td>
+                    <td>500.00</td>
+                    <td>1</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+
+        <div class="sub-div">
+            <div class="update-form">
+                <!--Select box  -->
+                <div class="select-opt">
+                    <select>
+                        <option>
+                            <Select:d>Product</Select:d>
+                        </option>
+                        <option>Option 2</option>
+                        <option>Option 3</option>
+                        <option>Option 4</option>
+                        <option>Option 5</option>
+                    </select>
+                </div>
+
+                <!-- Qty box -->
+                <div>
+                    <input class="qty-box" placeholder="Enter Quantity" id="qty" type="text">
+                </div>
+
+                <!-- Purpose Box -->
+
+                <!--Select box  -->
+                <div class="select-purpose">
+                    <select>
+                        <option>
+                            <Select:d>Purpose</Select:d>
+                        </option>
+                        <option>Consumption</option>
+                        <option>Sell</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <!-- Button -->
+                <div class="add-btn">
+                    <button class="btn-success34">Add</button>
+                </div>
+
+
+
+            </div>
+            <!-- update Button -->
+            <div class="update-btn">
+                <button id="update" class="btn-success34">Update</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div id="modal" class="modal">
+    <div class="modal-cont">
+        <div class="title">Please Confirm !</div>
+        <div class="cont">Are you sure you want to continue ?</div>
+        <button id='cancel' class="cancel-modal-btn btn-danger34">Cancel</button>
+        <button class="confirm-modal-btn btn-success34">Confirm</button>
+    </div>
+</div>
+
+
+<script src="../resources/javascript/modal.js"></script>
+<script src="../resources/javascript/update_stock.js"></script>
+<script src="../resources/javascript/side_navbar.js"></script>
+</body>
+
+
+</body>
+</html>

@@ -306,6 +306,7 @@ function placeAppointment(){
                 });
         })
 
+    window.setTimeout(location.reload(),5000);
     // location.reload();
 
 
