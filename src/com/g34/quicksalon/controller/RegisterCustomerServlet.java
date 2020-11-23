@@ -3,6 +3,7 @@ package com.g34.quicksalon.controller;
 import com.g34.quicksalon.dao.CustomerDAO;
 import com.g34.quicksalon.dao.CustomerDAOImple;
 import com.g34.quicksalon.model.CustomerDetails;
+import com.google.gson.Gson;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,11 +18,11 @@ import java.sql.SQLException;
 
 
 public class RegisterCustomerServlet extends HttpServlet {
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         PrintWriter out= response.getWriter();
         boolean success=false;
-
         String fname=request.getParameter("fname");
         String lname=request.getParameter("lname");
         String uname=request.getParameter("uname");
@@ -37,15 +38,14 @@ public class RegisterCustomerServlet extends HttpServlet {
 
         try {
             success=customerDAO.registerCustomer(customerDetails);
+
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
 
-        out.println(success);
-
-
+       out.print(""+success);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

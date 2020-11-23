@@ -46,7 +46,7 @@ public class CustomerDAOImple implements CustomerDAO {
             //rollback
         }else{
             //2)add user to j4f9qe_user table
-            userID=registerUser(customerDetails,customerID);
+            userID=registerUser(customerDetails);
             if(userID==0){
                 //rollback
             }else{
@@ -89,7 +89,7 @@ public class CustomerDAOImple implements CustomerDAO {
     }
 
     //add user to j4f9qe_user table-returs  userID
-    public int registerUser(CustomerDetails customerDetails, int customerID) throws SQLException, ClassNotFoundException {
+    public int registerUser(CustomerDetails customerDetails) throws SQLException, ClassNotFoundException {
 
         int userType=4;
         Connection connection =DBConnection.getConnection();

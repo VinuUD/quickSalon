@@ -22,7 +22,7 @@ $("#signup").click(function(){
 
     //alert(username+'='+password);
 
-    // if validate pass
+    //if validate pass
     $.post("registercustomer",
         {
             fname:fname,
@@ -36,6 +36,7 @@ $("#signup").click(function(){
         },
         function(data, status){
             alert("Data: " + data + "\nStatus: " + status);
+
         }
     );
 
