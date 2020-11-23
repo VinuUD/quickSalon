@@ -8,6 +8,10 @@
   transition: .5s;
 }
 
+body{
+  padding: 0 !important;
+}
+
 #welcome-message{
   position: flex;
   margin-top: 100px;
