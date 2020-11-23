@@ -5,10 +5,22 @@
     <link rel="stylesheet" href="../../resources/css/registerPackage.css">
     <link rel="stylesheet" href="../../resources/css/34.css">
     <link rel="stylesheet" href="../../resources/css/sideNavbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <title>Register package</title>
+
+    <script  type="text/javascript">
+  
+        $(document).ready(function(){
+            $("#mySidenav").load("sideNav.html", function(){
+               tgl();
+            });
+            
+        });
+       
+       </script>
+    <title>Register Package</title>
 </head>
 <body onresize="whenResizing()">
 
@@ -49,20 +61,8 @@
     </div>
 
     <div id="mySidenav" class="sidenav">
-        <div class="closeIcon">
-          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        </div>
-        <br><br>
-        <!-- when i change here i should change nth child css -->
-        <div class="imgDiv"><img class="imgIcon"  src="../../resources/icons/user.png" alt=""></div>
-        <a href="#"><i class="fa fa-calendar"></i> &nbsp;&nbsp; View Salon  Schedule</a>
-        <a href="#"><i class="fa fa-tasks" ></i> &nbsp;&nbsp; Service Management</a>
-        <a href="#"><i class="fa fa-users" ></i> &nbsp;&nbsp; Employee Management</a>
-        <a href="#"><i class = "fas fa-balance-scale-left"></i> &nbsp;&nbsp; Stock Management</a>
-        <a href="#"><i class="fa fa-file" ></i>  &nbsp;&nbsp;&nbsp;&nbsp;Reports</a>
-          <a href="#"><i class = "fas fa-sign-out-alt"></i> &nbsp;&nbsp; Logout</a>
-  
-      </div> <!-- sidebar -->
+    
+    </div> <!-- sidebar -->
 
 <div id="main">
 
@@ -109,7 +109,7 @@
                     </tr>
                     <tr>
                         <td>Hair cut</td>
-                        <td style="text-align: center;"> <button class = 'btn34' onclick="showContinue()"></button> </td>
+                        <td style="text-align: center;"> <button class = 'btn34' onclick="showContinue()"><i class='fa fa-eye'></i></button> </td>
                     </tr>
                     <!-- <tr>
                         <td>Vinu Dayarathne</td>

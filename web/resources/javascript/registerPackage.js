@@ -31,7 +31,7 @@ function add()
     document.getElementById("sel").addEventListener("click", function ()
     {
         tr.innerHTML = "<td>" + document.getElementById("sel").value + "</td>" + 
-                        "<td style = 'text-align:center;'>" + "<button class = 'btn34' onclick = 'showContinue()'>" + "</button>" + "</td>";
+                        "<td style = 'text-align:center;'>" + "<button class = 'btn34' onclick = 'showContinue()'>" + "<i class='fa fa-eye'>"+ "</i>" + "</button>" + "</td>";
     });
 
 }
