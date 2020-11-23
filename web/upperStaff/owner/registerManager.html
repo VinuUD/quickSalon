@@ -67,7 +67,7 @@
 
     <div class="mainDiv">
         <div class="inDiv">
-       <form id="myForm"  onsubmit="return false" action="registerManager.html/addManager"  method="GET">
+       <form id="myForm"  action="registerManager.html/addManager"  method="GET">
        
 
         <div class="innerDiv">
@@ -109,12 +109,17 @@
     $(document).ready(function()
     {
         var form = $('#myForm');
+        $('#id').click
         form.submit(function () {
 
         $.ajax({
         type: form.attr('method'),
         url: form.attr('action'),
-        data: form.serialize()
+        data: form.serialize(),
+        success:( function(response)
+        {
+
+        })
 
     });
 
@@ -139,3 +144,37 @@
 <script src="../../resources/javascript/side_navbar.js"></script>
 </body>
 </html>
+
+<!-- $("#signup").click(function(){
+
+
+    var fname = $("#fname").val().trim();
+    var lname = $("#lname").val().trim();
+    var uname = $("#uname").val().trim();
+    var contactno = $("#contactno").val().trim();
+    var nic = $("#nic").val().trim();
+    var email = $("#email").val().trim();
+    var address = $("#address").val().trim();
+    var password = $("#password").val().trim();
+    var passwordRepeat = $("#password").val().trim();
+
+    //alert(username+'='+password);
+
+    //if validate pass
+    $.post("registercustomer",
+        {
+            fname:fname,
+            lname:lname,
+            uname:uname,
+            contactno:contactno,
+            nic:nic,
+            email:email,
+            address:address,
+            password:password
+        },
+        function(data, status){
+            alert("Data: " + data + "\nStatus: " + status);
+        }
+    );
+
+}); -->

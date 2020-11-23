@@ -28,6 +28,14 @@
     
 }
 
+.cross
+{
+    width: 20px;
+    height: 20px; 
+    margin-right: 10px;
+    cursor: pointer;
+}
+
 .table34 .btn34
 {
     width: 30px;
@@ -127,11 +135,10 @@
 
 .blo
 {
-    
-    
+     
     font-size: 15px;
     border: 2px solid black;
-    margin-right: -10px;
+    margin-right: -60px;
 }
 
 .tr
@@ -276,6 +283,16 @@
         margin: 10% auto 15% auto;
         
     }
+
+.blo
+{
+     
+    font-size: 10px;
+    border: 2px solid black;
+    margin-right: -60px;
+    margin-left: -5px;
+    width: 50px;
+}
 
     .popupText
     {
