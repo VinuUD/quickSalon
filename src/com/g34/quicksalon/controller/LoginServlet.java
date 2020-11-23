@@ -48,7 +48,7 @@ public class LoginServlet extends HttpServlet {
             userDetails=loginModel.getUserType(user);
 
             if(userDetails==null){
-                out.println("Thota log wenna ba yako !. Bye Bye...");
+                out.println("Credentials are not matched !");
             }else {
 
                 userID = userDetails.get("userID");
@@ -68,6 +68,7 @@ public class LoginServlet extends HttpServlet {
                         out.println("Welcome ! Manager");
                         break;
                     case 3:     // service provider/serviceProvider/sp_home.html
+                        //send to SpServlet
                         out.println("serviceProvider/sp_home");
                         break;
                     case 4:     // customer
