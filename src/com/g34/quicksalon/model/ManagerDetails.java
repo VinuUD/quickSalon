@@ -11,10 +11,12 @@ public class ManagerDetails {
     private int onLeaveFlag;
     private int removedFlag;
     private int cNum;
+    private String email;
+    private String address;
 
     
 
-	public ManagerDetails(String nic, String firstName, String lastName, int salary, String enrollDate, String resignDate, int isUpperStaffFlag, int onLeaveFlag, int removedFlag, int cNum) {
+	public ManagerDetails(String nic, String firstName, String lastName, int salary, String enrollDate, String resignDate, int isUpperStaffFlag, int onLeaveFlag, int removedFlag, int cNum, String email, String address) {
         this.nic = nic;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -25,6 +27,8 @@ public class ManagerDetails {
         this.onLeaveFlag = onLeaveFlag;
         this.removedFlag = removedFlag;
         this.cNum = cNum;
+        this.email = email;
+        this.address = address;
     }
 
     public String getNic() {
@@ -107,6 +111,22 @@ public class ManagerDetails {
 	public void setcNum(int cNum) {
 		this.cNum = cNum;
 	}
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
 
 
