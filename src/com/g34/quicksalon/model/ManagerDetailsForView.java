@@ -7,18 +7,22 @@ public class ManagerDetailsForView {
     private int contactNum;
     private String nic;
     private int salary;
+    private String email;
+    private String address;
 
 
 
 
 
-    public ManagerDetailsForView(int empId, String firstName, String lastName, int contactNum, String nic, int salary) {
+    public ManagerDetailsForView(int empId, String firstName, String lastName, int contactNum, String nic, int salary, String email, String address) {
         this.empId = empId;
         this.nic = nic;
         this.contactNum = contactNum;
         this.firstName = firstName;
         this.lastName = lastName;
         this.salary = salary;
+        this.email = email;
+        this.address = address;
     }
 
 
@@ -69,6 +73,24 @@ public class ManagerDetailsForView {
     public void setSalary(int salary) {
         this.salary = salary;
     }
+
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
 
 
 

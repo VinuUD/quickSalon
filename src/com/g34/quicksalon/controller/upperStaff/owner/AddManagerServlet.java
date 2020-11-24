@@ -26,15 +26,28 @@ public class AddManagerServlet extends HttpServlet {
 		int leaveFlag = 0;
 		int removeFlag = 0;
 		int cNum = Integer.parseInt(req.getParameter("cNum"));
+		String email = req.getParameter("email");
+		String address = req.getParameter("address");
 		
 
 		
-		ManagerDetails Manager = new ManagerDetails(nic, firstName, lastName, salary, enrollDate, resignDate, upFlag, leaveFlag, removeFlag, cNum);
+		ManagerDetails Manager = new ManagerDetails(nic, firstName, lastName, salary, enrollDate, resignDate, upFlag, leaveFlag, removeFlag, cNum, email, address);
 		
 		ManagerDAO managerDAO = new ManagerDAOImple();
 		
 		try {
-			managerDAO.addManager(Manager);
+			int x = managerDAO.addManager(Manager);
+			if(x == 1)
+			{
+				res.getWriter().println(x);
+				System.out.println(x);
+			}
+			else
+			{
+				res.getWriter().println(x);
+				System.out.println(x);
+			}
+
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
