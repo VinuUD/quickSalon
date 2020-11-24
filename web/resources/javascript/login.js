@@ -30,11 +30,9 @@ $("#submit").click(function(){
             password:password
         },
         function(data, status){
-            alert("Data: " + data + "\nStatus: " + status);
+            window.location.href='../../quickSalon_war_exploded/'+data+'.html'
+            // alert("Data: " + data + "\nStatus: " + status);
         }
      );
    //}
 });
-
-
-
