@@ -141,6 +141,26 @@ public class CustomerDAOImple implements CustomerDAO {
         return true;
     }
 
+    public String getCustomerNameByID(int customerID) throws SQLException, ClassNotFoundException{
+
+        String customerName="";
+        try {
+            Connection connection =DBConnection.getConnection();
+            PreparedStatement stmt= connection.prepareStatement("SELECT CONCAT(firstName,' ',lastName) AS fullName FROM j4f9qe_customer WHERE customerID=?;");
+            stmt.setInt(1,customerID);
+            ResultSet resultSet=stmt.executeQuery();
+
+            if(resultSet.next()){
+                customerName=resultSet.getString(1);
+            }
+        } catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+        return customerName;
+    }
+
 }
+
+
 
 

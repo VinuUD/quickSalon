@@ -40,4 +40,23 @@ public class ServiceDAOImple implements ServiceDAO {
             return false;
         }
     }
+
+    public String getServiceNameByqID(int qID){
+        String serviceName="";
+        try {
+            Connection connection =DBConnection.getConnection();
+            PreparedStatement stmt= connection.prepareStatement("SELECT s.serviceName FROM j4f9qe_service s INNER JOIN j4f9qe_appointmentservice apts ON apts.serviceID=s.serviceID WHERE apts.qID=?;");
+            stmt.setInt(1,qID);
+            ResultSet resultSet=stmt.executeQuery();
+
+            if(resultSet.next()){
+                serviceName=resultSet.getString(1);
+            }
+        } catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+        return serviceName;
+    }
+
+
 }

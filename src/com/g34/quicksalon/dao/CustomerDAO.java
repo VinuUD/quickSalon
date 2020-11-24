@@ -10,5 +10,7 @@ public interface CustomerDAO {
 
     public boolean registerCustomer(CustomerDetails customerDetails) throws SQLException, ClassNotFoundException;
 
+    public String getCustomerNameByID(int customerID) throws SQLException, ClassNotFoundException;
+
 
 }

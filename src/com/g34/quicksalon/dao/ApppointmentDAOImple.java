@@ -26,6 +26,7 @@ public class ApppointmentDAOImple implements AppointmentDAO {
         return appointments;
     }
 
+    //This will returns all the QIDs
     public ArrayList<Integer> getAllAppointmentsBySP(int spId) {
           ArrayList<Integer> qIds=new ArrayList<Integer>();
         try {
@@ -69,4 +70,28 @@ public class ApppointmentDAOImple implements AppointmentDAO {
 
         return qId;
     }
+
+    //This will returns all the appointment details of specific userID
+    public ArrayList<Appointment> getAllAppointmentDetailsByUserId(int userID) {
+
+        ArrayList<Appointment> appointments=new ArrayList<Appointment>();
+
+        try {
+            PreparedStatement stmt=DBConnection.getConnection().prepareStatement("SELECT apt.qID,apt.customerID,apt.date,apt.startTime,apt.endTime,apt.cancelledFlag FROM j4f9qe_appointments apt INNER JOIN j4f9qe_appointmentsassigned ass ON ass.qID=apt.qID INNER JOIN j4f9qe_employee emp ON emp.employeeID=ass.employeeID WHERE userID=?;");
+
+            stmt.setInt(1,userID);
+            ResultSet resultSet = stmt.executeQuery();
+
+            while (resultSet.next()) {
+                appointments.add(new Appointment(resultSet.getInt(1),resultSet.getInt(2),resultSet.getDate(3),Time.valueOf(resultSet.getString(4)),Time.valueOf(resultSet.getString(4)),resultSet.getInt(6)));
+            }
+        } catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+        return appointments;
+    }
+
+
+
+
 }

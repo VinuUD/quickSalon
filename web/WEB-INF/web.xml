@@ -83,4 +83,13 @@
         <url-pattern>/registercustomer</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>PersonalScheduleServlet</servlet-name>
+        <servlet-class>com.g34.quicksalon.controller.serviceProvider.PersonalScheduleServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PersonalScheduleServlet</servlet-name>
+        <url-pattern>/serviceProvider/myschedule</url-pattern>
+    </servlet-mapping>
+
 </web-app>
