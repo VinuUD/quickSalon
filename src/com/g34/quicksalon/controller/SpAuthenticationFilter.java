@@ -21,21 +21,22 @@ public class SpAuthenticationFilter implements Filter {
 
         if (session == null) {
             // Session is not created.
-            response.sendRedirect("../login.html");
+            response.sendRedirect("../restricted.html");
 //            RequestDispatcher dispatcher = request.getRequestDispatcher("/login.html");
 //            dispatcher.forward(request, response);
 
 
         } else {
             // Session is already created.
+            HttpSession ses= request.getSession();
 
             //check is he/she sp?
-            int userType=(Integer) request.getAttribute("userType");
+            int userType=(Integer) ses.getAttribute("userType");
 
             if( userType== 3){
                 chain.doFilter(req, resp);
             }else {
-                RequestDispatcher dispatcher = request.getRequestDispatcher("../web/login.html");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("../restricted.html");
                 dispatcher.forward(request, response);
             }
 
