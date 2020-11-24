@@ -19,10 +19,17 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+<<<<<<< HEAD
     <orderEntry type="library" name="lib" level="project" />
     <orderEntry type="library" name="repositories.xml" level="project" />
     <orderEntry type="library" name="gson-2.8.2" level="application" />
     <orderEntry type="library" name="mysql-connector-java-8.0.13" level="application" />
+=======
+
+    <orderEntry type="library" name="lib" level="project" />
+    <orderEntry type="library" name="gson-2.8.2" level="project" />
+    <orderEntry type="library" name="mysql-connector-java-8.0.13" level="project" />
+>>>>>>> 22a5d857411979d106cb77b6df928b3f8bc795a6
     <orderEntry type="library" name="repositories.xml" level="project" />
 
   </component>
