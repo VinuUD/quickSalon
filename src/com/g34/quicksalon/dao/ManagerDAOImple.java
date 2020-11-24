@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class ManagerDAOImple implements ManagerDAO {
 
 	
-	public void addManager(ManagerDetails manager) throws Exception
+	public int addManager(ManagerDetails manager) throws Exception
 	{
 
 
@@ -34,15 +34,27 @@ public class ManagerDAOImple implements ManagerDAO {
 		pst.setInt(7, manager.getIsUpperStaffFlag());
 		pst.setInt(8, manager.getOnLeaveFlag());
 		pst.setInt(9, manager.getRemovedFlag());
-		pst.executeUpdate();
+		int x = pst.executeUpdate();
 		
 		ResultSet rs = st.executeQuery("select last_insert_id()");
 		
 		rs.next();
 		pst2.setInt(1, rs.getInt(1));
 		pst2.setInt(2, manager.getcNum());
-		pst2.executeUpdate();
-		
+		int y = pst2.executeUpdate();
+		System.out.println("x = "+x);
+		System.out.println("y = "+y);
+
+		if(x>0 && y>0)
+		{
+			return 1;
+		}
+		else
+		{
+			return 0;
+		}
+
+
 	}
 
 	private ArrayList<ManagerDetailsForView> AllManagersDetails = new ArrayList<>();
