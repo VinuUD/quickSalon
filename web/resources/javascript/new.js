@@ -139,7 +139,7 @@ const emailCheck =  () => {
     }
     else if(!email.includes("@"))
     {
-        alert("missing @ symbol!");
+        alert("missing @ symbol in the email field!");
     }
     else if(email.includes(" "))
     {
@@ -152,15 +152,15 @@ const emailCheck =  () => {
     
 }
 
-const stringCheck = () => {
+const stringCheck = () => { //string ekak apuwahama methana return wenne false;
 
    
     let contactNumber = $("#cNum").val();
     let numArr = contactNumber.split("");
-    console.log(parseInt("1"));
+    
     for(var i = 0; i< numArr.length; i++)
     {
-        if(!parseInt(numArr[i]))
+        if(!parseInt(numArr[i]) && numArr[i] != "0" )
         {
             return false;
         }
@@ -169,13 +169,45 @@ const stringCheck = () => {
     
     return true;
 }
+ const numLen = () => {
 
+    let len = $("#cNum").val().length;
+    if(len == 10)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+
+ }
+
+//  const lenCheck = () => {
+
+//     if(!numLen())
+//     {
+//         alert("Please enter 10 digit number to the contact number field!");
+//     }
+//     else
+//     {
+//         return true;
+//     }
+
+//  }
 
 const numberCheck = () => {
-
-    if(!stringCheck())
+    if(!stringCheck() && !numLen())
+    {
+        alert("There are/is string/s in the contact number field ! please enter 10 digit number to the contact number field!")
+    }
+    else if(!stringCheck())
     {
         alert("There are/is string/s in the contact number field !")
+    }
+    else if(!numLen())
+    {
+        alert("Please enter 10 digit number to the contact number field!");
     }
     else
     {
