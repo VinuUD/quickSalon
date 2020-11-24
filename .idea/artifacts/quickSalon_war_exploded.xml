@@ -9,7 +9,6 @@
         <element id="directory" name="lib">
           <element id="library" level="project" name="mysql-connector-java-8.0.13" />
           <element id="library" level="project" name="gson-2.8.2" />
-          <element id="library" level="project" name="repositories.xml" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="quickSalon/web/Web" />
