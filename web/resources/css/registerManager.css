@@ -20,6 +20,12 @@ body
 
 }
 
+a > .text
+{
+    text-decoration: none;
+    color: white;
+}
+
 .crsImg
 {
     height: 20px; width: 20px; margin-right: 10px; cursor: pointer;

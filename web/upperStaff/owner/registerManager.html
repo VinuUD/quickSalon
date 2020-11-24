@@ -5,29 +5,51 @@
     <link rel="stylesheet" href="../../resources/css/34.css">
     <link rel="stylesheet" href="../../resources/css/registerManager.css">
     <link rel="stylesheet" href="../../resources/css/sideNavbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <title>registerManager</title>
+
+    <title>Register Manager</title>
 </head>
 <body onresize="whenResizing()">
- <!-- back popup -->
+ <!-- confirm popup -->
     <div id="mainPopupDiv" class="mainPopupDiv">
         <div class="innerPopupDiv">
             <div class="top1">
                 <i><img class="crsImg" onclick="hide()" src="../../resources/icons/cross.png" alt=""></i>
-                <b >Remove Manager</b> 
+                <b >Register Manager</b>
             </div>
             <div class="popupText">
-                <h3>All data Will be lost. Do you want to continue?</h3>
+                <h3>Manager added successfully ! Do you want to add new Manager?</h3>
             </div> 
 
             <div class="pButton">
                 <button onclick="hide()" class="btn-danger34">yes</button>
-                <button onclick="hide()" class="btn-success34">no</button>
+                <button  class="btn-success34">  <a style="text-decoration: none; color: white" href="ownerHome.html"> No </a> </button>
+               
             </div>
         </div>
    </div>
+
+
+ <!-- back popup -->
+ <div id="mainPopupDivBack" class="mainPopupDiv">
+     <div class="innerPopupDiv">
+         <div class="top1">
+             <i><img class="crsImg" onclick="hideBack()" src="../../resources/icons/cross.png" alt=""></i>
+             <b >Remove Manager</b>
+         </div>
+         <div class="popupText">
+             <h3>All data Will be lost. Do you want to continue?</h3>
+         </div>
+
+         <div class="pButton">
+             <button onclick="hideBack()" class="btn-danger34">yes</button>
+             <button onclick="hideBack()" class="btn-success34">no</button>
+         </div>
+     </div>
+ </div>
 
    <!-- continue popup -->
    <div id="mainPopupDivContinue" class="mainPopupDiv">
@@ -41,7 +63,7 @@
             </div>
 
             <div class="pButton">
-                <button onclick="hideContinue(), res()" type="submit" form="myForm" class="btn-danger34">Leave default</button>
+                <button onclick="hideContinue()" id="submit" class="btn-danger34">Leave default</button>
                 <button onclick="hideContinue()" class="btn-success34">Yes</button>
                 <button onclick="hideContinue()" class="btn-danger34">Cancel</button>
             </div>
@@ -49,26 +71,14 @@
     </div>
 
     <div id="mySidenav" class="sidenav">
-        <div class="closeIcon">
-          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        </div>
-        <br><br>
-        <!-- when i change here i should change nth child css -->
-        <div class="imgDiv"><img class="imgIcon"  src="../../resources/icons/user.png" alt=""></div>
-        <a href="#"><i class="fa fa-calendar"></i> &nbsp;&nbsp; View Salon  Schedule</a>
-        <a href="#"><i class="fa fa-tasks" ></i> &nbsp;&nbsp; Service Management</a>
-        <a href="#"><i class="fa fa-users" ></i> &nbsp;&nbsp; Employee Management</a>
-        <a href="#"><i class = "fas fa-balance-scale-left"></i> &nbsp;&nbsp; Stock Management</a>
-        <a href="#"><i class="fa fa-file" ></i>  &nbsp;&nbsp;&nbsp;&nbsp;Reports</a>
-          <a href="#"><i class = "fas fa-sign-out-alt"></i> &nbsp;&nbsp; Logout</a>
-  
-      </div> <!-- sidebar -->
+    
+    </div> <!-- sidebar -->
 
 
 <div id="main">
     <div class="back">
         <div id="navIcon" onclick="openNav()" class="navIcon"  ><img  src="../../resources/icons/three.png" alt="Ooops" ></div>
-        <button onclick="change()" class="btn34">back</button>
+        <button onclick="redirect()" class="btn34">back</button>
     </div>
 
     <div class="topBar">
@@ -77,11 +87,11 @@
 
     <div class="mainDiv">
         <div class="inDiv">
-       <form id="myForm"  onsubmit="return false" action="registerManager.html/addManager"  method="GET">
+       <form id="myForm"  action="registerManager.html/addManager"  method="GET">
        
 
         <div class="innerDiv">
-            <div><b>First Name &nbsp;&nbsp;&nbsp;&nbsp;</b></div>  <div class="inputDiv"><input type="text" name="firstName"> </div>
+            <div><b>First Name &nbsp;&nbsp;&nbsp;&nbsp;</b></div>  <div class="inputDiv"><input onchange="cng()" type="text" name="firstName"> </div>
         </div>
 
         <div class="innerDiv">
@@ -92,11 +102,18 @@
             <div><b>Contact Number &nbsp;</b></div>  <div class="inputDiv"><input type="text" name="cNum" style="margin-left: -28px;"> </div>
         </div>
 
-      
+       <div class="innerDiv">
+           <div><b>Email &nbsp;</b></div>  <div class="inputDiv"><input type="email" name="email" style="margin-left: 50px;"> </div>
+       </div>
+
 
         <div class="innerDiv">
             <div><b>NIC &nbsp;</b></div>  <div class="inputDiv"><input style="margin-left: 60px;" type="text" name="nic"> </div>
         </div>
+
+       <div class="innerDiv">
+           <div><b>Address &nbsp;</b></div>  <div style="margin-left: 30px;" class="inputDiv"><input  type="text" name="address"> </div>
+       </div>
 
         <div class="innerDiv">
             <div><b>Salary &nbsp;</b></div>  <div style="margin-left: 45px;" class="inputDiv"><input  type="text" name="salary"> </div>
@@ -116,35 +133,48 @@
 
 <script type="text/javascript">
 	
-$(document).ready(function(){
-	var form = $('#myForm');
-	form.submit(function () {
-	 
-	$.ajax({
-	type: form.attr('method'),
-	url: form.attr('action'),
-	data: form.serialize()
-	
-	});
-	 
-	return false;
-	});
-	
-	
-	
-});
+    $(document).ready(function()
+    {
+            var form = $('#myForm');
 
-function res(event)
-{
-	
-	location.reload();
-	
-}
+            $('#submit').click(function () {
+
+            $.ajax({
+            type: form.attr('method'),
+            url: form.attr('action'),
+            data: form.serialize(),
+            success:( function(response)
+                    {
+
+                        if(response ==1)
+                        {
+                            document.getElementById("mainPopupDiv").style.display="block";
+
+                        }
+                        else if(response ==0)
+                        {
+                            alert("Manager Added unsuccess! please try again !");
+                        }
+
+                    })
+
+        });
+            document.getElementById("myForm").reset();
+
+        });
+
+
+
+    });
+
+
 
 </script>
    
    
-<script src="../../resources/javascript/registerManager.js"></script>
+
 <script src="../../resources/javascript/side_navbar.js"></script>
+<script src="../../resources/javascript/new.js"></script>
 </body>
 </html>
+

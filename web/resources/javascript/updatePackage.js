@@ -47,8 +47,9 @@ function add()
 
     icon.onclick = function (){
         var x = icon.parentNode.parentNode.rowIndex;
+        
         document.getElementById("table34").deleteRow(x); //function for delete row which makes dynamically
-        console.log(x);
+        
     };
 
     var image = document.createElement("img");
