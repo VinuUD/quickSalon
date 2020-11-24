@@ -154,37 +154,38 @@ const emailCheck =  () => {
 
 const stringCheck = () => {
 
-    let num = 0;
+   
     let contactNumber = $("#cNum").val();
     let numArr = contactNumber.split("");
+    console.log(parseInt("1"));
     for(var i = 0; i< numArr.length; i++)
     {
-        if(typeof(numArr[i]) === 'string')
+        if(!parseInt(numArr[i]))
         {
-            num = num + 1;
             return false;
         }
     }
 
-    if(num == 0)
-    {
-        return true;
-    }
-
-
+    
+    return true;
 }
+
 
 const numberCheck = () => {
 
     if(!stringCheck())
     {
-        alert("There is strings in the contact number field !")
+        alert("There are/is string/s in the contact number field !")
+    }
+    else
+    {
+        return true;
     }
 }
 
 function confirm()
 {
-    if(Empty() && emailCheck())
+    if(Empty() && emailCheck() && numberCheck())
     {
         showContinue();
     }
