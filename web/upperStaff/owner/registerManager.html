@@ -13,23 +13,43 @@
     <title>Register Manager</title>
 </head>
 <body onresize="whenResizing()">
- <!-- back popup -->
+ <!-- confirm popup -->
     <div id="mainPopupDiv" class="mainPopupDiv">
         <div class="innerPopupDiv">
             <div class="top1">
                 <i><img class="crsImg" onclick="hide()" src="../../resources/icons/cross.png" alt=""></i>
-                <b >Remove Manager</b> 
+                <b >Register Manager</b>
             </div>
             <div class="popupText">
-                <h3>All data Will be lost. Do you want to continue?</h3>
+                <h3>Manager added successfully ! Do you want to add new Manager?</h3>
             </div> 
 
             <div class="pButton">
                 <button onclick="hide()" class="btn-danger34">yes</button>
-                <button onclick="hide()" class="btn-success34">no</button>
+                <button onclick="hide()" class="btn-success34">  <a style="text-decoration: none; color: white" href="#"> No </a> </button>
+               
             </div>
         </div>
    </div>
+
+
+ <!-- back popup -->
+ <div id="mainPopupDivBack" class="mainPopupDiv">
+     <div class="innerPopupDiv">
+         <div class="top1">
+             <i><img class="crsImg" onclick="hideBack()" src="../../resources/icons/cross.png" alt=""></i>
+             <b >Remove Manager</b>
+         </div>
+         <div class="popupText">
+             <h3>All data Will be lost. Do you want to continue?</h3>
+         </div>
+
+         <div class="pButton">
+             <button onclick="hideBack()" class="btn-danger34">yes</button>
+             <button onclick="hideBack()" class="btn-success34">no</button>
+         </div>
+     </div>
+ </div>
 
    <!-- continue popup -->
    <div id="mainPopupDivContinue" class="mainPopupDiv">
@@ -43,7 +63,7 @@
             </div>
 
             <div class="pButton">
-                <button onclick="hideContinue(), res()" type="submit" form="myForm" class="btn-danger34">Leave default</button>
+                <button onclick="hideContinue()" id="submit" class="btn-danger34">Leave default</button>
                 <button onclick="hideContinue()" class="btn-success34">Yes</button>
                 <button onclick="hideContinue()" class="btn-danger34">Cancel</button>
             </div>
@@ -58,7 +78,7 @@
 <div id="main">
     <div class="back">
         <div id="navIcon" onclick="openNav()" class="navIcon"  ><img  src="../../resources/icons/three.png" alt="Ooops" ></div>
-        <button onclick="change()" class="btn34">back</button>
+        <button onclick="redirect()" class="btn34">back</button>
     </div>
 
     <div class="topBar">
@@ -71,7 +91,7 @@
        
 
         <div class="innerDiv">
-            <div><b>First Name &nbsp;&nbsp;&nbsp;&nbsp;</b></div>  <div class="inputDiv"><input type="text" name="firstName"> </div>
+            <div><b>First Name &nbsp;&nbsp;&nbsp;&nbsp;</b></div>  <div class="inputDiv"><input onchange="cng()" type="text" name="firstName"> </div>
         </div>
 
         <div class="innerDiv">
@@ -108,73 +128,46 @@
 	
     $(document).ready(function()
     {
-        var form = $('#myForm');
-        $('#id').click
-        form.submit(function () {
+            var form = $('#myForm');
 
-        $.ajax({
-        type: form.attr('method'),
-        url: form.attr('action'),
-        data: form.serialize(),
-        success:( function(response)
-        {
+            $('#submit').click(function () {
 
-        })
+            $.ajax({
+            type: form.attr('method'),
+            url: form.attr('action'),
+            data: form.serialize(),
+            success:( function(response)
+                    {
+
+                        if(response ==1)
+                        {
+                            document.getElementById("mainPopupDiv").style.display="block";
+
+                        }
+                        else if(response ==0)
+                        {
+                            alert("Manager Added unsuccess! please try again !");
+                        }
+
+                    })
+
+        });
+            document.getElementById("myForm").reset();
+
+        });
+
+
 
     });
 
-    return false;
-    });
 
-
-
-    });
-
-    function res(event)
-    {
-
-    location.reload();
-
-    }
 
 </script>
    
    
-<script src="../../resources/javascript/registerManager.js"></script>
+
 <script src="../../resources/javascript/side_navbar.js"></script>
+<script src="../../resources/javascript/new.js"></script>
 </body>
 </html>
 
-<!-- $("#signup").click(function(){
-
-
-    var fname = $("#fname").val().trim();
-    var lname = $("#lname").val().trim();
-    var uname = $("#uname").val().trim();
-    var contactno = $("#contactno").val().trim();
-    var nic = $("#nic").val().trim();
-    var email = $("#email").val().trim();
-    var address = $("#address").val().trim();
-    var password = $("#password").val().trim();
-    var passwordRepeat = $("#password").val().trim();
-
-    //alert(username+'='+password);
-
-    //if validate pass
-    $.post("registercustomer",
-        {
-            fname:fname,
-            lname:lname,
-            uname:uname,
-            contactno:contactno,
-            nic:nic,
-            email:email,
-            address:address,
-            password:password
-        },
-        function(data, status){
-            alert("Data: " + data + "\nStatus: " + status);
-        }
-    );
-
-}); -->
