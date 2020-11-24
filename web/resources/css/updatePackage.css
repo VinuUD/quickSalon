@@ -19,6 +19,15 @@ body
 
 }
 
+.crossImg
+{
+    height: 20px; width: 20px; margin-right: 10px; cursor: pointer;
+}
+.removeText
+{
+    margin: 0px auto 0px auto;
+}
+
 .topBar
 {
     display: flex;
