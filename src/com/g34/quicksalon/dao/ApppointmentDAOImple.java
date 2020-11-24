@@ -7,15 +7,19 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class ApppointmentDAOImple implements AppointmentDAO {
-    
-    private ArrayList<Appointment> appointments=new ArrayList<>();
+
 
     public ArrayList<Appointment> getAllAppointments() {
+        ArrayList<Appointment> appointments=new ArrayList<>();
         try {
             ResultSet resultSet = DBConnection.getConnection().createStatement().executeQuery("SELECT * FROM j4f9qe_appointments;");
+
             while (resultSet.next()) {
-                appointments.add(new Appointment(resultSet.getInt(1), resultSet.getInt(2), resultSet.getDate(3), resultSet.getTime(4), resultSet.getTime(5),  resultSet.getInt(6)));
+                //data=(Time)resultSet.getString(4);
+
+                appointments.add(new Appointment(resultSet.getInt(1), resultSet.getInt(2), resultSet.getDate(3), Time.valueOf(resultSet.getString(4)), Time.valueOf(resultSet.getString(5)),  resultSet.getInt(6)));
             }
+
         } catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
         }

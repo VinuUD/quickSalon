@@ -72,8 +72,6 @@ public class CustomerDAOImple implements CustomerDAO {
             }
             throwables.printStackTrace();
         }
-
-
         return success;
     }
 

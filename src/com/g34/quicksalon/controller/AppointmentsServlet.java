@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class AppointmentsServlet extends HttpServlet {
@@ -26,7 +27,8 @@ public class AppointmentsServlet extends HttpServlet {
         // InterfaceDemo demo = new InterfaceDemoImpl();
 
         AppointmentDAO appointmentModel = new ApppointmentDAOImple();
-        List<Appointment> appointments = appointmentModel.getAllAppointments();
+        ArrayList<Appointment> appointments = appointmentModel.getAllAppointments();
+
         String json = new Gson().toJson(appointments);
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");

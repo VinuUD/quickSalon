@@ -1,4 +1,4 @@
-package com.g34.quicksalon.controller.serviceProvider;
+package com.g34.quicksalon.controller;
 
 import com.g34.quicksalon.dao.ServiceDAO;
 import com.g34.quicksalon.dao.ServiceDAOImple;

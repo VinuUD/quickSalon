@@ -19,6 +19,7 @@ public class SpAuthenticationFilter implements Filter {
 
         HttpSession session = request.getSession(false);
 
+
         if (session == null) {
             // Session is not created.
             response.sendRedirect("../restricted.html");

@@ -45,10 +45,16 @@ var serviceDetails=[];
 var appointments=[];
 var sid=null;
 
+//json
+var allServices;
+var allAppointments;
+
 //Get all services
 $(document).ready(function() {
-    //GET service List
-    $.get("enqueue_customer.jsp/serviceList", function(responseJson) {
+
+    //1) GET service List
+    $.get("http://localhost:8080/quickSalon_war_exploded/serviceList", function(responseJson) {
+        allServices=responseJson;
         var $select = $("#servicedropdownlist");
         $.each(responseJson, function(index, service) {
             $("<option>").val(index).text(service.serviceName).appendTo($select);
@@ -61,7 +67,7 @@ $(document).ready(function() {
     });
 
     //    Get all Appointments
-    $.get("enqueue_customer.jsp/appointments", function(responseJson) {
+    $.get("http://localhost:8080/quickSalon_war_exploded/appointments", function(responseJson) {
         // var $select = $("#servicedropdownlist");
         $.each(responseJson, function(index, appointment) {
             //set date into 2020Jan05 format
@@ -90,8 +96,7 @@ $("#servicedropdownlist").change(function (){
     window.timeTaken=serviceDetails[selectedServiceIndex].time
 
    // alert(timeTaken)
-
-    $.get("enqueue_customer.jsp/serviceProviderList?sid="+sid, function(responseJSON) {
+    $.get("http://localhost:8080/quickSalon_war_exploded/serviceProvider/serviceProviderList?sid="+sid, function(responseJSON) {
         var $select = $("#spdropdownlist");
         spList=responseJSON;
         $select.find("option").remove();
@@ -109,7 +114,8 @@ $("#spdropdownlist").change(function (){
     window.queueIds=[];
     apt_sp=[]
     window.spId = $("#spdropdownlist option:selected").val();
-    $.get("enqueue_customer.jsp/spappointments?spId="+spId, function(responseJSON) {
+
+    $.get("http://localhost:8080/quickSalon_war_exploded/serviceProvider/spappointments?spId="+spId, function(responseJSON) {
         $.each(responseJSON, function(index,qId) {
             queueIds.push(qId)
         });
@@ -283,14 +289,13 @@ function getSelectedOption(sel) {
     return opt;
 }
 
+
 //Confirm data
 function placeAppointment(){
-
         var len = document.getElementById("apt-table").rows.length-1;
-
        // alert(timeTaken.hour+"-"+timeTaken.min)
         appointmentArray.forEach(appointment=>{
-            $.post("enqueue_customer.jsp/spappointments",
+            $.post("http://localhost:8080/quickSalon_war_exploded/serviceProvider/spappointments",
                 {
                     spId: appointment.spId,
                     serviceID: appointment.serviceID,
@@ -308,7 +313,6 @@ function placeAppointment(){
 
     window.setTimeout(location.reload(),5000);
     // location.reload();
-
 
 }
 
