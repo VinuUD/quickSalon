@@ -169,6 +169,25 @@ const stringCheck = () => { //string ekak apuwahama methana return wenne false;
     
     return true;
 }
+
+const salStringCheck = () => { //string ekak apuwahama methana return wenne false;
+
+   
+    let salary = $("#salary").val();
+    let numArr = salary.split("");
+    
+    for(var i = 0; i< numArr.length; i++)
+    {
+        if(!parseInt(numArr[i]) && numArr[i] != "0" )
+        {
+            return false;
+        }
+    }
+
+    
+    return true;
+}
+
  const numLen = () => {
 
     let len = $("#cNum").val().length;
@@ -183,18 +202,17 @@ const stringCheck = () => { //string ekak apuwahama methana return wenne false;
 
  }
 
-//  const lenCheck = () => {
+const salaryCheck = () => {
+    if(!salStringCheck())
+    {
+        alert("There are/is string/s in the salary field !")
+    }
+    else
+    {
+        return true;
+    }
 
-//     if(!numLen())
-//     {
-//         alert("Please enter 10 digit number to the contact number field!");
-//     }
-//     else
-//     {
-//         return true;
-//     }
-
-//  }
+}
 
 const numberCheck = () => {
     if(!stringCheck() && !numLen())
@@ -217,7 +235,7 @@ const numberCheck = () => {
 
 function confirm()
 {
-    if(Empty() && emailCheck() && numberCheck())
+    if(Empty() && emailCheck() && numberCheck() && salaryCheck())
     {
         showContinue();
     }
