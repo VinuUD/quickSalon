@@ -18,30 +18,21 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>ServiceProviderList</servlet-name>
-        <url-pattern>/serviceProvider/enqueue_customer.jsp/serviceProviderList</url-pattern>
+        <url-pattern>/serviceProvider/serviceProviderList</url-pattern>
     </servlet-mapping>
 
+<!--    ServiceList returns-->
     <servlet>
         <servlet-name>ServiceListServlet</servlet-name>
-        <servlet-class>com.g34.quicksalon.controller.serviceProvider.ServiceListServlet</servlet-class>
+        <servlet-class>com.g34.quicksalon.controller.ServiceListServlet</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>ServiceListServlet</servlet-name>
-        <url-pattern>/serviceProvider/enqueue_customer.jsp/serviceList</url-pattern>
+        <url-pattern>/serviceList</url-pattern>
     </servlet-mapping>
 
-<!--    <servlet>-->
 
-<!--        <servlet-name>AppointmentsServlet</servlet-name>-->
-<!--        <servlet-class>com.g34.quicksalon.controller.AppointmentsServlet</servlet-class>-->
-<!--    </servlet>-->
-
-<!--    <servlet-mapping>-->
-<!--        <servlet-name>AppointmentsServlet</servlet-name>-->
-<!--        <url-pattern>/serviceProvider/enqueue_customer.jsp/appointments</url-pattern>-->
-<!--    </servlet-mapping>-->
-
+<!--    //all appointments returns-->
     <servlet>
         <servlet-name>SpAppointmentServlet</servlet-name>
         <servlet-class>com.g34.quicksalon.controller.serviceProvider.SpAppointmentServlet</servlet-class>
@@ -49,18 +40,17 @@
 
     <servlet-mapping>
         <servlet-name>SpAppointmentServlet</servlet-name>
-        <url-pattern>/serviceProvider/enqueue_customer.jsp/spappointments</url-pattern>
+        <url-pattern>/serviceProvider/spappointments</url-pattern>
     </servlet-mapping>
 
-    <servlet>
 
+    <servlet>
         <servlet-name>AppointmentsServlet</servlet-name>
         <servlet-class>com.g34.quicksalon.controller.AppointmentsServlet</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>AppointmentsServlet</servlet-name>
-        <url-pattern>/serviceProvider/enqueue_customer.jsp/appointments</url-pattern>
+        <url-pattern>/appointments</url-pattern>
     </servlet-mapping>
 
 
@@ -68,8 +58,6 @@
         <servlet-name>View</servlet-name>
         <servlet-class>com.g34.quicksalon.controller.upperStaff.owner.ViewManagersServlet</servlet-class>
     </servlet>
-
-
     <servlet-mapping>
         <servlet-name>View</servlet-name>
         <url-pattern>/upperStaff/owner/allManagers.html/view</url-pattern>
@@ -80,21 +68,19 @@
         <servlet-name>addManager</servlet-name>
         <servlet-class>com.g34.quicksalon.controller.upperStaff.owner.AddManagerServlet</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>addManager</servlet-name>
         <url-pattern>/upperStaff/owner/registerManager.html/addManager</url-pattern>
     </servlet-mapping>
 
+
     <servlet>
         <servlet-name>RegisterCustomerServlet</servlet-name>
         <servlet-class>com.g34.quicksalon.controller.RegisterCustomerServlet</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>RegisterCustomerServlet</servlet-name>
         <url-pattern>/registercustomer</url-pattern>
     </servlet-mapping>
-
 
 </web-app>
