@@ -7,7 +7,7 @@ import com.g34.quicksalon.model.ManagerDetailsForView;
 
 public interface ManagerDAO {
 
-    public void addManager(ManagerDetails manager) throws Exception;
+    public int addManager(ManagerDetails manager) throws Exception;
     
     public ArrayList<ManagerDetailsForView> getManagersDetails() throws Exception;
 
