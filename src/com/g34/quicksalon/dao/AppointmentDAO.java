@@ -14,4 +14,6 @@ public interface AppointmentDAO {
 
     public int placeAppointment(Appointment appointment) throws SQLException, ClassNotFoundException;
 
+    public ArrayList<Appointment> getAllAppointmentDetailsByUserId(int userID);
+
 }

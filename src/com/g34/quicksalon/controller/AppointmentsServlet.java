@@ -12,23 +12,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.Time;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class AppointmentsServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        // InterfaceDemo demo = new InterfaceDemoImpl();
+        ArrayList<Appointment> appointments=new ArrayList<>();
+        AppointmentDAO appointmentDAO = new ApppointmentDAOImple();
 
-        AppointmentDAO appointmentModel = new ApppointmentDAOImple();
-        ArrayList<Appointment> appointments = appointmentModel.getAllAppointments();
-
+        appointments = appointmentDAO.getAllAppointments();
         String json = new Gson().toJson(appointments);
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");

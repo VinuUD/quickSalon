@@ -9,6 +9,8 @@ public interface ServiceDAO {
     
     public ArrayList<Service> getAllServices();
 
+    public String getServiceNameByqID(int qID);
+
     public boolean  addServicetoAppointments(int qId,int serviceId) throws SQLException, ClassNotFoundException;
 
 

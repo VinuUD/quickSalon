@@ -18,31 +18,32 @@ public class SpAuthenticationFilter implements Filter {
         HttpServletResponse response=(HttpServletResponse) resp;
 
         HttpSession session = request.getSession(false);
+        chain.doFilter(req, resp);
 
 
-        if (session == null) {
-            // Session is not created.
-            response.sendRedirect("../restricted.html");
-//            RequestDispatcher dispatcher = request.getRequestDispatcher("/login.html");
-//            dispatcher.forward(request, response);
-
-
-        } else {
-            // Session is already created.
-            HttpSession ses= request.getSession();
-
-            //check is he/she sp?
-            int userType=(Integer) ses.getAttribute("userType");
-
-            if( userType== 3){
-                chain.doFilter(req, resp);
-            }else {
-                RequestDispatcher dispatcher = request.getRequestDispatcher("../restricted.html");
-                dispatcher.forward(request, response);
-            }
-
-
-        }
+//        if (session == null) {
+//            // Session is not created.
+//            response.sendRedirect("../restricted.html");
+////            RequestDispatcher dispatcher = request.getRequestDispatcher("/login.html");
+////            dispatcher.forward(request, response);
+//
+//
+//        } else {
+//            // Session is already created.
+//            HttpSession ses= request.getSession();
+//
+//            //check is he/she sp?
+//            int userType=(Integer) ses.getAttribute("userType");
+//
+//            if( userType== 3){
+//                chain.doFilter(req, resp);
+//            }else {
+//                RequestDispatcher dispatcher = request.getRequestDispatcher("../restricted.html");
+//                dispatcher.forward(request, response);
+//            }
+//
+//
+//        }
 
 
     }

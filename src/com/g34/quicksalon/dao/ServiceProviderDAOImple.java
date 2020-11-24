@@ -11,6 +11,7 @@ public class ServiceProviderDAOImple implements  ServiceProviderDAO{
 
     private ArrayList<ServiceProvider> serviceProviders=new ArrayList<>();
 
+    //get sps by serviceIDs
     public ArrayList<ServiceProvider> getServiceProvidersByID(int sid) {
 
         try {

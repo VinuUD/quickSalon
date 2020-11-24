@@ -1,7 +1,8 @@
-package com.g34.quicksalon.model;
+package com.g34.quicksalon.dao;
+import com.g34.quicksalon.model.ManagerDetails;
+
 import java.sql.*;
 
-import com.g34.quicksalon.entity.ManagerDetails;
 
 public class ManagerDAOImp {
 	

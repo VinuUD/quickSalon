@@ -20,8 +20,7 @@ import java.util.ArrayList;
 
 public class SpAppointmentServlet extends HttpServlet {
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         PrintWriter out = response.getWriter();
         int spId = Integer.parseInt(request.getParameter("spId"));
@@ -86,8 +85,6 @@ public class SpAppointmentServlet extends HttpServlet {
         }
 
 //        out.println("Time-"+startTime+","+endTime+"--"+customerId);
-
-
 
     }
 
