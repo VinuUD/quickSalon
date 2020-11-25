@@ -62,20 +62,20 @@ public class LoginServlet extends HttpServlet {
 
                 switch (userType) {
                     case 1:     // owner
-                        out.println("Welcome ! Owner");
+                        out.println("1");
                         break;
                     case 2:     // manager
-                        out.println("Welcome ! Manager");
+                        out.println("2");
                         break;
                     case 3:     // service provider/serviceProvider/sp_home.html
                         //send to SpServlet
-                        out.println("serviceProvider/sp_home");
+                        out.println("3");
                         break;
                     case 4:     // customer
-                        out.println("Welcome ! Customer");
+                        out.println("4");
                         break;
                     default:
-                        out.println("Thota log wenna ba yako !. Bye Bye...");
+                        out.println("You can't log now..please contact our administration");
 
                 }
 

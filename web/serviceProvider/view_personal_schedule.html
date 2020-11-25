@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!--    <link rel="stylesheet" href="../resources/css/view_personal_schedule.css">-->
+    <link rel="stylesheet" href="../resources/css/view_personal_schedule.css">
     <link rel="stylesheet" href="../resources/css/mainDiv.css">
     <link rel="stylesheet" href="../resources/css/34.css">
     <link rel="stylesheet" href="../resources/css/sideNavbar.css">
@@ -30,6 +30,11 @@
         <b>View Personal Schedule</b>
     </div>
     <div class="mainDiv">
+        <div class="subDiv">
+
+        <diV class="dateDiv">
+            <input type="date" id="date" onchange="changeDate(event);" >
+        </diV>
 
         <div class="tableDiv34">
             <table id='table_temp' class="table34">
@@ -44,7 +49,7 @@
                 <tbody id="appointment_table">
                 </tbody>
             </table>
-
+        </div>
         </div>
     </div>
 </div>
