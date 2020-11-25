@@ -1,0 +1,39 @@
+
+input{
+    outline: none ;
+    width: 230px;
+    border: 5px solid #96e6b3ff !important;
+    border-radius:15px !important;
+    background-color: white !important;
+    color: black !important;
+    margin: 20px !important;
+}
+
+.subDiv{
+  display: flexbox;
+  flex-direction: row;
+}
+
+.date-row{
+   flex: 1;
+    padding: 10px;
+    text-align: center;
+    margin: 10px;
+}
+
+.tableDiv{
+  flex: 1;
+    padding: 10px;
+    margin: 10px;
+}
+
+
+.print-btn{
+  flex: 1;
+  padding: 10px;
+  text-align: end;
+  margin: 10px;
+}
+
+
+

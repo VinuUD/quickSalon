@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notify User</title>
+    <link rel="stylesheet" href="../resources/css/notify_user.css">
+
+    <link rel="stylesheet" href="../resources/css/34.css">
+    <link rel="stylesheet" href="../resources/css/sideNavbar.css">
+    <link rel="stylesheet" href="../resources/css/mainDiv.css">
+
+    <link rel="stylesheet" href="../resources/css/modal.css">
+</head>
+
+<body onresize="whenResizing()">
+<!-- side nav bar -->
+<div id="mySidenav" class="sidenav">
+    <div class="closeIcon"><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></div>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Clients</a>
+    <a href="#">Contact</a>
+</div>
+
+<div id="main">
+    <div class="back">
+        <div id="navIcon" onclick="openNav()" class="navIcon"><img src="/resources/icons/three.png" alt="Ooops">
+        </div>
+        <button id='back' class="btn34">Back</button>
+    </div>
+    </br></br>
+
+    <div class="topBar">
+        <b>Notify User</b>
+    </div>
+
+    <div class="mainDiv">
+        <div class="subDiv">
+
+
+            <!-- User Box -->
+            <div class="user-group">
+                <div class="group-title">Selected User Group</div>
+
+                <div id='userrow' class="group-tb"></div>
+
+                <!-- Select User Group -->
+                <div class="select-sp">
+                    <select id='usergroup'>
+                        <option>
+                            <Select:d>Service Provider</Select:d>
+                        </option>
+                        <option>Customer </option>
+                        <option> Manager </option>
+                    </select>
+                </div>
+
+                <div class="add-btn">
+                    <button id='addbtn' onclick="addUsrGroup()" class="btn34"><b>+</b></button>
+                </div>
+            </div>
+
+            <div class='msg-box'>
+                <div>
+                    <textarea placeholder="Enter Your Message Here " rows="10" cols="70"></textarea>
+                </div>
+
+                <div class="send-btn">
+                    <button id='send-btn' onclick="" class="btn34"><b>Send</b></button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- Modal -->
+<div id="modal" class="modal">
+    <div class="modal-cont">
+        <div class="title">Please Confirm !</div>
+        <div class="cont">Are you sure you want to continue ?</div>
+        <button id='cancel' class="cancel-modal-btn btn-danger34">Cancel</button>
+        <button class="confirm-modal-btn btn-success34">Confirm</button>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div id="backmodal" class="backmodal">
+    <div class="modal-cont">
+        <div class="title">Unsaved Changes !</div>
+        <div class="cont">Unsaved Changes will be lost. Continue?</div>
+        <button id='No' class="cancel-modal-btn btn-danger34">No</button>
+        <button class="confirm-modal-btn btn-success34">Yes</button>
+    </div>
+</div>
+
+<script src="../resources/javascript/modal.js"></script>
+<script src="../resources/javascript/notify_user.js"></script>
+<script src="../resources/javascript/side_navbar.js"></script>
+</body>
+</html>
