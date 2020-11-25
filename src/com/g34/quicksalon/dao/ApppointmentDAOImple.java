@@ -83,7 +83,7 @@ public class ApppointmentDAOImple implements AppointmentDAO {
             ResultSet resultSet = stmt.executeQuery();
 
             while (resultSet.next()) {
-                appointments.add(new Appointment(resultSet.getInt(1),resultSet.getInt(2),resultSet.getDate(3),Time.valueOf(resultSet.getString(4)),Time.valueOf(resultSet.getString(4)),resultSet.getInt(6)));
+                appointments.add(new Appointment(resultSet.getInt(1),resultSet.getInt(2),resultSet.getDate(3),Time.valueOf(resultSet.getString(4)),Time.valueOf(resultSet.getString(5)),resultSet.getInt(6)));
             }
         } catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();

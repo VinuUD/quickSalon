@@ -1,0 +1,13 @@
+.subDiv{
+    display: -ms-flexbox;
+    flex-direction: row;
+}
+.subDiv >div{
+    text-align: center;
+}
+
+input[type="date"] {
+   background-color: white;
+    border: 5px solid #03396c;
+    border-radius: 6px;
+}
