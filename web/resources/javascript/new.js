@@ -7,7 +7,7 @@ function cng()
     return i;
 }
 
-function redirect()
+function redirect() 
 {
     if(i > 0)
     {
@@ -59,7 +59,7 @@ function hideContinue()
 
 function hideBack()
 {
-    document.getElementById("mainPopupDivBack").style.display="none";
+    document.getElementById("mainPopupDivBack").style.display="none"; 
 }
 
 
