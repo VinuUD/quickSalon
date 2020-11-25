@@ -15,9 +15,32 @@ public class SessionServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        // session.setAttribute("userID", userID);
+        // session.setAttribute("username", username);
+        // session.setAttribute("userType", userType);
+
         PrintWriter out= response.getWriter();
-        HttpSession session= request.getSession();
-        String userName= String.valueOf(session.getAttribute("username"));
-        out.println(userName);
+        HttpSession s= request.getSession(false);
+
+        if(s != null){
+            HttpSession session= request.getSession();
+            String userName= String.valueOf(session.getAttribute("username"));
+            String userType= String.valueOf(session.getAttribute("userType"));
+    
+            if(request.getParameter("utype")!=null){
+                out.println(userType);
+            }else{
+                out.println(userName);
+            }
+
+        }else{
+            //Session is not configured
+            out.println(9);
+
+        }
+
+        
+
+    
     }
 }

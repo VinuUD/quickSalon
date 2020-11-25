@@ -7,13 +7,18 @@
     <link rel="stylesheet" href="resources/css/restricted.css">
 
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <title>No Access</title>
   </head>
   <body>
     <div class="restricted">
       <h3>You do not have sufficient permission to access this page!</h3>
-      <a href="index.html"><i class="fas fa-angle-double-left"></i>     Back to Home</a>
+
+      <button onclick="checkRedirect();"><i class="fas fa-angle-double-left"></i>     Back to Home</button>
+      <!-- <a href="index.html"><i class="fas fa-angle-double-left"></i>     Back to Home</a> -->
     </div>
+
+    <script src="resources/javascript/restricted.js"></script>
   </body>
 </html>
