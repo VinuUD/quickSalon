@@ -10,15 +10,15 @@ body
 
 .mainPopupDiv
 {
-    
+
     display: none;
     text-align: center;
     position: fixed;
     z-index: 1;
     width: 100%;
     height: 100%;
-    backdrop-filter: blur(5px);   
-    
+    backdrop-filter: blur(5px);
+
 }
 
 
@@ -47,7 +47,7 @@ body
     margin-right: 20px;
     /* border: 2px solid black; */
     padding-top: 20px;
-    
+
 }
 
 @media screen and (max-width:800px)
@@ -62,7 +62,7 @@ body
     {
         font-size: 14px;
         padding-top: 10px;
-        
+
     }
 
     .innerPopupDiv > .pButton
@@ -78,7 +78,7 @@ body
 
 .mainDiv
 {
-    border: 4px solid #03396c;
+    border: 4px solid #435a66;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -86,7 +86,7 @@ body
     /* margin-bottom: 200px; */
     margin: 0px auto 40px auto;
     padding: 20px 0px 20px 0px;
-    
+
 
 }
 
@@ -97,11 +97,11 @@ body
     justify-content: center;
     align-items: center;
     color: #ddd;
-    background-color:#03396c;
+    background-color:#435a66;
     height: 40px;
     /* margin-top: 30px; */
-    margin: 40px auto 0px auto; 
-    
+    margin: 40px auto 0px auto;
+
 }
 
 .back
@@ -125,7 +125,7 @@ body
 
 .confirm
 {
-    direction: rtl; 
+    direction: rtl;
 }
 
 
@@ -135,7 +135,7 @@ body
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    
+
 }
 
 .innerDiv:not(:last-child)
@@ -185,12 +185,12 @@ body
 {
     textarea
     {
-        width: 200px;   
+        width: 200px;
     }
 
     .mainDiv
     {
-       
+
         margin-bottom: 80px;
     }
 
