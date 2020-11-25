@@ -30,9 +30,27 @@ $("#submit").click(function(){
             password:password
         },
         function(data, status){
-            window.location.href='../../quickSalon_war_exploded/'+data+'.html'
+
+            if(parseInt(data)==1){
+                window.location.href='../../quickSalon_war_exploded/upperStaff/owner/ownerHome.html';
+            }
+            else if(parseInt(data)==2){
+                window.location.href='../../quickSalon_war_exploded/upperStaff/manager/manager_home.html';
+            }else if(parseInt(data)==3){
+                window.location.href='../../quickSalon_war_exploded/serviceProvider/sp_home.html';
+            }
+            else if(parseInt(data)==4){
+                window.location.href='../../quickSalon_war_exploded/customer/cust_home.html';
+            }
+            else {
+                alert(data);
+            }
+
+            // window.location.href='../../quickSalon_war_exploded/'+data+'.html'
             // alert("Data: " + data + "\nStatus: " + status);
         }
      );
    //}
 });
+
+

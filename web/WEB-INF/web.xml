@@ -13,6 +13,15 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>com.g34.quicksalon.controller.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>ServiceProviderList</servlet-name>
         <servlet-class>com.g34.quicksalon.controller.serviceProvider.ServiceProviderListServlet</servlet-class>
     </servlet>
@@ -90,6 +99,15 @@
     <servlet-mapping>
         <servlet-name>PersonalScheduleServlet</servlet-name>
         <url-pattern>/serviceProvider/myschedule</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SessionServlet</servlet-name>
+        <servlet-class>com.g34.quicksalon.controller.SessionServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SessionServlet</servlet-name>
+        <url-pattern>/session</url-pattern>
     </servlet-mapping>
 
 </web-app>
