@@ -29,7 +29,7 @@
   
     <div class="back">
         <div id="navIcon" onclick="openNav()" class="navIcon"  ><img src="../resources/icons/three.png" alt="Ooops" ></div>
-        <button class="btn34">back</button>
+        <button class="btn34"  onclick=history.back()>back</button>
     </div>
     <br><br>
 
@@ -43,68 +43,42 @@
             <form action ="" method="get">
                 
         <div>
-    
-                
-        <table id="t01" class = "innerDiv" >
-            <tr style="background-color: white; "> 
-                <td>
-                    Employee id
-                </td>
-                <td>
-                    <input type="text" id="empid" name="empid">
-                </td>
-            </tr>
-            <tr style="background-color: white; "> 
-                <td>
-                    Employee name
-                </td>
-                <td>
-                    <input type="text" id="empname" name="empname">
-                </td>
-            </tr>
-            <tr style="background-color: white; "> 
-                <td>
-                    Employee status
-                </td>
-                <td>
-                    <input type="text" id="empstatus" name="empstatus">
-                </td>
-            </tr>
-            <tr style="background-color: white; "> 
-                <td>
-                    Reason
-                </td>
-                <td>
-                    <input type="text" id="reason" name="reason">
-                </td>
-            </tr>
-            <tr style="background-color: white; "> 
-                <td>
-                    From date
-                </td>
-                <td>
-                    <input type="date" id="fromdate" name="fromdate">
-                </td>
-            </tr>
-            <tr style="background-color: white; "> 
-                <td>
-                    To date
-                </td>
-                <td>
-                    <input type="date" id="todate" name="todate">
-                </td>
-            </tr>
-            <tr style="background-color: white; "> 
-                <td>
-                   
-                </td>
-                <td>
-                    <input type ="submit" class = "btn34" value = "Add leave" >
-                </td>
-            </tr>
-        
-           
-          </table>
+            <div class="innerDiv">
+                <div style="float: left; width: 35%;">
+            
+                  <p><strong> Employee id</strong></p>
+                  
+                  <p><strong> Employee name</strong></p>
+                  
+                  <p><strong> Employee status</strong></p>
+            
+                  <p><strong> Reason</strong></p>
+                  
+                  <p><strong> From date</strong></p>
+                  
+                  <p><strong> To date</strong></p>
+                  
+                  </div>
+                  
+                  <div style="float: right; width: 35%;">
+                  
+                    <div class=""> <input type="text" id="empid" name="empid"></div>
+                  
+                    <div class=""> <input type="text" id="empname" name="empname"></div>
+                  
+                    <div class="" > <input type="text" id="empstatus" name="empstatus"></div>
+            
+                    <div class="" > <input type="text" id="reason" name="reason"></div>
+                  
+                    <div class=""><input type="date" id="fromdate" name="fromdate"></div>
+                  
+                    <div class=""><input type="date" id="todate" name="todate"></div>
+                  </div>
+                </div><br>
+                <div class="innerDiv">
+                    <input type ="submit" class = "btn34" value = "Add leave" > 
+                </div>
+
         </div>
         
          <br>
