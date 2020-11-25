@@ -17,7 +17,7 @@ body
     /* filter: blur(8px);
     -webkit-filter: blur(8px); */
     
-    transition: background 4s linear;
+    transition: background 4s linear; 
 }
 
 
@@ -34,10 +34,12 @@ body
     top: 36%;
     left: 50%;
     z-index: 2; 
-    /* border:2px solid black; */
+    border:2px solid black;
     margin-top: 6%;
-    
-    
+    background-color:rgba(0, 0, 0, 0.5);
+    width: 26% !important ;
+    min-width: 450px !important;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1), 0 6px 20px 0 rgba(0, 0, 0, 1) !important;
     
 
 }
@@ -53,6 +55,19 @@ body
     
 }
 
+.topDiv
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+   
+    color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1), 0 6px 20px 0 rgba(0, 0, 0, 1) ;
+    width: 90%;
+    margin: 0 auto 20px auto;
+}
+
 a.fPassword
 {
     text-decoration: none;
@@ -61,12 +76,12 @@ a.fPassword
 
 .input
 {
-    background-color:rgba(255, 255, 255, 0.4);
+    background-color:rgba(255, 255, 255, 0.5);
     /* background-color: white; */
     color:black;
     border: none;
     outline:none;
-    width: 300px;
+    width: 250px;
     height:50px;
     
     
@@ -119,15 +134,16 @@ a.fPassword
 
 .buttonDiv button
 {
-    width: 300px;
+    width: 250px;
     height:50px;
     border-radius: 30px;
     font-size: 16px;
     border: none;
     outline: none;
-    background-color: rgb(30, 95, 126, 0.6);
+    background-color: rgb(30, 95, 126, 0.8);
     color: black;
     cursor: pointer;
+   
 }
 
 .buttonDiv button:hover
