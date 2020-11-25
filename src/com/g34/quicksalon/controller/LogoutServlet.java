@@ -20,6 +20,8 @@ public class LogoutServlet extends HttpServlet {
         PrintWriter out=response.getWriter();
         HttpSession session=request.getSession();
         session.invalidate();
-        
+
+        out.println("Successfully sign out...");
+
     }
 }
