@@ -1,6 +1,6 @@
 .mainDiv
 {
-    border: 4px solid #03396c;
+    border: 4px solid #435a66;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -8,7 +8,7 @@
     /* margin-bottom: 200px; */
     margin: 0px auto 100px auto;
     padding: 30px 0px 20px 0px;
-    
+
 
 }
 
@@ -16,22 +16,22 @@
 {
     display: flex;
     flex-direction: row;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
     color: #ddd;
-    background-color:#03396c;
+    background-color:#435a66;
     height: 40px;
     /* margin-top: 30px; */
     margin: 30px auto 0px auto;
-    
-    
-    
+
+
+
 }
 
 .cross
 {
     width: 20px;
-    height: 20px; 
+    height: 20px;
     margin-right: 10px;
     cursor: pointer;
 }
@@ -46,7 +46,7 @@
 
 .confirm
 {
-    direction: rtl; 
+    direction: rtl;
 }
 
 .buttonDiv
@@ -71,7 +71,7 @@
 
 .plus
 {
-    width: 30px; 
+    width: 30px;
     height: 30px;
     cursor: pointer;
 }
@@ -114,7 +114,7 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    
+
 }
 
 .innerDiv:not(:last-child)
@@ -135,7 +135,7 @@
 
 .blo
 {
-     
+
     font-size: 15px;
     border: 2px solid black;
     margin-right: -60px;
@@ -161,7 +161,7 @@
 {
     textarea
     {
-        width: 200px;   
+        width: 200px;
     }
 
     .mainDiv
@@ -175,7 +175,7 @@
         width: 150px;
     }
 
-  
+
 
     .buttonDiv button
     {
@@ -202,8 +202,8 @@
     {
         height: 40px;
         width: 70px;
-        
-        
+
+
     }
 
     .back
@@ -218,7 +218,7 @@
 
 .mainPopupDiv
 {
-    
+
     display: none;
     text-align: center;
     position: fixed;
@@ -227,8 +227,8 @@
     height: 100%;
     margin-left: -6px;
     margin-top: -50px;
-    backdrop-filter: blur(5px);   
-    
+    backdrop-filter: blur(5px);
+
 }
 
 .top1
@@ -237,7 +237,7 @@
     flex-direction: row;
     align-items: center;
     color: #ddd;
-    background-color:#03396c;
+    background-color:#435a66;
     height: 40px;
     direction: rtl;
 }
@@ -255,7 +255,7 @@
     height: 600px;
     background-color:white;
     box-shadow: -14px 9px 28px 0px rgba(0,0,0,0.54);
-    
+
 }
 
 .innerPopupDiv > .pButton
@@ -271,7 +271,7 @@
     margin-right: 20px;
     /* border: 2px solid black; */
     padding-top: 20px;
-    
+
 }
 
 @media screen and (max-width:490px)
@@ -281,12 +281,12 @@
         width: 90%;
         height: 500px;
         margin: 10% auto 15% auto;
-        
+
     }
 
 .blo
 {
-     
+
     font-size: 10px;
     border: 2px solid black;
     margin-right: -60px;
@@ -298,7 +298,7 @@
     {
         font-size: 14px;
         padding-top: 10px;
-        
+
     }
 
     .innerPopupDiv > .pButton

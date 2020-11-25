@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assign Service</title>
+
+    <link rel="stylesheet" href="../resources/css/assign_service.css">
+
+    <link rel="stylesheet" href="../resources/css/34.css">
+    <link rel="stylesheet" href="../resources/css/sideNavbar.css">
+    <link rel="stylesheet" href="../resources/css/mainDiv.css">
+    <link rel="stylesheet" href="../resources/css/modal.css">
+
+</head>
+
+<body onresize="whenResizing()">
+<!-- side nav bar -->
+<div id="mySidenav" class="sidenav">
+    <div class="closeIcon"><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></div>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Clients</a>
+    <a href="#">Contact</a>
+</div>
+
+<div id="main">
+    <div class="back">
+        <div id="navIcon" onclick="openNav()" class="navIcon"><img src="/resources/icons/three.png" alt="Ooops">
+        </div>
+        <button id='back' class="btn34">Back</button>
+    </div>
+    </br></br>
+
+    <div class="topBar">
+        <b>Assign Services</b>
+    </div>
+
+    <div class="mainDiv">
+        <div class="subDiv">
+
+            <div class="assign-form">
+
+                <input class="" type="text" placeholder="Employee Id"></br>
+                <input class="" placeholder="Employee Name" type="text">
+            </div>
+
+            <div class="tableDiv34 service-table">
+                <table id='table_temp' class="table34">
+                    <thead>
+                    <tr class="header">
+                        <th>Service Id</th>
+                        <th>Service Name</th>
+
+                    </tr>
+                    </thead>
+
+                    <tbody class="tbody">
+                    <tr>
+                        <td>PDT001</td>
+                        <td>Hair Colouring</td>
+                    </tr>
+
+                    <tr>
+                        <td>PDT001</td>
+                        <td>Hair Cut</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="button-bar">
+                <div class="select-service">
+                    <select id='service'>
+                        <option>
+                            <Select:d>S101- Hair Cut</Select:d>
+                        </option>
+                        <option>S102- Hair Coloring </option>
+                    </select>
+                </div>
+
+                <!-- Add btn -->
+                <button id='addbtn' onclick="addUsrGroup()" class="btn"><b>+</b></button>
+
+            </div>
+
+            <div class="btn-bar">
+                <button id='remove-btn' class="new-btn btn" onclick="">New Service</button>
+                <button class="save-btn btn">Save Changes</button>
+            </div>
+
+
+
+
+        </div>
+    </div>
+</div>
+
+
+<script src="../resources/javascript/modal.js"></script>
+<script src="../resources/javascript/side_navbar.js"></script>
+</body>
+</html>
