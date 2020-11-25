@@ -29,7 +29,7 @@
   
     <div class="back">
         <div id="navIcon" onclick="openNav()" class="navIcon"  ><img  src="../resources/icons/three.png" alt="Ooops" ></div>
-        <button class="btn34">back</button>
+        <button class="btn34"  onclick=history.back()>back</button>
     </div>
     <br><br>
 
@@ -40,15 +40,16 @@
     <div class="mainDiv">
     
         <div class = "buttonDiv" align ="center">
-            <button class = "btn34">Manage registration</button>
+            <!-- scession handling walin me buton eka owner ta witarak denna -->
+            <a href="owner/registerManager.html"><button class = "btn34">Manager registration</button></a>
+         <!-- scession handling walin me buton eka owner ta witarak denna -->
+            <a href="owner/allManagers.html"><button class = "btn34">All managers</button></a>
         
-            <button class = "btn34">All managers</button>
+            <a href="leave.html"><button class = "btn34">Leave</button></a>
         
-            <button class = "btn34">Leave</button>
+            <a href=""><button class = "btn34">All service providers</button></a>
         
-            <button class = "btn34">All service providers</button>
-        
-            <button class = "btn34">Register service provider</button>
+            <a href="register_service_provider.html"><button class = "btn34">Register service provider</button></a>
         </div>
        </pre>
 
