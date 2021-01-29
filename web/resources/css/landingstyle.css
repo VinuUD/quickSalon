@@ -46,7 +46,7 @@ body {
 .content .text {
   line-height: 1.7;
   margin-top: 1rem;
-  margin-bottom: 90px;
+  margin-bottom: 75px;
 }
 
 .content .login {
@@ -136,6 +136,10 @@ footer p {
      width: 140px;
    }
 
+   .content .title {
+     margin-bottom: 40px;
+   }
+
    .content .text{
      display: none;
    }
@@ -157,6 +161,10 @@ footer p {
   .content .title,
   .content .text {
     display: none;
+  }
+
+  .content .logo {
+    margin-bottom: 50px;
   }
 
   .content {
