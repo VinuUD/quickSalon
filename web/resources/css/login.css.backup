@@ -1,0 +1,220 @@
+body
+{
+    margin: 0;
+    background-color: black;
+    min-width: 350px;
+    min-height: 500px;
+}
+.background
+{
+    background-image: url(../images/login1.jpg);
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    /* filter: blur(8px);
+    -webkit-filter: blur(8px); */
+
+    transition: background 4s linear;
+}
+
+
+.mainDiv
+{
+    /* border: 4px solid #435a66; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* margin: 0px auto 0px auto; */
+    padding: 30px 0px 20px 0px;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 36%;
+    left: 50%;
+    z-index: 2;
+    border:2px solid black;
+    margin-top: 6%;
+    background-color:rgba(0, 0, 0, 0.5);
+    width: 26% !important ;
+    min-width: 450px !important;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1), 0 6px 20px 0 rgba(0, 0, 0, 1) !important;
+
+
+}
+
+.innerDiv
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    /* border: 2px solid white; */
+
+
+}
+
+.topDiv
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1), 0 6px 20px 0 rgba(0, 0, 0, 1) ;
+    width: 90%;
+    margin: 0 auto 20px auto;
+}
+
+a.fPassword
+{
+    text-decoration: none;
+    color: white;
+}
+
+.input
+{
+    background-color:rgba(255, 255, 255, 0.5);
+    /* background-color: white; */
+    color:black;
+    border: none;
+    outline:none;
+    width: 250px;
+    height:50px;
+
+
+    border-radius: 30px;
+    padding-left: 20px;
+    padding-left: 20px;
+    font-weight: bold;
+    font-size: 16px;
+
+
+
+}
+
+::-webkit-input-placeholder { /* Edge */
+    color: white;
+  }
+
+  :-ms-input-placeholder { /* Internet Explorer */
+    color: white;
+  }
+
+  ::placeholder {
+    color: black;
+  }
+
+.innerDiv:not(:last-child)
+{
+    margin-bottom: 40px;
+}
+
+.innerDiv .inputDiv
+{
+    display: flex;
+}
+
+.inputDiv select
+{
+    width: 180px;
+    height: 25px;
+}
+
+.buttonDiv
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 0px;
+
+}
+
+.buttonDiv button
+{
+    width: 250px;
+    height:50px;
+    border-radius: 30px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    background-color: rgb(30, 95, 126, 0.8);
+    color: black;
+    cursor: pointer;
+
+}
+
+.buttonDiv button:hover
+{
+    background-color: rgb(30, 95, 126, 0.8);
+}
+
+
+@media screen and (min-width:900px)
+{
+    .mainDiv
+    {
+        width: 900px;
+    }
+
+    .back
+    {
+        width: 900px;
+        margin: 0px auto 0px auto;
+    }
+
+    .confirm
+    {
+        width: 900px;
+        margin: 0px auto 0px auto;
+    }
+
+    .topBar
+    {
+        width: 908px;
+    }
+}
+
+@media screen and (max-width:490px)
+{
+    textarea
+    {
+        width: 200px;
+    }
+
+    .mainDiv
+    {
+        margin-top: 50px;
+        margin-bottom: 80px;
+    }
+
+    .innerDiv input
+    {
+        width: 250px;
+    }
+
+
+
+
+    .buttonDiv button
+    {
+        font-size: 14px;
+        height: 50px;
+        width: 250px;
+    }
+
+    .inputDiv select
+    {
+        width: 150px;
+        height: 20px;
+    }
+
+    .blo
+    {
+        /* border: 2px solid red; */
+        font-size: 14px;
+    }
+
+}

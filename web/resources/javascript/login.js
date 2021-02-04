@@ -1,56 +1,50 @@
-var index = 0;
 
-setInterval(function (){
-    var images = ["resources/images/login1.jpg","resources/images/login3.jpg","resources/images/login5.jpg"];
+(function($) {
+  "use strict";
 
-    // var randNum = Math.floor(Math.random()*images.length);
-    var image = images[index];
-    index = index + 1;
-    if(index>2) {
-        index = 0;
+  var input = $('.validate-input .input34');
+
+  $('.validate-form').on('submit', function(){
+    var check = true;
+
+    for(var i = 0; i < input.length; i++){
+      if(validate(input[i] == false)){
+        showValidate(input[i]);
+        check = false;
+      }
     }
 
-    document.getElementById("background").style.backgroundImage = "url("+image+")";
-    console.log(image);
+    return check;
+  });
 
-}, 10000);
+  $('.validate-form .input34').each(function(){
+    $(this).focus(function(){
+      hideValidate(this);
+    })
+  });
 
+  function validate (input) {
+    if($(input).attr('type') == 'email' || $(input).attr('name') == 'email') {
+      if($(input).val().trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
+          return false;
+      }
+    }
+    else {
+      if($(input).val().trim() == ''){
+          return false;
+      }
+    }
+  }
 
-$("#submit").click(function(){
+  function showValidate (input) {
+    var thisAlert = $(input).parent();
 
-    var username = $("#username").val().trim();
-    var password = $("#password").val().trim();
+    $(thisAlert).addClass('alert-validate');
+  }
 
-    //alert(username+'='+password);
+  function hideValidate (input) {
+    var thisAlert = $(input).parent();
 
-    // if( username != "" && password != "" ){
-    $.post("login",
-        {
-            username:username,
-            password:password
-        },
-        function(data, status){
-
-            if(parseInt(data)==1){
-                window.location.href='../../quickSalon_war_exploded/upperStaff/owner/ownerHome.html';
-            }
-            else if(parseInt(data)==2){
-                window.location.href='../../quickSalon_war_exploded/upperStaff/manager/manager_home.html';
-            }else if(parseInt(data)==3){
-                window.location.href='../../quickSalon_war_exploded/serviceProvider/sp_home.html';
-            }
-            else if(parseInt(data)==4){
-                window.location.href='../../quickSalon_war_exploded/customer/cust_home.html';
-            }
-            else {
-                alert(data);
-            }
-
-            // window.location.href='../../quickSalon_war_exploded/'+data+'.html'
-            // alert("Data: " + data + "\nStatus: " + status);
-        }
-     );
-   //}
-});
-
-
+    $(thisAlert).removeClass('alert-validate');
+  }
+})(jQuery);

@@ -1,54 +1,70 @@
-<!-- <%@ page contentType="text/html;charset=UTF-8" language="java" %> -->
-<html >
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="resources/css/login.css">
-    <link rel="stylesheet" href="resources/css/34.css">
-    <title>Login</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link rel="stylesheet" type="text/css" href="./resources/css/login.css">
+  <script src="https://kit.fontawesome.com/0f3db243e3.js" crossorigin="anonymous"></script>
+  <title>Login</title>
 </head>
 <body>
- <div id="background" class="background">
+  <div class="limiter">
+    <div class="container">
+      <div class="wrap-login">
+        <div class="login-pic">
+          <img src="./resources/icons/barber.svg" alt="IMG">
+        </div>
+
+        <form action="#" class="login-form validate-form">
+          <span class="login-form-title">
+            Login
+          </span>
+          <div class="text-center">
+            <div class="wrap-input validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+              <input type="text" class="input34" name=email placeholder="Email">
+              <span class="focus-input"></span>
+              <span class="symbol-input">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+              </span>
+            </div>
+
+            <div class="wrap-input validate-input" data-validate = "Password is required">
+              <input class="input34" type="password" name="pass" placeholder="Password">
+              <span class="focus-input"></span>
+              <span class="symbol-input">
+                <i class="fa fa-lock" aria-hidden="true"></i>
+              </span>
+            </div>
+          </div>
+
+          <div class="container-login-form-btn">
+            <button class="login-form-btn">
+              Login
+            </button>
+          </div>
+
+          <div class="text-center">
+            <span class="txt1">
+              Forgot
+            </span>
+            <a class="txt2" href="#">
+              Username / Password?
+            </a>
+          </div>
+
+          <div class="text-center" id="register">
+            <a class="txt2" href="#">
+              Create your Account
+              <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+            </a>
+          </div>
+        </form>
+      </div>
     </div>
-
-    <div class="mainDiv">
-
-        <div class="topDiv">
-            <h2> Q u i c k &nbsp; S a l o n</h2>
-         </div>
-
-        <div class="innerDiv">
-           <img style="width: 150px; height: 150px; opacity: 0.5;"  src="resources/icons/user.png" alt="">
-        </div>
-
-<!--        <form > -->
-
-            <div class="innerDiv">
-                <input class="input" id="username" type="text" style="font-family:Arial, FontAwesome"  placeholder=' &#xF007 &nbsp Username'>
-            </div>
-
-            <div class="innerDiv">
-                <input class="input" type="password" id="password" type="text" style="font-family:Arial, FontAwesome"  placeholder=' &#xF023 &nbsp Password'>
-            </div>
-
-            <div class="buttonDiv">
-
-                <button id="submit" > <b>Log In</b> </button>
-            </div>
-            <br>
-<!--        </form>-->
-        <div class="buttonDiv">
-            <button onclick="window.location.href='register.html'"> <b>Sign Up</b> </button>
-        </div>
-        <div  style="margin-top: 15px;" class="innerDiv">
-            <small style="color: white;"><a class="fPassword" href="#">Forgot password?</a></small>
-        </div>
-
-
- </div>
-<script src="resources/javascript/login.js"></script>
-
+  </div>
+  <script type="text/javascript" src="./resources/javascript/login.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </body>
 </html>
