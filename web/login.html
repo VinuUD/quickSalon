@@ -17,13 +17,13 @@
           <img src="./resources/icons/barber.svg" alt="IMG">
         </div>
 
-        <form action="#" class="login-form validate-form">
+        <form class="login-form validate-form">
           <span class="login-form-title">
             Login
           </span>
           <div class="text-center">
             <div class="wrap-input validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-              <input type="text" class="input34" name=email placeholder="Email">
+              <input id=email type="text" class="input34" name=email placeholder="Email">
               <span class="focus-input"></span>
               <span class="symbol-input">
                 <i class="fa fa-envelope" aria-hidden="true"></i>
@@ -31,7 +31,7 @@
             </div>
 
             <div class="wrap-input validate-input" data-validate = "Password is required">
-              <input class="input34" type="password" name="pass" placeholder="Password">
+              <input id=password class="input34" type="password" name="pass" placeholder="Password">
               <span class="focus-input"></span>
               <span class="symbol-input">
                 <i class="fa fa-lock" aria-hidden="true"></i>
@@ -64,7 +64,8 @@
       </div>
     </div>
   </div>
-  <script type="text/javascript" src="./resources/javascript/login.js"></script>
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript" src="./resources/javascript/login.js"></script>
 </body>
 </html>
