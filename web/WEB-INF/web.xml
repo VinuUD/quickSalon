@@ -5,7 +5,7 @@
          version="4.0">
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
-        <servlet-class>com.g34.quicksalon.controller.LoginServlet</servlet-class>
+        <servlet-class>com.g34.quicksalon.controller.login.LoginServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
@@ -14,7 +14,7 @@
 
     <servlet>
         <servlet-name>LogoutServlet</servlet-name>
-        <servlet-class>com.g34.quicksalon.controller.LogoutServlet</servlet-class>
+        <servlet-class>com.g34.quicksalon.controller.login.LogoutServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LogoutServlet</servlet-name>
@@ -85,7 +85,7 @@
 
     <servlet>
         <servlet-name>RegisterCustomerServlet</servlet-name>
-        <servlet-class>com.g34.quicksalon.controller.RegisterCustomerServlet</servlet-class>
+        <servlet-class>com.g34.quicksalon.controller.login.RegisterCustomerServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>RegisterCustomerServlet</servlet-name>
@@ -103,7 +103,7 @@
 
     <servlet>
         <servlet-name>SessionServlet</servlet-name>
-        <servlet-class>com.g34.quicksalon.controller.SessionServlet</servlet-class>
+        <servlet-class>com.g34.quicksalon.controller.login.SessionServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>SessionServlet</servlet-name>

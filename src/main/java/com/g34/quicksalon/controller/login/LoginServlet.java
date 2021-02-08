@@ -1,7 +1,9 @@
-package com.g34.quicksalon.controller;
+package com.g34.quicksalon.controller.login;
 
+import com.g34.quicksalon.dao.LoginDAO;
 import com.g34.quicksalon.dao.LoginDAOImple;
 import com.g34.quicksalon.model.LoginInfo;
+import com.g34.quicksalon.model.UserLoginModel;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServlet;
@@ -28,36 +30,31 @@ public class LoginServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        String username=request.getParameter("username");
+        String email=request.getParameter("email");
         String password=request.getParameter("password");
 
         //password hashed - SHA256
         String hashedPW=doHash(password);
+        UserLoginModel userLoginModel=new UserLoginModel();
+        userLoginModel.setEmail(email);
+        userLoginModel.setPassword(hashedPW);
 
-//        out.println(hashedPW);
-
-        LoginInfo user = new LoginInfo(username, hashedPW);
-        LoginDAOImple loginModel=new LoginDAOImple();
+        LoginDAO loginDAO=new LoginDAOImple ();
 
 
         // Get user details for sessions
-        HashMap<String, Integer> userDetails=new HashMap<>();
-        int userID=0;
-        int userType=0;
         try {
-            userDetails=loginModel.getUserType(user);
+            userLoginModel=loginDAO.login(userLoginModel);
 
-            if(userDetails==null){
+            if(userLoginModel==null){
                 out.println("Credentials are not matched !");
             }else {
-
-                userID = userDetails.get("userID");
-                userType = userDetails.get("userType");
-
                 //Session
+                int userType=userLoginModel.getUserType();
+
                 HttpSession session = request.getSession();
-                session.setAttribute("userID", userID);
-                session.setAttribute("username", username);
+                session.setAttribute("userID",userLoginModel.getId());
+                session.setAttribute("username", userLoginModel.getUsername());
                 session.setAttribute("userType", userType);
 
                 switch (userType) {
@@ -76,25 +73,15 @@ public class LoginServlet extends HttpServlet {
                         break;
                     default:
                         out.println("You can't log now..please contact our administration");
-
                 }
-
             }
-
         } catch (SQLException throwables) {
+            out.println(throwables.getErrorCode());
             throwables.printStackTrace();
         } catch (ClassNotFoundException e) {
+            out.println(e.getMessage());
             e.printStackTrace();
         }
-
-
-        // if(username in db)
-            // check hashedPW with pw
-                // if match get usertype return userclass homepage
-                // else return error
-
-
-                // query: select userType from login where pw = pw and usrname = username;LL
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) {

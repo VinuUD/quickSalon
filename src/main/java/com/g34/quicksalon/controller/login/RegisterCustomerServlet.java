@@ -1,4 +1,4 @@
-package com.g34.quicksalon.controller;
+package com.g34.quicksalon.controller.login;
 
 import com.g34.quicksalon.dao.CustomerDAO;
 import com.g34.quicksalon.dao.CustomerDAOImple;

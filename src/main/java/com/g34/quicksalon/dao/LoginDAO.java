@@ -4,9 +4,10 @@ import java.sql.SQLException;
 import java.util.HashMap;
 
 import com.g34.quicksalon.model.LoginInfo;
+import com.g34.quicksalon.model.UserLoginModel;
 
 public interface LoginDAO {
 
-    public HashMap<String,Integer> getUserType(LoginInfo loginInfo) throws SQLException, ClassNotFoundException ;
+    public UserLoginModel login (UserLoginModel userLoginModel) throws SQLException, ClassNotFoundException ;
 
 }

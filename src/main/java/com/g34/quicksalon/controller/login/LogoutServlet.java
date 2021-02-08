@@ -1,4 +1,4 @@
-package com.g34.quicksalon.controller;
+package com.g34.quicksalon.controller.login;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

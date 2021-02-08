@@ -11,7 +11,7 @@ public class DBConnection {
         public static Connection getConnection() throws ClassNotFoundException, SQLException {
             //singleton pattern
             if(connection ==null){
-                Class.forName("com.mysql.jdbc.Driver");
+                Class.forName("com.mysql.cj.jdbc.Driver");
                 connection= DriverManager.getConnection("jdbc:mysql://localhost:3306/quick_salon", "root","");
             }
             return connection;
