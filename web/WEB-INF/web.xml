@@ -110,4 +110,12 @@
         <url-pattern>/session</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>ForgetPasswordServlet</servlet-name>
+        <servlet-class>com.g34.quicksalon.controller.forgetPassword.ForgetPasswordServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ForgetPasswordServlet</servlet-name>
+        <url-pattern>/forgetpassword</url-pattern>
+    </servlet-mapping>
 </web-app>
