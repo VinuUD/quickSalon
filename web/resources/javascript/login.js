@@ -6,15 +6,33 @@ setInterval(function (){
     // var randNum = Math.floor(Math.random()*images.length);
     var image = images[index];
     index = index + 1;
-    if(index>2)
-    {
+    if(index>2) {
         index = 0;
     }
 
-
-    
     document.getElementById("background").style.backgroundImage = "url("+image+")";
     console.log(image);
 
 }, 10000);
 
+
+$("#submit").click(function(){
+
+    var username = $("#username").val().trim();
+    var password = $("#password").val().trim();
+
+    //alert(username+'='+password);
+
+    // if( username != "" && password != "" ){
+    $.post("login",
+        {
+            username:username,
+            password:password
+        },
+        function(data, status){
+            window.location.href='../../quickSalon_war_exploded/'+data+'.html'
+            // alert("Data: " + data + "\nStatus: " + status);
+        }
+     );
+   //}
+});

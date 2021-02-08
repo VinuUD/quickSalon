@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Job</title>
+
+    <link rel="stylesheet" href="../resources/css/complete_job.css">
+    <link rel="stylesheet" href="../resources/css/34.css">
+    <link rel="stylesheet" href="../resources/css/sideNavbar.css">
+    <link rel="stylesheet" href="../resources/css/mainDiv.css">
+
+    <link rel="stylesheet" href="../resources/css/confirm_modal.css">
+</head>
+<body onresize="whenResizing()">
+<!-- side nav bar -->
+<div id="mySidenav" class="sidenav">
+    <div class="closeIcon"><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></div>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Clients</a>
+    <a href="#">Contact</a>
+</div>
+
+
+<div id="main">
+
+    <div class="back">
+        <div id="navIcon" onclick="openNav()" class="navIcon"><img src="/resources/icons/three.png" alt="Ooops">
+        </div>
+        <button class="btn34">Back</button>
+    </div>
+    </br></br>
+
+    <div class="topBar">
+        <b>Complete Job</b>
+    </div>
+
+    <div class="mainDiv">
+
+
+        <div class="tableDiv34">
+
+            <table id='table_temp' class="table34">
+                <thead>
+                <tr class="header">
+                    <th>Appointment Number</th>
+                    <th>Name</th>
+                    <th>Time</th>
+                    <th>Complete</th>
+                </tr>
+                </thead>
+
+                <tbody class="tbody">
+                <tr>
+                    <td>PDT001</td>
+                    <td>K H Perera</td>
+                    <td>11.00 am</td>
+                    <td><button class="tb-btn" onclick="complete()">Complete</button></td>
+
+                </tr>
+
+                <tr>
+                    <td>PDT002</td>
+                    <td>C H Fernando</td>
+                    <td>12.30 pm</td>
+                    <td><button class="tb-btn" onclick="complete()">Complete</button></td>
+                </tr>
+
+                <tr>
+                    <td>PDT001</td>
+                    <td>K H Perera</td>
+                    <td>11.00 am</td>
+                    <td><button class="tb-btn" onclick="complete()">Complete</button></td>
+
+                </tr>
+
+                <tr>
+                    <td>PDT002</td>
+                    <td>C H Fernando</td>
+                    <td>12.30 pm</td>
+                    <td><button class="tb-btn" onclick="complete()">Complete</button></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<!-- Confirmation box -->
+<div id="modal" class="modal">
+    <div class="modal-cont">
+        <div class="title">Please Confirm !</div>
+        <div class="cont">Did you finshed the job ?</div>
+        <button id='cancel' class="cancel-btn btn-danger34">Cancel</button>
+        <button class="confirm-btn btn-success34">Confirm</button>
+    </div>
+</div>
+
+
+<script src="../resources/javascript/confirm_modal.js"></script>
+<script src="../resources/javascript/side_navbar.js"></script>
+</body>
+</html>

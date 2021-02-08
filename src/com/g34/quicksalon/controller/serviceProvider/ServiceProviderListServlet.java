@@ -1,8 +1,9 @@
 package com.g34.quicksalon.controller.serviceProvider;
 
-import com.g34.quicksalon.entity.ServiceProvider;
-import com.g34.quicksalon.model.ServiceModel;
-import com.g34.quicksalon.model.ServiceProviderModel;
+import com.g34.quicksalon.dao.ServiceDAOImple;
+import com.g34.quicksalon.dao.ServiceProviderDAO;
+import com.g34.quicksalon.dao.ServiceProviderDAOImple;
+import com.g34.quicksalon.model.ServiceProvider;
 import com.google.gson.Gson;
 
 import javax.servlet.ServletException;
@@ -17,6 +18,7 @@ import java.util.List;
 import java.util.Map;
 
 public class ServiceProviderListServlet extends HttpServlet {
+    
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
@@ -26,7 +28,7 @@ public class ServiceProviderListServlet extends HttpServlet {
         ArrayList<ServiceProvider> spList=new ArrayList<>();
         int serviceId= Integer.parseInt(request.getParameter("sid"));
         try {
-            ServiceProviderModel serviceProviderModel=new ServiceProviderModel();
+            ServiceProviderDAO serviceProviderModel=new ServiceProviderDAOImple();
             spList=serviceProviderModel.getServiceProvidersByID(serviceId);
             String json = new Gson().toJson(spList);
             response.setContentType("application/json");

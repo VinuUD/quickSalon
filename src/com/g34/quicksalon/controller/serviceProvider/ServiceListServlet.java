@@ -1,6 +1,8 @@
 package com.g34.quicksalon.controller.serviceProvider;
-import com.g34.quicksalon.entity.Service;
-import com.g34.quicksalon.model.ServiceModel;
+
+import com.g34.quicksalon.dao.ServiceDAO;
+import com.g34.quicksalon.dao.ServiceDAOImple;
+import com.g34.quicksalon.model.Service;
 import com.google.gson.Gson;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -15,16 +17,16 @@ public class ServiceListServlet extends HttpServlet {
     }
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-    try {
-         ServiceModel serviceModel=new ServiceModel();
-         List<Service> services=serviceModel.getAllServices();
-         String json = new Gson().toJson(services);
-         response.setContentType("application/json");
-         response.setCharacterEncoding("UTF-8");
-         response.getWriter().write(json);
+        try {
+             ServiceDAO serviceModel=new ServiceDAOImple();
+             List<Service> services=serviceModel.getAllServices();
+             String json = new Gson().toJson(services);
+             response.setContentType("application/json");
+             response.setCharacterEncoding("UTF-8");
+             response.getWriter().write(json);
 
-     }catch (Exception e){
-         response.getWriter().println(e.getMessage());
-     }
+         }catch (Exception e){
+             response.getWriter().println(e.getMessage());
+         }
     }
 }

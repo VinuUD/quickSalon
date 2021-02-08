@@ -30,6 +30,8 @@
                 <div> <b>Name </b>  <input type="text" value="1000000" disabled ></div>
                 <div> <b>Contact Num </b>  <input  type="text" value="0710157140" ></div>
                 <div> <b>Salary </b>  <input type="text" value="1000000" ></div>
+                <div> <b>Email </b>  <input type="text" value="1000000" ></div>
+                <div> <b>Address </b>  <input type="text" value="1000000" ></div>
                 <div> <b>NIC </b>  <input  type="text" value="0710157140" disabled></div>
             </div>
 
@@ -68,6 +70,8 @@
                 <div> <b>Contact Num </b>  <input type="text" value="emp001" disabled></div>
                 <div> <b>Salary </b>  <input type="text" value="emp001" disabled></div>
                 <div> <b>NIC &nbsp;</b>  <input type="text" value="emp001" disabled></div>
+                <div> <b>Email </b>  <input type="text" value="1000000" disabled></div>
+                <div> <b>Address </b>  <input type="text" value="1000000" disabled></div>
             </div>
             <br>
 
@@ -99,25 +103,14 @@
  <!-- ////////////////////////////////////////////////////////// -->
 
  <div id="mySidenav" class="sidenav">
-    <div class="closeIcon">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    </div>
-    <br><br>
-    <!-- when i change here i should change nth child css -->
-    <div class="imgDiv"><img class="imgIcon"  src="../../resources/icons/user.png" alt=""></div>
-    <a href="#"><i class="fa fa-calendar"></i> &nbsp;&nbsp; View Salon  Schedule</a>
-    <a href="#"><i class="fa fa-tasks" ></i> &nbsp;&nbsp; Service Management</a>
-    <a href="#"><i class="fa fa-users" ></i> &nbsp;&nbsp; Employee Management</a>
-    <a href="#"><i class = "fas fa-balance-scale-left"></i> &nbsp;&nbsp; Stock Management</a>
-    <a href="#"><i class="fa fa-file" ></i>  &nbsp;&nbsp;&nbsp;&nbsp;Reports</a>
-      <a href="#"><i class = "fas fa-sign-out-alt"></i> &nbsp;&nbsp; Logout</a>
+    
+</div> <!-- sidebar -->
 
-  </div> <!-- sidebar -->
  <div id="main">
 
     <div class="back">
         <div id="navIcon" onclick="openNav()" class="navIcon"  ><img  src="../../resources/icons/three.png" alt="Ooops" ></div>
-        <button onclick="change()" class="btn34">back</button>
+        <button onclick="change()" class="btn34"><a style="text-decoration: none; color: white" href="ownerHome.html"> home </a></button>
     </div>
 
     <div class="topBar">
@@ -138,6 +131,7 @@
         </div>
     </div>
 
+
 </div>
 
 
@@ -157,9 +151,15 @@
                         "<td>" + x.contactNum + "</td>" +
                         "<td>" + x.nic + "</td>" +
                         "<td style='display:none'>" + x.salary + "</td>" +
+                        "<td style='display:none'>" + x.email + "</td>" +
+                        "<td style='display:none'>" + x.address + "</td>" +
                         "<td>" + "<button title='view employee details' class = 'btn34' onclick = 'show(event)'>" + "<i class='fa fa-eye'>"+ "</i>" +  "</button>" + "</td>" +
                         "</tr>"
+
+
                     );
+                    console.log(x.email);
+                    console.log(x.nic);
 
 
                 });
@@ -173,6 +173,8 @@
                     var col3=currentRow.find("td:eq(2)").text();
                     var col4=currentRow.find("td:eq(3)").text();
                     var col5=currentRow.find("td:eq(4)").text();
+                    var col6=currentRow.find("td:eq(5)").text();
+                    var col7=currentRow.find("td:eq(6)").text();
                     var data=col1+"\n"+col2+"\n"+col3+"\n"+col4;
 
                     var inputFields = document.getElementById("inDiv").getElementsByTagName("input");
@@ -181,6 +183,8 @@
                     inputFields[2].value = col3;
                     inputFields[3].value = col5;
                     inputFields[4].value = col4;
+                    inputFields[5].value = col6;
+                    inputFields[6].value = col7;
                     console.log(inputFields);
 
 
@@ -188,6 +192,7 @@
 
             });
 
+           
         });
 
     </script>

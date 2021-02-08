@@ -1,7 +1,8 @@
 package com.g34.quicksalon.controller.upperStaff.owner;
 
-import com.g34.quicksalon.entity.ManagerDetailsForView;
-import com.g34.quicksalon.model.ViewManagerModel;
+import com.g34.quicksalon.dao.ManagerDAO;
+import com.g34.quicksalon.dao.ManagerDAOImple;
+import com.g34.quicksalon.model.ManagerDetailsForView;
 import com.google.gson.Gson;
 
 import javax.servlet.ServletException;
@@ -20,7 +21,7 @@ public class ViewManagersServlet extends HttpServlet {
 
         try
         {
-            ViewManagerModel manager = new ViewManagerModel();
+            ManagerDAO manager = new ManagerDAOImple();
             ArrayList<ManagerDetailsForView> managerDetails = new ArrayList<>();
             managerDetails = manager.getManagersDetails();
             int name = managerDetails.get(0).getEmpId();

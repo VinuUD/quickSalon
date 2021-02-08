@@ -22,10 +22,18 @@
     background-color:#03396c;
     height: 40px;
     /* margin-top: 30px; */
-    margin: 40px auto 0px auto;
+    margin: 30px auto 0px auto;
     
     
     
+}
+
+.cross
+{
+    width: 20px;
+    height: 20px; 
+    margin-right: 10px;
+    cursor: pointer;
 }
 
 .table34 .btn34
@@ -127,11 +135,10 @@
 
 .blo
 {
-    
-    
+     
     font-size: 15px;
     border: 2px solid black;
-    margin-right: -10px;
+    margin-right: -60px;
 }
 
 .tr
@@ -276,6 +283,16 @@
         margin: 10% auto 15% auto;
         
     }
+
+.blo
+{
+     
+    font-size: 10px;
+    border: 2px solid black;
+    margin-right: -60px;
+    margin-left: -5px;
+    width: 50px;
+}
 
     .popupText
     {

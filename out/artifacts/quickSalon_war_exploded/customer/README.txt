@@ -1,1 +1,0 @@
-Create all the customer's views in this folder

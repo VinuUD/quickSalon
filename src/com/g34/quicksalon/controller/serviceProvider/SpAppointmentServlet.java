@@ -1,10 +1,11 @@
 package com.g34.quicksalon.controller.serviceProvider;
 
-import com.g34.quicksalon.entity.Appointment;
-import com.g34.quicksalon.model.AppointmentModel;
-import com.g34.quicksalon.model.CustomerModel;
-import com.g34.quicksalon.model.ServiceModel;
-import com.g34.quicksalon.model.ServiceProviderModel;
+import com.g34.quicksalon.dao.AppointmentDAO;
+import com.g34.quicksalon.dao.ApppointmentDAOImple;
+import com.g34.quicksalon.dao.CustomerDAOImple;
+import com.g34.quicksalon.dao.ServiceDAOImple;
+import com.g34.quicksalon.dao.ServiceProviderDAOImple;
+import com.g34.quicksalon.model.Appointment;
 import com.google.gson.Gson;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -19,37 +20,35 @@ import java.util.ArrayList;
 
 public class SpAppointmentServlet extends HttpServlet {
 
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
+        PrintWriter out = response.getWriter();
+        int spId = Integer.parseInt(request.getParameter("spId"));
+        int serviceID = Integer.parseInt(request.getParameter("serviceID"));
+        String fName = request.getParameter("fname");
+        String lName = request.getParameter("lname");
+        String telephone = request.getParameter("telephone");
+        long d = Long.parseLong(request.getParameter("date"));
+        Date date = new Date(d);
+        String time = request.getParameter("time");
+        String timeTaken = request.getParameter("timeTaken");
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        PrintWriter out=response.getWriter();
-        int spId= Integer.parseInt(request.getParameter("spId"));
-        int serviceID= Integer.parseInt(request.getParameter("serviceID"));
-        String fName= request.getParameter("fname");
-        String lName= request.getParameter("lname");
-        String telephone= request.getParameter("telephone");
-        long d= Long.parseLong(request.getParameter("date"));
-        Date date=new Date(d);
-        String time=request.getParameter("time");
-        String timeTaken=request.getParameter("timeTaken");
-
-
-        int customerId=0;
-        int qId=0;
+        int customerId = 0;
+        int qId = 0;
         boolean assignService;
         boolean assignedService;
-        Time startTime= Time.valueOf(timeStrToTime(time));
-        Time endTime=Time.valueOf(plusTime(timeStrToTime(time),timeTaken));
+        Time startTime = Time.valueOf(timeStrToTime(time));
+        Time endTime = Time.valueOf(plusTime(timeStrToTime(time), timeTaken));
 
-        CustomerModel customerModel=new CustomerModel();
-        AppointmentModel appointmentModel=new AppointmentModel();
-        ServiceProviderModel serviceProviderModel=new ServiceProviderModel();
-        ServiceModel serviceModel=new ServiceModel();
+        CustomerDAOImple customerModel = new CustomerDAOImple();
+        AppointmentDAO appointmentModel = new ApppointmentDAOImple();
+        ServiceProviderDAOImple serviceProviderModel=new ServiceProviderDAOImple();
+        ServiceDAOImple serviceModel=new ServiceDAOImple();
 
         try {
             //Add add Walk-in customer to customer table
-            customerId=customerModel.addWalkingCustomers(fName,lName,telephone);
+            customerId=customerModel.addWalkInCustomers(fName,lName,telephone);
 
             if(customerId!=0){
                 Appointment appointment=new Appointment(0,customerId,date,startTime,endTime,0);
@@ -97,7 +96,7 @@ public class SpAppointmentServlet extends HttpServlet {
         ArrayList<Integer> qIds=new ArrayList<Integer>();
         int spId= Integer.parseInt(request.getParameter("spId"));
         try {
-            AppointmentModel appointmentModel=new AppointmentModel();
+            AppointmentDAO appointmentModel = new ApppointmentDAOImple();
             qIds=appointmentModel.getAllAppointmentsBySP(spId);
             String json = new Gson().toJson(qIds);
             response.setContentType("application/json");

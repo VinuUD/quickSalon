@@ -4,7 +4,7 @@
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <title>Page Title</title>
-    <link rel='stylesheet' type='text/css' media='screen' href='../resources/css/main.css'>
+    
     <link rel="stylesheet" href="../resources/css/normal.css">
     <link rel="stylesheet" href="../resources/css/sideNavbar.css">
     <link rel="stylesheet" href="../resources/css/mainDiv.css">
@@ -17,10 +17,9 @@
     <!-- side nav bar -->
         <div id="mySidenav" class="sidenav">
             <div class="closeIcon"><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></div>
-           <a href="#">About</a>
-            <a href="#">Services</a>
-            <a href="#">Clients</a>
-            <a href="#">Contact</a>
+            <a href="#">todo set navbar data with scession handling</a>
+            <a href="#">todo set navbar data with scession handling</a>
+            
           </div>
           
          
@@ -29,7 +28,7 @@
 <div id="main">
   
     <div class="back">
-        <div id="navIcon" onclick="openNav()" class="navIcon"  ><img  src="three.png" alt="Ooops" ></div>
+        <div id="navIcon" onclick="openNav()" class="navIcon"  ><img src="../resources/icons/three.png" alt="Ooops" ></div>
         <button class="btn34">back</button>
     </div>
     <br><br>
@@ -39,15 +38,15 @@
     </div>
 
     <div class="mainDiv">
-       <pre>
+     
         <div class = "form-container2">
             <form action ="" method="get">
                 
         <div>
     
                 
-        <table id="t01" class = "center">
-            <tr> 
+        <table id="t01" class = "innerDiv" >
+            <tr style="background-color: white; "> 
                 <td>
                     Employee id
                 </td>
@@ -55,7 +54,7 @@
                     <input type="text" id="empid" name="empid">
                 </td>
             </tr>
-            <tr> 
+            <tr style="background-color: white; "> 
                 <td>
                     Employee name
                 </td>
@@ -63,7 +62,7 @@
                     <input type="text" id="empname" name="empname">
                 </td>
             </tr>
-            <tr> 
+            <tr style="background-color: white; "> 
                 <td>
                     Employee status
                 </td>
@@ -71,7 +70,7 @@
                     <input type="text" id="empstatus" name="empstatus">
                 </td>
             </tr>
-            <tr> 
+            <tr style="background-color: white; "> 
                 <td>
                     Reason
                 </td>
@@ -79,7 +78,7 @@
                     <input type="text" id="reason" name="reason">
                 </td>
             </tr>
-            <tr> 
+            <tr style="background-color: white; "> 
                 <td>
                     From date
                 </td>
@@ -87,7 +86,7 @@
                     <input type="date" id="fromdate" name="fromdate">
                 </td>
             </tr>
-            <tr> 
+            <tr style="background-color: white; "> 
                 <td>
                     To date
                 </td>
@@ -95,14 +94,22 @@
                     <input type="date" id="todate" name="todate">
                 </td>
             </tr>
+            <tr style="background-color: white; "> 
+                <td>
+                   
+                </td>
+                <td>
+                    <input type ="submit" class = "btn34" value = "Add leave" >
+                </td>
+            </tr>
         
-          
+           
           </table>
         </div>
         
          <br>
     
-                <input type ="submit" class = "btn39" value = "Add leave">
+               
             </form>    
         </div>
     
@@ -110,7 +117,7 @@
 
     </div>  
 </div> 
-<script src="../resources/javascript/sideNavbar.js"></script>
+<script src="../resources/javascript/side_navbar.js"></script>
 </body>
 
 </html>
