@@ -1,18 +1,19 @@
 (function($) {
   "use strict";
-
   var input = $('.validate-input .input34');
-  
-  $('.validate-form').on('submit', function(){
-    var check = true;
-    
+
+  $('#submit').on('click', function(){
+    var check=true;
     for(var i = 0; i < input.length; i++){
       if(validate(input[i]) == false){
         showValidate(input[i]);
         check = false;
       }
     }
-    return check;
+    if(check){+
+      login();
+    }
+
   });
 
   $('.validate-form .input34').each(function(){
@@ -36,7 +37,6 @@
 
   function showValidate (input) {
     var thisAlert = $(input).parent();
-
     $(thisAlert).addClass('alert-validate');
   }
 
@@ -45,4 +45,36 @@
 
     $(thisAlert).removeClass('alert-validate');
   }
+
+function login(){
+    var email = $("#email").val().trim();
+    var password = $("#password").val().trim();
+    $.post("login", {
+          email:email,
+          password:password
+        },
+        function(data, status){
+          if(parseInt(data)==1){
+            window.location.href='../../quickSalon_war_exploded/upperStaff/owner/ownerHome.html';
+          }
+          else if(parseInt(data)==2){
+            window.location.href='../../quickSalon_war_exploded/upperStaff/manager/manager_home.html';
+          }else if(parseInt(data)==3){
+            alert("3")
+            window.location.href='../../quickSalon_war_exploded/serviceProvider/sp_home.html';
+          }
+          else if(parseInt(data)==4){
+            window.location.href='../../quickSalon_war_exploded/customer/cust_home.html';
+          }
+          else {
+            alert(data);
+          }
+        }
+    );
+  }
+
+
+
 })(jQuery);
+
+

@@ -1,4 +1,4 @@
-package com.g34.quicksalon.controller;
+package com.g34.quicksalon.controller.auth;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;

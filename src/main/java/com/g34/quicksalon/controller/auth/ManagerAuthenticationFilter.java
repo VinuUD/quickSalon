@@ -1,4 +1,4 @@
-package com.g34.quicksalon.controller;
+package com.g34.quicksalon.controller.auth;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebFilter("/customer/*")
-public class CustomerAuthenticationFilter implements Filter {
+@WebFilter("/upperStaff/manager/*")
+public class ManagerAuthenticationFilter implements Filter {
     public void destroy() {
     }
 
