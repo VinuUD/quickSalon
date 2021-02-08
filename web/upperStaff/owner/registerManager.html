@@ -91,32 +91,32 @@
        
 
         <div class="innerDiv">
-            <div><b>First Name &nbsp;&nbsp;&nbsp;&nbsp;</b></div>  <div class="inputDiv"><input onchange="cng()" type="text" name="firstName"> </div>
+            <div><b>First Name &nbsp;&nbsp;&nbsp;&nbsp;</b></div>  <div class="inputDiv"><input id="firstName" onchange="cng()" type="text" name="firstName"> </div>
         </div>
 
         <div class="innerDiv">
-            <div><b>Last Name &nbsp;&nbsp;&nbsp;&nbsp;</b></div>  <div class="inputDiv"><input type="text" name="lastName"> </div>
+            <div><b>Last Name &nbsp;&nbsp;&nbsp;&nbsp;</b></div>  <div class="inputDiv"><input id="lastName" type="text" name="lastName"> </div>
         </div>
 
         <div class="innerDiv">
-            <div><b>Contact Number &nbsp;</b></div>  <div class="inputDiv"><input type="text" name="cNum" style="margin-left: -28px;"> </div>
+            <div><b>Contact Number &nbsp;</b></div>  <div class="inputDiv"><input id="cNum" type="text" name="cNum" onchange="numberCheck()" style="margin-left: -28px;"> </div>
         </div>
 
        <div class="innerDiv">
-           <div><b>Email &nbsp;</b></div>  <div class="inputDiv"><input type="email" name="email" style="margin-left: 50px;"> </div>
+           <div><b>Email &nbsp;</b></div>  <div class="inputDiv"><input id="email" onchange="emailCheck()" type="email" name="email" style="margin-left: 50px;"> </div>
        </div>
 
 
         <div class="innerDiv">
-            <div><b>NIC &nbsp;</b></div>  <div class="inputDiv"><input style="margin-left: 60px;" type="text" name="nic"> </div>
+            <div><b>NIC &nbsp;</b></div>  <div class="inputDiv"><input id="nic" style="margin-left: 60px;" type="text" name="nic"> </div>
         </div>
 
        <div class="innerDiv">
-           <div><b>Address &nbsp;</b></div>  <div style="margin-left: 30px;" class="inputDiv"><input  type="text" name="address"> </div>
+           <div><b>Address &nbsp;</b></div>  <div style="margin-left: 30px;" class="inputDiv"><input id="address"  type="text" name="address"> </div>
        </div>
 
         <div class="innerDiv">
-            <div><b>Salary &nbsp;</b></div>  <div style="margin-left: 45px;" class="inputDiv"><input  type="text" name="salary"> </div>
+            <div><b>Salary &nbsp;</b></div>  <div style="margin-left: 45px;" class="inputDiv"><input id="salary" onchange="salaryCheck()"  type="text" name="salary"> </div>
         </div>
         </form>
 
@@ -126,7 +126,7 @@
     </div>
 
     <div class="confirm">
-        <button onclick="showContinue()" class="btn34">confirm</button>
+        <button onclick="confirm()" class="btn34">confirm</button>
     </div>
 
 </div>
@@ -159,7 +159,9 @@
                     })
 
         });
+
             document.getElementById("myForm").reset();
+
 
         });
 

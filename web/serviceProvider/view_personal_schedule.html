@@ -5,34 +5,36 @@
     <link rel="stylesheet" href="../resources/css/mainDiv.css">
     <link rel="stylesheet" href="../resources/css/34.css">
     <link rel="stylesheet" href="../resources/css/sideNavbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <meta charset="UTF-8">
     <title>my schedule</title>
 </head>
 <body onresize="whenResizing()">
 <!-- side nav bar -->
 <div id="mySidenav" class="sidenav">
-    <div class="closeIcon"><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></div>
-    <a href="#">About</a>
-    <a href="#">Services</a>
-    <a href="#">Clients</a>
-    <a href="#">Contact</a>
+  
 </div>
 
 <div id="main">
 
     <div class="back">
-        <div id="navIcon" onclick="openNav()" class="navIcon"><img src="/resources/icons/three.png" alt="Ooops"></div>
-        <button class="btn34">Back</button>
+        <div id="navIcon" onclick="openNav()" class="navIcon"><img src="../resources/icons/three.png" alt="Ooops"></div>
+        <button class="btn34" onclick="window.history.back()">Back</button>
     </div>
     <br><br>
 
     <div class="topBar">
         <b>View Personal Schedule</b>
     </div>
-
-
     <div class="mainDiv">
+        <div class="subDiv">
+
+        <diV class="dateDiv">
+            <input type="date" id="date" onchange="changeDate(event);" >
+        </diV>
 
         <div class="tableDiv34">
             <table id='table_temp' class="table34">
@@ -40,18 +42,19 @@
                 <tr class="header">
                     <th>Name</th>
                     <th>Service</th>
-                    <th>Time</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
                 </tr>
                 </thead>
                 <tbody id="appointment_table">
-                <tr></tr>
                 </tbody>
             </table>
-
+        </div>
         </div>
     </div>
 </div>
-<script src="../resources/javascript/side_navbar.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="../resources/javascript/view_personal_schedule.js"></script>
+<script src="../resources/javascript/side_navbar.js"></script>
 </body>
 </html>

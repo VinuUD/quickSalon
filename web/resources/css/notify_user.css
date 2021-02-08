@@ -1,0 +1,144 @@
+
+.user-group{
+    width: auto;
+    height: auto;
+}
+
+
+.subDiv{
+    display: -ms-flexbox;
+    flex-direction: row;
+}
+
+.subDiv >div{
+    text-align: center;
+    padding: 20px;
+}
+
+.group-title{
+    border: 1px solid black;
+    height: 40px;
+    text-align: center;
+    padding-top: 20px;
+    font-size: 20px;
+    font-family: serif;
+    background-color: #48676c;
+    color: white;
+    font-style: oblique;
+
+}
+
+select {
+    border: 5px solid #96e6b3ff;
+    border-radius:15px ;
+    height: 40px;
+    color: black;
+    padding: 5px;
+    width: 250px;
+    font-size: 11px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    outline: none;
+}
+
+select:hover{
+    border: 5px solid #48676c;
+}
+
+.select-sp{
+
+    padding: 20px;
+}
+
+.btn:hover{
+
+    border: 3px solid  #48676c;
+}
+
+
+.group-tb{
+    border: 3px solid  #48676c;
+    width: auto;
+    height: 160px;
+}
+
+
+
+.row{
+    display: grid;
+    grid-template-columns: 95% 5%;
+    border: 1px solid black;
+    height: 35px;
+    width: 100%;
+    text-align: center;
+    padding-top: 10px;
+
+}
+
+.remove{
+    margin-bottom: 10px;
+    margin-right: 10px;
+    outline: none;
+    color: white;
+    background-color: rgb(209, 202, 202);
+
+
+}
+
+.remove:hover{
+    background-color: red;
+}
+
+.msg-box{
+
+    width: auto;
+
+}
+
+textarea{
+    border: 5px solid #96e6b3ff;
+    font-size: 14px;
+    border-radius: 15px;
+    width: auto;
+}
+
+textarea:hover{
+    border: 5px solid #48676c;
+}
+
+.send-btn button{
+    width: 200px;
+}
+
+.send-btn button:hover{
+    background-color: green;
+}
+
+/* Back btn */
+
+@media screen and (max-width:600px)
+{
+    textarea
+    {
+        width: 300px;
+    }
+}
+
+@media screen and (max-width:350px)
+{
+    textarea
+    {
+        width: 250px;
+    }
+}
+
+.backmodal{
+    width: 100%;
+    height: 100%;
+    background-color:rgba(0,0,0,.8);
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}

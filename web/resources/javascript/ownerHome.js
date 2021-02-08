@@ -15,3 +15,12 @@ function checkAddress(checkbox)
         setTimeout(function(){document.getElementById("profile-picture").style.display = 'initial';}, 275);
     }
 }
+
+$(document).ready(function() {
+
+    //GET session data
+    $.get("http://localhost:8080/quickSalon_war_exploded/session", function (username) {
+           document.getElementById("welcome-message").innerText='Welcome '+username+'!';
+    });
+
+});

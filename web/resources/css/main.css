@@ -1,7 +1,7 @@
 *, *::after, *::before {
     box-sizing: border-box;
   }
-  
+
   .modal {
     position: fixed;
     top: 50%;
@@ -15,11 +15,11 @@
     width: 500px;
     max-width: 80%;
   }
-  
+
   .modal.active {
     transform: translate(-50%, -50%) scale(1);
   }
-  
+
   .modal-header {
     padding: 10px 15px;
     display: flex;
@@ -27,12 +27,12 @@
     align-items: center;
     border-bottom: 1px solid black;
   }
-  
+
   .modal-header .title {
     font-size: 1.25rem;
     font-weight: bold;
   }
-  
+
   .modal-header .close-button {
     cursor: pointer;
     border: none;
@@ -41,11 +41,11 @@
     font-size: 1.25rem;
     font-weight: bold;
   }
-  
+
   .modal-body {
     padding: 10px 15px;
   }
-  
+
   #overlay {
     position: fixed;
     opacity: 0;
@@ -57,7 +57,7 @@
     background-color: rgba(0, 0, 0, .5);
     pointer-events: none;
   }
-  
+
   #overlay.active {
     opacity: 1;
     pointer-events: all;
@@ -75,16 +75,16 @@
     overflow-y: auto;
     padding: 3vw;
     /* min-width: 400px; */
-    
+
 }
 
 /* table class */
-.table34 
+.table34
 {
     border-collapse: collapse;
     border-spacing: 0;
     width: 100%;
-    border: 4px solid #03396c;
+    border: 4px solid #435a66;
 }
 
 /* table class table headers and table data */
@@ -96,10 +96,10 @@
 
 .table34 th
 {
-    background-color: #03396c;
+    background-color: #435a66;
     color: #ddd;
 }
-  
+
 /* color even rows in the table */
 tr:nth-child(even)
 {
@@ -115,7 +115,7 @@ tr:nth-child(even)
     cursor: pointer;
 
     border-radius: 6px;
-    background-color:#03396c;
+    background-color:#435a66;
     border: none;
     color: #FFFFFF;
     text-align: center;
@@ -126,15 +126,15 @@ tr:nth-child(even)
 .btn-danger34:hover
 {
     background-color: #f4511e;
-   
+
 }
 
 .btn-success34
 {
-   
+
     cursor: pointer;
     border-radius: 6px;
-    background-color:#03396c;
+    background-color:#435a66;
     border: none;
     color: #FFFFFF;
     text-align: center;
@@ -145,17 +145,17 @@ tr:nth-child(even)
 .btn-success34:hover
 {
     background-color:#03a827;
-   
+
 }
 
 .btn34
 {
     margin : 10px ;
-    
+
     cursor: pointer;
 
     border-radius: 6px;
-    background-color:#03396c;
+    background-color:#435a66;
     border: none;
     color: #FFFFFF;
     text-align: center;
@@ -166,11 +166,11 @@ tr:nth-child(even)
 .btn39
 {
     margin : 10px ;
-    
+
     cursor: pointer;
 
     border-radius: 6px;
-    background-color:#03396c;
+    background-color:#435a66;
     border: none;
     color: #FFFFFF;
     text-align: center;
@@ -185,7 +185,7 @@ tr:nth-child(even)
     background-color:#096ecc;
 }
 
-  
+
 form {
     text-align: center;
     padding: 50px;
@@ -206,12 +206,12 @@ form {
   {
 
     text-align: center;
-    
+
   }
 
 table {
     width: auto;
-    
+
 }
 table, th, td {
   //border: 1px solid black;
@@ -232,9 +232,9 @@ th, td {
   color: white;
 }
 table.center {
-  margin-left:auto; 
+  margin-left:auto;
   margin-right:auto;
-  
+
 }
 
 
@@ -248,11 +248,11 @@ table.center {
 .ssbut
 {
     margin : 10px ;
-    
+
     cursor: pointer;
 
     border-radius: 6px;
-    background-color:#03396c;
+    background-color:#435a66;
     border: none;
     color: #FFFFFF;
     text-align: center;
@@ -281,7 +281,7 @@ table.center {
 *, *::after, *::before {
     box-sizing: border-box;
   }
-  
+
   .modal {
     position: fixed;
     top: 50%;
@@ -295,11 +295,11 @@ table.center {
     width: 500px;
     max-width: 80%;
   }
-  
+
   .modal.active {
     transform: translate(-50%, -50%) scale(1);
   }
-  
+
   .modal-header {
     padding: 10px 15px;
     display: flex;
@@ -307,12 +307,12 @@ table.center {
     align-items: center;
     border-bottom: 1px solid black;
   }
-  
+
   .modal-header .title {
     font-size: 1.25rem;
     font-weight: bold;
   }
-  
+
   .modal-header .close-button {
     cursor: pointer;
     border: none;
@@ -321,11 +321,11 @@ table.center {
     font-size: 1.25rem;
     font-weight: bold;
   }
-  
+
   .modal-body {
     padding: 10px 15px;
   }
-  
+
   #overlay {
     position: fixed;
     opacity: 0;
@@ -337,7 +337,7 @@ table.center {
     background-color: rgba(0, 0, 0, .5);
     pointer-events: none;
   }
-  
+
   #overlay.active {
     opacity: 1;
     pointer-events: all;
@@ -357,7 +357,7 @@ table.center {
     cursor: pointer;
 
     border-radius: 6px;
-    background-color:#03396c;
+    background-color:#435a66;
     border: none;
     color: #FFFFFF;
     text-align: center;
@@ -368,15 +368,15 @@ table.center {
 .btn-danger34:hover
 {
     background-color: #f4511e;
-   
+
 }
 
 .btn-success34
 {
-   
+
     cursor: pointer;
     border-radius: 6px;
-    background-color:#03396c;
+    background-color:#435a66;
     border: none;
     color: #FFFFFF;
     text-align: center;
@@ -387,17 +387,17 @@ table.center {
 .btn-success34:hover
 {
     background-color:#03a827;
-   
+
 }
 
 .btn34
 {
     margin : 10px ;
-    
+
     cursor: pointer;
 
     border-radius: 6px;
-    background-color:#03396c;
+    background-color:#435a66;
     border: none;
     color: #FFFFFF;
     text-align: center;
@@ -408,11 +408,11 @@ table.center {
 .btn39
 {
     margin : 10px ;
-    
+
     cursor: pointer;
 
     border-radius: 6px;
-    background-color:#03396c;
+    background-color:#435a66;
     border: none;
     color: #FFFFFF;
     text-align: center;
@@ -427,7 +427,7 @@ table.center {
     background-color:#096ecc;
 }
 
-  
+
 form {
     text-align: center;
     padding: 50px;
@@ -448,12 +448,12 @@ form {
   {
 
     text-align: center;
-    
+
   }
 
 table {
     width: auto;
-    
+
 }
 table, th, td {
   //border: 1px solid black;
@@ -474,9 +474,9 @@ th, td {
   color: white;
 }
 table.center {
-  margin-left:auto; 
+  margin-left:auto;
   margin-right:auto;
-  
+
 }
 
 
@@ -485,20 +485,20 @@ table.center {
     text-align: center;
 }
 
-.ss 
+.ss
 {
- 
-    
+
+
 }
 
 .ssbut
 {
     margin : 10px ;
-    
+
     cursor: pointer;
 
     border-radius: 6px;
-    background-color:#03396c;
+    background-color:#435a66;
     border: none;
     color: #FFFFFF;
     text-align: center;
@@ -506,7 +506,3 @@ table.center {
     float: center;
 
 }
-
-
-
-

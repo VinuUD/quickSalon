@@ -3,13 +3,13 @@ body
     min-width: 300px;
     min-height: 500px;
     margin: 0px;
-    
+
 }
 
 
 .bar
 {
-   
+
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -51,9 +51,9 @@ body
 
 .mainDiv
 {
-   
 
-    border: 4px solid #03396c;
+
+    border: 4px solid #435a66;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -61,7 +61,7 @@ body
     /* margin-bottom: 200px; */
     margin: 0px auto 40px auto;
     padding: 20px 0px 20px 0px;
-    
+
 
 }
 
@@ -80,14 +80,14 @@ body
     justify-content: center;
     align-items: center;
     color: #ddd;
-    background-color:#03396c;
+    background-color:#435a66;
     height: 40px;
-   
+
     margin: 0px auto 0px auto;
-   
-    
-    
-    
+
+
+
+
 }
 
 @media screen and (max-width:915px)
@@ -103,7 +103,7 @@ body
     .mainDiv
     {
         width: 900px;
-       
+
     }
 
     .back
@@ -145,8 +145,8 @@ body
     .bar div,input
     {
         font-size: 17px;
-        
-    }  
+
+    }
     .bar  div
     {
         /* border: 2px solid red; */
@@ -159,8 +159,8 @@ body
     {
         height: 40px;
         width: 70px;
-        
-        
+
+
     }
 
     .back
@@ -194,22 +194,22 @@ td > div
 .submit
 {
     display: flex;
-    
+
     margin-top: 40px;
     float: right;
 }
 
 .popup
 {
-    
+
     display: none;
     text-align: center;
     position: fixed;
     z-index: 1;
     width: 100%;
     height: 100%;
-    backdrop-filter: blur(5px);   
-    
+    backdrop-filter: blur(5px);
+
 }
 
 .popup .popup2
@@ -236,7 +236,7 @@ td > div
     margin-right: 20px;
     /* border: 2px solid black; */
     padding-top: 20px;
-    
+
 }
 
 @media screen and (max-width:800px)
@@ -251,7 +251,7 @@ td > div
     {
         font-size: 14px;
         padding-top: 10px;
-        
+
     }
 
     .popup2 > .button
@@ -259,9 +259,3 @@ td > div
         margin-top: 50px;
     }
 }
-
-
-
-
-
-

@@ -1,0 +1,403 @@
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body{
+  min-width: 300px;
+  min-height: 500px;
+  margin: 0px;
+}
+
+.top1{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #ddd;
+  background-color:#435a66;
+  margin-bottom: 0px;
+  height: 40px;
+  margin-left: 3vw;
+  margin-right: 3vw;
+  margin-top: 40px;
+  direction: rtl;
+}
+
+.mainDiv
+{
+    margin-top: 0px;
+    margin-bottom: 80px; 
+    border: 4px solid #435a66;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* margin-top: 200px; */
+    /* margin-bottom: 200px; */
+    margin: 0px auto 100px auto;
+    padding: 30px 0px 20px 0px;
+}
+
+@media screen and (min-width:900px)
+{
+    .mainDiv
+    {
+        width: 1400px;
+    }
+
+   
+
+    .topBar
+    {
+        width: 1400px;
+    }
+}
+
+img{
+  cursor: pointer;
+}
+
+.popup2 >  .top1
+{
+    margin-left: 0vw;
+    margin-right: 0vw;
+    margin-bottom: 20px;
+    margin-top: 0px;
+}
+
+.table34 .btn34
+{
+    width: 40px;
+}
+
+.popup
+{
+
+    display: none;
+    text-align: center;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px);
+}
+
+.popup .popup2
+{
+    margin: 20px auto 15% auto;
+    width: 800px;
+    height: 80%;
+    background-color:white;
+    box-shadow: -14px 9px 28px 0px rgba(0,0,0,0.54);
+    overflow: auto;
+}
+
+.popup2 > .button
+{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.ptext
+{
+    margin-left: 20px;
+    margin-right: 20px;
+    /* border: 2px solid black; */
+    padding-top: 20px;
+}
+.topBar
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: #ddd;
+    background-color:#435a66;
+    height: 40px;
+    /* margin-top: 30px; */
+    margin: 40px auto 0px auto;
+
+}
+
+.top1 img
+{
+
+    height: 20px;
+    width: 20px;
+    margin-right: 10px;
+
+}
+
+.top1 b
+{
+    margin: 0px auto 0px auto;
+
+}
+
+.bar
+{
+
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    /* border: 2px solid black; */
+    text-align: left;
+    margin-right: 40px;
+    margin-left: 40px;
+
+
+}
+
+.bar >div,input
+{
+    font-size: 17px;
+
+}
+
+.button
+{
+    margin-bottom: 20px;
+
+}
+.button > button
+{
+    font-size: 13px;
+}
+
+.bar  input
+{
+    width: 100%;
+    margin-top: 0px;
+}
+
+.bar div
+{
+    margin-bottom: 8px;
+}
+
+.popup > .back
+{
+    padding-top: 10px;
+    /* border: 2px solid black; */
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: flex-end;
+    direction: rtl;
+}
+
+.setDate{
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+}
+
+#btn-search{
+  padding: 6px;
+  float: right;
+  padding: 6px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+#btn-search:hover{
+  background: #ccc;
+}
+
+#fromDate, #toDate{
+  margin-right: 0;
+}
+
+.search-container{
+  float: right;
+}
+
+.tableDiv34{
+  overflow: auto !important;
+}
+
+.buttonDiv
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 40px;
+}
+
+.main-container {
+    margin: 5px 10%;
+    display: grid;
+    grid-template-columns: 7fr 5fr;
+    height: 100vh;
+    width: 50%;
+}
+
+.form_container {
+    padding-left: 10%;
+    height: 150px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-shadow: 1px 1px 1px 0px #ccc;
+    display: flex;
+    background-color: #fff;
+    margin-bottom: 5px;
+    justify-content: center;
+}
+
+
+.main-container .table_container {
+    min-height: 450px;
+    width: 45%;
+    line-height: 25px;
+    position: absolute;
+    right: 10%;
+    padding: 25px;
+}
+
+.left {
+    height: 700px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px 0px #ccc;
+    display: flex;
+    background-color: #fff;
+    position: relative;
+    line-height: 15px;
+    justify-items: center;
+}
+
+.product_container {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    padding-bottom: 75px;
+}
+
+form {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 100px auto;
+    width: 75%;
+}
+
+.details input {
+    background-color: #eee;
+    border: none;
+    padding: 12px 15px;
+    margin: 8px 0;
+    width: 100%;
+}
+
+input[type=text],
+select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0 10px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.buttonDiv a{
+  padding: auto 0;
+}
+
+@media screen and (max-width:490px)
+{
+  .popup .popup2
+  {
+      width: 90%;
+      height: 80%;
+      margin-left: 4vw;
+      margin-top: 20px;
+  }
+
+  .popup2 > .button
+  {
+      margin-top: 50px;
+  }
+
+  .bar
+  {
+      flex-direction: column;
+      text-align: left;
+  }
+
+  .bar div,input
+  {
+      font-size: 13px;
+
+  }
+  .bar > div
+  {
+      /* border: 2px solid red; */
+
+      margin-bottom: 5px;
+      width: 100%;
+
+  }
+
+  .bar input
+  {
+      width: 90%;
+  }
+
+  .back button
+  {
+      margin-top: 40px;
+  }
+}
+
+
+@media screen and (max-width: 780px) {
+  .popup .popup2
+  {
+      width: 90%;
+      height: 80%;
+      margin-left: 4vw;
+      margin-top: 20px;
+  }
+
+  .setDate{
+    flex-direction: column;
+  }
+
+  .search-container {
+    display: block;
+    float: none;
+    width: 100%;
+  }
+
+  input[type=date], #search-bar, #btn-search{
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+  }
+
+    #search-bar, #btn-search{
+    padding: 14px;
+  }
+
+  #search-bar{
+    z-index: -10;
+  }
+
+  input {
+    border: 1px solid #ccc;
+  }
+}
+
+@media screen and (max-width: 600px) {
+    #fromDate, #toDate{
+      margin-right:auto;
+      margin-bottom: 10px;
+    }
+}

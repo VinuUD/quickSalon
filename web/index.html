@@ -1,26 +1,72 @@
-<!-- <%--
-  Created by IntelliJ IDEA.
-  User: User
-  Date: 10/2/2020
-  Time: 2:37 PM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %> -->
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="resources/css/home.css">
-    <link rel="stylesheet" href="resources/css/34.css">
-    <title>Home</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Quick Salon</title>
+    <link rel="stylesheet" href="./resources/css/landingstyle.css">
+    <script src="https://kit.fontawesome.com/0f3db243e3.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
   <body>
-    <a href="login.html">Login</a>
-    <div id="header">
-      <h1>Quick Salon</h1>
-    </div>
+    <header class="showcase">
+      <div class="content">
+        <img src="./resources/icons/logo-2.svg" class="logo" alt="Quick Salon">
+        <div class="title">
+          Welcome to Quick Salon
+        </div>
+        <div class="text">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, vel?
+        </div>
 
+        <a href="./login.html" class="login">Login</a>
+        
+      </div>
+    </header>
+
+    <!-- Services -->
+    <section class="services">
+      <div class="container grid-3 center">
+        <div>
+          <i class="fas fa-bullhorn fa-3x"></i>
+          <h3>Services</h3>
+          <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+
+        <div>
+          <i class="fas fa-users fa-3x"></i>
+          <h3>Our Staff</h3>
+          <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+
+        <div>
+          <i class="fas fa-camera-retro fa-3x"></i>
+          <h3>Our Gallery</h3>
+          <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="about bg-light">
+      <div class="container">
+        <div class="grid-2">
+          <div class="center">
+            <i class="fas fa-info-circle fa-10x"></i>
+          </div>
+
+          <div>
+            <h3>About Us</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus aliquam tenetur dolorum quasi in quo molestias, voluptate rerum minus magnam sequi. Eaque cum quam, dolore eum, consequuntur est voluptatum! Ipsam repudiandae nam itaque fugit, cupiditate aperiam est pariatur fugiat fuga.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="center bg-dark">
+      <p>Quick Salon &copy; 2020</p>
+    </footer>
+
+    <script type="text/javascript" src="./resources/javascript/landing.js"></script>
   </body>
 </html>

@@ -9,7 +9,7 @@
 body{
 
   height: 100vh;
-  background: url("../images/Flagship-Salon-2-4.webp") no-repeat;
+  background: url("../images/login1.jpg") no-repeat;
   background-size: cover;
   background-position: center;
   font-size: 30px;
@@ -20,8 +20,7 @@ body{
   color: white;
   /* flex-direction: column; */
   /* align-items: center; */
-  /* justify-content: center; */
-  margin-bottom: 30px;
+  justify-content: center;
 }
 
 a{
