@@ -1,0 +1,11 @@
+.wrap-login {
+  width: 960px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 177px 130px 33px 95px;
+}
