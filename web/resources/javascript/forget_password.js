@@ -1,6 +1,9 @@
 (function($) {
     "use strict";
     var input = $('.validate-input .input34');
+
+    $("#email_verification").hide();
+    $("#password").hide();
   
     $('#submit').on('click', function(){
       var check=true;
@@ -45,6 +48,25 @@
   
       $(thisAlert).removeClass('alert-validate');
     }
+
+    // Animations
+    $("#submitEmail").click(function(){
+        $( "#reset_password" ).slideUp( "Fast", function() {
+            $( "#email_verification" ).slideDown( "Fast", function() {
+                $("#email_verification").show();
+              });
+          });
+    });
+
+    $("#enterPin").click(function(){
+        $( "#email_verification" ).slideUp( "Fast", function() {
+            $( "#password" ).slideDown( "Fast", function() {
+                $("#password").show();
+              });
+          });
+    });
+
+
   
   function login(){
       var email = $("#email").val().trim();
@@ -71,9 +93,6 @@
           }
       );
     }
-  
-  
-
   })(jQuery);
   
   
