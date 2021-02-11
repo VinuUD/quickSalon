@@ -1,11 +1,14 @@
 (function($) {
-    "use strict";
-    var input = $('.validate-input .input34');
 
-    $("#email_verification").hide();
-    $("#password").hide();
-  
-    $('#submit').on('click', function(){
+
+
+
+    "use strict";
+    $("#changePassword").hide();
+    $("#verification").hide();
+  // <!-- Enter email component -->
+    $('#submitEmail').on('click', function(){
+      var input = $('#email');
       var check=true;
       for(var i = 0; i < input.length; i++){
         if(validate(input[i]) == false){
@@ -15,9 +18,57 @@
       }
       if(check){
         //login(); ///CAll ajax request
+        $( "#reset_password" ).slideUp( "Fast", function() {
+            $( "#verification" ).slideDown( "Fast", function() {
+                $("#verification").show();
+              });
+        });
       }
-  
     });
+
+    // <!-- Enter pincode component -->
+    $('#submitPin').on('click', function(){
+      var input = $('#pin');
+      var check=true;
+      for(var i = 0; i < input.length; i++){
+        if(validate(input[i]) == false){
+          showValidate(input[i]);
+          check = false;
+        }
+      }
+      if(check){
+        //login(); ///CAll ajax request
+        $( "#verification" ).slideUp( "Fast", function() {
+            $( "#changePassword" ).slideDown( "Fast", function() {
+                $("#changePassword").show();
+              });
+          });
+      }
+    });
+
+    //<!-- Reset password component -->
+    $('#resetPassword').on('click', function(){
+      var input = $('#password');
+      var input2 = $('#repassword');
+      var check=true;
+
+      // Check pwd is empty or not
+      if($(input).val().trim() == ''){
+        showValidate(input);
+      }
+      if(input.val() === input2.val()){
+        // alert("Reset success! ")  
+        $(".limiter").css({"filter":"blur(8px)","-webkit-filter": "blur(8px)" });
+        $(".center").css("display","block" );
+
+      }
+      else{
+        // Password,Re not match
+        showValidate(input2);
+        
+      }
+    });
+
   
     $('.validate-form .input34').each(function(){
       $(this).focus(function(){
@@ -37,7 +88,7 @@
         }
       }
     }
-  
+
     function showValidate (input) {
       var thisAlert = $(input).parent();
       $(thisAlert).addClass('alert-validate');
@@ -49,50 +100,11 @@
       $(thisAlert).removeClass('alert-validate');
     }
 
-    // Animations
-    $("#submitEmail").click(function(){
-        $( "#reset_password" ).slideUp( "Fast", function() {
-            $( "#email_verification" ).slideDown( "Fast", function() {
-                $("#email_verification").show();
-              });
-          });
-    });
+   
+   
 
-    $("#enterPin").click(function(){
-        $( "#email_verification" ).slideUp( "Fast", function() {
-            $( "#password" ).slideDown( "Fast", function() {
-                $("#password").show();
-              });
-          });
-    });
+    
 
-
-  
-  function login(){
-      var email = $("#email").val().trim();
-      var password = $("#password").val().trim();
-      $.post("login", {
-            email:email,
-            password:password
-          },
-          function(data, status){
-            if(parseInt(data)==1){
-              window.location.href='../../quickSalon_war_exploded/upperStaff/owner/ownerHome.html';
-            }
-            else if(parseInt(data)==2){
-              window.location.href='../../quickSalon_war_exploded/upperStaff/manager/manager_home.html';
-            }else if(parseInt(data)==3){
-              window.location.href='../../quickSalon_war_exploded/serviceProvider/sp_home.html';
-            }
-            else if(parseInt(data)==4){
-              window.location.href='../../quickSalon_war_exploded/customer/cust_home.html';
-            }
-            else {
-              alert(data);
-            }
-          }
-      );
-    }
   })(jQuery);
   
   
