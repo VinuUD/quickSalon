@@ -1,11 +1,8 @@
 (function($) {
-
-
-
-
     "use strict";
     $("#changePassword").hide();
     $("#verification").hide();
+    $(".center").hide();
   // <!-- Enter email component -->
     $('#submitEmail').on('click', function(){
       var input = $('#email');
