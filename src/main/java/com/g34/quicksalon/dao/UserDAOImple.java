@@ -1,2 +1,4 @@
-package com.g34.quicksalon.dao;public class UserDAOImple {
+package com.g34.quicksalon.dao;
+
+public class UserDAOImple {
 }
