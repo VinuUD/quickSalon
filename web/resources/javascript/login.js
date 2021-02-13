@@ -60,7 +60,6 @@ function login(){
           else if(parseInt(data)==2){
             window.location.href='../../quickSalon_war_exploded/upperStaff/manager/manager_home.html';
           }else if(parseInt(data)==3){
-            alert("3")
             window.location.href='../../quickSalon_war_exploded/serviceProvider/sp_home.html';
           }
           else if(parseInt(data)==4){
