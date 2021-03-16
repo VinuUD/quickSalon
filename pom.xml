@@ -17,6 +17,7 @@
                     <source>11</source>
                     <target>11</target>
                 </configuration>
+
             </plugin>
         </plugins>
     </build>
@@ -44,6 +45,34 @@
             <version>4.0.1</version>
             <scope>provided</scope>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/javax.mail/mail -->
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4.7</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.activation</groupId>
+            <artifactId>activation</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+
+
+<!--        <dependency>-->
+<!--            <groupId>org.simplejavamail</groupId>-->
+<!--            <artifactId>simple-java-mail</artifactId>-->
+<!--            <version>6.4.4</version>-->
+<!--        </dependency>-->
+
+<!--        &lt;!&ndash; https://mvnrepository.com/artifact/com.sendinblue/sendinblue &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>com.sendinblue</groupId>-->
+<!--            <artifactId>sendinblue</artifactId>-->
+<!--            <version>2.0</version>-->
+<!--        </dependency>-->
+
 
 
     </dependencies>

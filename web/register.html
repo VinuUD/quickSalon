@@ -1,85 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-<html >
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="resources/css/customerRegister.css">
-        <link rel="stylesheet" href="resources/css/34.css">
-        <title>Register</title>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    </head>
-    <body>
-     <div id="background" class="background">
+  <link rel="stylesheet" type="text/css" href="./resources/css/login.css">
+  <script src="https://kit.fontawesome.com/0f3db243e3.js" crossorigin="anonymous"></script>
+  <title>Register</title>
+</head>
+<body>
+  <div class="limiter">
+    <div class="container">
+      <div class="wrap-login wrap-register">
+        <div class="login-pic register-pic">
+          <img src="./resources/icons/register.svg" alt="IMG">
         </div>
-  
-        <div class="mainDiv">
 
-            <div class="topDiv">
-                <h2>S i g n u p </h2>
-            </div>
-    
-            <div class="innerDiv">
-                <label for="fname"><b>First Name &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</b></label>
-                <input class="input" type="text" placeholder="Enter First Name" name="fname" id="fname" required>
-            </div>
+        <div class="login-form validate-form">
+          <span class="register-form-title">
+            Register
+          </span>
 
-
-            <div class="innerDiv">
-                <label for="lname"><b>Last Name &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</b></label>
-                <input class="input" type="text" placeholder="Enter Last Name" name="lname" id="lname" required>
+          <span>First Name</span>
+          <div class="">
+            <div class="form-field wrap-input">
+              <input type="text" id="fName" class="input34" placeholder="First Name" required>
+              <span class="focus-input"></span>
             </div>
 
-            <div class="innerDiv">
-                <label for="uname"><b>User Name &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</b></label>
-                <input class="input" type="text" placeholder="Username " name="uname" id="uname" required>
+            <span>Last Name</span>
+            <div class="form-field wrap-input">
+              <input type="text" id="lName" class="input34" placeholder="Last Name" required>
+              <span class="focus-input"></span>
             </div>
 
-            <div class="innerDiv">
-                <label for="contactno"><b>Contact No &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</b></label>
-                <input class="input" type="text" placeholder="Enter Contact No" name="contactno" id="contactno" required>
+            <span>User Name</span>
+            <div class="form-field wrap-input">
+              <input type="text" id="uName" class="input34" placeholder="User Name" required>
+              <span class="focus-input"></span>
             </div>
 
-            <div class="innerDiv">
-                <label for="NIC"><b>NIC No &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </b></label>
-                <input class="input" type="text" placeholder="Enter NIC No" name="nic" id="nic" required>
+            <span>Contact Number</span>
+            <div class="form-field wrap-input">
+              <input type="text" id="contactNo" class="input34" placeholder="Contact Number" required>
+              <span class="focus-input"></span>
             </div>
 
-            <div class="innerDiv">
-                <label for="email"><b>Email &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</b></label>
-                <input class="input"  type="text" placeholder="Enter Email" name="email" id="email" required>
+            <span>NIC Number</span>
+            <div class="form-field wrap-input">
+              <input type="text" id="nic" class="input34" placeholder="NIC Number" required>
+              <span class="focus-input"></span>
             </div>
 
-            <div class="innerDiv">
-                <label for="Address"><b>Address &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</b></label>
-                <input class="input" type="text" placeholder="Enter Address" name="address" id="address" required>
+            <span>Email</span>
+            <div class="form-field wrap-input validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+              <input id=email type="text" class="input34" name=email placeholder="Email">
+              <span class="focus-input"></span>
             </div>
-
-            <div class="innerDiv">
-                <label for="password"><b>Password &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</b></label>
-                <input class="input" type="password" placeholder="Enter Password" name="password" id="password" required>
-            </div>
-
-            <div class="innerDiv">
-                <label for="password-repeat"><b>Repeat Password </b></label>
-                <input class="input" type="password" placeholder="Repeat Password" name="psw-repeat" id="password-repeat" required>
-            </div>
-
-            <div class="buttonDiv">
-                <button class="back-login" onclick="window.location.href='login.html'"> <b>Back</b> </button>
-                <button id="signup"> <b>Sign Up</b> </button>
-            </div>
-
-
             
-        </div>
+            <span>Address</span>
+            <div class="form-field wrap-input">
+              <input type="text" id="address" class="input34" placeholder="Address">
+              <span class="focus-input"></span>
+            </div>
 
-       
+            <span>Password</span>
+            <div class="form-field wrap-input validate-input" data-validate = "Password is required">
+              <input id=password class="input34" type="password" name="password" placeholder="Password">
+              <span class="focus-input"></span>
+            </div>
 
-        
+            <span>Re-enter Password</span>
+            <div class="form-field wrap-input validate-input" data-validate = "Password is required">
+              <input id="confirmPW" class="input34" type="password" name="confirmPW" placeholder="Re-Enter Password">
+              <span class="focus-input"></span>
+            </div>
+          </div>
 
-    
-    <script src="resources/javascript/register.js"></script>
-    </body>
-    </html>
-    
+          <div class="container-login-form-btn">
+            <button id=submit class="login-form-btn">
+              Register
+            </button>
+          </div>
+
+          <div class="text-center" id="register">
+            <a class="txt2" href="login.html">
+              <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+              Back to Login
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript" src="./resources/javascript/login.js"></script>
+</body>
+</html>

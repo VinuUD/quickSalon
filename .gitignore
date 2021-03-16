@@ -7,5 +7,5 @@ quickSalon.iml
 lib/
 quicksalon.iml
 */target/**
-.settings
+.settings/
 .project
