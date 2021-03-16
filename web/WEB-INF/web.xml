@@ -72,6 +72,15 @@
         <servlet-name>View</servlet-name>
         <url-pattern>/upperStaff/owner/allManagers.html/view</url-pattern>
     </servlet-mapping>
+    <!--    //ourStaff servlet-->
+    <servlet>
+        <servlet-name>OurStaff</servlet-name>
+        <servlet-class>com.g34.quicksalon.controller.OurStaffServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>OurStaff</servlet-name>
+        <url-pattern>/ourStaff.html/ourStaff</url-pattern>
+    </servlet-mapping>
 
 
     <servlet>
