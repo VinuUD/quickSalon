@@ -7,7 +7,6 @@ function openNav() {
   }
 }
 
-/* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0px";
   // document.getElementsByClassName("sideNav")[0].style.width= "0px";
@@ -44,7 +43,7 @@ function tgl() {
 }
 
 $(document).ready(function () {
-  $("#mySidenav").load("sideNav.html", function () {
+  $("#mySidenav").load("sideNavManager.html", function () {
     tgl();
   });
 });

@@ -1,99 +1,115 @@
 <html lang="en">
-<head>
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../resources/css/accessControl.css">
-    <link rel="stylesheet" href="../../resources/css/34.css">
-    <link rel="stylesheet" href="../../resources/css/sideNavbar.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../resources/css/accessControl.css" />
+    <link rel="stylesheet" href="../../resources/css/34.css" />
+    <link rel="stylesheet" href="../../resources/css/sideNavbar.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
     <title>Access Control</title>
-</head>
-<body onresize="whenResizing()">
-
-
+  </head>
+  <body onresize="whenResizing()">
     <div id="pop" class="popup">
-        <div class="popup2">
-            <div class="ptext">
-                <h3>All data Will be lost. Do you want to continue?</h3>
-            </div>
-            
-           
-
-            <div class="button">
-                <button onclick="hide()" class="btn-danger34">yes</button>
-                <button onclick="hide()" class="btn-success34">no</button>
-            </div>
+      <div class="popup2">
+        <div class="ptext">
+          <h3>All data Will be lost. Do you want to continue?</h3>
         </div>
-   </div>
-   
-    <div id="mySidenav" class="sidenav">
-    </div> <!-- sidebar -->
 
-<div id="main">
- 
-    <div class="back">
-        <div id="navIcon" onclick="openNav()" class="navIcon"  ><img  src="../../resources/icons/three.png" alt="Ooops" ></div>
-        <button onclick="change()" class="btn34">back</button>
+        <div class="button">
+          <button onclick="hide()" class="btn-danger34">yes</button>
+          <button onclick="hide()" class="btn-success34">no</button>
+        </div>
+      </div>
     </div>
-    <br><br>
 
-    <div class="topBar">
-        <b>Access Control</b> 
-     </div>
+    <div id="mySidenav" class="sidenav"></div>
+    <!-- sidebar -->
 
-    <div class="mainDiv">
+    <div id="main">
+      <div class="back">
+        <div id="navIcon" onclick="openNav()" class="navIcon">
+          <img src="../../resources/icons/three.png" alt="Ooops" />
+        </div>
+        <button onclick="change()" class="btn34">back</button>
+      </div>
+      <br /><br />
+
+      <div class="topBar">
+        <b>Access Control</b>
+      </div>
+
+      <div class="mainDiv">
         <div class="bar">
-            <div > <b>Manger :</b>  <input  type="text" value="Shehan Sandeepa" disabled></div>
-            <div > <b>Employee Id :</b>  <input type="text" value="emp001" disabled></div>     
+          <div>
+            <b>Manger :</b>
+            <input type="text" value="Shehan Sandeepa" disabled />
+          </div>
+          <div>
+            <b>Employee Id :</b> <input type="text" value="emp001" disabled />
+          </div>
         </div>
 
         <div class="tableDiv34">
-            <form action="#hml" method="GET">
+          <form action="#hml" method="GET">
             <table class="table34">
-                <tr>
-                    <th class="h1">Function Id</th>
-                    <th class="h2">Function</th>
-                    <th class="h3">Access</th>
-                </tr>
-                <tr>
-                    <td>F001</td>
-                    <td>Add Barber</td>
-                    <td>
-                        <div>
-                           <input onchange="hello()" type="radio" name="access" value="allow" > Allow
-                           &ensp;
-                           <input onchange="hello()" type="radio" name="access" value="deny"> Deny
-                        </div>
-                        
-                        
-                    </td>
-                </tr>
-                <tr>
-                   <td>F002</td>
-                   <td>Remove Barber</td>
-                   <td >
-                       <div>
-                           <input onchange="hello()" type="radio" name="access1" > Allow
-                           &ensp;
-                           <input onchange="hello()" type="radio" name="access1"> Deny
-                        </div>
-                   </td>
-               </tr>
+              <tr>
+                <th class="h1">Function Id</th>
+                <th class="h2">Function</th>
+                <th class="h3">Access</th>
+              </tr>
+              <tr>
+                <td>F001</td>
+                <td>Add Barber</td>
+                <td>
+                  <div>
+                    <input
+                      onchange="hello()"
+                      type="radio"
+                      name="access"
+                      value="allow"
+                    />
+                    Allow &ensp;
+                    <input
+                      onchange="hello()"
+                      type="radio"
+                      name="access"
+                      value="deny"
+                    />
+                    Deny
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>F002</td>
+                <td>Remove Barber</td>
+                <td>
+                  <div>
+                    <input onchange="hello()" type="radio" name="access1" />
+                    Allow &ensp;
+                    <input onchange="hello()" type="radio" name="access1" />
+                    Deny
+                  </div>
+                </td>
+              </tr>
             </table>
             <div class="submit">
-               <input class="btn34" type="submit" value="submit">
+              <input class="btn34" type="submit" value="submit" />
             </div>
-           </form>
+          </form>
         </div>
-
-    </div>  
-</div> 
-<script src="../../resources/javascript/side_navbar.js"></script>
-<script src="../../resources/javascript/accessControl.js"></script>
-</body>
+      </div>
+    </div>
+    <script src="../../resources/javascript/side_navbar.js"></script>
+    <script src="../../resources/javascript/accessControl.js"></script>
+  </body>
 </html>
