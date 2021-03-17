@@ -1,182 +1,237 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../resources/css/34.css">
-    <link rel="stylesheet" href="../../resources/css/registerManager.css">
-    <link rel="stylesheet" href="../../resources/css/sideNavbar.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../resources/css/34.css" />
+    <link rel="stylesheet" href="../../resources/css/registerManager.css" />
+    <link rel="stylesheet" href="../../resources/css/sideNavbar.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
     <title>Register Manager</title>
-</head>
-<body onresize="whenResizing()">
- <!-- confirm popup -->
+  </head>
+  <body onresize="whenResizing()">
+    <!-- confirm popup -->
     <div id="mainPopupDiv" class="mainPopupDiv">
-        <div class="innerPopupDiv">
-            <div class="top1">
-                <i><img class="crsImg" onclick="hide()" src="../../resources/icons/cross.png" alt=""></i>
-                <b >Register Manager</b>
-            </div>
-            <div class="popupText">
-                <h3>Manager added successfully ! Do you want to add new Manager?</h3>
-            </div> 
-
-            <div class="pButton">
-                <button onclick="hide()" class="btn-danger34">yes</button>
-                <button  class="btn-success34">  <a style="text-decoration: none; color: white" href="ownerHome.html"> No </a> </button>
-               
-            </div>
+      <div class="innerPopupDiv">
+        <div class="top1">
+          <i
+            ><img
+              class="crsImg"
+              onclick="hide()"
+              src="../../resources/icons/cross.png"
+              alt=""
+          /></i>
+          <b>Register Manager</b>
         </div>
-   </div>
-
-
- <!-- back popup -->
- <div id="mainPopupDivBack" class="mainPopupDiv">
-     <div class="innerPopupDiv">
-         <div class="top1">
-             <i><img class="crsImg" onclick="hideBack()" src="../../resources/icons/cross.png" alt=""></i>
-             <b >Remove Manager</b>
-         </div>
-         <div class="popupText">
-             <h3>All data Will be lost. Do you want to continue?</h3>
-         </div>
-
-         <div class="pButton">
-             <button onclick="hideBack()" class="btn-danger34">yes</button>
-             <button onclick="hideBack()" class="btn-success34">no</button>
-         </div>
-     </div>
- </div>
-
-   <!-- continue popup -->
-   <div id="mainPopupDivContinue" class="mainPopupDiv">
-        <div class="innerPopupDiv">
-            <div class="top1">
-                <i><img class="crsImg" onclick="hideContinue()" src="../../resources/icons/cross.png" alt=""></i>
-                <b >Confirm Registration</b> 
-            </div>
-            <div class="popupText">
-                <h3>Continue to Access Control?</h3>
-            </div>
-
-            <div class="pButton">
-                <button onclick="hideContinue()" id="submit" class="btn-danger34">Leave default</button>
-                <button onclick="hideContinue()" class="btn-success34">Yes</button>
-                <button onclick="hideContinue()" class="btn-danger34">Cancel</button>
-            </div>
+        <div class="popupText">
+          <h3>Manager added successfully ! Do you want to add new Manager?</h3>
         </div>
+
+        <div class="pButton">
+          <button onclick="hide()" class="btn-danger34">yes</button>
+          <button class="btn-success34">
+            <a
+              style="text-decoration: none; color: white"
+              href="ownerHome.html"
+            >
+              No
+            </a>
+          </button>
+        </div>
+      </div>
     </div>
 
-    <div id="mySidenav" class="sidenav">
-    
-    </div> <!-- sidebar -->
+    <!-- back popup -->
+    <div id="mainPopupDivBack" class="mainPopupDiv">
+      <div class="innerPopupDiv">
+        <div class="top1">
+          <i
+            ><img
+              class="crsImg"
+              onclick="hideBack()"
+              src="../../resources/icons/cross.png"
+              alt=""
+          /></i>
+          <b>Remove Manager</b>
+        </div>
+        <div class="popupText">
+          <h3>All data Will be lost. Do you want to continue?</h3>
+        </div>
 
+        <div class="pButton">
+          <button onclick="hideBack()" class="btn-danger34">yes</button>
+          <button onclick="hideBack()" class="btn-success34">no</button>
+        </div>
+      </div>
+    </div>
 
-<div id="main">
-    <div class="back">
-        <div id="navIcon" onclick="openNav()" class="navIcon"  ><img  src="../../resources/icons/three.png" alt="Ooops" ></div>
+    <!-- continue popup -->
+    <div id="mainPopupDivContinue" class="mainPopupDiv">
+      <div class="innerPopupDiv">
+        <div class="top1">
+          <i
+            ><img
+              class="crsImg"
+              onclick="hideContinue()"
+              src="../../resources/icons/cross.png"
+              alt=""
+          /></i>
+          <b>Confirm Registration</b>
+        </div>
+        <div class="popupText">
+          <h3>Continue to Access Control?</h3>
+        </div>
+
+        <div class="pButton">
+          <button onclick="hideContinue()" id="submit" class="btn-danger34">
+            Leave default
+          </button>
+          <button onclick="hideContinue()" class="btn-success34">Yes</button>
+          <button onclick="hideContinue()" class="btn-danger34">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="mySidenav" class="sidenav"></div>
+    <!-- sidebar -->
+
+    <div id="main">
+      <div class="back">
+        <div id="navIcon" onclick="openNav()" class="navIcon">
+          <img src="../../resources/icons/three.png" alt="Ooops" />
+        </div>
         <button onclick="redirect()" class="btn34">back</button>
-    </div>
+      </div>
 
-    <div class="topBar">
-        <b>Register Manager</b> 
-     </div>
+      <div class="topBar">
+        <b>Register Manager</b>
+      </div>
 
-    <div class="mainDiv">
+      <div class="mainDiv">
         <div class="inDiv">
-       <form id="myForm"  action="registerManager.html/addManager"  method="GET">
-       
+          <form
+            id="myForm"
+            action="registerManager.html/addManager"
+            method="GET"
+          >
+            <div class="innerDiv">
+              <div><b>First Nameee &nbsp;&nbsp;&nbsp;&nbsp;</b></div>
+              <div class="inputDiv">
+                <input
+                  id="firstName"
+                  onchange="cng()"
+                  type="text"
+                  name="firstName"
+                />
+              </div>
+            </div>
 
-        <div class="innerDiv">
-            <div><b>First Name &nbsp;&nbsp;&nbsp;&nbsp;</b></div>  <div class="inputDiv"><input id="firstName" onchange="cng()" type="text" name="firstName"> </div>
+            <div class="innerDiv">
+              <div><b>Last Name &nbsp;&nbsp;&nbsp;&nbsp;</b></div>
+              <div class="inputDiv">
+                <input id="lastName" type="text" name="lastName" />
+              </div>
+            </div>
+
+            <div class="innerDiv">
+              <div><b>Contact Number &nbsp;</b></div>
+              <div class="inputDiv">
+                <input
+                  id="cNum"
+                  type="text"
+                  name="cNum"
+                  onchange="numberCheck()"
+                  style="margin-left: -28px"
+                />
+              </div>
+            </div>
+
+            <div class="innerDiv">
+              <div><b>Email &nbsp;</b></div>
+              <div class="inputDiv">
+                <input
+                  id="email"
+                  onchange="emailCheck()"
+                  type="email"
+                  name="email"
+                  style="margin-left: 50px"
+                />
+              </div>
+            </div>
+
+            <div class="innerDiv">
+              <div><b>NIC &nbsp;</b></div>
+              <div class="inputDiv">
+                <input
+                  id="nic"
+                  style="margin-left: 60px"
+                  type="text"
+                  name="nic"
+                />
+              </div>
+            </div>
+
+            <div class="innerDiv">
+              <div><b>Address &nbsp;</b></div>
+              <div style="margin-left: 30px" class="inputDiv">
+                <input id="address" type="text" name="address" />
+              </div>
+            </div>
+
+            <div class="innerDiv">
+              <div><b>Salary &nbsp;</b></div>
+              <div style="margin-left: 45px" class="inputDiv">
+                <input
+                  id="salary"
+                  onchange="salaryCheck()"
+                  type="text"
+                  name="salary"
+                />
+              </div>
+            </div>
+          </form>
         </div>
+      </div>
 
-        <div class="innerDiv">
-            <div><b>Last Name &nbsp;&nbsp;&nbsp;&nbsp;</b></div>  <div class="inputDiv"><input id="lastName" type="text" name="lastName"> </div>
-        </div>
-
-        <div class="innerDiv">
-            <div><b>Contact Number &nbsp;</b></div>  <div class="inputDiv"><input id="cNum" type="text" name="cNum" onchange="numberCheck()" style="margin-left: -28px;"> </div>
-        </div>
-
-       <div class="innerDiv">
-           <div><b>Email &nbsp;</b></div>  <div class="inputDiv"><input id="email" onchange="emailCheck()" type="email" name="email" style="margin-left: 50px;"> </div>
-       </div>
-
-
-        <div class="innerDiv">
-            <div><b>NIC &nbsp;</b></div>  <div class="inputDiv"><input id="nic" style="margin-left: 60px;" type="text" name="nic"> </div>
-        </div>
-
-       <div class="innerDiv">
-           <div><b>Address &nbsp;</b></div>  <div style="margin-left: 30px;" class="inputDiv"><input id="address"  type="text" name="address"> </div>
-       </div>
-
-        <div class="innerDiv">
-            <div><b>Salary &nbsp;</b></div>  <div style="margin-left: 45px;" class="inputDiv"><input id="salary" onchange="salaryCheck()"  type="text" name="salary"> </div>
-        </div>
-        </form>
-
-    </div>
-
-        
-    </div>
-
-    <div class="confirm">
+      <div class="confirm">
         <button onclick="confirm()" class="btn34">confirm</button>
+      </div>
     </div>
 
-</div>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        var form = $("#myForm");
 
-<script type="text/javascript">
-	
-    $(document).ready(function()
-    {
-            var form = $('#myForm');
-
-            $('#submit').click(function () {
-
-            $.ajax({
-            type: form.attr('method'),
-            url: form.attr('action'),
+        $("#submit").click(function () {
+          $.ajax({
+            type: "GET",
+            url: "registerManager.html/addManager",
             data: form.serialize(),
-            success:( function(response)
-                    {
+            success: function (response) {
+              console.log(response + "kooooo");
+              if (response == 1) {
+                document.getElementById("mainPopupDiv").style.display = "block";
+              } else if (response == 0) {
+                alert("Manager Added unsuccess! please try again !");
+              }
+            },
+          });
 
-                        if(response ==1)
-                        {
-                            document.getElementById("mainPopupDiv").style.display="block";
-
-                        }
-                        else if(response ==0)
-                        {
-                            alert("Manager Added unsuccess! please try again !");
-                        }
-
-                    })
-
+          document.getElementById("myForm").reset();
         });
+      });
+    </script>
 
-            document.getElementById("myForm").reset();
-
-
-        });
-
-
-
-    });
-
-
-
-</script>
-   
-   
-
-<script src="../../resources/javascript/side_navbar.js"></script>
-<script src="../../resources/javascript/new.js"></script>
-</body>
+    <script src="../../resources/javascript/side_navbar.js"></script>
+    <script src="../../resources/javascript/new.js"></script>
+  </body>
 </html>
-
