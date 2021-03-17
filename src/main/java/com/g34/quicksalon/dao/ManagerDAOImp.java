@@ -32,7 +32,7 @@ public class ManagerDAOImp {
 		ResultSet rs = st.executeQuery("select last_insert_id()");
 		rs.next();
 		pst2.setInt(1, rs.getInt(1));
-		pst2.setInt(2, manager.getcNum());
+		pst2.setString(2, manager.getcNum());
 		pst2.executeUpdate();
 		
 		
