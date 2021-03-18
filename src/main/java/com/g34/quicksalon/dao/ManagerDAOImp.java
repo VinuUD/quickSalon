@@ -22,7 +22,7 @@ public class ManagerDAOImp {
 		pst.setString(1, manager.getNic());
 		pst.setString(2, manager.getFirstName());
 		pst.setString(3, manager.getLastName());
-		pst.setInt(4, manager.getSalary());
+		pst.setString(4, manager.getSalary());
 		pst.setString(5, manager.getEnrollDate());
 		pst.setString(6, manager.getResignDate());
 		pst.setInt(7, manager.getIsUpperStaffFlag());
@@ -32,7 +32,7 @@ public class ManagerDAOImp {
 		ResultSet rs = st.executeQuery("select last_insert_id()");
 		rs.next();
 		pst2.setInt(1, rs.getInt(1));
-		pst2.setInt(2, manager.getcNum());
+		pst2.setString(2, manager.getcNum());
 		pst2.executeUpdate();
 		
 		

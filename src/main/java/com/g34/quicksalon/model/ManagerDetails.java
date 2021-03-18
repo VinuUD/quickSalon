@@ -4,32 +4,15 @@ public class ManagerDetails {
     private String nic;
     private String firstName;
     private String lastName;
-    private int salary;
+    private String salary;
     private String enrollDate;
     private String resignDate;
     private int isUpperStaffFlag;
     private int onLeaveFlag;
     private int removedFlag;
-    private int cNum;
+    private String cNum;
     private String email;
     private String address;
-
-    
-
-	public ManagerDetails(String nic, String firstName, String lastName, int salary, String enrollDate, String resignDate, int isUpperStaffFlag, int onLeaveFlag, int removedFlag, int cNum, String email, String address) {
-        this.nic = nic;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.salary = salary;
-        this.enrollDate = enrollDate;
-        this.resignDate = resignDate;
-        this.isUpperStaffFlag = isUpperStaffFlag;
-        this.onLeaveFlag = onLeaveFlag;
-        this.removedFlag = removedFlag;
-        this.cNum = cNum;
-        this.email = email;
-        this.address = address;
-    }
 
     public String getNic() {
         return nic;
@@ -46,7 +29,7 @@ public class ManagerDetails {
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
-    
+
     public String getLastName() {
         return lastName;
     }
@@ -55,12 +38,11 @@ public class ManagerDetails {
         this.lastName = lastName;
     }
 
-
-    public int getSalary() {
+    public String getSalary() {
         return salary;
     }
 
-    public void setSalary(int salary) {
+    public void setSalary(String salary) {
         this.salary = salary;
     }
 
@@ -103,14 +85,14 @@ public class ManagerDetails {
     public void setRemovedFlag(int removedFlag) {
         this.removedFlag = removedFlag;
     }
-    
-    public int getcNum() {
-		return cNum;
-	}
 
-	public void setcNum(int cNum) {
-		this.cNum = cNum;
-	}
+    public String getcNum() {
+        return cNum;
+    }
+
+    public void setcNum(String cNum) {
+        this.cNum = cNum;
+    }
 
     public String getEmail() {
         return email;
@@ -127,6 +109,27 @@ public class ManagerDetails {
     public void setAddress(String address) {
         this.address = address;
     }
+
+
+
+    
+
+	public ManagerDetails(String nic, String firstName, String lastName, String salary, String enrollDate, String resignDate, int isUpperStaffFlag, int onLeaveFlag, int removedFlag, String cNum, String email, String address) {
+        this.nic = nic;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.salary = salary;
+        this.enrollDate = enrollDate;
+        this.resignDate = resignDate;
+        this.isUpperStaffFlag = isUpperStaffFlag;
+        this.onLeaveFlag = onLeaveFlag;
+        this.removedFlag = removedFlag;
+        this.cNum = cNum;
+        this.email = email;
+        this.address = address;
+    }
+
+
 
 
 

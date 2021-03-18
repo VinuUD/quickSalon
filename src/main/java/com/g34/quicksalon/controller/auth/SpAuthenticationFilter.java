@@ -7,7 +7,7 @@
 //import javax.servlet.http.HttpSession;
 //import java.io.IOException;
 //
-////@WebFilter("/serviceProvider/*")
+//@WebFilter("/serviceProvider/*")
 //public class SpAuthenticationFilter implements Filter {
 //    public void destroy() {
 //    }
@@ -20,29 +20,29 @@
 //        HttpSession session = request.getSession(false);
 //
 //
-////        if (session == null) {
-////            // Session is not created.
-////            response.sendRedirect("../restricted.html");
-//////            RequestDispatcher dispatcher = request.getRequestDispatcher("/login.html");
-//////            dispatcher.forward(request, response);
-////
-////
-////        } else {
-////            // Session is already created.
-////            HttpSession ses= request.getSession();
-////
-////            //check is he/she sp?
-////            int userType=(Integer) ses.getAttribute("userType");
-////
-////            if( userType== 3){
+//        if (session == null) {
+//            // Session is not created.
+//            response.sendRedirect("../restricted.html");
+////            RequestDispatcher dispatcher = request.getRequestDispatcher("/login.html");
+////            dispatcher.forward(request, response);
+//
+//
+//        } else {
+//            // Session is already created.
+//            HttpSession ses= request.getSession();
+//
+//            //check is he/she sp?
+//            int userType=(Integer) ses.getAttribute("userType");
+//
+//            if( userType== 3){
 //                chain.doFilter(req, resp);
-////            }else {
-////                RequestDispatcher dispatcher = request.getRequestDispatcher("../restricted.html");
-////                dispatcher.forward(request, response);
-////            }
-////
-////
-////        }
+//            }else {
+//                RequestDispatcher dispatcher = request.getRequestDispatcher("../restricted.html");
+//                dispatcher.forward(request, response);
+//            }
+//
+//
+//        }
 //
 //
 //    }
