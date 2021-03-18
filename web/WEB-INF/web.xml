@@ -133,9 +133,32 @@
         <servlet-name>ResetPasswordServlet</servlet-name>
         <servlet-class>com.g34.quicksalon.controller.login.ResetPasswordServlet</servlet-class>
     </servlet>
+
+
     <servlet-mapping>
         <servlet-name>ResetPasswordServlet</servlet-name>
         <url-pattern>/resetpassword</url-pattern>
     </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>SearchSPServlet</servlet-name>
+        <servlet-class>com.g34.quicksalon.controller.serviceProvider.SearchSPServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SearchSPServlet</servlet-name>
+        <url-pattern>/searchSP</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>AddLeaveServlet</servlet-name>
+        <servlet-class>com.g34.quicksalon.controller.employeeManagement.AddLeaveServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddLeaveServlet</servlet-name>
+        <url-pattern>/addLeave</url-pattern>
+    </servlet-mapping>
+
 
 </web-app>
