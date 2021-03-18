@@ -18,23 +18,23 @@ public class UpperStaffAuthenticationFilter implements Filter {
         HttpSession session = request.getSession(false);
 
 
-        if (session == null) {
-            // Session is not created.
-            response.sendRedirect("../restricted.html");
-
-        } else {
-            // Session is already created.
-            HttpSession ses= request.getSession();
-            //check is he/she sp?
-            int userType=(Integer) ses.getAttribute("userType");
-
-            if( userType== 1 || userType== 2){
+//        if (session == null) {
+//            // Session is not created.
+//            response.sendRedirect("../restricted.html");
+//
+//        } else {
+//            // Session is already created.
+//            HttpSession ses= request.getSession();
+//            //check is he/she sp?
+//            int userType=(Integer) ses.getAttribute("userType");
+//
+//            if( userType== 1 || userType== 2){
                 chain.doFilter(req, resp);
-            }else {
-                RequestDispatcher dispatcher = request.getRequestDispatcher("../restricted.html");
-                dispatcher.forward(request, response);
-            }
-        }
+//            }else {
+//                RequestDispatcher dispatcher = request.getRequestDispatcher("../restricted.html");
+//                dispatcher.forward(request, response);
+//            }
+//        }
 
     }
 
