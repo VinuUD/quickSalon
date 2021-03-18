@@ -9,11 +9,11 @@ import java.util.HashMap;
 
 public class ServiceProviderDAOImple implements  ServiceProviderDAO{
 
-    private ArrayList<ServiceProvider> serviceProviders=new ArrayList<>();
+
 
     //get sps by serviceIDs
     public ArrayList<ServiceProvider> getServiceProvidersByID(int sid) {
-
+        ArrayList<ServiceProvider> serviceProviders=new ArrayList<>();
         try {
 
             PreparedStatement stmt=DBConnection.getConnection().prepareStatement("SELECT * FROM j4f9qe_employee WHERE employeeID IN(SELECT serviceProviderID FROM j4f9qe_servicesprovided WHERE serviceID=?);");
@@ -63,6 +63,28 @@ public class ServiceProviderDAOImple implements  ServiceProviderDAO{
             return false;
         }
     }
+
+    public ArrayList<ServiceProvider> getServiceProvidersByName(String name) {
+
+        ArrayList<ServiceProvider> serviceProviders=new ArrayList<>();
+
+        try {
+            PreparedStatement stmt=DBConnection.getConnection().prepareStatement("SELECT employeeID,firstName,lastName FROM j4f9qe_employee WHERE firstName LIKE '"+name+"%';");
+
+            ResultSet resultSet = stmt.executeQuery();
+
+            while (resultSet.next()){
+                ServiceProvider serviceProvider=new ServiceProvider(resultSet.getInt(1),resultSet.getString(2),resultSet.getString(3));
+                serviceProviders.add(serviceProvider);
+            }
+
+        } catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+        return serviceProviders;
+    }
+
+
 
 
 
