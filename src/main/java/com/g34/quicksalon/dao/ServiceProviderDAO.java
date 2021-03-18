@@ -13,5 +13,9 @@ public interface ServiceProviderDAO {
     public HashMap<String,String> getSPList(int serviceId) ;
 
     public boolean assignedService(int qId,int employeeId) throws SQLException, ClassNotFoundException ;
+
+
+//    Serach service rovider by his name or Chars of name----return spid+name
+    public ArrayList<ServiceProvider> getServiceProvidersByName(String name);
   
 }
