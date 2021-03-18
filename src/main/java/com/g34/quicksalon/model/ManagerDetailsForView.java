@@ -4,9 +4,9 @@ public class ManagerDetailsForView {
     private int empId;
     private String firstName;
     private String lastName;
-    private int contactNum;
+    private String contactNum;
     private String nic;
-    private int salary;
+    private String salary;
     private String email;
     private String address;
 
@@ -14,7 +14,7 @@ public class ManagerDetailsForView {
 
 
 
-    public ManagerDetailsForView(int empId, String firstName, String lastName, int contactNum, String nic, int salary, String email, String address) {
+    public ManagerDetailsForView(int empId, String firstName, String lastName, String contactNum, String nic, String salary, String email, String address) {
         this.empId = empId;
         this.nic = nic;
         this.contactNum = contactNum;
@@ -50,11 +50,11 @@ public class ManagerDetailsForView {
         this.lastName = lastName;
     }
 
-    public int getContactNum() {
+    public String getContactNum() {
         return contactNum;
     }
 
-    public void setContactNum(int contactNum) {
+    public void setContactNum(String contactNum) {
         this.contactNum = contactNum;
     }
 
@@ -66,11 +66,11 @@ public class ManagerDetailsForView {
         this.nic = nic;
     }
 
-    public int getSalary() {
+    public String getSalary() {
         return salary;
     }
 
-    public void setSalary(int salary) {
+    public void setSalary(String salary) {
         this.salary = salary;
     }
 

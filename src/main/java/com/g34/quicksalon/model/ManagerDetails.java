@@ -4,7 +4,7 @@ public class ManagerDetails {
     private String nic;
     private String firstName;
     private String lastName;
-    private int salary;
+    private String salary;
     private String enrollDate;
     private String resignDate;
     private int isUpperStaffFlag;
@@ -38,11 +38,11 @@ public class ManagerDetails {
         this.lastName = lastName;
     }
 
-    public int getSalary() {
+    public String getSalary() {
         return salary;
     }
 
-    public void setSalary(int salary) {
+    public void setSalary(String salary) {
         this.salary = salary;
     }
 
@@ -114,7 +114,7 @@ public class ManagerDetails {
 
     
 
-	public ManagerDetails(String nic, String firstName, String lastName, int salary, String enrollDate, String resignDate, int isUpperStaffFlag, int onLeaveFlag, int removedFlag, String cNum, String email, String address) {
+	public ManagerDetails(String nic, String firstName, String lastName, String salary, String enrollDate, String resignDate, int isUpperStaffFlag, int onLeaveFlag, int removedFlag, String cNum, String email, String address) {
         this.nic = nic;
         this.firstName = firstName;
         this.lastName = lastName;

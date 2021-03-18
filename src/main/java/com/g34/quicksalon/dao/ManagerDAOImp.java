@@ -22,7 +22,7 @@ public class ManagerDAOImp {
 		pst.setString(1, manager.getNic());
 		pst.setString(2, manager.getFirstName());
 		pst.setString(3, manager.getLastName());
-		pst.setInt(4, manager.getSalary());
+		pst.setString(4, manager.getSalary());
 		pst.setString(5, manager.getEnrollDate());
 		pst.setString(6, manager.getResignDate());
 		pst.setInt(7, manager.getIsUpperStaffFlag());

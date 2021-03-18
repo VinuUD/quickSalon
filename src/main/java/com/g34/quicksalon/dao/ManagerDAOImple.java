@@ -28,7 +28,7 @@ public class ManagerDAOImple implements ManagerDAO {
 		pst.setString(1, manager.getNic());
 		pst.setString(2, manager.getFirstName());
 		pst.setString(3, manager.getLastName());
-		pst.setInt(4, manager.getSalary());
+		pst.setString(4, manager.getSalary());
 		pst.setString(5, manager.getEmail());
 		pst.setString(6, manager.getAddress());
 		pst.setString(7, manager.getEnrollDate());
@@ -70,7 +70,7 @@ public class ManagerDAOImple implements ManagerDAO {
 	   
 		while(rs.next())
         {
-            AllManagersDetails.add(new ManagerDetailsForView(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4),rs.getString(5), rs.getInt(6), rs.getString(7), rs.getString(8)));
+            AllManagersDetails.add(new ManagerDetailsForView(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8)));
 
 		}
 		
