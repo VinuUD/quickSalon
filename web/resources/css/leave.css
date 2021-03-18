@@ -1,0 +1,86 @@
+
+.form-container{
+    margin-left: 10px;
+}
+
+.inner-div{ 
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.background-image img{
+    position: relative !important;
+    top: 130px !important;
+    width: 300px !important;
+} 
+
+@media (max-width: 750px) {
+    .background-image img{
+       display: none;
+    } 
+  }
+
+
+.add-leave-btn{
+    text-align: center;
+    margin: 10px;
+}
+
+.center{
+    display: none;
+    border: 1px solid black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 1;
+    background: #7E4A93 !important;
+}
+
+
+/* Serach box */
+#search-box{
+    border: 1px black solid;
+    width: 375px;
+    max-height: 100px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: absolute;
+    z-index: 1;
+    background-color: white;
+  }
+
+#search-input{
+    width: 375px;
+    padding: 10px;
+    border-style: none;
+    border: 1px solid black;
+    font-size: 16px;
+    font-family:monospace;
+  }
+  ul{
+    list-style: none;
+    margin:0;
+    padding:0;
+  }
+  li{
+    padding: 5px;
+    border-bottom: 1px solid #f2f2f2;
+    width:350px;
+    
+  }
+
+  li:hover{
+      background-color: whitesmoke;
+      cursor: pointer;
+  }
+
+  .modal-background{
+
+      width: 100%;
+      height: 100%;
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+
+
+  }
