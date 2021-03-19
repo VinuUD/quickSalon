@@ -160,5 +160,14 @@
         <url-pattern>/addLeave</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>RegisterSPServlet</servlet-name>
+        <servlet-class>com.g34.quicksalon.controller.serviceProvider.RegisterSPServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegisterSPServlet</servlet-name>
+        <url-pattern>/registerSP</url-pattern>
+    </servlet-mapping>
+
 
 </web-app>
