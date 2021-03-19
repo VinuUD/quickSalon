@@ -1,9 +1,11 @@
 package com.g34.quicksalon.dao;
 
 import com.g34.quicksalon.database.DBConnection;
+import com.g34.quicksalon.model.CustomerDetails;
 import com.g34.quicksalon.model.ServiceProvider;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -84,8 +86,87 @@ public class ServiceProviderDAOImple implements  ServiceProviderDAO{
         return serviceProviders;
     }
 
+    @Override
+    public int getLastEmployeeID() throws SQLException, ClassNotFoundException {
+
+        PreparedStatement stmt=DBConnection.getConnection().prepareStatement("SELECT employeeID FROM `j4f9qe_employee` ORDER BY employeeid DESC LIMIT 1;");
+        ResultSet resultSet = stmt.executeQuery();
+
+        int empID=0;
+        if(resultSet.next()){
+            empID=resultSet.getInt(1);
+        }
+        return empID+1;
+    }
+
+    @Override
+    public boolean registerServiceProvider(ServiceProvider serviceProvider) throws SQLException, ClassNotFoundException {
+
+        Connection connection =DBConnection.getConnection();
+        connection.setAutoCommit(false);
+
+        //Add SP to the user table
+        int userID=registerUser(serviceProvider,connection);
+        serviceProvider.setUserID(userID);
+
+        //Add to the employee table
+        boolean success=addNewEmployee(serviceProvider,connection);
+
+        if(success){
+            connection.commit();
+            return true;
+        }else{
+            connection.rollback();
+            return false;
+        }
+    }
 
 
+    public int registerUser(ServiceProvider serviceProvider,Connection connection) throws SQLException, ClassNotFoundException {
+//        3-for SPs
+        int userType=3;
+        PreparedStatement stmt= connection.prepareStatement("INSERT INTO j4f9qe_user (email,userName,password,userType) VALUES (?,?,?,?)");
 
+        stmt.setString(1,serviceProvider.getEmail());
+        stmt.setString(2,serviceProvider.getUserName());
+        stmt.setString(3,serviceProvider.getPassword());
+        stmt.setInt(4,userType);
+
+        int success=stmt.executeUpdate();
+
+        if(success<=0){
+            return 0;
+        }
+        ResultSet rst=connection.createStatement().executeQuery("SELECT LAST_INSERT_ID()");
+        int userID=0;
+        if(rst.next()){
+            userID=rst.getInt(1);
+        }
+        return userID;
+    }
+
+    public boolean addNewEmployee(ServiceProvider serviceProvider,Connection connection) throws SQLException {
+        PreparedStatement stmt= connection.prepareStatement("INSERT INTO j4f9qe_employee (nicNo,firstName,lastName,salary,enrollDate,resignDate,isUpperStaffFlag,onLeaveFlag,removedFlag,userID) VALUES (?,?,?,?,CURDATE(),?,?,?,?,?)");
+        stmt.setString(1,serviceProvider.getNicNo());
+        stmt.setString(2,serviceProvider.getFirstName());
+        stmt.setString(3,serviceProvider.getLastName());
+        stmt.setDouble(4,serviceProvider.getSalary());
+        stmt.setString(5,null);
+        stmt.setInt(6,0);
+        stmt.setInt(7,0);
+        stmt.setInt(8,0);
+        stmt.setInt(9,serviceProvider.getUserID());
+
+//        stmt.setString(4,serviceProvider.getNicNo());
+//        stmt.setInt(2,employeeId);
+
+        int success=stmt.executeUpdate();
+        if(success>0){
+            return true;
+        }else{
+            return false;
+        }
+    }
 
 }
+
