@@ -17,5 +17,11 @@ public interface ServiceProviderDAO {
 
 //    Serach service rovider by his name or Chars of name----return spid+name
     public ArrayList<ServiceProvider> getServiceProvidersByName(String name);
+
+//    Get new employee ID for new SPS
+    public  int getLastEmployeeID() throws SQLException, ClassNotFoundException;
+
+//    Register SP
+    public boolean registerServiceProvider(ServiceProvider serviceProvider) throws SQLException, ClassNotFoundException;
   
 }
