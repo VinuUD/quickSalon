@@ -162,7 +162,7 @@
 
     <servlet>
         <servlet-name>RegisterSPServlet</servlet-name>
-        <servlet-class>com.g34.quicksalon.controller.employeeManagement.leave.RegisterSPServlet</servlet-class>
+        <servlet-class>com.g34.quicksalon.controller.employeeManagement.serviceProvider.RegisterSPServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>RegisterSPServlet</servlet-name>
