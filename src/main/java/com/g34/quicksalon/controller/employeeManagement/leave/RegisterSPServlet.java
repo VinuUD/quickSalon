@@ -1,4 +1,4 @@
-package com.g34.quicksalon.controller.serviceProvider;
+package com.g34.quicksalon.controller.employeeManagement.leave;
 
 import com.g34.quicksalon.dao.ServiceProviderDAO;
 import com.g34.quicksalon.dao.ServiceProviderDAOImple;
