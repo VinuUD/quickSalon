@@ -6,6 +6,6 @@ quickSalon.iml
 .metadata/
 lib/
 quicksalon.iml
-*/target/**
+target/
 .settings/
 .project
