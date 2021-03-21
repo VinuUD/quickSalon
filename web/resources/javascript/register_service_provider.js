@@ -25,7 +25,7 @@ $( document ).ready(function() {
         else if ($('#password').val() == '') {
             $('#password').css("border", "4px red solid");
         }
-         else {
+        else {
             //On success leave added
             confirm("Do you want to add Service Provider?");
 

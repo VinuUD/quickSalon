@@ -1,0 +1,60 @@
+.inner-div{
+    border: 1px black solid;
+    text-align: center;
+    
+}
+.form-container{
+    border: 1px black solid;
+    text-align: center;
+}
+
+.name-panel{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: auto;
+    margin-left: 50px;
+    
+}
+
+.name-panel >div{
+    margin: 10px;
+}
+
+
+/* Serach box */
+#search-box{
+    border: 1px black solid;
+    width: 375px;
+    max-height: 100px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: absolute;
+    z-index: 1;
+    background-color: white;
+  }
+
+#search-input{
+    width: 375px;
+    padding: 10px;
+    border-style: none;
+    border: 1px solid black;
+    font-size: 16px;
+    font-family:monospace;
+  }
+  ul{
+    list-style: none;
+    margin:0;
+    padding:0;
+  }
+  li{
+    padding: 5px;
+    border-bottom: 1px solid #f2f2f2;
+    width:350px;
+    
+  }
+
+  li:hover{
+      background-color: whitesmoke;
+      cursor: pointer;
+  }
