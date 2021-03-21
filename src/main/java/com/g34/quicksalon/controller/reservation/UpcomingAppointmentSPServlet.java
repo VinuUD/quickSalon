@@ -1,4 +1,4 @@
-package com.g34.quicksalon.controller.Reservation;
+package com.g34.quicksalon.controller.reservation;
 
 import com.g34.quicksalon.dao.ServiceProviderDAO;
 import com.g34.quicksalon.dao.ServiceProviderDAOImple;
