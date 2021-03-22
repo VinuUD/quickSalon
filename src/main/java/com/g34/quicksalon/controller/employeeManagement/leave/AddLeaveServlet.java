@@ -27,7 +27,7 @@ public class AddLeaveServlet extends HttpServlet {
         String toTime = request.getParameter("toTime");
 
         //Obj of Leave
-        Leave leave=new Leave(leaverID,fromDate,toDate,fromTime,toTime,leaveType);
+        Leave leave=new Leave(leaverID,fromDate,toDate,fromTime,toTime,leaveType,'n');
         Boolean success;
 
 //        EmployeeManagementDAO employeeManagementDAO=new EmployeeManagementDAOImple();
