@@ -6,6 +6,6 @@ import java.sql.SQLException;
 
 public interface EmployeeManagementDAO {
 
-    public boolean addLeave(Leave leave) throws SQLException, ClassNotFoundException;
+//    public boolean applyLeave(Leave leave) throws SQLException, ClassNotFoundException;
 
 }
