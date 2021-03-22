@@ -217,7 +217,6 @@
             url: "registerManager.html/addManager",
             data: form.serialize(),
             success: function (response) {
-              console.log(response + "kooooo");
               if (response == 1) {
                 document.getElementById("mainPopupDiv").style.display = "block";
               } else if (response == 0) {

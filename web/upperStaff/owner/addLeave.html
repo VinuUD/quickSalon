@@ -38,38 +38,8 @@
               <th>Time</th>
               <th>Service ID</th>
             </tr>
-            <tr>
-              <td>01/01/2020</td>
-              <td>11.00 AM</td>
-              <td>S001</td>
-            </tr>
-            <tr>
-              <td>01/01/2020</td>
-              <td>11.00 AM</td>
-              <td>S001</td>
-            </tr>
-            <tr>
-              <td>01/01/2020</td>
-              <td>11.00 AM</td>
-              <td>S001</td>
-            </tr>
 
-            <tr>
-              <td>01/01/2020</td>
-              <td>11.00 AM</td>
-              <td>S001</td>
-            </tr>
-
-            <tr>
-              <td>01/01/2020</td>
-              <td>11.00 AM</td>
-              <td>S001</td>
-            </tr>
-            <tr>
-              <td>01/01/2020</td>
-              <td>11.00 AM</td>
-              <td>S001</td>
-            </tr>
+            <tbody id="scheduleTable"></tbody>
           </table>
         </div>
 
@@ -116,59 +86,158 @@
       <div class="mainDiv">
         <div class="innerDiv">
           <div class="sn">
-            <input type="text" placeholder="Search" />
-            <button><i class="fa fa-search"></i></button>
-
-            <select name="" id="">
+            <select id="nameSelect">
               <option value="">Name</option>
               <option value="">shehan</option>
               <option value="">namal</option>
               <option value="">somadasa</option>
-            </select>
-          </div>
-        </div>
-        <div class="innerDiv"></div>
-        <div class="innerDiv">
-          <div><b>From Date</b></div>
-          <div class="inputDiv"><input type="date" /></div>
-        </div>
-
-        <div class="innerDiv">
-          <div class="toDate"><b>To Date &nbsp;</b></div>
-          <div class="inputDiv"><input type="date" /></div>
-        </div>
-
-        <div class="buttonDiv">
-          <button class="btn-success34 lng_btn" onclick="showSchedule()">
-            Check Schedule
-          </button>
-        </div>
-
-        <div class="innerDiv">
-          <div>
-            <label for="bla"><b>Leave Type</b></label>
-          </div>
-          <div class="inputDiv">
-            <select name="bla" id="">
-              <option value="">Name</option>
-              <option value="">shehan</option>
-              <option value="">namal</option>
               <option value="">somadasa</option>
             </select>
           </div>
         </div>
-
-        <div class="buttonDiv addLeave_btn">
-          <button class="btn-success34">Add Leave</button>
+        <div class="innerDiv">
+          <div class="buttonDiv">
+            <button class="btn-success34 lng_btn" onclick="showSchedule()">
+              Check Schedule
+            </button>
+          </div>
         </div>
-      </div>
+        <div class="innerDiv">
+          <div class="tableDiv34 tt">
+            <table id="leaveDetails" class="table34">
+              <tr>
+                <th>Emp ID</th>
+                <th>Name</th>
+                <th>From Date</th>
+                <th>To Date</th>
+                <th>Leave Type</th>
+              </tr>
+              <tbody id="empDetails"></tbody>
+            </table>
+          </div>
+        </div>
 
-      <div class="confirm">
-        <button onclick="change()" class="btn34">confirm</button>
+        <div class="innerDiv">
+          <div class="toDate"><b>Assign To new SP</b></div>
+          <div class="inputDiv"><input type="date" /></div>
+        </div>
+        <div class="innerDiv">
+          <div class="buttonDiv addLeave_btn">
+            <button id="addLeave" class="btn-success34">Add Leave</button>
+          </div>
+
+          <div class="buttonDiv addLeave_btn">
+            <button id="cancelLeave" class="btn-success34">Cancle Leave</button>
+          </div>
+        </div>
       </div>
     </div>
 
     <script src="../../resources/javascript/side_navbar.js"></script>
     <script src="../../resources/javascript/addLeave.js"></script>
+    <script type="text/javascript">
+      $("document").ready(function () {
+        console.log("suck");
+        var res = {};
+        $.get(
+          "http://localhost:8080/quickSalon_war_exploded/addLeave",
+          function (response) {
+            $.get("addLeave.html/schedule", function (res) {
+              response.map(function (emp) {
+                $("#nameSelect").append(
+                  `<option value="${emp.leaverID}"> ${emp.firstName} </option>`
+                );
+              });
+
+              $("#nameSelect").change(function () {
+                $("#scheduleTable").html(`<tr></tr>`);
+                var selectedVal = $(this).val();
+                console.log(selectedVal);
+                // //////////////////////
+                $("#addLeave").click(function () {
+                  $.ajax({
+                    type: "GET",
+                    url: "addLeave.html/confirm",
+                    data: { id: `${selectedVal}` },
+                    success: function (response) {
+                      console.log(response);
+                      if (response == 1) {
+                        alert("Leave added Successfully!");
+                        location.reload();
+                      } else if (response == 0) {
+                        alert(
+                          "Leave added Unsuccessfully!! please try again !"
+                        );
+                        location.reload();
+                      }
+                    },
+                  });
+
+                  // document.getElementById("myForm").reset();
+                });
+                // //////////////////////////
+
+                // //////////////////////
+                $("#cancelLeave").click(function () {
+                  $.ajax({
+                    type: "GET",
+                    url: "addLeave.html/cancel",
+                    data: { id: `${selectedVal}` },
+                    success: function (response) {
+                      console.log(response);
+                      if (response == 1) {
+                        alert("Leave canceled!");
+                        location.reload();
+                      } else if (response == 0) {
+                        alert(
+                          "Leave cancel Unsuccessfully!! please try again !"
+                        );
+                        location.reload();
+                      }
+                    },
+                  });
+
+                  // location.reload();
+                  // document.getElementById("myForm").reset();
+                });
+                // //////////////////////////
+
+                response.map(function (emp) {
+                  if (String(emp.leaverID) == String(selectedVal)) {
+                    console.log("match");
+                    $("#empDetails").html(
+                      `<tr>
+                    <td>${emp.leaverID}</td>
+                    <td>${emp.firstName}</td>
+                    <td>${emp.fromDate}</td>
+                    <td>${emp.toDate}</td>
+                    <td>${emp.leaveType}</td>
+                  </tr>`
+                    );
+                  }
+                });
+
+                res.map(function (appDetails) {
+                  console.log(String("emp id  " + appDetails.employeeId));
+                  console.log(String("selected val  " + selectedVal));
+                  if (String(appDetails.employeeId) == String(selectedVal)) {
+                    $("#scheduleTable").append(
+                      `<tr>
+                      <td>${appDetails.date}</td>
+                      <td>${appDetails.time}</td>
+                      <td>${appDetails.serviceId}</td>
+
+                    </tr>`
+                    );
+                  }
+                });
+              });
+            });
+          }
+        );
+
+        console.log("ssss");
+      });
+    </script>
   </body>
 </html>

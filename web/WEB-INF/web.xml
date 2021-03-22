@@ -72,6 +72,56 @@
         <servlet-name>View</servlet-name>
         <url-pattern>/upperStaff/owner/allManagers.html/view</url-pattern>
     </servlet-mapping>
+    <!--     addLeaveScheduleServlet -->
+    <servlet>
+        <servlet-name>AddLeaveSchedule</servlet-name>
+        <servlet-class>com.g34.quicksalon.controller.employeeManagement.leave.AddLeaveScheduleServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddLeaveSchedule</servlet-name>
+        <url-pattern>/upperStaff/owner/addLeave.html/schedule</url-pattern>
+    </servlet-mapping>
+    <!--      -->
+    <!--     addLeaveConfirmServlet -->
+    <servlet>
+        <servlet-name>AddLeaveConfirm</servlet-name>
+        <servlet-class>com.g34.quicksalon.controller.employeeManagement.leave.AddLeaveConfirmServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddLeaveConfirm</servlet-name>
+        <url-pattern>/upperStaff/owner/addLeave.html/confirm</url-pattern>
+    </servlet-mapping>
+    <!--      -->
+    <!--     addLeaveCancelServlet -->
+    <servlet>
+        <servlet-name>AddLeaveCancel</servlet-name>
+        <servlet-class>com.g34.quicksalon.controller.employeeManagement.leave.AddLeaveCancelServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddLeaveCancel</servlet-name>
+        <url-pattern>/upperStaff/owner/addLeave.html/cancel</url-pattern>
+    </servlet-mapping>
+    <!--      -->
+    <!--     removeManagerServlet -->
+    <servlet>
+        <servlet-name>removeManager</servlet-name>
+        <servlet-class>com.g34.quicksalon.controller.employeeManagement.manager.RemoveManagerServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>removeManager</servlet-name>
+        <url-pattern>/upperStaff/owner/allManagers.html/remove</url-pattern>
+    </servlet-mapping>
+    <!--      -->
+    <!--     removeManagerServlet -->
+    <servlet>
+        <servlet-name>updateManager</servlet-name>
+        <servlet-class>com.g34.quicksalon.controller.employeeManagement.manager.UpdateManagerServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>updateManager</servlet-name>
+        <url-pattern>/upperStaff/owner/allManagers.html/update</url-pattern>
+    </servlet-mapping>
+    <!--      -->
 
     <!--    //ourStaff servlet-->
     <servlet>

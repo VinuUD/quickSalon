@@ -7,6 +7,10 @@ public class Leave {
 
     private int leaveID;
     private int leaverID;
+
+    private String firstName;
+    private String lastName;
+
     private char isApproved;
     private String fromDate;
     private String toDate;
@@ -36,6 +40,27 @@ public class Leave {
         this.toTime = toTime;
         this.leaveType = leaveType;
     }
+
+//    public Leave(int employeeID, String firstName, String lastName, String fromDate, String toDate,String leaveType,char isApproved) {
+//        this.leaverID = employeeID;
+//        this.firstName = firstName;
+//        this.lastName = lastName;
+//        this.fromDate = fromDate;
+//        this.toDate = toDate;
+//        this.leaveType = leaveType;
+//        this.isApproved=isApproved;
+//    }
+
+    public Leave(int employeeID, String firstName, String lastName, String fromDate, String toDate, String leaveType, char isApproved) {
+        this.leaverID = employeeID;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.fromDate = fromDate;
+        this.toDate = toDate;
+        this.leaveType = leaveType;
+        this.isApproved=isApproved;
+    }
+
 
     public int getLeaveID() {
         return leaveID;
