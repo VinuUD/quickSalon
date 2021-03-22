@@ -1,0 +1,105 @@
+/* variables used */
+:root {
+  --main-color: #9053c7;
+  --gradient-color1: #c850c0;
+  --gradient-color2: #4158d0;
+  --light-grey: #f2f2f2;
+  --mid-grey: #ddd;
+}
+
+body,
+html {
+  height: 100%;
+  font-family: Poppins-Regular, sans-serif;
+  overflow: none;
+  margin: 0;
+}
+
+.container {
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background: var(--main-color);
+  background: linear-gradient(-135deg, var(--gradient-color1), var(--gradient-color2));
+}
+
+/* large main working area*/
+.large-space {
+  width: 90%;
+  height: 90vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  background: #aaaaaa;
+}
+
+/* medium main working area*/
+.medium-space {
+  width: 80%;
+  height: 90vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  background: #eeeeee;
+}
+
+/* heading for pages */
+.heading {
+  align-self: flex-start;
+  text-transform: uppercase;
+  color: var(--main-color);
+  letter-spacing: 3px;
+  line-height: 150%;
+  font-size: 1.5em;
+}
+
+.work-space {
+  width: 90%;
+  height: 80vh;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 15px;
+  background: #ffffff;
+}
+
+/* div for table */
+.table-div34 {
+  padding: 2vw;
+  width: 100%;
+}
+
+/* table */
+.table34 {
+  border-collapse: collapse;
+  width: 100%;
+  border: 2.5px solid var(--main-color);
+}
+
+/* table headers and table data */
+.table34 th,
+.table34 td {
+  text-align: left;
+  border: 1px solid var(--mid-grey);
+  padding: 8px;
+
+}
+
+.table34 th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: var(--main-color);
+  color: white;
+}
+
+/* color even rows of table */
+tr:nth-child(even) {
+  background-color: var(--light-grey);
+}
