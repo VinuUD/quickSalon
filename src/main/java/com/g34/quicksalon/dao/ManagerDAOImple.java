@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class ManagerDAOImple implements ManagerDAO {
 
-	
+
 	public int addManager(ManagerDetails manager) throws Exception
 	{
 
@@ -17,14 +17,14 @@ public class ManagerDAOImple implements ManagerDAO {
 
 		Connection	con = DBConnection.getConnection();
 
-		String query = "insert into j4f9qe_employee (nicNo,firstName,lastName,salary,email, address, enrollDate,resignDate,isUpperStaffFlag,onLeaveFlag,removedFlag) values (?,?,?,?,?,?,?,?,?,?,?)";
-		String query2 = "insert into j4f9qe_employeecontacts (empID, contactNum) values (?,?)";
-		
+		String query = "insert into j4f9qe_employee (nicNo,firstName,lastName,salary,email, address, enrollDate,resignDate,isUpperStaffFlag,onLeaveFlag,removedFlag,contactNum) values (?,?,?,?,?,?,?,?,?,?,?,?)";
+
+
 		PreparedStatement pst = con.prepareStatement(query);
-		PreparedStatement pst2 = con.prepareStatement(query2);
-		
+
+
 		Statement st = con.createStatement();
-	    	
+
 		pst.setString(1, manager.getNic());
 		pst.setString(2, manager.getFirstName());
 		pst.setString(3, manager.getLastName());
@@ -36,18 +36,14 @@ public class ManagerDAOImple implements ManagerDAO {
 		pst.setInt(9, manager.getIsUpperStaffFlag());
 		pst.setInt(10, manager.getOnLeaveFlag());
 		pst.setInt(11, manager.getRemovedFlag());
+		pst.setString(12, manager.getcNum());
 		int x = pst.executeUpdate();
-		
-		ResultSet rs = st.executeQuery("select last_insert_id()");
-		
-		rs.next();
-		pst2.setInt(1, rs.getInt(1));
-		pst2.setString(2, manager.getcNum());
-		int y = pst2.executeUpdate();
-		System.out.println("x = "+x);
-		System.out.println("y = "+y);
 
-		if(x>0 && y>0)
+
+		System.out.println("x = "+x);
+
+
+		if(x>0)
 		{
 			return 1;
 		}
@@ -61,21 +57,22 @@ public class ManagerDAOImple implements ManagerDAO {
 
 	private ArrayList<ManagerDetailsForView> AllManagersDetails = new ArrayList<>();
 
-    public ArrayList<ManagerDetailsForView> getManagersDetails() throws Exception
-    {
+	public ArrayList<ManagerDetailsForView> getManagersDetails() throws Exception
+	{
 		Connection	con = DBConnection.getConnection();
-        Statement st = con.createStatement();
-		
-		ResultSet rs = st.executeQuery("select j4f9qe_employee.employeeID, j4f9qe_employee.firstName, j4f9qe_employee.lastName, j4f9qe_employeecontacts.contactNum, j4f9qe_employee.nicNo, j4f9qe_employee.salary, j4f9qe_employee.email, j4f9qe_employee.address from j4f9qe_employee INNER JOIN j4f9qe_employeecontacts ON j4f9qe_employee.employeeID = j4f9qe_employeecontacts.empID WHERE j4f9qe_employee.isUpperStaffFlag = 1");
-	   
+		Statement st = con.createStatement();
+
+
+		ResultSet rs = st.executeQuery("select j4f9qe_employee.employeeID, j4f9qe_employee.firstName, j4f9qe_employee.lastName, j4f9qe_employee.contactNum, j4f9qe_employee.nicNo, j4f9qe_employee.salary, j4f9qe_employee.email, j4f9qe_employee.address from j4f9qe_employee WHERE j4f9qe_employee.isUpperStaffFlag = 1");
+
 		while(rs.next())
-        {
-            AllManagersDetails.add(new ManagerDetailsForView(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8)));
+		{
+			AllManagersDetails.add(new ManagerDetailsForView(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8)));
 
 		}
-		
-        return AllManagersDetails;
-    }
-	
+
+		return AllManagersDetails;
+	}
+
 
 }

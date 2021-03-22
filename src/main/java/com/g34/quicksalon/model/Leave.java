@@ -41,7 +41,17 @@ public class Leave {
         this.leaveType = leaveType;
     }
 
-    public Leave(int employeeID, String firstName, String lastName, String fromDate, String toDate,String leaveType,char isApproved) {
+//    public Leave(int employeeID, String firstName, String lastName, String fromDate, String toDate,String leaveType,char isApproved) {
+//        this.leaverID = employeeID;
+//        this.firstName = firstName;
+//        this.lastName = lastName;
+//        this.fromDate = fromDate;
+//        this.toDate = toDate;
+//        this.leaveType = leaveType;
+//        this.isApproved=isApproved;
+//    }
+
+    public Leave(int employeeID, String firstName, String lastName, String fromDate, String toDate, String leaveType, char isApproved) {
         this.leaverID = employeeID;
         this.firstName = firstName;
         this.lastName = lastName;
