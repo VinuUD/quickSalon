@@ -28,6 +28,9 @@ $( document ).ready(function() {
 
 
     //    Load upcoming appointments of the SP
+        $.get("/appointmentSP", function(data) {
+            alert(data)
+        });
         
 
     });
