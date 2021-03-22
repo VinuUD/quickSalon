@@ -1,4 +1,4 @@
-package com.g34.quicksalon.controller.employeeManagement;
+package com.g34.quicksalon.controller.employeeManagement.leave;
 
 import com.g34.quicksalon.dao.AppointmentDAO;
 import com.g34.quicksalon.dao.ApppointmentDAOImple;

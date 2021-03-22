@@ -1,4 +1,4 @@
-package com.g34.quicksalon.controller;
+package com.g34.quicksalon.controller.serviceManagement;
 
 import com.g34.quicksalon.dao.ServiceDAO;
 import com.g34.quicksalon.dao.ServiceDAOImple;
@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ServiceListServlet extends HttpServlet {
@@ -18,8 +19,9 @@ public class ServiceListServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         try {
-             ServiceDAO serviceModel=new ServiceDAOImple();
-             List<Service> services=serviceModel.getAllServices();
+             ServiceDAO serviceDAO=new ServiceDAOImple();
+             ArrayList<Service> services=new ArrayList<>();
+             services= serviceDAO.getAllServiceNames();
              String json = new Gson().toJson(services);
              response.setContentType("application/json");
              response.setCharacterEncoding("UTF-8");

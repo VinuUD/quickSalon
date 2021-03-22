@@ -31,10 +31,10 @@
         <url-pattern>/serviceProvider/serviceProviderList</url-pattern>
     </servlet-mapping>
 
-<!--    ServiceList returns-->
+    <!--    ServiceList returns-->
     <servlet>
         <servlet-name>ServiceListServlet</servlet-name>
-        <servlet-class>com.g34.quicksalon.controller.ServiceListServlet</servlet-class>
+        <servlet-class>com.g34.quicksalon.controller.serviceManagement.ServiceListServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ServiceListServlet</servlet-name>
@@ -42,7 +42,7 @@
     </servlet-mapping>
 
 
-<!--    //all appointments returns-->
+    <!--    //all appointments returns-->
     <servlet>
         <servlet-name>SpAppointmentServlet</servlet-name>
         <servlet-class>com.g34.quicksalon.controller.serviceProvider.SpAppointmentServlet</servlet-class>
@@ -72,6 +72,7 @@
         <servlet-name>View</servlet-name>
         <url-pattern>/upperStaff/owner/allManagers.html/view</url-pattern>
     </servlet-mapping>
+
     <!--    //ourStaff servlet-->
     <servlet>
         <servlet-name>OurStaff</servlet-name>
@@ -150,10 +151,9 @@
         <url-pattern>/searchSP</url-pattern>
     </servlet-mapping>
 
-
     <servlet>
         <servlet-name>AddLeaveServlet</servlet-name>
-        <servlet-class>com.g34.quicksalon.controller.employeeManagement.AddLeaveServlet</servlet-class>
+        <servlet-class>com.g34.quicksalon.controller.employeeManagement.leave.AddLeaveServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AddLeaveServlet</servlet-name>
@@ -162,11 +162,42 @@
 
     <servlet>
         <servlet-name>RegisterSPServlet</servlet-name>
-        <servlet-class>com.g34.quicksalon.controller.serviceProvider.RegisterSPServlet</servlet-class>
+        <servlet-class>com.g34.quicksalon.controller.employeeManagement.serviceProvider.RegisterSPServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>RegisterSPServlet</servlet-name>
         <url-pattern>/registerSP</url-pattern>
+    </servlet-mapping>
+
+    <!--    Servlet for assign service for SPs-->
+    <servlet>
+        <servlet-name>AssignServiceServlet</servlet-name>
+        <servlet-class>com.g34.quicksalon.controller.employeeManagement.serviceProvider.AssignServiceServlet
+        </servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AssignServiceServlet</servlet-name>
+        <url-pattern>/assignService</url-pattern>
+    </servlet-mapping>
+
+    <!--Remove SP-->
+    <servlet>
+        <servlet-name>RemoveSPServlet</servlet-name>
+        <servlet-class>com.g34.quicksalon.controller.employeeManagement.serviceProvider.RemoveSPServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RemoveSPServlet</servlet-name>
+        <url-pattern>/removeSP</url-pattern>
+    </servlet-mapping>
+
+    <!--    Get all appointment by SP-->
+    <servlet>
+        <servlet-name>UpcomingAppointmentSPServlet</servlet-name>
+        <servlet-class>com.g34.quicksalon.controller.reservation.UpcomingAppointmentSPServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpcomingAppointmentSPServlet</servlet-name>
+        <url-pattern>/appointmentSP</url-pattern>
     </servlet-mapping>
 
 

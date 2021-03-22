@@ -24,6 +24,13 @@ public class Appointment {
         this.cancelledFlag = cancelledFlag;
     }
 
+    public Appointment(int qId,Date date, Time startTime,Time endTime) {
+        this.qId = qId;
+        this.date = date;
+        this.startTime = startTime;
+        this.endTime = endTime;
+    }
+
     public int getqId() {
         return qId;
     }

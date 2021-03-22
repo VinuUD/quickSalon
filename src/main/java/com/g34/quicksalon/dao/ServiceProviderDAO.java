@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.g34.quicksalon.model.Appointment;
 import com.g34.quicksalon.model.ServiceProvider;
 
 public interface ServiceProviderDAO {
@@ -23,5 +24,11 @@ public interface ServiceProviderDAO {
 
 //    Register SP
     public boolean registerServiceProvider(ServiceProvider serviceProvider) throws SQLException, ClassNotFoundException;
-  
+
+    //    Assign service to sp
+    public  boolean assignServiceToSP(int serviceID,int spID) throws SQLException, ClassNotFoundException;
+
+    //    get all upcoming appointment by SP -- (QId,date,startTime,endTime)
+    public ArrayList<Appointment> getAppointmentDeatilsBySP(int empID) throws SQLException, ClassNotFoundException;
+
 }
