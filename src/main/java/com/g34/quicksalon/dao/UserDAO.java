@@ -7,4 +7,8 @@ public interface UserDAO {
     public boolean isRegisteredUser(String email) throws SQLException, ClassNotFoundException;
 
     public boolean resetPassword(String email,String password) throws SQLException, ClassNotFoundException;
+
+    public boolean removeUser(int empID) throws SQLException, ClassNotFoundException;
+
+
 }

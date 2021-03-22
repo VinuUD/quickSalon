@@ -137,5 +137,19 @@ public class OwnerDAOImple implements OwnerDAO {
         return true;
     }
 
+//    Set removed flag=1 in emp table of SP
+    @Override
+    public boolean setRemovedFlagOfSp(int empid) throws SQLException, ClassNotFoundException {
+        Connection connection = DBConnection.getConnection();
+        PreparedStatement stmt= connection.prepareStatement("UPDATE j4f9qe_employee SET removedFlag=1 WHERE employeeID=(?);");
+        stmt.setInt(1,empid);
+
+        int success=stmt.executeUpdate();
+        if(success<= 0){
+            return false;
+        }
+        return true;
+    }
+
 
 }

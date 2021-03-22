@@ -21,4 +21,10 @@ public interface OwnerDAO {
     public int updateManager(int id, String cNum, int salary, String email, String address) throws SQLException;
 
     public boolean applyLeave(Leave leave) throws SQLException, ClassNotFoundException;
+
+    public boolean setRemovedFlagOfSp(int empid) throws SQLException, ClassNotFoundException;
+
+
+
+
 }
