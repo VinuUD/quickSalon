@@ -1,4 +1,4 @@
-/* .popup1  /* remove manager popup */ {
+.popup1  /* remove manager popup */ {
   display: none;
   text-align: center;
   position: fixed;
@@ -115,4 +115,4 @@
 }
 
 @media screen and (max-width: 700px) {
-} */
+}

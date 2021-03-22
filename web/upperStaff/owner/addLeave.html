@@ -139,95 +139,102 @@
       $("document").ready(function () {
         console.log("suck");
         var res = {};
-        $.get("addLeave.html/addLeave", function (response) {
-          $.get("addLeave.html/schedule", function (res) {
-            response.map(function (emp) {
-              $("#nameSelect").append(
-                `<option value="${emp.employeeID}"> ${emp.firstName} </option>`
-              );
-            });
-
-            $("#nameSelect").change(function () {
-              $("#scheduleTable").html(`<tr></tr>`);
-              var selectedVal = $(this).val();
-              console.log(selectedVal);
-              // //////////////////////
-              $("#addLeave").click(function () {
-                $.ajax({
-                  type: "GET",
-                  url: "addLeave.html/confirm",
-                  data: { id: `${selectedVal}` },
-                  success: function (response) {
-                    console.log(response);
-                    if (response == 1) {
-                      alert("Leave added Successfully!");
-                      location.reload();
-                    } else if (response == 0) {
-                      alert("Leave added Unsuccessfully!! please try again !");
-                      location.reload();
-                    }
-                  },
-                });
-
-                // document.getElementById("myForm").reset();
-              });
-              // //////////////////////////
-
-              // //////////////////////
-              $("#cancelLeave").click(function () {
-                $.ajax({
-                  type: "GET",
-                  url: "addLeave.html/cancel",
-                  data: { id: `${selectedVal}` },
-                  success: function (response) {
-                    console.log(response);
-                    if (response == 1) {
-                      alert("Leave canceled!");
-                      location.reload();
-                    } else if (response == 0) {
-                      alert("Leave cancel Unsuccessfully!! please try again !");
-                      location.reload();
-                    }
-                  },
-                });
-
-                // location.reload();
-                // document.getElementById("myForm").reset();
-              });
-              // //////////////////////////
-
+        $.get(
+          "http://localhost:8080/quickSalon_war_exploded/addLeave",
+          function (response) {
+            $.get("addLeave.html/schedule", function (res) {
               response.map(function (emp) {
-                if (String(emp.employeeID) == String(selectedVal)) {
-                  console.log("match");
-                  $("#empDetails").html(
-                    `<tr>
-                    <td>${emp.employeeID}</td>
+                $("#nameSelect").append(
+                  `<option value="${emp.leaverID}"> ${emp.firstName} </option>`
+                );
+              });
+
+              $("#nameSelect").change(function () {
+                $("#scheduleTable").html(`<tr></tr>`);
+                var selectedVal = $(this).val();
+                console.log(selectedVal);
+                // //////////////////////
+                $("#addLeave").click(function () {
+                  $.ajax({
+                    type: "GET",
+                    url: "addLeave.html/confirm",
+                    data: { id: `${selectedVal}` },
+                    success: function (response) {
+                      console.log(response);
+                      if (response == 1) {
+                        alert("Leave added Successfully!");
+                        location.reload();
+                      } else if (response == 0) {
+                        alert(
+                          "Leave added Unsuccessfully!! please try again !"
+                        );
+                        location.reload();
+                      }
+                    },
+                  });
+
+                  // document.getElementById("myForm").reset();
+                });
+                // //////////////////////////
+
+                // //////////////////////
+                $("#cancelLeave").click(function () {
+                  $.ajax({
+                    type: "GET",
+                    url: "addLeave.html/cancel",
+                    data: { id: `${selectedVal}` },
+                    success: function (response) {
+                      console.log(response);
+                      if (response == 1) {
+                        alert("Leave canceled!");
+                        location.reload();
+                      } else if (response == 0) {
+                        alert(
+                          "Leave cancel Unsuccessfully!! please try again !"
+                        );
+                        location.reload();
+                      }
+                    },
+                  });
+
+                  // location.reload();
+                  // document.getElementById("myForm").reset();
+                });
+                // //////////////////////////
+
+                response.map(function (emp) {
+                  if (String(emp.leaverID) == String(selectedVal)) {
+                    console.log("match");
+                    $("#empDetails").html(
+                      `<tr>
+                    <td>${emp.leaverID}</td>
                     <td>${emp.firstName}</td>
                     <td>${emp.fromDate}</td>
                     <td>${emp.toDate}</td>
                     <td>${emp.leaveType}</td>
                   </tr>`
-                  );
-                }
-              });
+                    );
+                  }
+                });
 
-              res.map(function (appDetails) {
-                console.log(String("emp id  " + appDetails.employeeId));
-                console.log(String("selected val  " + selectedVal));
-                if (String(appDetails.employeeId) == String(selectedVal)) {
-                  $("#scheduleTable").append(
-                    `<tr>
+                res.map(function (appDetails) {
+                  console.log(String("emp id  " + appDetails.employeeId));
+                  console.log(String("selected val  " + selectedVal));
+                  if (String(appDetails.employeeId) == String(selectedVal)) {
+                    $("#scheduleTable").append(
+                      `<tr>
                       <td>${appDetails.date}</td>
                       <td>${appDetails.time}</td>
                       <td>${appDetails.serviceId}</td>
 
                     </tr>`
-                  );
-                }
+                    );
+                  }
+                });
               });
             });
-          });
-        });
+          }
+        );
 
         console.log("ssss");
       });
