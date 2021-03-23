@@ -4,7 +4,11 @@
   --gradient-color1: #c850c0;
   --gradient-color2: #4158d0;
   --light-grey: #f2f2f2;
-  --mid-grey: #ddd;
+  --a3-grey: #aaa;
+  --d3-grey: #ddd;
+  --off-white: #eee;
+  --green: #4caf50;
+  --red: #f44336;
 }
 
 body,
@@ -24,31 +28,35 @@ html {
   justify-content: center;
   align-items: center;
   background: var(--main-color);
-  background: linear-gradient(-135deg, var(--gradient-color1), var(--gradient-color2));
+  background: linear-gradient(
+    -135deg,
+    var(--gradient-color1),
+    var(--gradient-color2)
+  );
 }
 
 /* large main working area*/
 .large-space {
   width: 90%;
-  height: 90vh;
+  min-height: 90vh;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background: #aaaaaa;
+  background: var(--off-white);
 }
 
 /* medium main working area*/
 .medium-space {
   width: 80%;
-  height: 90vh;
+  min-height: 90vh;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background: #eeeeee;
+  background: var(--off-white);
 }
 
 /* heading for pages */
@@ -63,7 +71,7 @@ html {
 
 .work-space {
   width: 90%;
-  height: 80vh;
+  min-height: 80vh;
   display: flex;
   flex-wrap: wrap;
   padding: 15px;
@@ -87,9 +95,8 @@ html {
 .table34 th,
 .table34 td {
   text-align: left;
-  border: 1px solid var(--mid-grey);
+  border: 1px solid var(--d3-grey);
   padding: 8px;
-
 }
 
 .table34 th {
@@ -102,4 +109,96 @@ html {
 /* color even rows of table */
 tr:nth-child(even) {
   background-color: var(--light-grey);
+}
+
+/* small column for buttons */
+.table34 .small-column {
+  width: 60px;
+}
+
+/* buttons */
+.test-btn-container {
+  display: flex;
+  flex-direction: row;
+  height: 30px;
+}
+
+button {
+  background-color: white;
+  color: black;
+  width: 60px;
+  height: 20px;
+  padding: 8px 12px;
+  text-align: center;
+  font-size: 15px;
+  margin: 2px 2px;
+  border-radius: 3px;
+  transition-duration: 0.4s;
+  border: 2px solid var(--main-color);
+}
+
+.btn {
+  background-color: white;
+  color: black;
+  width: 60px;
+  height: 20px;
+  padding: 8px 12px;
+  text-align: center;
+  font-size: 15px;
+  margin: 2px 2px;
+  border-radius: 3px;
+  transition-duration: 0.4s;
+  border: 2px solid var(--main-color);
+}
+
+.btn:hover {
+  background-color: var(--main-color);
+  color: white;
+}
+
+.btn-green {
+  border: 2px solid var(--green);
+}
+
+.btn-green:hover {
+  background-color: var(--green);
+}
+
+.btn-red {
+  border: 2px solid var(--red);
+}
+
+.btn-red:hover {
+  background-color: var(--red);
+}
+
+.btn-small {
+  padding: 8px 4px;
+  width: 29px;
+  border-radius: 4px;
+  color:  var(--main-color);
+}
+
+.btn-small-green {
+  padding: 8px 4px;
+  width: 29px;
+  border: 2px solid var(--green);
+  border-radius: 4px;
+  color:  var(--green);
+}
+
+.btn-small-green:hover {
+  background-color: var(--green);
+}
+
+.btn-small-red {
+  padding: 8px 4px;
+  width: 29px;
+  border: 2px solid var(--red);
+  border-radius: 4px;
+  color:  var(--red);
+}
+
+.btn-small-red:hover {
+  background-color: var(--red);
 }
