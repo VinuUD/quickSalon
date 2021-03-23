@@ -22,6 +22,7 @@ public class ServiceListServlet extends HttpServlet {
              ServiceDAO serviceDAO=new ServiceDAOImple();
              ArrayList<Service> services=new ArrayList<>();
              services= serviceDAO.getAllServiceNames();
+             
              String json = new Gson().toJson(services);
              response.setContentType("application/json");
              response.setCharacterEncoding("UTF-8");

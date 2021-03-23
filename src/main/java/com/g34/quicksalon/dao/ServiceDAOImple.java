@@ -41,14 +41,14 @@ public class ServiceDAOImple implements ServiceDAO {
         }
     }
 
-    //    This will return service name+ serviceID of all services
+    //    This will return service name+ serviceID + timeTaken of all services
     @Override
     public ArrayList<Service> getAllServiceNames() {
         ArrayList<Service> services=new ArrayList<>();
         try {
-            ResultSet resultSet = DBConnection.getConnection().createStatement().executeQuery("SELECT serviceID,serviceName FROM j4f9qe_service;");
+            ResultSet resultSet = DBConnection.getConnection().createStatement().executeQuery("SELECT serviceID,serviceName,timeTaken FROM j4f9qe_service;");
             while (resultSet.next()) {
-                services.add(new Service(resultSet.getInt(1), resultSet.getString(2)));
+                services.add(new Service(resultSet.getInt(1), resultSet.getString(2),resultSet.getString(3)));
             }
         } catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();

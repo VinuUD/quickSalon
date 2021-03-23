@@ -12,9 +12,10 @@ public class Service {
     public Service() {
     }
 
-    public Service(int serviceID,String serviceName) {
+    public Service(int serviceID,String serviceName, String timeTaken) {
         this.serviceID = serviceID;
         this.serviceName = serviceName;
+        this.timeTaken = timeTaken;
     }
 
 
