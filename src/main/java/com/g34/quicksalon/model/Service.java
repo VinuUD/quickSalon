@@ -3,7 +3,7 @@ package com.g34.quicksalon.model;
 public class Service {
 
     private int serviceID;
-    private String serviceName;
+    private String serviceName; 
     private String serviceDescription;
     private String timeTaken;
     private int price;
