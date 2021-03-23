@@ -2,6 +2,7 @@ package com.g34.quicksalon.dao;
 
 import com.g34.quicksalon.database.DBConnection;
 import com.g34.quicksalon.model.Service;
+import com.g34.quicksalon.model.ServiceProvider;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -73,12 +74,18 @@ public class ServiceDAOImple implements ServiceDAO {
         return serviceName;
     }
 
-    public ArrayList<Service> getSpListByService() {
-        ArrayList<Service> spList=new ArrayList<>();
-
-
-
-        return spList;
-    }
+//    public ArrayList<ServiceProvider> getSpListByService(int serviceID) {
+//
+//        ArrayList<ServiceProvider> serviceProviders = new ArrayList<>();
+//
+//
+//
+//
+//
+//
+//
+//
+//        return spList;
+//    }
 
 }

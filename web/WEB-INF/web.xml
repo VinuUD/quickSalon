@@ -255,11 +255,21 @@
         <servlet-name>SpListServiceServlet</servlet-name>
         <servlet-class>com.g34.quicksalon.controller.serviceManagement.SpListServiceServlet</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>SpListServiceServlet</servlet-name>
         <url-pattern>/spListService</url-pattern>
     </servlet-mapping>
+
+<!--    Get appointment by SP -->
+    <servlet>
+        <servlet-name>AppointmentSPServlet</servlet-name>
+        <servlet-class>com.g34.quicksalon.controller.reservation.AppointmentSPServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AppointmentSPServlet</servlet-name>
+        <url-pattern>/appointmentSp</url-pattern>
+    </servlet-mapping>
+
 
 
 </web-app>

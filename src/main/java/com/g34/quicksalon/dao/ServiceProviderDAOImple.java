@@ -33,21 +33,18 @@ public class ServiceProviderDAOImple implements  ServiceProviderDAO{
         return serviceProviders;
     }
 
-    //    This will return the id->full name pair of sps whose provide given serviceId
-    public HashMap<String,String> getSPList(int serviceId) {
-        HashMap<String, String> spList = new HashMap<String, String>();
-        try {
-            PreparedStatement stmt=DBConnection.getConnection().prepareStatement("SELECT employeeID, CONCAT(firstName,' ',lastName) AS fullName FROM j4f9qe_employee WHERE employeeID IN(SELECT serviceProviderID FROM j4f9qe_servicesprovided WHERE serviceID=?);");
+    //    This will return the id,firstName,lastName of sps whose provide given serviceId
+    public ArrayList<ServiceProvider> getSPListByservice(int serviceId) throws SQLException, ClassNotFoundException {
 
+        ArrayList<ServiceProvider> serviceProviders = new ArrayList<>();
+            PreparedStatement stmt=DBConnection.getConnection().prepareStatement("SELECT employeeID,firstName,lastName FROM j4f9qe_employee WHERE employeeID IN(SELECT serviceProviderID FROM j4f9qe_servicesprovided WHERE serviceID=?);");
             stmt.setInt(1,serviceId);
             ResultSet resultSet = stmt.executeQuery();
             while (resultSet.next()) {
-                spList.put(""+resultSet.getInt("employeeID"),resultSet.getString("fullName"));
+                serviceProviders.add(new ServiceProvider(resultSet.getInt(1),resultSet.getString(2),resultSet.getString(3)));
             }
-        } catch (SQLException | ClassNotFoundException throwables) {
-            throwables.printStackTrace();
-        }
-        return spList;
+
+        return serviceProviders;
     }
 
     public boolean assignedService(int qId,int employeeId) throws SQLException, ClassNotFoundException {
