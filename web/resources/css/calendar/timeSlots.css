@@ -2,13 +2,15 @@
     border-collapse: collapse;
     width: 100%;
   }
-  
+
   .time-slots  th, td {
     padding: 8px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid var(--d3-grey);
   }
-  
-  .time-slots-table tr:hover {background-color:#f5f5f5;}
+
+  .time-slots-table tr:hover {
+    background-color: var(--light-grey);
+  }
 
   .time-slots-div{
     display: none;
@@ -18,7 +20,7 @@
   /* add remove-ar-icon */
 
   #ar-icon{
-      color: green;
+      color: var(--green);
   }
 
   /* .date-time-div{
@@ -41,7 +43,5 @@
 
     .btn-bar >button{
       margin-right: 100px;
-      
-    }
 
-    
+    }
