@@ -75,7 +75,7 @@ public class OwnerDAOImple implements OwnerDAO {
         {
             System.out.println("mama shehan");
 
-            String query = "DELETE FROM j4f9qe_employee WHERE j4f9qe_employee.employeeID ="+id;
+            String query = "UPDATE j4f9qe_employee SET j4f9qe_employee.removedFlag = 1  WHERE j4f9qe_employee.employeeID ="+id;
             int x = st.executeUpdate(query);
             return x;
         }

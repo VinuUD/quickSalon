@@ -63,7 +63,7 @@ public class ManagerDAOImple implements ManagerDAO {
 		Statement st = con.createStatement();
 
 
-		ResultSet rs = st.executeQuery("select j4f9qe_employee.employeeID, j4f9qe_employee.firstName, j4f9qe_employee.lastName, j4f9qe_employee.contactNum, j4f9qe_employee.nicNo, j4f9qe_employee.salary, j4f9qe_employee.email, j4f9qe_employee.address from j4f9qe_employee WHERE j4f9qe_employee.isUpperStaffFlag = 1");
+		ResultSet rs = st.executeQuery("select j4f9qe_employee.employeeID, j4f9qe_employee.firstName, j4f9qe_employee.lastName, j4f9qe_employee.contactNum, j4f9qe_employee.nicNo, j4f9qe_employee.salary, j4f9qe_employee.email, j4f9qe_employee.address from j4f9qe_employee WHERE j4f9qe_employee.isUpperStaffFlag = 1 AND j4f9qe_employee.removedFlag = 0");
 
 		while(rs.next())
 		{
