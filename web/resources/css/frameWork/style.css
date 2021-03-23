@@ -111,6 +111,11 @@ tr:nth-child(even) {
   background-color: var(--light-grey);
 }
 
+/* small column for buttons */
+.table34 .small-column {
+  width: 60px;
+}
+
 /* buttons */
 .test-btn-container {
   display: flex;
