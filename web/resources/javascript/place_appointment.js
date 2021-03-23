@@ -76,14 +76,14 @@ $(document).ready(function () {
         spId,
         function (responseJson) {
           // var $select = $("#servicedropdownlist");
-          $.each(responseJson, function (index, appointment) {
+          $.each(responseJson, function (appointment) {
             //set date into 2020Jan05 format
             res = appointment.date.replace(",", "").split(" ");
             day = res[1] < 10 ? "0" + res[1] : res[1];
             selectId = res[2] + res[0] + day;
-            // alert(selectId)
+            alert(selectId)
             $("#" + selectId).css("background-color", "#F58F79");
-
+              
           });
         }
     );

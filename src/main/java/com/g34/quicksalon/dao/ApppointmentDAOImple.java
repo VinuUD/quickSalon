@@ -91,7 +91,20 @@ public class ApppointmentDAOImple implements AppointmentDAO {
         return appointments;
     }
 
-
-
+       //This will returns all the appointment details of specific employeeID
+       public ArrayList<Appointment> getAllAppointmentDetailsByEmpId(int empID) {
+        ArrayList<Appointment> appointments=new ArrayList<Appointment>();
+        try {
+            PreparedStatement stmt=DBConnection.getConnection().prepareStatement("SELECT apt.qID,apt.customerID,apt.date,apt.startTime,apt.endTime,apt.cancelledFlag FROM j4f9qe_appointments apt INNER JOIN j4f9qe_appointmentsassigned ass ON ass.qID=apt.qID WHERE ass.employeeID=(?) AND apt.cancelledFlag=0;");
+            stmt.setInt(1,empID);
+            ResultSet resultSet = stmt.executeQuery();
+            while (resultSet.next()) {
+                appointments.add(new Appointment(resultSet.getInt(1),resultSet.getInt(2),resultSet.getDate(3),Time.valueOf(resultSet.getString(4)),Time.valueOf(resultSet.getString(5)),resultSet.getInt(6)));
+            }
+        } catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+        return appointments;
+    }
 
 }

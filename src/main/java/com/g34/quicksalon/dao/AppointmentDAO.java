@@ -16,4 +16,6 @@ public interface AppointmentDAO {
 
     public ArrayList<Appointment> getAllAppointmentDetailsByUserId(int userID);
 
+    public ArrayList<Appointment> getAllAppointmentDetailsByEmpId(int empID);
+
 }
