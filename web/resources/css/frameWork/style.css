@@ -24,7 +24,11 @@ html {
   justify-content: center;
   align-items: center;
   background: var(--main-color);
-  background: linear-gradient(-135deg, var(--gradient-color1), var(--gradient-color2));
+  background: linear-gradient(
+    -135deg,
+    var(--gradient-color1),
+    var(--gradient-color2)
+  );
 }
 
 /* large main working area*/
@@ -89,7 +93,6 @@ html {
   text-align: left;
   border: 1px solid var(--mid-grey);
   padding: 8px;
-
 }
 
 .table34 th {
