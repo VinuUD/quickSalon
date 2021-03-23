@@ -162,4 +162,29 @@ tr:nth-child(even) {
   padding: 8px 4px;
   width: 29px;
   border-radius: 4px;
+  color:  var(--main-color);
+}
+
+.btn-small-green {
+  padding: 8px 4px;
+  width: 29px;
+  border: 2px solid var(--green);
+  border-radius: 4px;
+  color:  var(--green);
+}
+
+.btn-small-green:hover {
+  background-color: var(--green);
+}
+
+.btn-small-red {
+  padding: 8px 4px;
+  width: 29px;
+  border: 2px solid var(--red);
+  border-radius: 4px;
+  color:  var(--red);
+}
+
+.btn-small-red:hover {
+  background-color: var(--red);
 }
