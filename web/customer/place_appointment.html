@@ -7,10 +7,9 @@
     <link rel="stylesheet" href="../resources/css/normal.css" />
     <link rel="stylesheet" href="../resources/css/sideNavbar.css" />
     <link rel="stylesheet" href="../resources/css/mainDiv.css" />
-    <link rel="stylesheet" href="../resources/css/34.css" />
     <link rel="stylesheet" href="../resources/css/frameWork/style.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+    <script src="https://kit.fontawesome.com/0f3db243e3.js" crossorigin="anonymous"></script>
     <script defer src="../resources/javascript/main.js"></script>
   </head>
 
@@ -38,13 +37,11 @@
         </div>
       </div>
       <br /><br />
-
-      <div class="topBar">
-        <b>Place a new appointment</b>
-      </div>
-
-      <div class="mainDiv">
-        <div>
+      <div class="large-space">
+        <div class="heading">
+          Place a new appointment
+        </div>
+        <div class="work-space">
           <div class="innerDiv">
             <select name="services" id="services">
               <option value="haircut">Hair cut</option>
@@ -59,14 +56,17 @@
               <option value="beardcut">barber2</option>
               <option value="tatto">Tatto man</option>
             </select>
-            <button class="btn34" >Add Service</button>
-          </div>
+
+            <div class="btn btn-small" >
+              <i class="fas fa-plus" aria-hidden="true"></i>
+            </div>
+          </div>  <!-- end of innerDiv -->
 
           <div class="innerDiv">
             <div class="calendar"></div>
-          </div>
+          </div>  <!-- end of innerDiv -->
 
-          <div class="tableDiv34">
+          <div class="table-div34">
             <table id="t02" class="table34">
               <tr>
                 <th>service</th>
@@ -97,19 +97,16 @@
 
               <br />
             </table>
-          </div>
-
-        
-           
-          </div>
-
+          </div> <!-- end of tableDiv34 -->
 
           <div class="innerDiv">
-            <input type="submit" class="btn34" value="confirm" />
-          </div>
-        </div>
-      </div>
-    </div>
+            <div type="submit" class="btn">
+              Confirm
+            </div>
+          </div>  <!-- end of innerDiv -->
+        </div> <!-- end of work-space -->
+      </div> <!-- end of large-space -->
+    </div><!-- end of #main -->
     <script src="../resources/javascript/side_navbar.js"></script>
   </body>
 </html>

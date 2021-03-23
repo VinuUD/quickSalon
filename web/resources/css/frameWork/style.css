@@ -44,7 +44,7 @@ html {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background: var(--a3-grey);
+  background: var(--off-white);
 }
 
 /* medium main working area*/
@@ -121,6 +121,20 @@ tr:nth-child(even) {
   display: flex;
   flex-direction: row;
   height: 30px;
+}
+
+button {
+  background-color: white;
+  color: black;
+  width: 60px;
+  height: 20px;
+  padding: 8px 12px;
+  text-align: center;
+  font-size: 15px;
+  margin: 2px 2px;
+  border-radius: 3px;
+  transition-duration: 0.4s;
+  border: 2px solid var(--main-color);
 }
 
 .btn {
