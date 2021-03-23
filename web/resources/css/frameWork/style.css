@@ -116,6 +116,14 @@ tr:nth-child(even) {
   width: 60px;
 }
 
+.table34 .medium-column {
+  width: 150px;
+}
+
+.table34 .large-column {
+  width: 200px;
+}
+
 /* buttons */
 .test-btn-container {
   display: flex;
