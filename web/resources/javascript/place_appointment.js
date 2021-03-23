@@ -42,7 +42,7 @@ $(document).ready(function () {
   // populate Sp List with selected Service
   $("#services").change(function () {
   
-    $("#serviceProvider").html(` `);
+    $("#serviceProvider").html(`<option value="1111">Default</option>`);
     var selectedVal = $(this).val();
     console.log(selectedVal);
     $.ajax({
@@ -60,30 +60,21 @@ $(document).ready(function () {
   });
 
  
-  
+  // Populate Calendar with seleccted SP
   $("#serviceProvider").change(function () {
     var spId = $(this).val();
-
     $(".td-white").css("background","white");
 
-
-    // window.queueIds = [];
-    // apt_sp = [];
-    // window.spId = $("#spdropdownlist option:selected").val();
-  
     $.get(
-      "http://localhost:8080/quickSalon_war_exploded/serviceProvider/spappointments?spId=" +
+      "http://localhost:8080/quickSalon_war_exploded/appointmentSp?spId=" +
         spId,
         function (responseJson) {
-          // var $select = $("#servicedropdownlist");
-          $.each(responseJson, function (appointment) {
+          $.each(responseJson, function (index,appointment) {
             //set date into 2020Jan05 format
             res = appointment.date.replace(",", "").split(" ");
             day = res[1] < 10 ? "0" + res[1] : res[1];
             selectId = res[2] + res[0] + day;
-            alert(selectId)
             $("#" + selectId).css("background-color", "#F58F79");
-              
           });
         }
     );
