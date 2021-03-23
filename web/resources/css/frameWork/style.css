@@ -1,12 +1,17 @@
 /* variables used */
 :root {
   --main-color: #9053c7;
+  --main-color-dark: #7437aa;
+  --main-color-light: #b288d8;
   --gradient-color1: #c850c0;
   --gradient-color2: #4158d0;
+
   --light-grey: #f2f2f2;
+  --main-grey: #8d8d8d;
   --a3-grey: #aaa;
   --d3-grey: #ddd;
   --off-white: #eee;
+
   --green: #4caf50;
   --red: #f44336;
 }

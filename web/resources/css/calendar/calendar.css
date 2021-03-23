@@ -1,9 +1,10 @@
 
 .month {
     padding: 25px 20px;
-    
-    background: #6495ED;
-    text-align: center
+    background: var(--main-color);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .month ul {
@@ -15,29 +16,30 @@
 .month ul li {
     cursor: pointer;
     color: white;
-    font-size: 15px;
+    font-size: 20px;
     text-transform: uppercase;
     letter-spacing: 3px;
+    font-weight: bold;
 }
 
 .month .prev {
     float: left;
     padding: 10px;
+    /* padding-top: 0; */
 }
 
 .month .nxt {
     float: right;
     padding: 10px;
+    /* padding-top: 0; */
 }
 
 .month .prev:hover{
-    background-color: rgb(89, 107, 128);
+    background-color: var(--main-color-dark);
 }
 .month .nxt:hover{
-    background-color: rgb(89, 107, 128);
+    background-color: var(--main-color-dark);
 }
-
-
 
 .calendar-table {
     border-collapse: collapse;
@@ -45,8 +47,6 @@
     height: 80%;
     text-align: center;
     font-family: arial, sans-serif;
-    
-
 }
 
 .calendar-btn {
@@ -59,7 +59,7 @@
 }
 
 .calendar-btn button {
- padding: 6px 12px;
+    padding: 6px 12px;
     font-size: 15px;
     border-radius: 6px;
     cursor: pointer;
@@ -75,32 +75,27 @@
 }
 
 .calendar-body td:hover{
-     background-color: rgb(70, 132, 143);
-    
-
+     background-color: var(--main-color-light);
 }
 
 .freeslot-table table th, td{
     text-align: center;
     padding: 3px;
     cursor: pointer;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid var(--d3-grey);
 
 }
 
 .calendar-body tr:hover {
-    background-color:white !important;
-    
+    background-color: white !important;
 }
 
 .day-names{
-    background: #00CED1;
+    background: var(--main-grey);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #fff;
 }
 
 .partly-booked{
-    
+
 }
-
-
-
