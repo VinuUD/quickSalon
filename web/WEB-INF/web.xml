@@ -245,9 +245,20 @@
         <servlet-name>UpcomingAppointmentSPServlet</servlet-name>
         <servlet-class>com.g34.quicksalon.controller.reservation.UpcomingAppointmentSPServlet</servlet-class>
     </servlet>
+
     <servlet-mapping>
         <servlet-name>UpcomingAppointmentSPServlet</servlet-name>
         <url-pattern>/appointmentSP</url-pattern>
+    </servlet-mapping>
+<!--Sp List by service-->
+    <servlet>
+        <servlet-name>SpListServiceServlet</servlet-name>
+        <servlet-class>com.g34.quicksalon.controller.serviceManagement.SpListServiceServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>SpListServiceServlet</servlet-name>
+        <url-pattern>/spListService</url-pattern>
     </servlet-mapping>
 
 

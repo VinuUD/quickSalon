@@ -73,4 +73,12 @@ public class ServiceDAOImple implements ServiceDAO {
         return serviceName;
     }
 
+    public ArrayList<Service> getSpListByService() {
+        ArrayList<Service> spList=new ArrayList<>();
+
+
+
+        return spList;
+    }
+
 }
