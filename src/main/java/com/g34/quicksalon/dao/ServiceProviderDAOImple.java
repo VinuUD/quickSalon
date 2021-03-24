@@ -120,7 +120,7 @@ public class ServiceProviderDAOImple implements  ServiceProviderDAO{
     @Override
     public boolean assignServiceToSP(int serviceID, int spID) throws SQLException, ClassNotFoundException {
         Connection connection =DBConnection.getConnection();
-        PreparedStatement stmt= connection.prepareStatement("INSERT INTO j4f9qe_servicesprovided VALUES (?,?)");
+        PreparedStatement stmt= connection.prepareStatement("INSERT INTO j4f9qe_servicesprovided VALUES (?,?);");
         stmt.setInt(1,serviceID);
         stmt.setInt(2,spID);
 

@@ -222,8 +222,7 @@
     <!--    Servlet for assign service for SPs-->
     <servlet>
         <servlet-name>AssignServiceServlet</servlet-name>
-        <servlet-class>com.g34.quicksalon.controller.employeeManagement.serviceProvider.AssignServiceServlet
-        </servlet-class>
+        <servlet-class>com.g34.quicksalon.controller.employeeManagement.serviceProvider.AssignServiceServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AssignServiceServlet</servlet-name>
@@ -268,6 +267,19 @@
     <servlet-mapping>
         <servlet-name>AppointmentSPServlet</servlet-name>
         <url-pattern>/appointmentSp</url-pattern>
+    </servlet-mapping>
+
+
+
+
+<!--  ////////////////////////////  ServiceManagement componenet /////////////-->
+    <servlet>
+        <servlet-name>RegisterServiceServlet</servlet-name>
+        <servlet-class>com.g34.quicksalon.controller.serviceManagement.RegisterServiceServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegisterServiceServlet</servlet-name>
+        <url-pattern>/registerservice</url-pattern>
     </servlet-mapping>
 
 

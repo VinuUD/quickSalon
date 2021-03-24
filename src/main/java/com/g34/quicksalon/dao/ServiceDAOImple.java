@@ -18,7 +18,7 @@ public class ServiceDAOImple implements ServiceDAO {
         try {
             ResultSet resultSet = DBConnection.getConnection().createStatement().executeQuery("SELECT * FROM j4f9qe_service;");
             while (resultSet.next()) {
-                services.add(new Service(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), resultSet.getString(4), resultSet.getInt(5), resultSet.getString(6)));
+                services.add(new Service(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), resultSet.getString(4), resultSet.getInt(5), resultSet.getInt(6)));
             }
         } catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
@@ -74,18 +74,27 @@ public class ServiceDAOImple implements ServiceDAO {
         return serviceName;
     }
 
-//    public ArrayList<ServiceProvider> getSpListByService(int serviceID) {
-//
-//        ArrayList<ServiceProvider> serviceProviders = new ArrayList<>();
-//
-//
-//
-//
-//
-//
-//
-//
-//        return spList;
-//    }
+    public int registerService(Service service) throws SQLException, ClassNotFoundException {
 
+        Connection connection =DBConnection.getConnection();
+        PreparedStatement stmt= connection.prepareStatement("INSERT INTO j4f9qe_service (serviceName,serviceDescription,timeTaken,price,holdFlag) VALUES (?,?,?,?,?)");
+
+        stmt.setString(1,service.getServiceName());
+        stmt.setString(2,service.getServiceDescription());
+        stmt.setString(3,service.getTimeTaken());
+        stmt.setDouble(4,service.getPrice());
+        stmt.setInt(5,0);
+
+        int success=stmt.executeUpdate();
+
+        if(success<=0){
+            return 0;
+        }
+        ResultSet rst=connection.createStatement().executeQuery("SELECT LAST_INSERT_ID()");
+        int serviceID=0;
+        if(rst.next()){
+            serviceID=rst.getInt(1);
+        }
+        return serviceID;
+    }
 }

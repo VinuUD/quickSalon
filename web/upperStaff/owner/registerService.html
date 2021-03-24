@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../../resources/css/sideNavbar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <title>Register Service</title>
 </head>
@@ -33,19 +33,19 @@
        
 
         <div class="innerDiv">
-            <div><b>Service Title</b></div>  <div class="inputDiv"><input  type="text"></div>
+            <div><b>Service Title</b></div>  <div  class="inputDiv"><input id="serviceName" type="text"></div>
         </div>
 
         <div class="innerDiv">
-            <div><b>Description &nbsp;</b></div>  <div class="inputDiv"><input type="text"> </div>
+            <div><b>Description &nbsp;</b></div>  <div  class="inputDiv"><input id="description" type="text"> </div>
         </div>
 
         <div class="innerDiv">
-            <div><b class="price" >Price </b></div>  <div class="inputDiv"><input type="text"> </div>
+            <div><b class="price" >Price </b></div>  <div  class="inputDiv"><input id="price" type="text"> </div>
         </div>
 
         <div class="innerDiv">
-            <div><b>Time Duration </b></div>  <div class="inputDiv"><input type="text" class="time" > </div>
+            <div><b>Time Duration </b></div>  <div  class="inputDiv"><input id="timeTaken"  type="text" class="time" > </div>
         </div>
 
         <div class="innerDiv">
@@ -54,8 +54,6 @@
                     <option value="Select">Select Type</option>
                     <option value="special">Special</option>
                     <option value="shashira">Normal</option>
-                    
-
                 </select>
             </div>
         </div>
@@ -68,15 +66,17 @@
                         <th style="text-align: center;">Remove</th>
                     </tr>
                     <tr>
-                        <td>Shehan sandeepa</td>
-                        <td style="text-align: center;"><i onclick="remove(this)"><img class="cross"  src="../../resources/icons/cross.png" alt=""></i></td>
+                        <td><select id="select-sp" class="blo"> </select></td>
+                        <td></td>
+                        <!-- <td style="text-align: center;"><i onclick="remove(this)"><img class="cross"  src="../../resources/icons/cross.png" alt=""></i></td>  -->
                     </tr>
                    
-                   <tbody id="add">
+                   <tbody id="assign-sp">
+                    
 
                    </tbody>
                     <tr>
-                        <td><img src="../../resources/icons/plus.png" alt="" class="plus" onclick="add()"></td>
+                        <td><img id="plus" src="../../resources/icons/plus.png" alt="" class="plus" onclick="add()"></td>
                         <td></td>
                     </tr>
                 </table>
@@ -84,13 +84,13 @@
         </div>
 
         <div class="buttonDiv">
-            <button class="success34">Add</button>
+            <button id="add-btn" class="success34">Add</button>
             <button  class="btn34">Cancle</button>
         </div>
 
     </div>
 </div>
-    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="../../resources/javascript/registerService.js"></script>
 <script src="../../resources/javascript/side_navbar.js"></script>
 </body>
