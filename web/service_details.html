@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="resources/css/mainDiv.css">
     <link rel="stylesheet" type="text/css" href="resources/css/service_details.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../resources/css/frameWork/style.css">
 
     <title>Service Details</title>
   </head>
@@ -59,34 +60,47 @@
 
       <div class="mainDiv">
 
-        <center><div class="service-details">
-          <table id="serviceDet">
-            <tr>
-              <th width="140px">Service ID</th>
-              <td>S001</td>
-            </tr>
-            <tr>
-              <th>Service Name</th>
-              <td>Hair Cut</td>
-            </tr>
-            <tr>
-              <th>Price</th>
-              <td>250.00</td>
-            </tr>
-            <tr>
-              <th>Status</th>
-              <td id="service-status"></td>
-            </tr>
-            <tr>
-              <th>Time Taken</th>
-              <td>30 mins</td>
-            </tr>
-            <tr>
-              <th>Description</th>
-              <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</td>
-            </tr>
-          </table>
-        </div></center>
+        <center>
+          <div class="select-service-div">
+            <select name="services" id="services">
+              <option value="">Select Service</option>
+            </select>
+          </div>
+
+          <div class="service-details">
+            <table id="serviceData">
+              <tr>
+                <th width="140px">Service ID</th>
+                <td id="serviceID"></td>
+              </tr>
+
+              <tr>
+                <th>Service Name</th>
+                <td id="serviceName"></td>
+              </tr>
+              <tr>
+                <th>Price</th>
+                <td id="price"></td>
+              </tr>
+              <tr>
+                <th>Status</th>
+                <td id="service-status"></td>
+              </tr>
+              <tr>
+                <th>Time Taken</th>
+                <td id="timeTaken"></td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td id="desc"></td>
+              </tr>
+
+            </table>
+          </div>
+
+
+          
+        </center>
 
         <div class="buttonDiv">
             <button onclick="window.location.href='manager_home.html'" class="danger34">Back</button>
@@ -96,6 +110,7 @@
       <script src="https://kit.fontawesome.com/a076d05399.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       <script type="text/javascript" src="resources/javascript/purchases.js"></script>
+      <script type="text/javascript" src="resources/javascript/serviceDetails.js"></script>
       <script type="text/javascript" src="resources/javascript/side_navbar.js"></script>
 
     </body>

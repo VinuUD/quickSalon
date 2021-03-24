@@ -96,4 +96,26 @@ public class ServiceDAOImple implements ServiceDAO {
         return serviceID;
     }
 
+//    Get all deatails of service with give serviceID
+    @Override
+    public ArrayList<Service> getServiceDetailsByID(int serviceID) throws SQLException, ClassNotFoundException {
+
+        ArrayList<Service> service=new ArrayList<>();
+        try {
+            Connection connection =DBConnection.getConnection();
+            PreparedStatement stmt= connection.prepareStatement("SELECT * FROM j4f9qe_service WHERE serviceID=?;");
+            stmt.setInt(1,serviceID);
+
+            ResultSet resultSet=stmt.executeQuery();
+
+            while (resultSet.next()) {
+                service.add(new Service(resultSet.getInt(1), resultSet.getString(2),resultSet.getString(3),resultSet.getString(4),resultSet.getDouble(5),resultSet.getInt(6)));
+            }
+        } catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+        return service;
+
+    }
+
 }

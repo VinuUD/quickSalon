@@ -292,8 +292,14 @@
         <url-pattern>/assignListSpService</url-pattern>
     </servlet-mapping>
 
-
-
-
+<!--Get service Details by service ID-->
+    <servlet>
+        <servlet-name>ServiceDetailsByIDServlet</servlet-name>
+        <servlet-class>com.g34.quicksalon.controller.serviceManagement.ServiceDetailsByIDServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServiceDetailsByIDServlet</servlet-name>
+        <url-pattern>/serviceDetailsByID</url-pattern>
+    </servlet-mapping>
 
 </web-app>
