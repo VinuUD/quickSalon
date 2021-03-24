@@ -23,7 +23,27 @@ public class ServiceProviderDAOImple implements  ServiceProviderDAO{
 
             while (resultSet.next()){
 
-                ServiceProvider serviceProvider=new ServiceProvider(resultSet.getInt(1),resultSet.getString(2),resultSet.getString(3),resultSet.getString(4),resultSet.getFloat(5),resultSet.getDate(6),resultSet.getDate(7),resultSet.getInt(8),resultSet.getInt(9),resultSet.getInt(10));
+                ServiceProvider serviceProvider=new ServiceProvider(resultSet.getInt(1),resultSet.getString(2),resultSet.getString(3),resultSet.getString(4),resultSet.getFloat(5),resultSet.getString(6),resultSet.getString(7),resultSet.getInt(8),resultSet.getInt(9),resultSet.getInt(10));
+                serviceProviders.add(serviceProvider);
+
+            }
+        } catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+        return serviceProviders;
+    }
+
+    public ArrayList<ServiceProvider> getServiceProvidersByIDShort(int sid) {
+        ArrayList<ServiceProvider> serviceProviders=new ArrayList<>();
+        try {
+
+            PreparedStatement stmt=DBConnection.getConnection().prepareStatement("SELECT j4f9qe_employee.employeeId, j4f9qe_employee.firstName, j4f9qe_employee.lastName FROM j4f9qe_employee WHERE employeeID IN(SELECT serviceProviderID FROM j4f9qe_servicesprovided WHERE serviceID=?);");
+            stmt.setInt(1,sid);
+            ResultSet resultSet = stmt.executeQuery();
+
+            while (resultSet.next()){
+
+                ServiceProvider serviceProvider=new ServiceProvider(resultSet.getInt(1),resultSet.getString(2),resultSet.getString(3));
                 serviceProviders.add(serviceProvider);
 
             }
@@ -130,6 +150,15 @@ public class ServiceProviderDAOImple implements  ServiceProviderDAO{
         }else{
             return false;
         }
+    }
+
+    // delete service from service provided using service id
+    public int deleteServiceFromServiceProvided(int serviceID) throws SQLException, ClassNotFoundException {
+        Connection connection =DBConnection.getConnection();
+        PreparedStatement stmt= connection.prepareStatement("DELETE FROM j4f9qe_servicesprovided WHERE j4f9qe_servicesprovided.serviceID=?");
+        stmt.setInt(1,serviceID);
+        int x = stmt.executeUpdate();
+        return x;
     }
 
     //     get all upcoming appointment by SP -- (QId,date,startTime,endTime)
