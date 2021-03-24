@@ -14,17 +14,6 @@ body {
   align-items: center;
 }
 
-select {
-  width: 150px;
-  height: 40px;
-  border-radius: 10px;
-  padding: 5px;
-  font-size: 15px;
-  border: 0px;
-  border: 4px solid #435a66;
-  padding-right: 5px;
-}
-
 button.btn34 {
   padding: 5px;
   font-size: 15px;
