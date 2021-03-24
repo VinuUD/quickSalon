@@ -23,4 +23,6 @@ public interface ServiceDAO {
   //Get all service Details of a service By serviceID
   public ArrayList<Service> getServiceDetailsByID(int serviceID) throws SQLException, ClassNotFoundException;
 
+    public int removeService(int serviceID) throws SQLException, ClassNotFoundException;
+
 }

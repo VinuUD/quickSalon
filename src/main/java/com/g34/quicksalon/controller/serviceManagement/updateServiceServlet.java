@@ -61,6 +61,16 @@ public class updateServiceServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int serviceID = Integer.parseInt(request.getParameter("serviceID"));
+        ServiceDAO serviceDAO = new ServiceDAOImple();
+        try {
+            int x = serviceDAO.removeService(serviceID);
+            response.getWriter().println(x);
 
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }

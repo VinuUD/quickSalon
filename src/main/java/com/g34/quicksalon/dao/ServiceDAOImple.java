@@ -149,4 +149,12 @@ public class ServiceDAOImple implements ServiceDAO {
 
     }
 
+    public int removeService(int serviceID) throws SQLException, ClassNotFoundException {
+        Connection connection =DBConnection.getConnection();
+        PreparedStatement stmt= connection.prepareStatement("DELETE FROM j4f9qe_service WHERE serviceID=?;");
+        stmt.setInt(1,serviceID);
+        int x = stmt.executeUpdate();
+        return x;
+    }
+
 }
