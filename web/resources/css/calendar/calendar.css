@@ -1,7 +1,7 @@
 
 .month {
     padding: 25px 20px;
-    background: var(--main-color);
+    background: white;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -15,7 +15,7 @@
 
 .month ul li {
     cursor: pointer;
-    color: white;
+    color: var(--main-color);
     font-size: 20px;
     text-transform: uppercase;
     letter-spacing: 3px;
@@ -36,9 +36,12 @@
 
 .month .prev:hover{
     background-color: var(--main-color-dark);
+    color: white;
 }
+
 .month .nxt:hover{
     background-color: var(--main-color-dark);
+    color: white;
 }
 
 .calendar-table {
@@ -55,7 +58,6 @@
     position: absolute;
     margin-top: 300px;
     z-index: 9;
-
 }
 
 .calendar-btn button {
@@ -83,7 +85,6 @@
     padding: 3px;
     cursor: pointer;
     border-bottom: 1px solid var(--d3-grey);
-
 }
 
 .calendar-body tr:hover {

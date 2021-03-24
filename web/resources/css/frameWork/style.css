@@ -215,3 +215,54 @@ button {
 .btn-small-red:hover {
   background-color: var(--red);
 }
+
+/* inputs */
+.input-text-wrap{
+    text-align: center;
+    width: fit-content;
+    height: fit-content;
+}
+
+label{
+    display:block;
+    position:relative;
+    bottom:-17px;
+    width:fit-content;
+    left:10px;
+    padding:0px 4px;
+    background-color:white;
+    font-size: 18px;
+}
+
+input{
+    outline: none;
+    border:2px solid var(--main-color);
+    height: 29px;
+    width: 350px;
+    padding: 8px 4px;
+    color: black !important;
+    background-color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    z-index: -1;
+}
+
+.input-text-wrap :hover{
+    border:2px solid var(--main-color-dark);
+}
+
+label:hover{
+    border: none !important;
+}
+
+/* select */
+select {
+    width: 150px;
+    height: 40px;
+    border-radius: 4px;
+    padding: 5px;
+    font-size: 15px;
+    padding: 8px 4px;
+    border: 2px solid var(--main-color);
+    padding-right: 5px;
+    margin: 0px 5px;
+}
