@@ -61,10 +61,10 @@ $( document ).ready(function() {
                             spIDs: spIDs,
                         },
                         function (data, status) {
-                           if(data=='true'){
+                           if(data == 1){
                                alert("Successfully Added !")
                            }else{
-                            alert("Added failed !")
+                                alert("Added failed !")
                            }
                          }
                     ); 

@@ -50,9 +50,9 @@ public class RegisterServiceServlet extends HttpServlet {
                 }
             }
             if(spCount==spIDs.length){
-                response.getWriter().println(true);
+                response.getWriter().println(1);
             }else{
-                response.getWriter().println(false);
+                response.getWriter().println(0);
             }
 
         } catch (SQLException throwables) {
