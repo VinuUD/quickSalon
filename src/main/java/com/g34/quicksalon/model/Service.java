@@ -3,11 +3,11 @@ package com.g34.quicksalon.model;
 public class Service {
 
     private int serviceID;
-    private String serviceName;
+    private String serviceName; 
     private String serviceDescription;
     private String timeTaken;
-    private int price;
-    private String holdFlag;
+    private double price;
+    private int holdFlag;
 
     public Service() {
     }
@@ -19,8 +19,16 @@ public class Service {
     }
 
 
-    public Service(int serviceID, String serviceName, String serviceDescription, String timeTaken, int price, String holdFlag) {
+    public Service(int serviceID, String serviceName, String serviceDescription, String timeTaken, double price, int holdFlag) {
         this.serviceID = serviceID;
+        this.serviceName = serviceName;
+        this.serviceDescription = serviceDescription;
+        this.timeTaken = timeTaken;
+        this.price = price;
+        this.holdFlag = holdFlag;
+    }
+
+    public Service(String serviceName, String serviceDescription, String timeTaken, double price, int holdFlag) {
         this.serviceName = serviceName;
         this.serviceDescription = serviceDescription;
         this.timeTaken = timeTaken;
@@ -60,19 +68,19 @@ public class Service {
         this.timeTaken = timeTaken;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
-    public String getHoldFlag() {
+    public int getHoldFlag() {
         return holdFlag;
     }
 
-    public void setHoldFlag(String holdFlag) {
+    public void setHoldFlag(int holdFlag) {
         this.holdFlag = holdFlag;
     }
 }

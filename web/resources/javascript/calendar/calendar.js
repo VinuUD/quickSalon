@@ -59,16 +59,16 @@ function getDatesBetween(date1,date2){
                 if(j ==1){
                     if(firstDate.toString().split(" ")[0]==weekDays[k].toString() ){
                         // td id='2020Jan1' format
-                        content+="<td id="+dates[i].getFullYear()+firstDate.toString().split(" ")[1]+displayNum+" onclick='freeSlots(this)'>"+ displayNum +"</td>"
+                        content+="<td class='td-white' id="+dates[i].getFullYear()+firstDate.toString().split(" ")[1]+displayNum+" onclick='freeSlots(this)'>"+ displayNum +"</td>"
                         j++;
                     }else{
-                        content+="<td> </td>";
+                        content+="<td class='td-white'> </td>";
                     }
                 }else if(j>lastDate.getDate()){
                     content+="<td> </td>";
                 }else{
                     // td id='2020/Jan/1' format
-                    content+="<td id="+dates[i].getFullYear()+firstDate.toString().split(" ")[1]+displayNum+" onclick='freeSlots(this)'>"+displayNum+"</td>"
+                    content+="<td class='td-white' id="+dates[i].getFullYear()+firstDate.toString().split(" ")[1]+displayNum+" onclick='freeSlots(this)'>"+displayNum+"</td>"
                     j++;
                 }
             }
@@ -146,8 +146,8 @@ document.getElementById('calendar').innerHTML=content;
 */
 
 
-document.getElementById("cancel").onclick=function(event){
-    modal.style.display='none'
-}
+// document.getElementById("cancel").onclick=function(event){
+//     modal.style.display='none'
+// }
 
 

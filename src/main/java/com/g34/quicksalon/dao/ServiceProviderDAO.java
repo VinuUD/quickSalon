@@ -11,7 +11,7 @@ public interface ServiceProviderDAO {
     
     public ArrayList<ServiceProvider> getServiceProvidersByID(int sid) ;
 
-    public HashMap<String,String> getSPList(int serviceId) ;
+    public ArrayList<ServiceProvider> getSPListByservice(int serviceId) throws SQLException, ClassNotFoundException;
 
     public boolean assignedService(int qId,int employeeId) throws SQLException, ClassNotFoundException ;
 

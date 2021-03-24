@@ -15,4 +15,6 @@ public interface ServiceDAO {
 
     public ArrayList<Service> getAllServiceNames() throws SQLException, ClassNotFoundException;
 
+    public int registerService(Service service) throws SQLException, ClassNotFoundException;
+
 }

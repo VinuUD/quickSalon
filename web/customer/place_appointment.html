@@ -9,12 +9,17 @@
     <link rel="stylesheet" href="../resources/css/place_appointment.css" />
     <link rel="stylesheet" href="../resources/css/frameWork/style.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://kit.fontawesome.com/0f3db243e3.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/0f3db243e3.js"
+      crossorigin="anonymous"
+    ></script>
     <script defer src="../resources/javascript/main.js"></script>
 
-    <link rel="stylesheet" href="../resources/css/calendar/calendar.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <link rel="stylesheet" href="../resources/css/calendar/calendar.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
   </head>
 
   <body onresize="whenResizing()">
@@ -41,109 +46,134 @@
         </div>
       </div>
       <br /><br />
-      <div class="large-space"> 
-        <div class="heading">
-          Place an appointment
-        </div>
+      <div class="large-space">
+        <div class="heading">Place an appointment</div>
         <div class="work-space">
           <div class="innerDiv">
-            
             <select name="services" id="services">
-              <option value="haircut">Hair cut</option>
-              <option value="hairmassage">Head massage</option>
-              <option value="beardcut">Beard cut</option>
-              <option value="tatto">Tattoo</option>
+              <option value="">Select Service</option>
             </select>
 
             <select name="serviceProvider" id="serviceProvider">
-              <option value="haircut">(default)</option>
-              <option value="hairmassage">Baber1</option>
-              <option value="beardcut">Barber2</option>
-              <option value="tattoo">Tattoo man</option>
+              <option value="1111">Default</option>
             </select>
 
-            <div class="btn btn-small" >
+            <div class="btn btn-small">
               <i class="fas fa-plus" aria-hidden="true"></i>
             </div>
-          </div>  <!-- end of innerDiv -->
+          </div>
+          <!-- end of innerDiv -->
 
           <div class="innerDiv">
-
             <!-- Calendar div -->
             <div class="calendar">
               <!-- <div class="date-time-div"> -->
-                <div class="calendar-div">
-                    <div class="calDiv">
-                        <div class="calendar" id="calendar"></div>
-                    </div>
+              <div class="calendar-div">
+                <div class="calDiv">
+                  <div class="calendar" id="calendar"></div>
                 </div>
+              </div>
 
-
-                <div class="time-slots-div">
-                    <table id="time-slots-table" class="time-slots-table">
-                        <thead>
-                            <th class="tbl-head">Start Time</th>
-                            <th class="tbl-head">End Time</th>
-                            <th class="tbl-head"></th>
-                        </thead>
-                        <tbody class="time-slots">
-                            <tr>
-                                <td>12:00</td>
-                                <td>13:00</td>
-                                <td><icon id="ar-icon" class="ar-icon fa fa-fw fa-plus-square"></icon></td>
-                            </tr>
-                            <tr>
-                                <td>12:00</td>
-                                <td>13:00</td>
-                                <td><icon id="ar-icon" class="ar-icon fa fa-fw fa-plus-square"></icon></td>
-                            </tr>
-                            <tr>
-                                <td>12:00</td>
-                                <td>13:00</td>
-                                <td><icon id="ar-icon" class="ar-icon fa fa-fw fa-plus-square"></icon></td>
-                            </tr>
-                            <tr>
-                              <td>12:00</td>
-                              <td>13:00</td>
-                              <td><icon id="ar-icon" class="ar-icon fa fa-fw fa-plus-square"></icon></td>
-                          </tr>
-                          <tr>
-                              <td>12:00</td>
-                              <td>13:00</td>
-                              <td><icon id="ar-icon" class="ar-icon fa fa-fw fa-plus-square"></icon></td>
-                          </tr>
-                          <tr>
-                              <td>12:00</td>
-                              <td>13:00</td>
-                              <td><icon id="ar-icon" class="ar-icon fa fa-fw fa-plus-square"></icon></td>
-                          </tr>
-                          <tr>
-                            <td>12:00</td>
-                            <td>13:00</td>
-                            <td><icon id="ar-icon" class="ar-icon fa fa-fw fa-plus-square"></icon></td>
-                        </tr>
-
-                        </tbody>
-                    </table>
-                    <div class="btn-bar">
-                      <button>Back</button>
-                      <button id="select-time-btn">Select</button>
-                    </div>
-
+              <div class="time-slots-div">
+                <table id="time-slots-table" class="time-slots-table">
+                  <thead>
+                    <th class="tbl-head">Start Time</th>
+                    <th class="tbl-head">End Time</th>
+                    <th class="tbl-head"></th>
+                  </thead>
+                  <tbody class="time-slots">
+                    <tr>
+                      <td>12:00</td>
+                      <td>13:00</td>
+                      <td>
+                        <icon
+                          id="ar-icon"
+                          class="ar-icon fa fa-fw fa-plus-square"
+                        ></icon>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>12:00</td>
+                      <td>13:00</td>
+                      <td>
+                        <icon
+                          id="ar-icon"
+                          class="ar-icon fa fa-fw fa-plus-square"
+                        ></icon>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>12:00</td>
+                      <td>13:00</td>
+                      <td>
+                        <icon
+                          id="ar-icon"
+                          class="ar-icon fa fa-fw fa-plus-square"
+                        ></icon>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>12:00</td>
+                      <td>13:00</td>
+                      <td>
+                        <icon
+                          id="ar-icon"
+                          class="ar-icon fa fa-fw fa-plus-square"
+                        ></icon>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>12:00</td>
+                      <td>13:00</td>
+                      <td>
+                        <icon
+                          id="ar-icon"
+                          class="ar-icon fa fa-fw fa-plus-square"
+                        ></icon>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>12:00</td>
+                      <td>13:00</td>
+                      <td>
+                        <icon
+                          id="ar-icon"
+                          class="ar-icon fa fa-fw fa-plus-square"
+                        ></icon>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>12:00</td>
+                      <td>13:00</td>
+                      <td>
+                        <icon
+                          id="ar-icon"
+                          class="ar-icon fa fa-fw fa-plus-square"
+                        ></icon>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="btn-bar">
+                  <button>Back</button>
+                  <button id="select-time-btn">Select</button>
                 </div>
+              </div>
             </div>
-             <!-- End of Calendar div -->
-              
+
+            <!-- End of Calendar div -->
+
             <!-- </div> -->
-          </div>  <!-- end of innerDiv -->
+          </div>
+          <!-- end of innerDiv -->
 
           <div class="table-div34">
             <table id="t02" class="table34">
               <colspan>
-                <col>
-                <col>
-                <col class="medium-column">
-                <col class="medium-column">
+                <col />
+                <col />
+                <col class="medium-column" />
+                <col class="medium-column" />
               </colspan>
               <tr>
                 <th>Service</th>
@@ -177,16 +207,19 @@
               </tr>
               <br />
             </table>
-          </div> <!-- end of tableDiv34 -->
+          </div>
+          <!-- end of tableDiv34 -->
 
           <div class="innerDiv">
-            <div type="submit" class="btn">
-              Confirm
-            </div>
-          </div>  <!-- end of innerDiv -->
-        </div> <!-- end of work-space -->
-      </div> <!-- end of large-space -->
-    </div><!-- end of #main -->
+            <div type="submit" class="btn">Confirm</div>
+          </div>
+          <!-- end of innerDiv -->
+        </div>
+        <!-- end of work-space -->
+      </div>
+      <!-- end of large-space -->
+    </div>
+    <!-- end of #main -->
     <script src="../resources/javascript/side_navbar.js"></script>
     <script src="../resources/javascript/calendar/calendar.js"></script>
     <script src="../resources/javascript/calendar/timeSlots.js"></script>

@@ -1,66 +1,95 @@
-function add() {
-  var tr = document.createElement("tr");
-  tr.setAttribute("class", "tr");
-
-  var td = document.createElement("td");
-  td.style.fontSize = "16px";
-
-  var select = document.createElement("select");
-  select.setAttribute("class", "blo"); //should be there
-  select.setAttribute("id", "sel");
-
-  // add remove button ///////////////////////////////////////////////////////
-
-  var tdRemove = document.createElement("td");
-  tdRemove.style.textAlign = "center";
-  var icon = document.createElement("i");
-
-  icon.onclick = function () {
-    var x = icon.parentNode.parentNode.rowIndex;
-    console.log(x);
-    document.getElementById("table34").deleteRow(x); //function for delete row which makes dynamically
-  };
-
-  var image = document.createElement("img");
-  image.src = "../../resources/icons/cross.png";
-  image.style.width = "20px";
-  image.style.height = "20px";
-  image.style.marginRight = "10px";
-  image.style.cursor = "pointer";
-
-  icon.appendChild(image);
-  tdRemove.appendChild(icon);
-
-  /////////////////////////////////////////////////////////////////////////////
-
-  var option = document.createElement("option");
-  option.setAttribute("class", "option");
-  option.innerHTML = "waruna";
-
-  var option1 = document.createElement("option");
-  option1.setAttribute("id", "option");
-  option1.innerHTML = "praba";
-
-  var option3 = document.createElement("option");
-  option3.setAttribute("id", "option");
-  option3.innerHTML = "select S P";
-
-  select.appendChild(option3);
-  select.appendChild(option);
-  select.appendChild(option1);
-  td.appendChild(select);
-  tr.appendChild(td);
-  tr.appendChild(tdRemove);
-
-  document.getElementById("add").appendChild(tr);
-
-  document.getElementById("sel").addEventListener("change", function () {
-    td.innerHTML = document.getElementById("sel").value;
-    console.log("djh");
-  });
-}
+var spIDs=[];
 
 function remove(x) {
-  var i = x.parentNode.parentNode.rowIndex;
-  document.getElementById("table34").deleteRow(i);
+    var i = x.parentNode.parentNode.rowIndex;
+    var id=x.parentNode.parentNode.id;
+    document.getElementById("table34").deleteRow(i);
+
+    // Delete x from spIDs array
+    var index = spIDs.indexOf(id);
+    if (index !== -1) {
+        spIDs.splice(index, 1);
+    }
 }
+function add(){
+    var empID=$( "#select-sp" ).val();
+    if(!spIDs.includes(empID)){
+        spIDs.push(empID);
+        $('#assign-sp').append(`<tr id=${empID}> <td>${$( "#select-sp option:selected" ).text() }</td><td style="text-align: center;"><i onclick="remove(this)"><img class="cross"  src="../../resources/icons/cross.png" alt=""></i></td> <tr>`);
+    }
+}
+
+
+
+$( document ).ready(function() {
+    // Get all SPs 
+    $.post("http://localhost:8080/quickSalon_war_exploded/searchSP", {name:''},
+      function(data, status){
+          $.each(data, function( index,emp) {
+              $("#select-sp").append(`<option value="${emp.employeeId}"> ${emp.firstName+' '+emp.lastName} </option>`);
+          });
+      }
+    );
+
+    $("#add-btn").on('click', function(){
+
+                if ($('#serviceName').val()=='') {
+
+                    $('#serviceName').css("border", "4px red solid");
+                }
+                if ($('#description').val() == '') {
+
+                    $('#description').css("border", "4px red solid");
+
+                } else if ($('#price').val() == '') {
+
+                    $('#price').css("border", "4px red solid");
+
+                } else if ($('#timeTaken').val() == '') {
+
+                    $('#timeTaken').css("border", "4px red solid");
+                } else {
+                //1) add to service table--return serviceID
+                $.post("http://localhost:8080/quickSalon_war_exploded/registerservice", {
+                        sname: $("#serviceName").val(),
+                        desc: $("#description").val(),
+                        timeTaken: $("#timeTaken").val(),
+                        price: $("#price").val()
+                    },
+                    function (serviceId, status) {
+                        ////////Get newly inserted service ID
+                        if(serviceId==0){
+                        alert("Sorry! Service Registration Failed..")
+                        }else{
+                            var retVal=true;
+                                // spIDs.forEach((spid)=>{ 
+                                //     alert(spid)
+                                // })
+
+                            //2) add to assign service
+                            spIDs.forEach((spid)=>{ 
+                                $.post("http://localhost:8080/quickSalon_war_exploded/assignService", {
+                                    spID: spid,
+                                    serviceID:serviceId
+                                },
+                                    function (data, status) {
+                                        alert(data)
+                                        if(data=='false'){
+                                            retVal=false;
+                                        }
+                                    }
+                                );
+
+                            })
+                            if(retVal){
+                                alert("Successfully Added...");
+                            }else{
+                                alert("Soory! You can't add service..");
+                            }
+                        }
+                    }
+                );
+            }
+         });
+
+});
