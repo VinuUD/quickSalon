@@ -21,12 +21,19 @@ $(document).ready(function () {
         $.get(
             "http://localhost:8080/quickSalon_war_exploded/serviceDetailsByID",{serviceID:selectedVal},
             function (data) {
+
+                if(data[0].holdFlag==1){
+                    $("#service-status").css("background","rgb(207, 89, 144)");
+                }else{
+                    $("#service-status").css("background","lightgreen");
+                }
                 // console.log(data[0].serviceName);
                 $("#serviceID").text(data[0].serviceID);
                  $("#serviceName").text(data[0].serviceName);
                 $("#price").text(data[0].price);
                 $("#timeTaken").text(data[0].timeTaken);
                 $("#desc").text(data[0].serviceDescription);
+               
                 
             }
           );
