@@ -149,4 +149,9 @@ $("document").ready(function () {
       },
     });
   });
+
+  $("#cancel").on("click", function () {
+    window.location =
+      "http://localhost:8080/quickSalon_war_exploded/upperStaff/allServices.html";
+  });
 });
