@@ -96,4 +96,35 @@ public class ServiceDAOImple implements ServiceDAO {
         return serviceID;
     }
 
+    public ArrayList<Service> getServiceByID(int id) throws SQLException, ClassNotFoundException {
+        ArrayList<Service> serviceDetails=new ArrayList<>();
+
+        Connection connection =DBConnection.getConnection();
+        PreparedStatement stmt= connection.prepareStatement("SELECT  * FROM j4f9qe_service WHERE j4f9qe_service.serviceID = ?");
+        stmt.setInt(1,id);
+        ResultSet rs =  stmt.executeQuery();
+        while(rs.next())
+        {
+            serviceDetails.add(new Service(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getInt(6)));
+        }
+
+        return serviceDetails;
+    }
+
+    public int updateServiceTable(Service service) throws SQLException, ClassNotFoundException {
+        Connection connection =DBConnection.getConnection();
+        PreparedStatement stmt= connection.prepareStatement("UPDATE j4f9qe_service SET j4f9qe_service.serviceName=?, j4f9qe_service.serviceDescription=?, j4f9qe_service.timeTaken=?, j4f9qe_service.price =?, j4f9qe_service.holdFlag=? WHERE j4f9qe_service.serviceID =?");
+        stmt.setString(1,service.getServiceName());
+        stmt.setString(2,service.getServiceDescription());
+        stmt.setString(3, service.getTimeTaken());
+        stmt.setDouble(4, service.getPrice());
+        stmt.setInt(5, service.getHoldFlag());
+        stmt.setInt(6,service.getServiceID());
+
+        int x = stmt.executeUpdate();
+        return x;
+    }
+
+
+
 }

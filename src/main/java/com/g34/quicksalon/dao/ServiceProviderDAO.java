@@ -11,6 +11,8 @@ public interface ServiceProviderDAO {
     
     public ArrayList<ServiceProvider> getServiceProvidersByID(int sid) ;
 
+    public ArrayList<ServiceProvider> getServiceProvidersByIDShort(int sid) ;
+
     public ArrayList<ServiceProvider> getSPListByservice(int serviceId) throws SQLException, ClassNotFoundException;
 
     public boolean assignedService(int qId,int employeeId) throws SQLException, ClassNotFoundException ;
@@ -30,5 +32,7 @@ public interface ServiceProviderDAO {
 
     //    get all upcoming appointment by SP -- (QId,date,startTime,endTime)
     public ArrayList<Appointment> getAppointmentDeatilsBySP(int empID) throws SQLException, ClassNotFoundException;
+
+    public int deleteServiceFromServiceProvided(int serviceID) throws SQLException, ClassNotFoundException;
 
 }

@@ -1,128 +1,172 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../resources/css/updateService.css">
-    <link rel="stylesheet" href="../../resources/css/34.css">
-    <link rel="stylesheet" href="../../resources/css/sideNavbar.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../resources/css/updateService.css" />
+    <link rel="stylesheet" href="../../resources/css/34.css" />
+    <link rel="stylesheet" href="../../resources/css/sideNavbar.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <title>Update Service</title> 
-</head>
-<body onresize="whenResizing()">
+    <title>Update Service</title>
+  </head>
+  <body onresize="whenResizing()">
     <!-- ////////////////////////////////////////// -->
-     <!-- remove package -->
-     <div id="removePopup" class="mainPopupDiv">
-        <div class="innerPopupDiv">
-            <div class="top1">
-                <i><img style="height: 20px; width: 20px; margin-right: 10px; cursor: pointer;" onclick="hideRemove()" src="../../resources/icons/cross.png" alt=""></i>
-                <b style="margin: 0px auto 0px auto;">Remove Package</b> 
-            </div>
-            <div class="pwd"> <b> Enter password </b>  <input  type="password" ></div>
-
-            <div class="button1">
-                <button onclick="hideRemove()" class="danger34">Remove</button>
-            </div>
+    <!-- remove package -->
+    <div id="removePopup" class="mainPopupDiv">
+      <div class="innerPopupDiv">
+        <div class="top1">
+          <i
+            ><img
+              style="
+                height: 20px;
+                width: 20px;
+                margin-right: 10px;
+                cursor: pointer;
+              "
+              onclick="hideRemove()"
+              src="../../resources/icons/cross.png"
+              alt=""
+          /></i>
+          <b style="margin: 0px auto 0px auto">Remove Package</b>
         </div>
-   </div>
+        <div class="pwd"><b> Enter password </b> <input type="password" /></div>
+
+        <div class="button1">
+          <button onclick="hideRemove()" class="danger34">Remove</button>
+        </div>
+      </div>
+    </div>
 
     <!-- ////////////////////////////////////////////// -->
 
     <div id="mySidenav" class="sidenav">
-        <div class="closeIcon">
-          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        </div>
-        <br><br>
-        <!-- when i change here i should change nth child css -->
-        <div class="imgDiv"><img class="imgIcon"  src="../../resources/icons/user.png" alt=""></div>
-        <a href="#"><i class="fa fa-calendar"></i> &nbsp;&nbsp; View Salon  Schedule</a>
-        <a href="#"><i class="fa fa-tasks" ></i> &nbsp;&nbsp; Service Management</a>
-        <a href="#"><i class="fa fa-users" ></i> &nbsp;&nbsp; Employee Management</a>
-        <a href="#"><i class = "fas fa-balance-scale-left"></i> &nbsp;&nbsp; Stock Management</a>
-        <a href="#"><i class="fa fa-file" ></i>  &nbsp;&nbsp;&nbsp;&nbsp;Reports</a>
-          <a href="#"><i class = "fas fa-sign-out-alt"></i> &nbsp;&nbsp; Logout</a>
-  
-      </div> <!-- sidebar --> 
-
-<div id="main">
-    <div class="back">
-        <div id="navIcon" onclick="openNav()" class="navIcon"  ><img  src="../../resources/icons/three.png" alt="Ooops" ></div>
-        <button onclick="change()" class="btn34">back</button>
+      <div class="closeIcon">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+          >&times;</a
+        >
+      </div>
+      <br /><br />
+      <!-- when i change here i should change nth child css -->
+      <div class="imgDiv">
+        <img class="imgIcon" src="../../resources/icons/user.png" alt="" />
+      </div>
+      <a href="#"
+        ><i class="fa fa-calendar"></i> &nbsp;&nbsp; View Salon Schedule</a
+      >
+      <a href="#"
+        ><i class="fa fa-tasks"></i> &nbsp;&nbsp; Service Management</a
+      >
+      <a href="#"
+        ><i class="fa fa-users"></i> &nbsp;&nbsp; Employee Management</a
+      >
+      <a href="#"
+        ><i class="fas fa-balance-scale-left"></i> &nbsp;&nbsp; Stock
+        Management</a
+      >
+      <a href="#"><i class="fa fa-file"></i> &nbsp;&nbsp;&nbsp;&nbsp;Reports</a>
+      <a href="#"><i class="fas fa-sign-out-alt"></i> &nbsp;&nbsp; Logout</a>
     </div>
+    <!-- sidebar -->
 
-    <div class="topBar">
-        <b>Update Service</b> 
-     </div>
+    <div id="main">
+      <div class="back">
+        <div id="navIcon" onclick="openNav()" class="navIcon">
+          <img src="../../resources/icons/three.png" alt="Ooops" />
+        </div>
+        <button onclick="change()" class="btn34">back</button>
+      </div>
 
-    <div class="mainDiv">
+      <div class="topBar">
+        <b>Update Service</b>
+      </div>
+
+      <div class="mainDiv">
         <div class="innerDiv">
-            <div><b>Service ID</b></div>  <div class="inputDiv"><input disabled  type="text"></div>
+          <div><b>Service ID</b></div>
+          <div class="inputDiv">
+            <input id="serviceID" disabled type="text" />
+          </div>
         </div>
 
         <div class="innerDiv">
-            <div><b>Service Title</b></div>  <div class="inputDiv"><input  type="text"></div>
+          <div><b>Service Title</b></div>
+          <div class="inputDiv"><input id="serviceTitle" type="text" /></div>
         </div>
 
         <div class="innerDiv">
-            <div><b>Description &nbsp;</b></div>  <div class="inputDiv"><input type="text"> </div>
+          <div><b>Description &nbsp;</b></div>
+          <div class="inputDiv">
+            <input id="serviceDescription" type="text" />
+          </div>
         </div>
 
         <div class="innerDiv">
-            <div><b style="margin-right: 50px;">Type </b></div>  <div  class="inputDiv">
-                <select name="" id="">
-                    <option value="Select">Select Type</option>
-                    <option value="special">Special</option>
-                    <option value="shashira">Normal</option>
-                    
-
-                </select>
-            </div>
+          <div><b style="margin-right: 55px">Price </b></div>
+          <div class="inputDiv"><input id="price" type="text" /></div>
         </div>
 
         <div class="innerDiv">
-            <div><b style="margin-right: 55px;">Price </b></div>  <div class="inputDiv"><input type="text"> </div>
+          <div><b>Time Duration</b></div>
+          <div style="margin-left: -7px" class="inputDiv">
+            <input id="timeDuration" type="text" />
+          </div>
         </div>
 
         <div class="innerDiv">
-            <div><b>Time Duration</b></div>  <div style="margin-left: -7px;" class="inputDiv"><input type="text"> </div>
+          <div><b>Hold Service </b></div>
+          <div class="inputDiv">
+            <select name="" id="holdFlag">
+              <option value="no">No</option>
+              <option value="yes">Yes</option>
+            </select>
+          </div>
         </div>
 
         <div>
-            <div class="tableDiv34">
-                <table id="table34" class="table34"  >
-                    <tr>
-                        
-                        <th>Service Providers</th>
-                        <th style="text-align: center;">Remove</th>
-                    </tr>
-                    <tr>
-                        
-                        <td>kaanthi</td>
-                        <td style="text-align: center;"><i onclick="remove(this)"><img class="cross"  src="../../resources/icons/cross.png" alt=""></i></td>
-                    </tr>
-                   
-                   <tbody id="add">
+          <div class="tableDiv34">
+            <table id="table34" class="table34">
+              <tr>
+                <th>Service providers</th>
+                <th style="text-align: center">Remove</th>
+              </tr>
+              <tr>
+                <td><select id="select-sp" class="blo"></select></td>
+                <td></td>
+                <!-- <td style="text-align: center;"><i onclick="remove(this)"><img class="cross"  src="../../resources/icons/cross.png" alt=""></i></td>  -->
+              </tr>
 
-                   </tbody>
-                    <tr>
-                        <td><img src="../../resources/icons/plus.png" alt="" style="width: 30px; height: 30px; cursor: pointer;" onclick="add()"></td>
-                        <td></td>
-                    </tr>
-                </table>
-            </div>
+              <tbody id="assign-sp"></tbody>
+              <tr>
+                <td>
+                  <img
+                    id="plus"
+                    src="../../resources/icons/plus.png"
+                    alt=""
+                    class="plus"
+                    onclick="add()"
+                  />
+                </td>
+                <td></td>
+              </tr>
+            </table>
+          </div>
         </div>
 
         <div class="buttonDiv">
-            <button onclick="showRemove()"  class="danger34">Remove</button>
-            <button  class="btn-success34">Save</button>
-            <button  class="btn-success34">cancel</button>
+          <button id="remove" onclick="showRemove()" class="danger34">
+            Remove
+          </button>
+          <button id="save" class="btn-success34">Save</button>
+          <button id="cancel" class="btn-success34">cancel</button>
         </div>
-
+      </div>
     </div>
-</div>
-    
-<script src="../../resources/javascript/updateService.js"></script>
-<script src="../../resources/javascript/side_navbar.js"></script>
-</body>
+
+    <script src="../../resources/javascript/updateService.js"></script>
+    <script src="../../resources/javascript/side_navbar.js"></script>
+  </body>
 </html>

@@ -12,8 +12,8 @@ public class ServiceProvider {
     private float salary;
     private String password;
 
-    private Date enrollDate;
-    private Date resignDate;
+    private String enrollDate;
+    private String resignDate;
     private int isUpperStaffFlag;
     private int onLeaveFlag;
     private int removedFlag;
@@ -28,7 +28,7 @@ public class ServiceProvider {
         this.lastName = lastName;
     }
 
-    public ServiceProvider(int employeeId, String firstName, String lastName, String userName, String nicNo, String email, float salary, String password, Date enrollDate, Date resignDate, int isUpperStaffFlag, int onLeaveFlag, int removedFlag,int userID) {
+    public ServiceProvider(int employeeId, String firstName, String lastName, String userName, String nicNo, String email, float salary, String password, String enrollDate, String resignDate, int isUpperStaffFlag, int onLeaveFlag, int removedFlag,int userID) {
         this.employeeId = employeeId;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -45,7 +45,7 @@ public class ServiceProvider {
         this.userID = userID;
     }
 
-    public ServiceProvider(int employeeId, String nicNo, String firstName, String lastName, float salary, Date enrollDate, Date resignDate, int isUpperStaffFlag, int onLeaveFlag, int removedFlag) {
+    public ServiceProvider(int employeeId, String nicNo, String firstName, String lastName, float salary, String enrollDate, String resignDate, int isUpperStaffFlag, int onLeaveFlag, int removedFlag) {
         this.employeeId = employeeId;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -122,19 +122,19 @@ public class ServiceProvider {
         this.password = password;
     }
 
-    public Date getEnrollDate() {
+    public String getEnrollDate() {
         return enrollDate;
     }
 
-    public void setEnrollDate(Date enrollDate) {
+    public void setEnrollDate(String enrollDate) {
         this.enrollDate = enrollDate;
     }
 
-    public Date getResignDate() {
+    public String getResignDate() {
         return resignDate;
     }
 
-    public void setResignDate(Date resignDate) {
+    public void setResignDate(String resignDate) {
         this.resignDate = resignDate;
     }
 

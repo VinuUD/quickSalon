@@ -287,10 +287,31 @@
         <servlet-name>AssignServiceSPListServlet</servlet-name>
         <servlet-class>com.g34.quicksalon.controller.employeeManagement.serviceProvider.AssignServiceSPListServlet</servlet-class>
     </servlet>
+
     <servlet-mapping>
         <servlet-name>AssignServiceSPListServlet</servlet-name>
         <url-pattern>/assignListSpService</url-pattern>
     </servlet-mapping>
+<!-- ServiceDetailsByIDServlet-->
+    <servlet>
+        <servlet-name>ServiceDetailsByIDServlet</servlet-name>
+        <servlet-class>com.g34.quicksalon.controller.serviceManagement.ServiceDetailsByIDServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ServiceDetailsByIDServlet</servlet-name>
+        <url-pattern>/serviceDetails</url-pattern>
+    </servlet-mapping>
+<!--updateServiceServlet-->
+    <servlet>
+        <servlet-name>updateServiceServlet</servlet-name>
+        <servlet-class>com.g34.quicksalon.controller.serviceManagement.updateServiceServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>updateServiceServlet</servlet-name>
+        <url-pattern>/updateService</url-pattern>
+    </servlet-mapping>
+
 
 
 
