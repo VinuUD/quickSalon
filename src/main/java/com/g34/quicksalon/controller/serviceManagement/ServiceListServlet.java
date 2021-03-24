@@ -14,6 +14,19 @@ import java.util.List;
 
 public class ServiceListServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try {
+            ServiceDAO serviceDAO=new ServiceDAOImple();
+            ArrayList<Service> services=new ArrayList<>();
+            services= serviceDAO.getAllServices();
+
+            String json = new Gson().toJson(services);
+            response.setContentType("application/json");
+            response.setCharacterEncoding("UTF-8");
+            response.getWriter().write(json);
+
+        }catch (Exception e){
+            response.getWriter().println(e.getMessage());
+        }
 
     }
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
