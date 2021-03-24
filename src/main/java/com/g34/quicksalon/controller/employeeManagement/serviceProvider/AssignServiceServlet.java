@@ -16,14 +16,13 @@ public class AssignServiceServlet extends HttpServlet {
         int serviceProviderID= Integer.parseInt(request.getParameter("spID"));
         int serviceID= Integer.parseInt(request.getParameter("serviceID"));
 
-
         ServiceProviderDAO serviceProviderDAO=new ServiceProviderDAOImple();
         boolean success=false;
         try {
             success=serviceProviderDAO.assignServiceToSP(serviceID,serviceProviderID);
             response.getWriter().println(success);
         } catch (SQLException throwables) {
-            
+
             response.getWriter().println(throwables.getMessage());
 
         } catch (ClassNotFoundException e) {

@@ -282,6 +282,18 @@
         <url-pattern>/registerservice</url-pattern>
     </servlet-mapping>
 
+<!--    Assign services for array of SPs-->
+    <servlet>
+        <servlet-name>AssignServiceSPListServlet</servlet-name>
+        <servlet-class>com.g34.quicksalon.controller.employeeManagement.serviceProvider.AssignServiceSPListServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AssignServiceSPListServlet</servlet-name>
+        <url-pattern>/assignListSpService</url-pattern>
+    </servlet-mapping>
+
+
+
 
 
 </web-app>

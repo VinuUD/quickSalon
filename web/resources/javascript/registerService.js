@@ -1,4 +1,5 @@
 var spIDs=[];
+serviceID=0;
 
 function remove(x) {
     var i = x.parentNode.parentNode.rowIndex;
@@ -49,47 +50,25 @@ $( document ).ready(function() {
 
                     $('#timeTaken').css("border", "4px red solid");
                 } else {
-                //1) add to service table--return serviceID
-                $.post("http://localhost:8080/quickSalon_war_exploded/registerservice", {
-                        sname: $("#serviceName").val(),
-                        desc: $("#description").val(),
-                        timeTaken: $("#timeTaken").val(),
-                        price: $("#price").val()
-                    },
-                    function (serviceId, status) {
-                        ////////Get newly inserted service ID
-                        if(serviceId==0){
-                        alert("Sorry! Service Registration Failed..")
-                        }else{
-                            var retVal=true;
-                                // spIDs.forEach((spid)=>{ 
-                                //     alert(spid)
-                                // })
 
-                            //2) add to assign service
-                            spIDs.forEach((spid)=>{ 
-                                $.post("http://localhost:8080/quickSalon_war_exploded/assignService", {
-                                    spID: spid,
-                                    serviceID:serviceId
-                                },
-                                    function (data, status) {
-                                        alert(data)
-                                        if(data=='false'){
-                                            retVal=false;
-                                        }
-                                    }
-                                );
-
-                            })
-                            if(retVal){
-                                alert("Successfully Added...");
-                            }else{
-                                alert("Soory! You can't add service..");
-                            }
-                        }
-                    }
-                );
-            }
-         });
+                    //1) add to service table--return serviceID
+                    $.post("http://localhost:8080/quickSalon_war_exploded/registerservice", 
+                        { 
+                            sname: $("#serviceName").val(),
+                            desc: $("#description").val(),
+                            timeTaken: $("#timeTaken").val(),
+                            price: $("#price").val(),
+                            spIDs: spIDs,
+                        },
+                        function (data, status) {
+                           if(data=='true'){
+                               alert("Successfully Added !")
+                           }else{
+                            alert("Added failed !")
+                           }
+                         }
+                    ); 
+                }
+    });
 
 });

@@ -77,16 +77,14 @@ public class ServiceDAOImple implements ServiceDAO {
     public int registerService(Service service) throws SQLException, ClassNotFoundException {
 
         Connection connection =DBConnection.getConnection();
-        PreparedStatement stmt= connection.prepareStatement("INSERT INTO j4f9qe_service (serviceName,serviceDescription,timeTaken,price,holdFlag) VALUES (?,?,?,?,?)");
+        PreparedStatement stmt= connection.prepareStatement("INSERT INTO j4f9qe_service (serviceName,serviceDescription,timeTaken,price) VALUES (?,?,?,?)");
 
         stmt.setString(1,service.getServiceName());
         stmt.setString(2,service.getServiceDescription());
         stmt.setString(3,service.getTimeTaken());
         stmt.setDouble(4,service.getPrice());
-        stmt.setInt(5,0);
 
         int success=stmt.executeUpdate();
-
         if(success<=0){
             return 0;
         }
@@ -97,4 +95,5 @@ public class ServiceDAOImple implements ServiceDAO {
         }
         return serviceID;
     }
+
 }
