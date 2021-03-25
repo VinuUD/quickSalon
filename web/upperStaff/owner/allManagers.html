@@ -298,7 +298,7 @@
               console.log(col1);
               $.ajax({
                 type: "GET",
-                url: "allManagers.html/remove",
+                url: "http://localhost:8080/quickSalon_war_exploded/remove",
                 data: { id: `${col1}`, password: `${password}` },
                 success: function (response) {
                   console.log(response);

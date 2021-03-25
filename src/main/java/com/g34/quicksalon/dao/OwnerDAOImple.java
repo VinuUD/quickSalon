@@ -84,8 +84,28 @@ public class OwnerDAOImple implements OwnerDAO {
             return 4;
         }
 
+    }
 
+    public int removeServiceProvider(int id, String password) throws SQLException {
+        Statement st = con.createStatement();
+        System.out.println(password);
 
+        if (password.equals("admin"))
+        {
+            System.out.println("mama shehan");
+
+            String query = "UPDATE j4f9qe_employee SET j4f9qe_employee.removedFlag = 1  WHERE j4f9qe_employee.employeeID ="+id;
+            String query1 ="DELETE FROM j4f9qe_servicesprovided WHERE j4f9qe_servicesprovided.serviceProviderID="+id;
+            String query2 = "DELETE FROM j4f9qe_user WHERE j4f9qe_user.userID="+id;
+            int x = st.executeUpdate(query);
+            int y = st.executeUpdate(query1);
+            int z = st.executeUpdate(query2);
+            return x;
+        }
+        else
+        {
+            return 4;
+        }
 
     }
 
