@@ -3,6 +3,7 @@ package com.g34.quicksalon.dao;
 import com.g34.quicksalon.database.DBConnection;
 import com.g34.quicksalon.model.Appointment;
 import com.g34.quicksalon.model.CustomerDetails;
+import com.g34.quicksalon.model.PersonalSchedule;
 import com.g34.quicksalon.model.ServiceProvider;
 
 import java.sql.*;
@@ -161,6 +162,8 @@ public class ServiceProviderDAOImple implements  ServiceProviderDAO{
         return x;
     }
 
+
+
     //     get all upcoming appointment by SP -- (QId,date,startTime,endTime)
     @Override
     public ArrayList<Appointment> getAppointmentDeatilsBySP(int empID) throws SQLException, ClassNotFoundException {
@@ -173,7 +176,7 @@ public class ServiceProviderDAOImple implements  ServiceProviderDAO{
             ResultSet resultSet = stmt.executeQuery();
 
             while (resultSet.next()){
-                Appointment appointment=new Appointment(resultSet.getInt(1),resultSet.getDate(2),resultSet.getTime(3),resultSet.getTime(4));
+                Appointment appointment=new Appointment(resultSet.getInt(1),resultSet.getString(2),resultSet.getString(3),resultSet.getString(4));
                 upAppointments.add(appointment);
             }
 
@@ -228,6 +231,29 @@ public class ServiceProviderDAOImple implements  ServiceProviderDAO{
         }else{
             return false;
         }
+    }
+
+
+    @Override
+    public ArrayList<PersonalSchedule> getAppointmentsSPByDate(int userID, String date) throws SQLException, ClassNotFoundException {
+        ArrayList<PersonalSchedule> appointments=new ArrayList<>();
+
+        try {
+            PreparedStatement stmt=DBConnection.getConnection().prepareStatement("SELECT firstName,lastName,telephone,serviceName,startTime,endTime FROM j4f9qe_personalschedule WHERE userID=? AND date=?;");
+            stmt.setInt(1,userID);
+            stmt.setString(2,date);
+
+            ResultSet resultSet = stmt.executeQuery();
+
+            while (resultSet.next()){
+                appointments.add(new PersonalSchedule(resultSet.getString(1),resultSet.getString(2),resultSet.getString(3),resultSet.getString(4),resultSet.getString(5),resultSet.getString(6)));
+            }
+
+        } catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+        return appointments;
+
     }
 
 }

@@ -6,8 +6,7 @@
     text-align: center;
 }
 
-input[type="date"] {
-   background-color: white;
-    border: 5px solid #435a66;
-    border-radius: 6px;
-}
+ .date-div{
+    text-align: center;
+ }
+

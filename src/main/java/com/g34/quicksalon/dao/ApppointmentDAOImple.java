@@ -17,7 +17,7 @@ public class ApppointmentDAOImple implements AppointmentDAO {
             while (resultSet.next()) {
                 //data=(Time)resultSet.getString(4);
 
-                appointments.add(new Appointment(resultSet.getInt(1), resultSet.getInt(2), resultSet.getDate(3), Time.valueOf(resultSet.getString(4)), Time.valueOf(resultSet.getString(5)),  resultSet.getInt(6)));
+                appointments.add(new Appointment(resultSet.getInt(1), resultSet.getInt(2), resultSet.getString(3), resultSet.getString(4),resultSet.getString(5),  resultSet.getInt(6)));
             }
 
         } catch (SQLException | ClassNotFoundException throwables) {
@@ -52,9 +52,9 @@ public class ApppointmentDAOImple implements AppointmentDAO {
         Connection connection =DBConnection.getConnection();
         PreparedStatement stmt= connection.prepareStatement("INSERT INTO j4f9qe_appointments (customerID,date,startTime,endTime,cancelledFlag) VALUES (?,?,?,?,?)");
         stmt.setInt(1,appointment.getCustomerId());
-        stmt.setDate(2,(Date)appointment.getDate());
-        stmt.setTime(3, appointment.getStartTime());
-        stmt.setTime(4, appointment.getEndTime());
+        stmt.setString(2,appointment.getDate());
+        stmt.setString(3, appointment.getStartTime());
+        stmt.setString(4, appointment.getEndTime());
         stmt.setInt(5,0);
 
         int success=stmt.executeUpdate();
@@ -83,7 +83,7 @@ public class ApppointmentDAOImple implements AppointmentDAO {
             ResultSet resultSet = stmt.executeQuery();
 
             while (resultSet.next()) {
-                appointments.add(new Appointment(resultSet.getInt(1),resultSet.getInt(2),resultSet.getDate(3),Time.valueOf(resultSet.getString(4)),Time.valueOf(resultSet.getString(5)),resultSet.getInt(6)));
+                appointments.add(new Appointment(resultSet.getInt(1),resultSet.getInt(2),resultSet.getString(3),resultSet.getString(4),resultSet.getString(5),resultSet.getInt(6)));
             }
         } catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
@@ -99,7 +99,7 @@ public class ApppointmentDAOImple implements AppointmentDAO {
             stmt.setInt(1,empID);
             ResultSet resultSet = stmt.executeQuery();
             while (resultSet.next()) {
-                appointments.add(new Appointment(resultSet.getInt(1),resultSet.getInt(2),resultSet.getDate(3),Time.valueOf(resultSet.getString(4)),Time.valueOf(resultSet.getString(5)),resultSet.getInt(6)));
+                appointments.add(new Appointment(resultSet.getInt(1),resultSet.getInt(2),resultSet.getString(3),resultSet.getString(4),resultSet.getString(5),resultSet.getInt(6)));
             }
         } catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();

@@ -2,6 +2,7 @@ package com.g34.quicksalon.controller.serviceProvider;
 
 import com.g34.quicksalon.dao.*;
 import com.g34.quicksalon.model.Appointment;
+import com.g34.quicksalon.model.PersonalSchedule;
 import com.google.gson.Gson;
 
 import javax.servlet.ServletException;
@@ -16,25 +17,30 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class PersonalScheduleServlet extends HttpServlet {
-
-    // PersonalSchedule data for view personal schedule view
-    class PersonalSchedule{
-        String customerName;
-        String serviceName;
-        Time startTime;
-        Time endTime;
-        Date date;
-
-        public PersonalSchedule(String customerName, String serviceName, Time startTime, Time endTime, Date date) {
-            this.customerName = customerName;
-            this.serviceName = serviceName;
-            this.startTime = startTime;
-            this.endTime = endTime;
-            this.date = date;
-        }
-    }
-
+    
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+            //Return list of Cust Name, Service Name,startTime, endTime of a given date & session SPId
+        ArrayList<PersonalSchedule> schedules=new ArrayList<>();
+        //get session data
+        HttpSession session= request.getSession();
+        int userID=(Integer) session.getAttribute("userID");
+//        int userID= Integer.parseInt(request.getParameter("userID"));
+        String date=request.getParameter("date");
+
+        ServiceProviderDAO serviceProviderDAO=new ServiceProviderDAOImple();
+        try {
+            schedules=serviceProviderDAO.getAppointmentsSPByDate(userID,date);
+
+            String json = new Gson().toJson(schedules);
+            response.setContentType("application/json");
+            response.setCharacterEncoding("UTF-8");
+            response.getWriter().write(json);
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
 
     }
 

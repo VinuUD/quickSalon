@@ -292,16 +292,7 @@
         <servlet-name>AssignServiceSPListServlet</servlet-name>
         <url-pattern>/assignListSpService</url-pattern>
     </servlet-mapping>
-<!-- ServiceDetailsByIDServlet-->
-    <servlet>
-        <servlet-name>ServiceDetailsByIDServlet</servlet-name>
-        <servlet-class>com.g34.quicksalon.controller.serviceManagement.ServiceDetailsByIDServlet</servlet-class>
-    </servlet>
 
-    <servlet-mapping>
-        <servlet-name>ServiceDetailsByIDServlet</servlet-name>
-        <url-pattern>/serviceDetails</url-pattern>
-    </servlet-mapping>
 <!--updateServiceServlet-->
     <servlet>
         <servlet-name>updateServiceServlet</servlet-name>
@@ -314,13 +305,14 @@
 
 
 <!--Get service Details by service ID-->
+    <!-- ServiceDetailsByIDServlet-->
     <servlet>
         <servlet-name>ServiceDetailsByIDServlet</servlet-name>
         <servlet-class>com.g34.quicksalon.controller.serviceManagement.ServiceDetailsByIDServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ServiceDetailsByIDServlet</servlet-name>
-        <url-pattern>/serviceDetailsByID</url-pattern>
+        <url-pattern>/serviceDetails</url-pattern>
     </servlet-mapping>
 
 </web-app>
