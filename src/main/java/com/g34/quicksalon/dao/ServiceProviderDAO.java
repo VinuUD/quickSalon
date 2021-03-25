@@ -6,6 +6,7 @@ import java.util.HashMap;
 
 import com.g34.quicksalon.model.Appointment;
 import com.g34.quicksalon.model.PersonalSchedule;
+import com.g34.quicksalon.model.ManagerDetailsForView;
 import com.g34.quicksalon.model.ServiceProvider;
 
 public interface ServiceProviderDAO {
@@ -36,9 +37,12 @@ public interface ServiceProviderDAO {
 
     public int deleteServiceFromServiceProvided(int serviceID) throws SQLException, ClassNotFoundException;
 
+
 //    Get Appointment by serviceProviderID & data
     public ArrayList<PersonalSchedule> getAppointmentsSPByDate(int userID, String date) throws SQLException, ClassNotFoundException;
 
+
+    public ArrayList<ManagerDetailsForView> getServiceProvidersDetails() throws Exception;
 
 
 }

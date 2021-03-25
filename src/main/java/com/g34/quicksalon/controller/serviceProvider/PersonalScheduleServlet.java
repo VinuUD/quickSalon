@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class PersonalScheduleServlet extends HttpServlet {
-    
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
             //Return list of Cust Name, Service Name,startTime, endTime of a given date & session SPId
         ArrayList<PersonalSchedule> schedules=new ArrayList<>();

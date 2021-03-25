@@ -24,6 +24,8 @@ public interface OwnerDAO {
 
     public boolean setRemovedFlagOfSp(int empid) throws SQLException, ClassNotFoundException;
 
+    public int removeServiceProvider(int id, String password) throws SQLException;
+
 
 
 

@@ -72,6 +72,30 @@
         <servlet-name>View</servlet-name>
         <url-pattern>/upperStaff/owner/allManagers.html/view</url-pattern>
     </servlet-mapping>
+
+<!--    view sps details-->
+
+    <servlet>
+        <servlet-name>Viewsp</servlet-name>
+        <servlet-class>com.g34.quicksalon.controller.employeeManagement.serviceProvider.ViewSPsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Viewsp</servlet-name>
+        <url-pattern>/viewSp</url-pattern>
+    </servlet-mapping>
+
+
+    <!--    update sps details-->
+
+    <servlet>
+        <servlet-name>Updatesp</servlet-name>
+        <servlet-class>com.g34.quicksalon.controller.employeeManagement.serviceProvider.UpdateSPServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Updatesp</servlet-name>
+        <url-pattern>/updateSp</url-pattern>
+    </servlet-mapping>
+
     <!--     addLeaveScheduleServlet -->
     <servlet>
         <servlet-name>AddLeaveSchedule</servlet-name>
@@ -109,7 +133,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>removeManager</servlet-name>
-        <url-pattern>/upperStaff/owner/allManagers.html/remove</url-pattern>
+        <url-pattern>/remove</url-pattern>
     </servlet-mapping>
     <!--      -->
     <!--     removeManagerServlet -->

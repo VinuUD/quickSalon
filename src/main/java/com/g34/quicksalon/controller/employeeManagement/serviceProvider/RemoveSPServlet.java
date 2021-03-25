@@ -14,6 +14,21 @@ import java.sql.SQLException;
 
 public class RemoveSPServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String idString = request.getParameter("id");
+        String password = request.getParameter("password");
+        int id = Integer.parseInt(idString);
+
+        try {
+            OwnerDAO owner = new OwnerDAOImple();
+            int x = owner.removeServiceProvider(id, password);
+            response.getWriter().println(x);
+
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         
     }
 
