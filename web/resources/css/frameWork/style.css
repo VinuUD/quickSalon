@@ -75,6 +75,7 @@ html {
 }
 
 .work-space {
+  justify-content: center;
   width: 90%;
   min-height: 80vh;
   display: flex;
@@ -141,7 +142,6 @@ button {
   background-color: white;
   color: black;
   width: 60px;
-  height: 20px;
   padding: 8px 12px;
   text-align: center;
   font-size: 15px;
@@ -154,8 +154,7 @@ button {
 .btn {
   background-color: white;
   color: black;
-  width: 60px;
-  height: 20px;
+  min-width: 60px;
   padding: 8px 12px;
   text-align: center;
   font-size: 15px;
@@ -163,6 +162,11 @@ button {
   border-radius: 3px;
   transition-duration: 0.4s;
   border: 2px solid var(--main-color);
+}
+
+button:hover {
+  background-color: var(--main-color);
+  color: white;
 }
 
 .btn:hover {

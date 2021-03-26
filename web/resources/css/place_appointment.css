@@ -1,56 +1,63 @@
 .calendar {
-    width: 500px;
-    border: 1px solid var(--main-color-dark);
-    height: 400px;
-    padding: 10px;
-  }
+  width: 500px;
+  border: 1px solid var(--main-color-dark);
+  height: 400px;
+  padding: 10px;
+}
 
+/* Time pop up */
 
-  /* Time pop up */
+.time-slots-table {
+  border-collapse: collapse;
+  width: 100%;
+}
 
-  .time-slots-table {
-    border-collapse: collapse;
-    width: 100%;
-  }
+.tbl-head{
+ background: white;
+ margin-top: 10px;
+ height: 50px;
+ color: var(--main-color);
+ border: 1px solid var(--main-color);
+}
 
- .tbl-head{
-     background: #6495ED;
-     margin-top: 10px;
-     height: 50px;
+.time-slots  th, td {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
 
-  }
+.time-slots-table tr:hover {
+  background-color:#f5f5f5;
+}
 
-  .time-slots  th, td {
-    padding: 8px;
-    border-bottom: 1px solid #ddd;
-  }
+.time-slots-div{
+  display: none;
+  height: 90%;
+  overflow-y: auto;
+}
 
-  .time-slots-table tr:hover {background-color:#f5f5f5;}
+#time-slots-table {
+  width: 500px;
+  border: 1px solid var(--main-color);
+}
+/* add remove-ar-icon */
 
-  .time-slots-div{
-    display: none;
-    height: 90%;
-    overflow-y: scroll;
-  }
-
-
-  /* add remove-ar-icon */
-
-  #ar-icon{
-      color: green;
-  }
+#ar-icon{
+    color: green;
+}
 
 .calendar-div{
-        display: flexbox;
-        width: 100%;
-    }
+    display: flex;
+    width: 100%;
+}
 
-    .btn-bar{
-      text-align: center;
-      padding: 10px;
-    }
+.btn-bar{
+    text-align: center;
+    padding: 10px;
+}
 
-    .btn-bar >button{
-      margin-right: 100px;
-
-    }
+.btn-bar >button{
+    margin-right: 0;
+}
+#top-inner-div {
+  width: 600px;
+}
