@@ -13,43 +13,17 @@ tmeSlots=[
 
 $("#select-time-btn").prop("disabled",true);
 
-$('td').on('click', function(){
-    // alert(this.innerHTML)
-    // alert(this.id)
+// $('td').on('click', function(){
+//     // alert(this.innerHTML)
+//     // alert(this.id)
 
-    $(".calendar-div").css("display", "none");
-    $(".time-slots-div").css("display", "block");
-});
-
-
-
-$('.ar-icon').on('click', function(){
-
-    $("#select-time-btn").prop("disabled",false);
-
-    //clear all selected icons
-    $('icon').css("color","green");
-    $('icon').removeClass("fa-minus-square");
-    $('icon').addClass("fa-plus-square");
-
-    //track selected tr
-    var $row = $(this).closest("tr");    
-    $selectedTimeSlot=$row.find("td"); 
-
-    // Remove +
-    $(this).removeClass("fa-plus-square");
-    $(this).addClass("fa-minus-square");
-    $(this).css("color","red");
+//     $(".calendar-div").css("display", "none");
+//     $(".time-slots-div").css("display", "block");
+// });
 
 
-    // $(".time-slots-div").css("display", "block");
-    // var $row = $(this).closest("tr");    
-    // var $tds = $row.find("td");   // Retrieves the text within <td>
-    // alert($tds[0])       
-    // console.log($tds[0].innerText)
-    // console.log($tds[1].innerText)
 
-});
+
 
 
 $("#select-time-btn").on('click', function(){

@@ -2,6 +2,7 @@ package com.g34.quicksalon.dao;
 
 import com.g34.quicksalon.database.DBConnection;
 import com.g34.quicksalon.model.Appointment;
+import com.g34.quicksalon.model.AppointmentServiceVIEW;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -12,12 +13,11 @@ public class ApppointmentDAOImple implements AppointmentDAO {
     public ArrayList<Appointment> getAllAppointments() {
         ArrayList<Appointment> appointments=new ArrayList<>();
         try {
-            ResultSet resultSet = DBConnection.getConnection().createStatement().executeQuery("SELECT * FROM j4f9qe_appointments;");
+            ResultSet resultSet = DBConnection.getConnection().createStatement().executeQuery("SELECT * FROM j4f9qe_appointments WHERE cancelledFlag=0;");
 
             while (resultSet.next()) {
                 //data=(Time)resultSet.getString(4);
-
-                appointments.add(new Appointment(resultSet.getInt(1), resultSet.getInt(2), resultSet.getString(3), resultSet.getString(4),resultSet.getString(5),  resultSet.getInt(6)));
+                appointments.add(new Appointment(resultSet.getInt(1), resultSet.getInt(2), resultSet.getDate(3), resultSet.getString(4),resultSet.getString(5)));
             }
 
         } catch (SQLException | ClassNotFoundException throwables) {
@@ -99,7 +99,24 @@ public class ApppointmentDAOImple implements AppointmentDAO {
             stmt.setInt(1,empID);
             ResultSet resultSet = stmt.executeQuery();
             while (resultSet.next()) {
-                appointments.add(new Appointment(resultSet.getInt(1),resultSet.getInt(2),resultSet.getString(3),resultSet.getString(4),resultSet.getString(5),resultSet.getInt(6)));
+                appointments.add(new Appointment(resultSet.getInt(1),resultSet.getInt(2),resultSet.getDate(3),resultSet.getString(4),resultSet.getString(5),resultSet.getInt(6)));
+            }
+        } catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+        return appointments;
+    }
+
+    @Override
+    public ArrayList<AppointmentServiceVIEW> getAllAppointmentDetailsByServiceID(int serviceID) throws SQLException, ClassNotFoundException {
+        ArrayList<AppointmentServiceVIEW> appointments=new ArrayList<AppointmentServiceVIEW>();
+        try {
+            PreparedStatement stmt=DBConnection.getConnection().prepareStatement("SELECT qID,date,startTime,endTime,cancelledFlag,serviceID,employeeID FROM j4f9qe_AppointemtServiceView WHERE cancelledFlag=0 AND serviceID=?;");
+            stmt.setInt(1,serviceID);
+            ResultSet resultSet = stmt.executeQuery();
+            while (resultSet.next()) {
+                                                                                     // qID,date,startTime,endTime,cancelledFlag,serviceID,employeeID
+                appointments.add(new AppointmentServiceVIEW(resultSet.getInt(1),resultSet.getString(2),resultSet.getString(3),resultSet.getString(4),resultSet.getInt(5),resultSet.getInt(6),resultSet.getInt(7)));
             }
         } catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();

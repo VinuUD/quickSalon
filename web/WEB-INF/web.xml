@@ -268,11 +268,11 @@
         <servlet-name>UpcomingAppointmentSPServlet</servlet-name>
         <servlet-class>com.g34.quicksalon.controller.reservation.UpcomingAppointmentSPServlet</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>UpcomingAppointmentSPServlet</servlet-name>
         <url-pattern>/appointmentSP</url-pattern>
     </servlet-mapping>
+
 <!--Sp List by service-->
     <servlet>
         <servlet-name>SpListServiceServlet</servlet-name>
@@ -337,6 +337,16 @@
     <servlet-mapping>
         <servlet-name>ServiceDetailsByIDServlet</servlet-name>
         <url-pattern>/serviceDetails</url-pattern>
+    </servlet-mapping>
+
+<!--List appointments list by service ID-->
+    <servlet>
+        <servlet-name>AppointmentListByServiceIDServlet</servlet-name>
+        <servlet-class>com.g34.quicksalon.controller.reservation.AppointmentListByServiceIDServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AppointmentListByServiceIDServlet</servlet-name>
+        <url-pattern>/appointmentsByserviceID</url-pattern>
     </servlet-mapping>
 
 </web-app>
