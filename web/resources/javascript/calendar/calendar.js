@@ -59,7 +59,7 @@ function getDatesBetween(date1,date2){
                 if(j ==1){
                     if(firstDate.toString().split(" ")[0]==weekDays[k].toString() ){
                         // td id='2020Jan1' format
-                        content+="<td class='td-white' id="+dates[i].getFullYear()+firstDate.toString().split(" ")[1]+displayNum+" onclick='freeSlots(this)'>"+ displayNum +"</td>"
+                        content+="<td class='day-btn td-white' id="+dates[i].getFullYear()+firstDate.toString().split(" ")[1]+displayNum+">"+ displayNum +"</td>"
                         j++;
                     }else{
                         content+="<td class='td-white'> </td>";
@@ -68,7 +68,7 @@ function getDatesBetween(date1,date2){
                     content+="<td> </td>";
                 }else{
                     // td id='2020/Jan/1' format
-                    content+="<td class='td-white' id="+dates[i].getFullYear()+firstDate.toString().split(" ")[1]+displayNum+" onclick='freeSlots(this)'>"+displayNum+"</td>"
+                    content+="<td class='day-btn td-white' id="+dates[i].getFullYear()+firstDate.toString().split(" ")[1]+displayNum+">"+displayNum+"</td>"
                     j++;
                 }
             }
@@ -149,5 +149,4 @@ document.getElementById('calendar').innerHTML=content;
 // document.getElementById("cancel").onclick=function(event){
 //     modal.style.display='none'
 // }
-
 

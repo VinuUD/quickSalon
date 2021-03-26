@@ -46,18 +46,69 @@
 }
 
 .calendar-div{
-    display: flex;
-    width: 100%;
-}
+        display: flexbox;
+        width: 100%;
+    }
 
-.btn-bar{
-    text-align: center;
-    padding: 10px;
-}
+    .btn-bar{
+      text-align: center;
+      padding: 10px;
+    }
 
-.btn-bar >button{
-    margin-right: 0;
-}
-#top-inner-div {
-  width: 600px;
-}
+    .btn-bar >button{
+      margin-right: 100px;
+      
+    }
+
+
+
+    /* Free slots table css */
+
+    .time-slots-table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+  
+    .time-slots  th, td {
+      padding: 8px;
+      border-bottom: 1px solid var(--d3-grey);
+    }
+  
+    .time-slots-table tr:hover {
+      background-color: var(--light-grey);
+    }
+/*   
+    .time-slots-div{
+      display: none;
+    }
+   */
+  
+    /* add remove-ar-icon */
+  
+    .tr-icon{
+        color: var(--green);
+    }
+  
+    /* .date-time-div{
+        width: 600px;
+        border: 1px black solid;
+        position: absolute;
+        left: 30%;
+        top: 10%;
+      } */
+  
+      .calendar-div{
+          display: flexbox;
+          width: 100%;
+      }
+  
+      .btn-bar{
+        text-align: center;
+        padding: 10px;
+      }
+  
+      .btn-bar >button{
+        margin-right: 100px;
+
+      }
+      

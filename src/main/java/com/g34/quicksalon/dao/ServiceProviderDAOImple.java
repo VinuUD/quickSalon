@@ -164,13 +164,10 @@ public class ServiceProviderDAOImple implements  ServiceProviderDAO{
     }
 
 
-
     //     get all upcoming appointment by SP -- (QId,date,startTime,endTime)
     @Override
     public ArrayList<Appointment> getAppointmentDeatilsBySP(int empID) throws SQLException, ClassNotFoundException {
-
         ArrayList<Appointment> upAppointments=new ArrayList<>();
-
         try {
             PreparedStatement stmt=DBConnection.getConnection().prepareStatement("SELECT qID,date,startTime,endTime FROM j4f9qe_spappointmentsdetails WHERE date>=NOW() AND cancelledFlag!=1 AND employeeID=(?);");
             stmt.setInt(1,empID);
@@ -233,6 +230,7 @@ public class ServiceProviderDAOImple implements  ServiceProviderDAO{
             return false;
         }
     }
+
 
 
     @Override
