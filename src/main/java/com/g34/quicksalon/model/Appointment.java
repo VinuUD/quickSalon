@@ -12,6 +12,8 @@ public class Appointment {
     private String endTime;
     private int cancelledFlag;
 
+    private Date day;
+
 
     public Appointment() {
     }
@@ -23,6 +25,26 @@ public class Appointment {
         this.startTime = startTime;
         this.endTime = endTime;
         this.cancelledFlag = cancelledFlag;
+    }
+
+    public Appointment(int qId, int customerId, Date date, String startTime,String endTime, int cancelledFlag) {
+        this.qId = qId;
+        this.customerId = customerId;
+        this.day = date;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.cancelledFlag = cancelledFlag;
+    }
+
+
+
+    //    For load calendar data
+    public Appointment(int qId, int customerId, Date date, String startTime,String endTime) {
+        this.qId = qId;
+        this.customerId = customerId;
+        this.day = date;
+        this.startTime = startTime;
+        this.endTime = endTime;
     }
 
     public Appointment(int qId,String date, String startTime,String endTime) {

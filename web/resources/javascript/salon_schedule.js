@@ -6,7 +6,7 @@ $(document).ready(function () {
         function (responseJson) {
             $.each(responseJson, function (index, appointment) {
                 //set date into 2020Jan05 format
-                res = appointment.date.replace(",", "").split(" ");
+                res = appointment.day.replace(",", "").split(" ");
                 day = res[1] < 10 ? "0" + res[1] : res[1];
                 selectId = res[2] + res[0] + day;
                 // alert(selectId)
@@ -16,6 +16,9 @@ $(document).ready(function () {
     );
 
     //Requst for load Free time slots
+
+   
+      
 
     
 

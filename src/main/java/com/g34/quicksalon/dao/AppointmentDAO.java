@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.g34.quicksalon.model.Appointment;
+import com.g34.quicksalon.model.AppointmentServiceVIEW;
 
 
 public interface AppointmentDAO {
@@ -17,5 +18,9 @@ public interface AppointmentDAO {
     public ArrayList<Appointment> getAllAppointmentDetailsByUserId(int userID);
 
     public ArrayList<Appointment> getAllAppointmentDetailsByEmpId(int empID);
+
+    //Return List of all appointments for given service ID
+    public ArrayList<AppointmentServiceVIEW> getAllAppointmentDetailsByServiceID(int serviceID) throws SQLException, ClassNotFoundException;
+
 
 }

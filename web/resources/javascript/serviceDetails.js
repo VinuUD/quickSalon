@@ -19,7 +19,7 @@ $(document).ready(function () {
         // alert(selectedVal)
 
         $.get(
-            "http://localhost:8080/quickSalon_war_exploded/serviceDetailsByID",{serviceID:selectedVal},
+            "http://localhost:8080/quickSalon_war_exploded/serviceDetails",{serviceID:selectedVal},
             function (data) {
 
                 if(data[0].holdFlag==1){
