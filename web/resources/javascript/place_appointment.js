@@ -164,8 +164,7 @@ $(".day-btn").on('click', function(){
     //Display Free time slots table
     $(".calendar-div").css("display", "none");
     $(".time-slots-div").css("display", "block");
-
-
+    
       appointmentList.map(function(appointment){
       var year = id.substr(0, 4);
       var month = id.substr(4, 3);
@@ -174,16 +173,17 @@ $(".day-btn").on('click', function(){
         var date=appointment.date.split('-');
         //set date into 2020Jan05 format
         // var selectId=day[0]+monthArray[parseInt(day[1])]+day[2];
-        if( date[0]==year && date[1]==monthArray.indexOf(month) && parseInt(date[2])==day){
+        
+        if( date[0]==year && date[1]==monthArray.indexOf(month)+1 && parseInt(date[2])==day){
               var startTime = appointment.startTime;
               var endTime = appointment.endTime;
-        
               var hs=startTime.split(':')[0];
               var ms=startTime.split(':')[1];
-        
+
               filledTimeSlots.push(new Time(hs,ms));
         }
       })
+      
           //This will populate the free slot table
       freeSlots();
   }
@@ -201,11 +201,14 @@ $(".day-btn").on('click', function(){
               sTime=timeTakenObj.addTwentyFour(sTime);
             } 
           }); 
+          
           var nxtSlot=timeTakenObj.add(sTime);
           var thisSlot=sTime.add(new Time(0,0));
           $('#time-slots').append(`<tr id="timeSlotTr"><td>${((thisSlot.hour< 10) ? '0'+thisSlot.hour : thisSlot.hour)+':'+((thisSlot.min< 10) ? thisSlot.min+'0' : thisSlot.min)}</td> <td>${((nxtSlot.hour< 10) ? '0'+nxtSlot.hour : nxtSlot.hour)+':'+((nxtSlot.min< 10) ? nxtSlot.min+'0' : nxtSlot.min)}</td> <td> <Butt id='tr-icon' class='tr-icon fa fa-fw fa-plus-square'></icon> </td> </tr>`);
           sTime=timeTakenObj.addTwentyFour(sTime);
       } 
+
+      
   }
   
   });
@@ -239,7 +242,7 @@ $(".day-btn").on('click', function(){
    //When clicked Select Button
   $(document).on('click','#select-time-btn',function(){
 
-    alert(selectedStartTime+' , '+selectedEndTime)
+      alert(selectedStartTime+' , '+selectedEndTime)
      
   });
 
