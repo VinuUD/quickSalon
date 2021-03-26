@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../resources/css/mainDiv.css" />
     <link rel="stylesheet" href="../resources/css/place_appointment.css" />
     <link rel="stylesheet" href="../resources/css/frameWork/style.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
     <script
       src="https://kit.fontawesome.com/0f3db243e3.js"
       crossorigin="anonymous"
@@ -83,15 +83,14 @@
                     <th class="tbl-head">End Time</th>
                     <th class="tbl-head"></th>
                   </thead>
-                  <tbody id="time-slots" class="time-slots">
-                  
+                  <tbody id="time-slots" class="time-slots">                  
                     
                   </tbody>
                 </table>
                 <div class="btn-bar">
 
                   <button class="btn btn-red">Back</button>
-                  <button class="btn" id="select-time-btn">Select</button>
+                  <button class="btn" id="select-time-btn" disabled>Select</button>
 
                 </div>
               </div>
@@ -157,6 +156,7 @@
       <!-- end of large-space -->
     </div>
     <!-- end of #main -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="../resources/javascript/side_navbar.js"></script>
     <script src="../resources/javascript/calendar/calendar.js"></script>
     <!-- <script src="../resources/javascript/calendar/timeSlots.js"></script> -->
