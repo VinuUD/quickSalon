@@ -2,7 +2,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Page Title</title>
+    <title>New Appointment</title>
     <link rel="stylesheet" href="../resources/css/normal.css" />
     <link rel="stylesheet" href="../resources/css/sideNavbar.css" />
     <link rel="stylesheet" href="../resources/css/mainDiv.css" />
@@ -51,7 +51,7 @@
       <div class="large-space">
         <div class="heading">Place an appointment</div>
         <div class="work-space">
-          <div class="innerDiv">
+          <div class="innerDiv" id="top-inner-div">
             <select name="services" id="services">
               <option value="0">Select Service</option>
             </select>
@@ -68,7 +68,7 @@
 
           <div class="innerDiv">
             <!-- Calendar div -->
-            <div class="calendar">
+            <div class="">
               <!-- <div class="date-time-div"> -->
               <div class="calendar-div">
                 <div class="calDiv">
@@ -89,8 +89,10 @@
                   </tbody>
                 </table>
                 <div class="btn-bar">
-                  <button id="back">Back</button>
-                  <button id="select-time-btn">Select</button>
+
+                  <button class="btn btn-red">Back</button>
+                  <button class="btn" id="select-time-btn">Select</button>
+
                 </div>
               </div>
             </div>
@@ -145,7 +147,8 @@
           <!-- end of tableDiv34 -->
 
           <div class="innerDiv">
-            <div type="submit" class="btn">Confirm</div>
+            <div type="submit" class="btn btn-red">Cancel</div>
+            <div type="submit" class="btn btn-green">Confirm</div>
           </div>
           <!-- end of innerDiv -->
         </div>
