@@ -75,6 +75,7 @@ html {
 }
 
 .work-space {
+  justify-content: center;
   width: 90%;
   min-height: 80vh;
   display: flex;
@@ -107,8 +108,9 @@ html {
 .table34 th {
   padding-top: 12px;
   padding-bottom: 12px;
-  background-color: var(--main-color);
-  color: white;
+  background-color: white;
+  color: var(--main-color);
+  border: 1px solid var(--main-color);;
 }
 
 /* color even rows of table */
@@ -140,7 +142,6 @@ button {
   background-color: white;
   color: black;
   width: 60px;
-  height: 20px;
   padding: 8px 12px;
   text-align: center;
   font-size: 15px;
@@ -153,8 +154,7 @@ button {
 .btn {
   background-color: white;
   color: black;
-  width: 60px;
-  height: 20px;
+  min-width: 60px;
   padding: 8px 12px;
   text-align: center;
   font-size: 15px;
@@ -162,6 +162,11 @@ button {
   border-radius: 3px;
   transition-duration: 0.4s;
   border: 2px solid var(--main-color);
+}
+
+button:hover {
+  background-color: var(--main-color);
+  color: white;
 }
 
 .btn:hover {
