@@ -181,20 +181,21 @@ $(document).ready(function () {
         var date = appointment.date.split("-");
         //set date into 2020Jan05 format
         // var selectId=day[0]+monthArray[parseInt(day[1])]+day[2];
+
         if (
           date[0] == year &&
-          date[1] == monthArray.indexOf(month) &&
+          date[1] == monthArray.indexOf(month) + 1 &&
           parseInt(date[2]) == day
         ) {
           var startTime = appointment.startTime;
           var endTime = appointment.endTime;
-
           var hs = startTime.split(":")[0];
           var ms = startTime.split(":")[1];
 
           filledTimeSlots.push(new Time(hs, ms));
         }
       });
+
       //This will populate the free slot table
       freeSlots();
     }
@@ -211,6 +212,7 @@ $(document).ready(function () {
             sTime = timeTakenObj.addTwentyFour(sTime);
           }
         });
+
         var nxtSlot = timeTakenObj.add(sTime);
         var thisSlot = sTime.add(new Time(0, 0));
         $("#time-slots").append(
@@ -250,28 +252,6 @@ $(document).ready(function () {
     //get Selected times
     selectedStartTime = $selectedTimeSlot[0].innerText;
     selectedEndTime = $selectedTimeSlot[1].innerText;
-
-    var currentRow = $(this).closest("tr");
-
-    var StartTime = currentRow.find("td:eq(0)").text();
-    var endTime = currentRow.find("td:eq(1)").text(); //clicked time slot value
-
-    var hs = parseInt(startTime.split(":")[0]);
-    var ms = parseInt(startTime.split(":")[1]);
-    var len = appointmentList.length;
-    var spIDs = [];
-
-    for (var i = 0; i < len; i++) {
-      var appHs = appointmentList[i].split(":")[0];
-      var appMs = appointmentList[i].split(":")[0];
-      time1 = new Time(hs, ms).time2 = new Time(appHs, appMs);
-
-      if (Math.abs(time1.subAbs(time2)).greater(timeTakenObj)) {
-        spIDs.push(appointmentList[i].employeeId);
-      }
-    }
-
-    console.log(spIDs);
   });
 
   //When clicked Select Button
