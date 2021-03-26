@@ -29,11 +29,7 @@
   background-color:#f5f5f5;
 }
 
-.time-slots-div{
-  display: none;
-  height: 90%;
-  overflow-y: auto;
-}
+
 
 #time-slots-table {
   width: 500px;
@@ -64,6 +60,12 @@
 
     /* Free slots table css */
 
+    .time-slots-div{
+      display: none;
+      height: 90%;
+      overflow-y: auto;
+    }
+
     .time-slots-table {
       border-collapse: collapse;
       width: 100%;
@@ -88,15 +90,6 @@
     .tr-icon{
         color: var(--green);
     }
-  
-    /* .date-time-div{
-        width: 600px;
-        border: 1px black solid;
-        position: absolute;
-        left: 30%;
-        top: 10%;
-      } */
-  
       .calendar-div{
           display: flexbox;
           width: 100%;
@@ -111,4 +104,3 @@
         margin-right: 100px;
 
       }
-      

@@ -22,6 +22,7 @@ html {
   font-family: Poppins-Regular, sans-serif;
   overflow: none;
   margin: 0;
+  padding: 0;
 }
 
 .container {
@@ -242,7 +243,7 @@ label{
 input{
     outline: none;
     border:2px solid var(--main-color);
-    height: 29px;
+    height: 30px;
     width: 350px;
     padding: 8px 4px;
     color: black !important;
@@ -266,8 +267,25 @@ select {
     border-radius: 4px;
     padding: 5px;
     font-size: 15px;
-    padding: 8px 4px;
+    padding: 8px 0px;
     border: 2px solid var(--main-color);
     padding-right: 5px;
     margin: 0px 5px;
+}
+
+.form34 {
+  width: 60%;
+  justify-content: center;
+}
+
+.form34 input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px;
+  font-size: 15px;
+  font-weight: normal;\
+  background: var(--d3-grey)
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 1px solid var(--main-color-dark);
 }

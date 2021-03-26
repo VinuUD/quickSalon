@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../resources/css/mainDiv.css" />
     <link rel="stylesheet" href="../resources/css/place_appointment.css" />
     <link rel="stylesheet" href="../resources/css/frameWork/style.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
     <script
       src="https://kit.fontawesome.com/0f3db243e3.js"
       crossorigin="anonymous"
@@ -24,7 +24,7 @@
     />
   </head>
 
-  <body onresize="whenResizing()">
+  <body class="container" onresize="whenResizing()">
     <!-- side nav bar -->
     <div id="mySidenav" class="sidenav">
       <div class="closeIcon">
@@ -37,7 +37,7 @@
       <a href="manage_appointment.html">Manage appointment</a>
       <a href="#">Service / Packages</a>
       <a href="complaint.html">Complaint</a>
-      <a href="#">Contact : 0713705748 (saloon owner)</a>
+      <a href="#">Contact : 0713705748 <br>(saloon owner)</a>
     </div>
 
     <!-- ////////////////////////////// -->
@@ -47,34 +47,34 @@
           <img src="../resources/icons/three.png" alt="Ooops" />
         </div>
       </div>
-      <br /><br />
-      <div class="large-space">
-        <div class="heading">Place an appointment</div>
-        <div class="work-space">
-          <div class="innerDiv" id="top-inner-div">
-            <select name="services" id="services">
-              <option value="0">Select Service</option>
-            </select>
+      <div class="mainDiv container">
+        <div class="large-space">
+          <div class="heading">Place an appointment</div>
+          <div class="work-space">
+            <div class="innerDiv" id="top-inner-div">
+              <select name="services" id="services">
+                <option value="">Select Service</option>
+              </select>
 
-            <select name="serviceProvider" id="serviceProvider">
-              <option value="1111">Default</option>
-            </select>
+              <select name="serviceProvider" id="serviceProvider">
+                <option value="1111">Default</option>
+              </select>
 
-            <div class="btn btn-small">
-              <i class="fas fa-plus" aria-hidden="true"></i>
-            </div>
-          </div>
-          <!-- end of innerDiv -->
-
-          <div class="innerDiv">
-            <!-- Calendar div -->
-            <div class="">
-              <!-- <div class="date-time-div"> -->
-              <div class="calendar-div">
-                <div class="calDiv">
-                  <div class="calendar" id="calendar"></div>
-                </div>
+              <div class="btn btn-small">
+                <i class="fas fa-plus" aria-hidden="true"></i>
               </div>
+            </div>
+            <!-- end of innerDiv -->
+
+            <div class="innerDiv">
+              <!-- Calendar div -->
+              <div class="">
+                <!-- <div class="date-time-div"> -->
+                <div class="calendar-div">
+                  <div class="calDiv">
+                    <div class="calendar" id="calendar"></div>
+                  </div>
+                </div>
 
               <div class="time-slots-div">
                 <table id="time-slots-table" class="time-slots-table">
@@ -83,80 +83,83 @@
                     <th class="tbl-head">End Time</th>
                     <th class="tbl-head"></th>
                   </thead>
-                  <tbody id="time-slots" class="time-slots">
-                  
+                  <tbody id="time-slots" class="time-slots">                  
                     
+
                   </tbody>
                 </table>
                 <div class="btn-bar">
-
                   <button class="btn btn-red">Back</button>
-                  <button class="btn" id="select-time-btn">Select</button>
+
+                  <button class="btn" id="select-time-btn" disabled>Select</button>
+
 
                 </div>
               </div>
+
+              <!-- End of Calendar div -->
+
+              <!-- </div> -->
             </div>
+            <!-- end of innerDiv -->
 
-            <!-- End of Calendar div -->
+            <div class="table-div34">
+              <table id="t02" class="table34">
+                <colspan>
+                  <col />
+                  <col />
+                  <col class="medium-column" />
+                  <col class="medium-column" />
+                </colspan>
+                <tr>
+                  <th>Service</th>
+                  <th>Service Provider</th>
+                  <th>Date</th>
+                  <th>Time</th>
+                </tr>
+                <tr>
+                  <td>Haircut</td>
+                  <td>Kamal</td>
+                  <td>30/01/2020</td>
+                  <td>07:00 - 07:30</td>
+                </tr>
+                <tr>
+                  <td>Haircut</td>
+                  <td>Kamal</td>
+                  <td>30/01/2020</td>
+                  <td>13:00 - 14:00</td>
+                </tr>
+                <tr>
+                  <td>Haircut</td>
+                  <td>Kamal</td>
+                  <td>31/01/2020</td>
+                  <td>09:00 - 09:30</td>
+                </tr>
+                <tr>
+                  <td>Haircut</td>
+                  <td>Kamal</td>
+                  <td>31/01/2020</td>
+                  <td>16:00 - 16:30</td>
+                </tr>
+                <br />
+              </table>
+            </div>
+            <!-- end of tableDiv34 -->
 
-            <!-- </div> -->
+            <div class="innerDiv">
+              <div type="submit" class="btn btn-red">Cancel</div>
+              <div type="submit" class="btn btn-green">Confirm</div>
+            </div>
+            <!-- end of innerDiv -->
           </div>
-          <!-- end of innerDiv -->
-
-          <div class="table-div34">
-            <table id="t02" class="table34">
-              <colspan>
-                <col />
-                <col />
-                <col class="medium-column" />
-                <col class="medium-column" />
-              </colspan>
-              <tr>
-                <th>Service</th>
-                <th>Service Provider</th>
-                <th>Date</th>
-                <th>Time</th>
-              </tr>
-              <tr>
-                <td>Haircut</td>
-                <td>Kamal</td>
-                <td>30/01/2020</td>
-                <td>07:00 - 07:30</td>
-              </tr>
-              <tr>
-                <td>Haircut</td>
-                <td>Kamal</td>
-                <td>30/01/2020</td>
-                <td>13:00 - 14:00</td>
-              </tr>
-              <tr>
-                <td>Haircut</td>
-                <td>Kamal</td>
-                <td>31/01/2020</td>
-                <td>09:00 - 09:30</td>
-              </tr>
-              <tr>
-                <td>Haircut</td>
-                <td>Kamal</td>
-                <td>31/01/2020</td>
-                <td>16:00 - 16:30</td>
-              </tr>
-              <br />
-            </table>
-          </div>
-          <!-- end of tableDiv34 -->
-
-          <div class="innerDiv">
-            <div type="submit" class="btn btn-red">Cancel</div>
-            <div type="submit" class="btn btn-green">Confirm</div>
-          </div>
-          <!-- end of innerDiv -->
+          <!-- end of work-space -->
         </div>
-        <!-- end of work-space -->
+        <!-- end of large-space -->
       </div>
-      <!-- end of large-space -->
+
     </div>
     <!-- end of #main -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="../resources/javascript/side_navbar.js"></script>
     <script src="../resources/javascript/calendar/calendar.js"></script>
     <!-- <script src="../resources/javascript/calendar/timeSlots.js"></script> -->

@@ -81,8 +81,7 @@ class Time {
   }
 }
 
-//serviceID,serviceName,timeTaken
-
+//serviceID,serviceName,timeTaken---Return
 $(document).ready(function () {
   // Populate Service List
   $.get(
@@ -106,18 +105,16 @@ $(document).ready(function () {
         res = appointment.day.replace(",", "").split(" ");
         day = res[1] < 10 ? "0" + res[1] : res[1];
         selectId = res[2] + res[0] + day;
-
         $("#" + selectId).css("background-color", "#F58F79");
       });
     }
   );
 
-  var appointmentList = []; //all appointmentList
+  var appointmentList = []; //all appointmentList from DB
 
   // populate Sp List with selected Service
   $("#services").change(function () {
     $(".td-white").css("background-color", "white");
-
     timeTaken = $(this).find("option:selected").attr("id");
 
     //load the service providers relavent to the selected service
@@ -144,32 +141,31 @@ $(document).ready(function () {
       url:
         "http://localhost:8080/quickSalon_war_exploded/appointmentsByserviceID",
       data: { serviceID: `${selectedVal}` },
+      async: false,
       success: function (response) {
         appointmentList = response;
       }, //set date into 2020Jan05 format
     });
 
-    setTimeout(function afterTwoSeconds() {
-      displayAppointmentsOnCalendar(appointmentList);
-    }, 500);
+    displayAppointmentsOnCalendar(appointmentList);
   });
 
+  //Plot appointment on calendar
   function displayAppointmentsOnCalendar(apointments) {
-    console.log(apointments);
     var day = [];
     $.each(apointments, function (index, appointment) {
       day = appointment.date.split("-");
       //set date into 2020Jan05 format
       var selectId = day[0] + monthArray[parseInt(day[1]) - 1] + day[2];
-      console.log(selectId);
       $("#" + selectId).css("background-color", "#F58F79");
     });
   }
 
+  //Onclick day slots on calendar
   $(".day-btn").on("click", function () {
     var id = $(this).attr("id");
-    alert(id);
 
+    //If not selected a service
     if ($("#services").val() == 0) {
       $("#services").css("border", "2px red solid");
     } else {
@@ -202,56 +198,45 @@ $(document).ready(function () {
       //This will populate the free slot table
       freeSlots();
     }
+
+    function freeSlots() {
+      var timeTakenObj = new Time(0, parseInt(timeTaken)).add(new Time(0, 0)); //
+      var sTime = new Time(9, 0);
+      var closeTime = new Time(19, 0);
+      var lunchTime = new Time(13, 0);
+
+      while (sTime.hour != closeTime.hour) {
+        filledTimeSlots.forEach((time) => {
+          if (time.hour == sTime.hour && time.min == sTime.min) {
+            sTime = timeTakenObj.addTwentyFour(sTime);
+          }
+        });
+        var nxtSlot = timeTakenObj.add(sTime);
+        var thisSlot = sTime.add(new Time(0, 0));
+        $("#time-slots").append(
+          `<tr id="timeSlotTr"><td>${
+            (thisSlot.hour < 10 ? "0" + thisSlot.hour : thisSlot.hour) +
+            ":" +
+            (thisSlot.min < 10 ? thisSlot.min + "0" : thisSlot.min)
+          }</td> <td>${
+            (nxtSlot.hour < 10 ? "0" + nxtSlot.hour : nxtSlot.hour) +
+            ":" +
+            (nxtSlot.min < 10 ? nxtSlot.min + "0" : nxtSlot.min)
+          }</td> <td> <Butt id='tr-icon' class='tr-icon fa fa-fw fa-plus-square'></icon> </td> </tr>`
+        );
+        sTime = timeTakenObj.addTwentyFour(sTime);
+      }
+    }
   });
 
-  // $("#timeSlot").click(function(){
-
-  //   var currentRow = $(this).closest("tr");
-
-  //   var StartTime = currentRow.find("td:eq(0)").text();
-  //   var endTime = currentRow.find("td:eq(1)").text(); //clicked time slot value
-
-  //     var hs=parseInt(startTime.split(':')[0]);
-  //     var ms=parseInt(startTime.split(':')[1]);
-  //     var len = appointmentList.length
-  //     var spIDs = [];
-
-  //     for(var i =0; i< len; i++)
-  //     {
-  //       var appHs = appointmentList[i].split(':')[0];
-  //       var appMs = appointmentList[i].split(':')[0];
-  //         time1 = new Time(hs,ms).
-  //         time2 = new Time(appHs, appMs);
-
-  //         if(Math.abs( (time1.subAbs(time2))).greater(timeTakenObj) )
-  //            {
-  //              spIDs.push(appointmentList[i].employeeId);
-  //            }
-  //     }
-
-  //     console.log(spIDs);
-
-  //     // $.ajax({
-  //     //   type: "GET",
-  //     //   url: "link for get least Appointment sp with first name and last name",
-  //     //   data: {spIDs: spIDs},
-  //     //   success: function (response) {
-  //     //     console.log(response);
-
-  //     //   },
-  //     // });
-
-  // })
-
-  $("#tr-icon").on("click", function () {
-    alert("hello");
-
+  //When click on + icon
+  $(document).on("click", ".tr-icon", function () {
     $("#select-time-btn").prop("disabled", false);
 
     //clear all selected icons
-    $("icon").css("color", "green");
-    $("icon").removeClass("fa-minus-square");
-    $("icon").addClass("fa-plus-square");
+    $(".tr-icon").css("color", "green");
+    $(".tr-icon").removeClass("fa-minus-square");
+    $(".tr-icon").addClass("fa-plus-square");
 
     //track selected tr
     var $row = $(this).closest("tr");
@@ -262,79 +247,119 @@ $(document).ready(function () {
     $(this).addClass("fa-minus-square");
     $(this).css("color", "red");
 
-    // $(".time-slots-div").css("display", "block");
-    // var $row = $(this).closest("tr");
-    // var $tds = $row.find("td");   // Retrieves the text within <td>
-    // alert($tds[0])
-    // console.log($tds[0].innerText)
-    // console.log($tds[1].innerText)
+    //get Selected times
+    selectedStartTime = $selectedTimeSlot[0].innerText;
+    selectedEndTime = $selectedTimeSlot[1].innerText;
+  });
 
-    var currentRow = $(this).closest("tr");
-
-    var StartTime = currentRow.find("td:eq(0)").text();
-    var endTime = currentRow.find("td:eq(1)").text(); //clicked time slot value
-
-    var hs = parseInt(startTime.split(":")[0]);
-    var ms = parseInt(startTime.split(":")[1]);
-    var len = appointmentList.length;
-    var spIDs = [];
-
-    for (var i = 0; i < len; i++) {
-      var appHs = appointmentList[i].split(":")[0];
-      var appMs = appointmentList[i].split(":")[0];
-      time1 = new Time(hs, ms);
-      time2 = new Time(appHs, appMs);
-
-      if (Math.abs(time1.subAbs(time2)).greater(timeTakenObj)) {
-        spIDs.push(appointmentList[i].employeeId);
-      }
-    }
-
-    console.log(spIDs);
-
-    // $.ajax({
-    //   type: "GET",
-    //   url: "link for get least Appointment sp with first name and last name",
-    //   data: {spIDs: spIDs},
-    //   success: function (response) {
-    //     console.log(response);
-
-    //   },
-    // });
+  //When clicked Select Button
+  $(document).on("click", "#select-time-btn", function () {
+    alert(selectedStartTime + " , " + selectedEndTime);
   });
 });
 
-function freeSlots() {
-  var timeTakenObj = new Time(0, parseInt(timeTaken)).add(new Time(0, 0)); //
+// $("#timeSlot").click(function(){
 
-  var sTime = new Time(9, 0);
-  var closeTime = new Time(19, 0);
-  var lunchTime = new Time(13, 0);
+//   var currentRow = $(this).closest("tr");
 
-  while (sTime.hour != closeTime.hour) {
-    filledTimeSlots.forEach((time) => {
-      if (time.hour == sTime.hour && time.min == sTime.min) {
-        sTime = timeTakenObj.addTwentyFour(sTime);
-      }
-    });
+//   var StartTime = currentRow.find("td:eq(0)").text();
+//   var endTime = currentRow.find("td:eq(1)").text(); //clicked time slot value
 
-    var nxtSlot = timeTakenObj.add(sTime);
-    var thisSlot = sTime.add(new Time(0, 0));
+//     var hs=parseInt(startTime.split(':')[0]);
+//     var ms=parseInt(startTime.split(':')[1]);
+//     var len = appointmentList.length
+//     var spIDs = [];
 
-    $("#time-slots").append(
-      `<tr id="timeSlotTr"><td>${
-        (thisSlot.hour < 10 ? "0" + thisSlot.hour : thisSlot.hour) +
-        ":" +
-        (thisSlot.min < 10 ? thisSlot.min + "0" : thisSlot.min)
-      }</td> <td>${
-        (nxtSlot.hour < 10 ? "0" + nxtSlot.hour : nxtSlot.hour) +
-        ":" +
-        (nxtSlot.min < 10 ? nxtSlot.min + "0" : nxtSlot.min)
-      }</td> <td> <Butt id='tr-icon' class='tr-icon fa fa-fw fa-plus-square'></icon> </td> </tr>`
-    );
-    sTime = timeTakenObj.addTwentyFour(sTime);
-  }
-}
+//     for(var i =0; i< len; i++)
+//     {
+//       var appHs = appointmentList[i].split(':')[0];
+//       var appMs = appointmentList[i].split(':')[0];
+//         time1 = new Time(hs,ms).
+//         time2 = new Time(appHs, appMs);
+
+//         if(Math.abs( (time1.subAbs(time2))).greater(timeTakenObj) )
+//            {
+//              spIDs.push(appointmentList[i].employeeId);
+//            }
+//     }
+
+//     console.log(spIDs);
+
+//     // $.ajax({
+//     //   type: "GET",
+//     //   url: "link for get least Appointment sp with first name and last name",
+//     //   data: {spIDs: spIDs},
+//     //   success: function (response) {
+//     //     console.log(response);
+
+//     //   },
+//     // });
+
+// })
+
+// $('#tr-icon').on('click', function(){
+
+//   alert("hello")
+
+//   $("#select-time-btn").prop("disabled",false);
+
+//   //clear all selected icons
+//   $('icon').css("color","green");
+//   $('icon').removeClass("fa-minus-square");
+//   $('icon').addClass("fa-plus-square");
+
+//   //track selected tr
+//   var $row = $(this).closest("tr");
+//   $selectedTimeSlot=$row.find("td");
+
+//   // Remove +
+//   $(this).removeClass("fa-plus-square");
+//   $(this).addClass("fa-minus-square");
+//   $(this).css("color","red");
+
+//   // $(".time-slots-div").css("display", "block");
+//   // var $row = $(this).closest("tr");
+//   // var $tds = $row.find("td");   // Retrieves the text within <td>
+//   // alert($tds[0])
+//   // console.log($tds[0].innerText)
+//   // console.log($tds[1].innerText)
+
+//   var currentRow = $(this).closest("tr");
+
+//   var StartTime = currentRow.find("td:eq(0)").text();
+//   var endTime = currentRow.find("td:eq(1)").text(); //clicked time slot value
+
+//     var hs=parseInt(startTime.split(':')[0]);
+//     var ms=parseInt(startTime.split(':')[1]);
+//     var len = appointmentList.length
+//     var spIDs = [];
+
+//     for(var i =0; i< len; i++)
+//     {
+//       var appHs = appointmentList[i].split(':')[0];
+//       var appMs = appointmentList[i].split(':')[0];
+//         time1 = new Time(hs,ms);
+//         time2 = new Time(appHs, appMs);
+
+//         if(Math.abs( (time1.subAbs(time2))).greater(timeTakenObj) )
+//            {
+//              spIDs.push(appointmentList[i].employeeId);
+//            }
+//     }
+
+//     console.log(spIDs)
+// });
+
+// });
+
+// $('#tr-icon').on('click', function(){
+//   // alert(this.innerHTML)
+//   alert(this.id)
+
+//   $(".calendar-div").css("display", "none");
+//   $(".time-slots-div").css("display", "block");
+
+// });
 
 // Populate Calendar with seleccted SP
 // $("#serviceProvider").change(function () {

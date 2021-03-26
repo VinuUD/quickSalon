@@ -14,12 +14,12 @@ body {
     flex-direction: column;
     height: 100%;
     position: fixed;
-    z-index: 0;
+    z-index: 1;
     top: 0;
     left: 0;
     background-color:#33373e;
     overflow-x: hidden;
-    
+
     transition: 0.3s;
   }
 
@@ -41,7 +41,7 @@ body {
   }
 
   .sidenav a {
-    
+
     padding: 0.4rem 0.4rem 0.4rem 1.25rem;
     text-decoration: none;
     font-size: 17px;
@@ -55,7 +55,7 @@ body {
     align-items: center;
     min-width: 300px;
 
-   
+
   }
 
   .sidenav a:hover {
@@ -66,11 +66,11 @@ body {
 
   a.subMenu
   {
-    
+
     font-size: 14px;
     padding-left: 80px;
-    
-   
+
+
   }
 
   a.subMenu:hover
@@ -78,23 +78,23 @@ body {
     padding-left: 90px;
   }
 
-  .sidenav a:first-child 
+  .sidenav a:first-child
   {
     border-top: 0px ;
     border-bottom: 0px ;
     height: 10px;
-    
+
   }
 
   .sidenav a:nth-child(5)
   {
     border-top: 0.1px solid rgba(255,255,255,.05);
   }
-  
+
 
   @media screen and (max-width:490px)
   {
-    .sidenav a 
+    .sidenav a
     {
       font-size: 15px;
       height: 45px;
@@ -103,11 +103,11 @@ body {
 
     a.subMenu
     {
-      
+
       font-size: 12px;
       padding-left: 50px;
     }
-  
+
     a.subMenu:hover
     {
       padding-left: 70px;
@@ -120,23 +120,23 @@ body {
     margin-top:auto; margin-bottom: 20px;
     border-top: 0.1px solid rgba(255,255,255,.05);
 
-    
+
   }
 
-  
+
 
   .sidenav .closebtn {
     position: absolute;
-   
+
     font-size: 25px;
-   
+
     /* border: 2px solid white; */
-    
+
   }
 
   .closeIcon
   {
-    
+
     display: none;
     height: 30px;
     direction: rtl;
@@ -169,12 +169,12 @@ body {
     margin: 4px auto auto 4px;
   }
 
-  
+
 
   @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
-    
+
   }
 
   @media screen and (max-width:1200px)
@@ -193,11 +193,11 @@ body {
     {
       display: block;
     }
-    
+
     .closeIcon
     {
       display: block;
     }
 
-    
+
   }
