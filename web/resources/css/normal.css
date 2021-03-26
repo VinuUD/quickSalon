@@ -23,16 +23,6 @@ button.btn34 {
   border-radius: 10px;
 }
 
-.mainDiv {
-  border: 4px solid var(--main-color);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 0px auto 100px auto;
-  padding: 30px 0px 20px 0px;
-  background-color: white;
-}
-
 .topBar {
   display: flex;
   flex-direction: row;
@@ -48,7 +38,6 @@ button.btn34 {
 
 @media screen and (min-width: 900px) {
   .mainDiv {
-    width: 900px;
   }
 
   .topBar {
@@ -58,14 +47,11 @@ button.btn34 {
 
 @media screen and (max-width: 490px) {
   .mainDiv {
-    margin-top: 0px;
-    margin-bottom: 80px;
   }
 }
 
 @media screen and (min-width: 900px) {
   .mainDiv {
-    width: 900px;
   }
 
   .topBar {
@@ -75,7 +61,6 @@ button.btn34 {
 
 @media screen and (max-width: 490px) {
   .mainDiv {
-    margin-top: 0px;
-    margin-bottom: 80px;
+
   }
 }

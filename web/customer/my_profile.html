@@ -4,98 +4,69 @@
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <title>Page Title</title>
-  
+
     <link rel="stylesheet" href="../resources/css/sideNavbar.css">
     <link rel="stylesheet" href="../resources/css/mainDiv.css">
     <link rel="stylesheet" href="../resources/css/34.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="../resources/css/normal.css">
+    <link rel="stylesheet" href="../resources/css/frameWork/style.css" />
     <script src='../resources/javascript/main.js'></script>
 </head>
 
 
-<body onresize="whenResizing()">
+<body class="container" onresize="whenResizing()">
   <!-- side nav bar -->
       <div id="mySidenav" class="sidenav">
           <div class="closeIcon"><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></div>
-         
+
           <a href="place_appointment.html">Place appointment</a>
           <a href="manage_appointment.html">Manage appointment</a>
           <a href="#">Service / Packages</a>
           <a href="complaint.html">Complaint</a>
           <a href="#">Contact : 0713705748 (saloon owner)</a>
         </div>
-         
-       
 
 <!-- ////////////////////////////// -->
 <div id="main">
 
   <div class="back">
       <div id="navIcon" onclick="openNav()" class="navIcon"  ><img  src="../resources/icons/three.png" alt="Ooops" ></div>
-      <button class="btn34"  onclick=history.back()>back</button>
   </div>
-  <br><br>
+  <br /><br />
+  <div class="large-space">
+    <div class="heading">My profile</div>
+      <div class="work-space">
+        <div class="form34">
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" name="fname" value="Chamara">
 
-  <div class="topBar">
-      <b>  My pofile</b> 
-  </div>
- 
-  <div class="mainDiv"  >
-    <div class="innerDiv">
-    <div style="float: left; width: 35%;">
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" name="lname" value="Rambukwalla">
 
-      <p><strong>First name</strong></p>
-      
-      <p><strong>Last name</strong></p>
-      
-      <p><strong>User name</strong></p>
+          <label for="uname">User Name</label>
+          <input type="text" id="uname" name="uname" value="chamara68">
 
-      <p><strong>Contact number</strong></p>
-      
-      <p><strong>NIC</strong></p>
-      
-      <p><strong>Email</strong></p>
+          <label for="cnum">Contact Number</label>
+          <input type="text" id="cnum" name="cnum" value="0114555524">
 
-      <p><strong>Address</strong></p>
-      
-      <p><strong>Password</strong></p>
-      
-      </div>
-      
-      <div style="float: right; width: 35%;">
-      
-        <div class=""><input  type="text" value="chamara"  ></div>
-      
-        <div class=""><input  type="text" value="ramnbukwalla"  ></div>
-      
-        <div class="" ><input  type="text" value="chamara68"  ></div>
+          <label for="nic">NIC</label>
+          <input type="text" id="nic" name="nic" value="982555014v">
 
-        <div class="" ><input  type="text" value="0114555524"  ></div>
-      
-        <div class=""><input  type="text" value="982555014v"  ></div>
-      
-        <div class=""><input  type="text" value="chamara@gmail.com" ></div>
+          <label for="email">Email</label>
+          <input type="text" id="email" name="email" value="chamara@abc.xyz">
 
-        <div class=""><input  type="text" value="kurunegala"  ></div>
-      
-        <div class=""><input  type="password" value="1234"  ></div>
-      
-      </div>
-    </div>
+          <label for="address">Address</label>
+          <input type="text" id="address" name="address" value="Kurunegala">
+        </div>  <!-- end of form -->
 
-
-    <div class="innerDiv">
-      <div class = "top-btn-bar2"><button class = "btn34">save changes</button></div>
-    </div>
-
-     
-  
-  </div>  
-</div> 
-<script src="../resources/javascript/side_navbar.js"></script>
-
-
+        <br /><br>
+        <div class="innerDiv">
+          <button class="btn btn-red">Back</button>
+          <button type="submit" class="btn btn-green">Save</button>
+        </div><!-- end of innerDiv -->
+      </div><!-- end of work-space -->
+    </div><!-- end of large-space -->
+  </div><!-- end of main -->
+  <script src="../resources/javascript/side_navbar.js"></script>
 </body>
-
-
