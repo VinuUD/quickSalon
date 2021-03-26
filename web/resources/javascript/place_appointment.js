@@ -201,7 +201,7 @@ $(document).ready(function () {
     }
 
     function freeSlots() {
-      var timeTakenObj = new Time(0, parseInt(timeTaken)).add(new Time(0, 0)); //
+      timeTakenObj = new Time(0, parseInt(timeTaken)).add(new Time(0, 0)); //
       var sTime = new Time(9, 0);
       var closeTime = new Time(19, 0);
       var lunchTime = new Time(13, 0);
@@ -256,7 +256,30 @@ $(document).ready(function () {
 
   //When clicked Select Button
   $(document).on("click", "#select-time-btn", function () {
-    alert(selectedStartTime + " , " + selectedEndTime);
+    //alert(selectedStartTime+' , '+selectedEndTime)
+
+    var currentRow = $(this).closest("tr");
+
+    // var StartTime = currentRow.find("td:eq(0)").text();
+    // var endTime = currentRow.find("td:eq(1)").text(); //clicked time slot value
+
+    var hs = parseInt(selectedStartTime.split(":")[0]);
+    var ms = parseInt(selectedStartTime.split(":")[1]);
+    var len = appointmentList.length;
+    var spIDs = [];
+
+    for (var i = 0; i < len; i++) {
+      var appHs = appointmentList[i].startTime.split(":")[0];
+      var appMs = appointmentList[i].startTime.split(":")[1];
+      time1 = new Time(hs, ms);
+      time2 = new Time(appHs, appMs);
+
+      if (time1.subAbs(time2).greater(timeTakenObj)) {
+        spIDs.push(appointmentList[i]);
+      }
+    }
+
+    console.log(spIDs);
   });
 });
 
