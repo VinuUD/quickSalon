@@ -77,16 +77,14 @@ public class ServiceDAOImple implements ServiceDAO {
     public int registerService(Service service) throws SQLException, ClassNotFoundException {
 
         Connection connection =DBConnection.getConnection();
-        PreparedStatement stmt= connection.prepareStatement("INSERT INTO j4f9qe_service (serviceName,serviceDescription,timeTaken,price,holdFlag) VALUES (?,?,?,?,?)");
+        PreparedStatement stmt= connection.prepareStatement("INSERT INTO j4f9qe_service (serviceName,serviceDescription,timeTaken,price) VALUES (?,?,?,?)");
 
         stmt.setString(1,service.getServiceName());
         stmt.setString(2,service.getServiceDescription());
         stmt.setString(3,service.getTimeTaken());
         stmt.setDouble(4,service.getPrice());
-        stmt.setInt(5,0);
 
         int success=stmt.executeUpdate();
-
         if(success<=0){
             return 0;
         }
@@ -97,4 +95,66 @@ public class ServiceDAOImple implements ServiceDAO {
         }
         return serviceID;
     }
+
+    public ArrayList<Service> getServiceByID(int id) throws SQLException, ClassNotFoundException {
+        ArrayList<Service> serviceDetails=new ArrayList<>();
+
+        Connection connection =DBConnection.getConnection();
+        PreparedStatement stmt= connection.prepareStatement("SELECT  * FROM j4f9qe_service WHERE j4f9qe_service.serviceID = ?");
+        stmt.setInt(1,id);
+        ResultSet rs =  stmt.executeQuery();
+        while(rs.next())
+        {
+            serviceDetails.add(new Service(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getInt(6)));
+        }
+
+        return serviceDetails;
+    }
+
+    public int updateServiceTable(Service service) throws SQLException, ClassNotFoundException {
+        Connection connection =DBConnection.getConnection();
+        PreparedStatement stmt= connection.prepareStatement("UPDATE j4f9qe_service SET j4f9qe_service.serviceName=?, j4f9qe_service.serviceDescription=?, j4f9qe_service.timeTaken=?, j4f9qe_service.price =?, j4f9qe_service.holdFlag=? WHERE j4f9qe_service.serviceID =?");
+        stmt.setString(1,service.getServiceName());
+        stmt.setString(2,service.getServiceDescription());
+        stmt.setString(3, service.getTimeTaken());
+        stmt.setDouble(4, service.getPrice());
+        stmt.setInt(5, service.getHoldFlag());
+        stmt.setInt(6,service.getServiceID());
+
+        int x = stmt.executeUpdate();
+        return x;
+    }
+
+
+
+//    Get all deatails of service with give serviceID
+    @Override
+    public ArrayList<Service> getServiceDetailsByID(int serviceID) throws SQLException, ClassNotFoundException {
+
+        ArrayList<Service> service=new ArrayList<>();
+        try {
+            Connection connection =DBConnection.getConnection();
+            PreparedStatement stmt= connection.prepareStatement("SELECT * FROM j4f9qe_service WHERE serviceID=?;");
+            stmt.setInt(1,serviceID);
+
+            ResultSet resultSet=stmt.executeQuery();
+
+            while (resultSet.next()) {
+                service.add(new Service(resultSet.getInt(1), resultSet.getString(2),resultSet.getString(3),resultSet.getString(4),resultSet.getDouble(5),resultSet.getInt(6)));
+            }
+        } catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+        return service;
+
+    }
+
+    public int removeService(int serviceID) throws SQLException, ClassNotFoundException {
+        Connection connection =DBConnection.getConnection();
+        PreparedStatement stmt= connection.prepareStatement("DELETE FROM j4f9qe_service WHERE serviceID=?;");
+        stmt.setInt(1,serviceID);
+        int x = stmt.executeUpdate();
+        return x;
+    }
+
 }

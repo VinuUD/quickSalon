@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../resources/css/allManagers.css" />
     <link rel="stylesheet" href="..//resources/css/34.css" />
-    <link rel="stylesheet" href="..//resources/css/popup2AllManagers.css" />
+    <link rel="stylesheet" href="../resources/css/popup2AllManagers.css" />
     <link rel="stylesheet" href="../resources/css/sideNavbar.css" />
     <link rel="stylesheet" href="../resources/css/allServices.css" />
     <link
@@ -27,7 +27,7 @@
     <div id="main">
       <div class="back">
         <div id="navIcon" onclick="openNav()" class="navIcon">
-          <img src="../../resources/icons/three.png" alt="Ooops" />
+          <img src="../resources/icons/three.png" alt="Ooops" />
         </div>
         <button onclick="change()" class="btn34">
           <a style="text-decoration: none; color: white" href="ownerHome.html">
@@ -106,6 +106,7 @@
               var data = col1 + "\n" + col2 + "\n" + col3 + "\n" + col4;
 
               console.log(data);
+              window.location = "owner/updateService.html?id=" + col1;
 
               // $("#updateManager").click(function () {
 

@@ -26,7 +26,7 @@ public class RegisterSPServlet extends HttpServlet {
         String password=doHash(request.getParameter("password"));
         float salary= Float.parseFloat(request.getParameter("salary"));
 
-        ServiceProvider serviceProvider=new ServiceProvider(empID,fname,lname,uname,nic,email,salary,password,new Date(),null,0,0,0,0);
+        ServiceProvider serviceProvider=new ServiceProvider(empID,fname,lname,uname,nic,email,salary,password,new Date().toString(),null,0,0,0,0);
         ServiceProviderDAO serviceProviderDAO=new ServiceProviderDAOImple();
         boolean success=false;
         try {

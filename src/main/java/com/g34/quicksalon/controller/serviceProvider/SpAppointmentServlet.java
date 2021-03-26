@@ -50,7 +50,7 @@ public class SpAppointmentServlet extends HttpServlet {
             customerId=customerModel.addWalkInCustomers(fName,lName,telephone);
 
             if(customerId!=0){
-                Appointment appointment=new Appointment(0,customerId,date,startTime,endTime,0);
+                Appointment appointment=new Appointment(0,customerId,date.toString(),startTime.toString(),endTime.toString(),0);
                  //Place an appointment
                 qId= appointmentModel.placeAppointment(appointment);
                 if(qId!=0){

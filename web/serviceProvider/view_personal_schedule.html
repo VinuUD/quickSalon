@@ -1,63 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link rel="stylesheet" href="../resources/css/view_personal_schedule.css" />
-    <link rel="stylesheet" href="../resources/css/mainDiv.css" />
-    <link rel="stylesheet" href="../resources/css/34.css" />
-    <link rel="stylesheet" href="../resources/css/sideNavbar.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-    />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <meta charset="UTF-8" />
-    <title>my schedule</title>
-  </head>
-  <body onresize="whenResizing()">
-    <!-- side nav bar -->
-    <div id="mySidenav" class="sidenav"></div>
 
-    <div id="main">
-      <div class="back">
-        <div id="navIcon" onclick="openNav()" class="navIcon">
-          <img src="../resources/icons/three.png" alt="Ooops" />
-        </div>
-        <button class="btn34" onclick="window.history.back()">Back</button>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <title>Add Leave</title>
+
+  <link rel="stylesheet" href="../resources/css/normal.css">
+  <link rel="stylesheet" href="../resources/css/sideNavbar.css">
+  <link rel="stylesheet" href="../resources/css/view_personal_schedule.css">
+  <link rel="stylesheet" href="../resources/css/mainDiv.css">
+  <link rel="stylesheet" href="../resources/css/34.css">
+  <link rel="stylesheet" href="../resources/css/frameWork/modal.css">
+  <link rel="stylesheet" href="../resources/css/frameWork/style.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src='../resources/javascript/main2.js'></script>
+</head>
+
+<body onresize="whenResizing()">
+  <!-- side nav bar -->
+  <div id="mySidenav" class="sidenav">
+
+  </div>
+
+  <!-- ////////////////////////////// -->
+  <div id="main">
+
+    <div class="back">
+      <div id="navIcon" onclick="openNav()" class="navIcon"><img src="../resources/icons/three.png" alt="Ooops">
       </div>
-      <br /><br />
+      <button class="btn34" onclick=history.back()>Back</button>
+    </div>
+    <br><br>
 
-      <div class="topBar">
-        <b>View Personal Schedule</b>
-      </div>
-      <div class="mainDiv">
-        <div class="subDiv">
-          <div class="dateDiv">
-            <input type="date" id="date" onchange="changeDate(event);" />
-          </div>
+    <div class="topBar">
+      <b>My Schedule</b>
+    </div>
 
-          <div class="tableDiv34">
-            <table id="table_temp" class="table34">
-              <thead>
-                <tr class="header">
-                  <th>Name</th>
-                  <th>Service</th>
-                  <th>Start Time</th>
-                  <th>End Time</th>
-                </tr>
-              </thead>
-              <tbody id="appointment_table"></tbody>
-            </table>
-          </div>
+    <div class="mainDiv">
+      <div class="inner-div">
+
+        <!-- Date Select Box -->
+        <div class="date-div">
+          <input type="date" id="date"/>
         </div>
+
+        <!-- Start Table div -->
+        <div class="">
+          <table id="t02" class="table34">
+            <colspan>
+              <col />
+              <col />
+              <col class="medium-column" />
+              <col class="medium-column" />
+            </colspan>
+            <tr>
+              <th>Name</th>
+              <th>Service</th>
+              <th>Telephone</th>
+              <th>Start Time</th>
+              <th>End Time</th>
+            </tr>
+            <tbody id="aptTable" class="tbody">
+
+            </tbody>
+            
+            <br />
+          </table>
+        </div>
+        <!-- end of tableDiv34 -->
+
+
+
+
+
+
       </div>
     </div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="../resources/javascript/view_personal_schedule.js"></script>
     <script src="../resources/javascript/side_navbar_sp.js"></script>
-  </body>
+</body>
+
 </html>

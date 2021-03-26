@@ -72,6 +72,30 @@
         <servlet-name>View</servlet-name>
         <url-pattern>/upperStaff/owner/allManagers.html/view</url-pattern>
     </servlet-mapping>
+
+<!--    view sps details-->
+
+    <servlet>
+        <servlet-name>Viewsp</servlet-name>
+        <servlet-class>com.g34.quicksalon.controller.employeeManagement.serviceProvider.ViewSPsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Viewsp</servlet-name>
+        <url-pattern>/viewSp</url-pattern>
+    </servlet-mapping>
+
+
+    <!--    update sps details-->
+
+    <servlet>
+        <servlet-name>Updatesp</servlet-name>
+        <servlet-class>com.g34.quicksalon.controller.employeeManagement.serviceProvider.UpdateSPServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Updatesp</servlet-name>
+        <url-pattern>/updateSp</url-pattern>
+    </servlet-mapping>
+
     <!--     addLeaveScheduleServlet -->
     <servlet>
         <servlet-name>AddLeaveSchedule</servlet-name>
@@ -109,7 +133,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>removeManager</servlet-name>
-        <url-pattern>/upperStaff/owner/allManagers.html/remove</url-pattern>
+        <url-pattern>/remove</url-pattern>
     </servlet-mapping>
     <!--      -->
     <!--     removeManagerServlet -->
@@ -282,6 +306,37 @@
         <url-pattern>/registerservice</url-pattern>
     </servlet-mapping>
 
+<!--    Assign services for array of SPs-->
+    <servlet>
+        <servlet-name>AssignServiceSPListServlet</servlet-name>
+        <servlet-class>com.g34.quicksalon.controller.employeeManagement.serviceProvider.AssignServiceSPListServlet</servlet-class>
+    </servlet>
 
+    <servlet-mapping>
+        <servlet-name>AssignServiceSPListServlet</servlet-name>
+        <url-pattern>/assignListSpService</url-pattern>
+    </servlet-mapping>
+
+<!--updateServiceServlet-->
+    <servlet>
+        <servlet-name>updateServiceServlet</servlet-name>
+        <servlet-class>com.g34.quicksalon.controller.serviceManagement.updateServiceServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>updateServiceServlet</servlet-name>
+        <url-pattern>/updateService</url-pattern>
+    </servlet-mapping>
+
+
+<!--Get service Details by service ID-->
+    <!-- ServiceDetailsByIDServlet-->
+    <servlet>
+        <servlet-name>ServiceDetailsByIDServlet</servlet-name>
+        <servlet-class>com.g34.quicksalon.controller.serviceManagement.ServiceDetailsByIDServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServiceDetailsByIDServlet</servlet-name>
+        <url-pattern>/serviceDetails</url-pattern>
+    </servlet-mapping>
 
 </web-app>

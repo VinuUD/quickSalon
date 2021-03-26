@@ -165,7 +165,9 @@ img{
 }
 
 .service-details {
-  width: 95%;
+  margin-top: 40px;
+  max-width: 850px;
+  /* max-width: 95%; */
   text-align: left;
 
 }
@@ -200,6 +202,7 @@ img{
 
 .tableDiv34{
   overflow: auto !important;
+  
 }
 
 .buttonDiv
@@ -306,4 +309,20 @@ img{
       margin-right:auto;
       margin-bottom: 10px;
     }
+}
+
+
+#select-service-div{
+
+  width: 850px !important;
+
+}
+
+#services{
+  width: 200px;
+  height: 20px;
+}
+
+td{
+  width: 700px !important;
 }

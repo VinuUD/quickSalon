@@ -3,6 +3,8 @@ package com.g34.quicksalon.dao;
 import com.g34.quicksalon.database.DBConnection;
 import com.g34.quicksalon.model.Appointment;
 import com.g34.quicksalon.model.CustomerDetails;
+import com.g34.quicksalon.model.PersonalSchedule;
+import com.g34.quicksalon.model.ManagerDetailsForView;
 import com.g34.quicksalon.model.ServiceProvider;
 
 import java.sql.*;
@@ -23,7 +25,27 @@ public class ServiceProviderDAOImple implements  ServiceProviderDAO{
 
             while (resultSet.next()){
 
-                ServiceProvider serviceProvider=new ServiceProvider(resultSet.getInt(1),resultSet.getString(2),resultSet.getString(3),resultSet.getString(4),resultSet.getFloat(5),resultSet.getDate(6),resultSet.getDate(7),resultSet.getInt(8),resultSet.getInt(9),resultSet.getInt(10));
+                ServiceProvider serviceProvider=new ServiceProvider(resultSet.getInt(1),resultSet.getString(2),resultSet.getString(3),resultSet.getString(4),resultSet.getFloat(5),resultSet.getString(6),resultSet.getString(7),resultSet.getInt(8),resultSet.getInt(9),resultSet.getInt(10));
+                serviceProviders.add(serviceProvider);
+
+            }
+        } catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+        return serviceProviders;
+    }
+
+    public ArrayList<ServiceProvider> getServiceProvidersByIDShort(int sid) {
+        ArrayList<ServiceProvider> serviceProviders=new ArrayList<>();
+        try {
+
+            PreparedStatement stmt=DBConnection.getConnection().prepareStatement("SELECT j4f9qe_employee.employeeId, j4f9qe_employee.firstName, j4f9qe_employee.lastName FROM j4f9qe_employee WHERE employeeID IN(SELECT serviceProviderID FROM j4f9qe_servicesprovided WHERE serviceID=?);");
+            stmt.setInt(1,sid);
+            ResultSet resultSet = stmt.executeQuery();
+
+            while (resultSet.next()){
+
+                ServiceProvider serviceProvider=new ServiceProvider(resultSet.getInt(1),resultSet.getString(2),resultSet.getString(3));
                 serviceProviders.add(serviceProvider);
 
             }
@@ -132,6 +154,17 @@ public class ServiceProviderDAOImple implements  ServiceProviderDAO{
         }
     }
 
+    // delete service from service provided using service id
+    public int deleteServiceFromServiceProvided(int serviceID) throws SQLException, ClassNotFoundException {
+        Connection connection =DBConnection.getConnection();
+        PreparedStatement stmt= connection.prepareStatement("DELETE FROM j4f9qe_servicesprovided WHERE j4f9qe_servicesprovided.serviceID=?");
+        stmt.setInt(1,serviceID);
+        int x = stmt.executeUpdate();
+        return x;
+    }
+
+
+
     //     get all upcoming appointment by SP -- (QId,date,startTime,endTime)
     @Override
     public ArrayList<Appointment> getAppointmentDeatilsBySP(int empID) throws SQLException, ClassNotFoundException {
@@ -144,7 +177,7 @@ public class ServiceProviderDAOImple implements  ServiceProviderDAO{
             ResultSet resultSet = stmt.executeQuery();
 
             while (resultSet.next()){
-                Appointment appointment=new Appointment(resultSet.getInt(1),resultSet.getDate(2),resultSet.getTime(3),resultSet.getTime(4));
+                Appointment appointment=new Appointment(resultSet.getInt(1),resultSet.getString(2),resultSet.getString(3),resultSet.getString(4));
                 upAppointments.add(appointment);
             }
 
@@ -199,6 +232,49 @@ public class ServiceProviderDAOImple implements  ServiceProviderDAO{
         }else{
             return false;
         }
+    }
+
+
+    @Override
+    public ArrayList<PersonalSchedule> getAppointmentsSPByDate(int userID, String date) throws SQLException, ClassNotFoundException {
+        ArrayList<PersonalSchedule> appointments=new ArrayList<>();
+
+        try {
+            PreparedStatement stmt=DBConnection.getConnection().prepareStatement("SELECT firstName,lastName,telephone,serviceName,startTime,endTime FROM j4f9qe_personalschedule WHERE userID=? AND date=?;");
+            stmt.setInt(1,userID);
+            stmt.setString(2,date);
+
+            ResultSet resultSet = stmt.executeQuery();
+
+            while (resultSet.next()){
+                appointments.add(new PersonalSchedule(resultSet.getString(1),resultSet.getString(2),resultSet.getString(3),resultSet.getString(4),resultSet.getString(5),resultSet.getString(6)));
+            }
+
+        } catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+        return appointments;
+
+    }
+
+
+    private ArrayList<ManagerDetailsForView> AllServiceProvidersDetails = new ArrayList<>();
+
+    public ArrayList<ManagerDetailsForView> getServiceProvidersDetails() throws Exception
+    {
+        Connection	con = DBConnection.getConnection();
+        Statement st = con.createStatement();
+
+
+        ResultSet rs = st.executeQuery("select j4f9qe_employee.employeeID, j4f9qe_employee.firstName, j4f9qe_employee.lastName, j4f9qe_employee.contactNum, j4f9qe_employee.nicNo, j4f9qe_employee.salary, j4f9qe_employee.email, j4f9qe_employee.address from j4f9qe_employee WHERE j4f9qe_employee.isUpperStaffFlag = 0 AND j4f9qe_employee.removedFlag = 0");
+
+        while(rs.next())
+        {
+            AllServiceProvidersDetails.add(new ManagerDetailsForView(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8)));
+
+        }
+
+        return  AllServiceProvidersDetails;
     }
 
 }

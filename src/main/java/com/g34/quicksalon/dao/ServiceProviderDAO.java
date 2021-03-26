@@ -5,11 +5,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.g34.quicksalon.model.Appointment;
+import com.g34.quicksalon.model.PersonalSchedule;
+import com.g34.quicksalon.model.ManagerDetailsForView;
 import com.g34.quicksalon.model.ServiceProvider;
 
 public interface ServiceProviderDAO {
     
     public ArrayList<ServiceProvider> getServiceProvidersByID(int sid) ;
+
+    public ArrayList<ServiceProvider> getServiceProvidersByIDShort(int sid) ;
 
     public ArrayList<ServiceProvider> getSPListByservice(int serviceId) throws SQLException, ClassNotFoundException;
 
@@ -30,5 +34,15 @@ public interface ServiceProviderDAO {
 
     //    get all upcoming appointment by SP -- (QId,date,startTime,endTime)
     public ArrayList<Appointment> getAppointmentDeatilsBySP(int empID) throws SQLException, ClassNotFoundException;
+
+    public int deleteServiceFromServiceProvided(int serviceID) throws SQLException, ClassNotFoundException;
+
+
+//    Get Appointment by serviceProviderID & data
+    public ArrayList<PersonalSchedule> getAppointmentsSPByDate(int userID, String date) throws SQLException, ClassNotFoundException;
+
+
+    public ArrayList<ManagerDetailsForView> getServiceProvidersDetails() throws Exception;
+
 
 }

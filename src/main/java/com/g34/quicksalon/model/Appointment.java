@@ -7,15 +7,16 @@ public class Appointment {
 
     private int qId;
     private int customerId;
-    private Date date;
-    private Time startTime;
-    private Time endTime;
+    private String date;
+    private String startTime;
+    private String endTime;
     private int cancelledFlag;
+
 
     public Appointment() {
     }
 
-    public Appointment(int qId, int customerId, Date date, Time startTime,Time endTime, int cancelledFlag) {
+    public Appointment(int qId, int customerId, String date, String startTime,String endTime, int cancelledFlag) {
         this.qId = qId;
         this.customerId = customerId;
         this.date = date;
@@ -24,12 +25,13 @@ public class Appointment {
         this.cancelledFlag = cancelledFlag;
     }
 
-    public Appointment(int qId,Date date, Time startTime,Time endTime) {
+    public Appointment(int qId,String date, String startTime,String endTime) {
         this.qId = qId;
         this.date = date;
         this.startTime = startTime;
         this.endTime = endTime;
     }
+
 
     public int getqId() {
         return qId;
@@ -47,28 +49,28 @@ public class Appointment {
         this.customerId = customerId;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
-    public Time getStartTime() {
+    public String getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(Time startTime) {
+    public void setStartTime(String startTime) {
         this.startTime = startTime;
     }
 
-    public Time getEndTime() {
+    public String getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(Time endtTime) {
-        this.endTime = endtTime;
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
     }
 
     public int getCancelledFlag() {
