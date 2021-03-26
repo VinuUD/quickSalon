@@ -1,13 +1,15 @@
-body {
+/* body {
   background: var(--main-color);
   background: linear-gradient(
     -135deg,
     var(--gradient-color1),
     var(--gradient-color2)
   );
-}
+} */
 
 .innerDiv {
+  width: 100%;
+  margin-bottom: 10px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -22,7 +24,7 @@ button.btn34 {
 }
 
 .mainDiv {
-  border: 4px solid #435a66;
+  border: 4px solid var(--main-color);
   display: flex;
   flex-direction: column;
   justify-content: center;

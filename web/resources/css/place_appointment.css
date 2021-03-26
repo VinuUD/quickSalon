@@ -1,7 +1,8 @@
 .calendar {
     width: 500px;
-    border: 1px solid black;
-    height: 400px; 
+    border: 1px solid var(--main-color-dark);
+    height: 400px;
+    padding: 10px;
   }
 
 
@@ -16,14 +17,14 @@
      background: #6495ED;
      margin-top: 10px;
      height: 50px;
-    
+
   }
-  
+
   .time-slots  th, td {
     padding: 8px;
     border-bottom: 1px solid #ddd;
   }
-  
+
   .time-slots-table tr:hover {background-color:#f5f5f5;}
 
   .time-slots-div{
@@ -51,10 +52,5 @@
 
     .btn-bar >button{
       margin-right: 100px;
-      
+
     }
-
-
-    
-
-    
