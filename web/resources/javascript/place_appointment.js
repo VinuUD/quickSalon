@@ -274,8 +274,7 @@ $(document).ready(function () {
 
   //When clicked Select Button
   var appSp = []; //appointment thiyana sp lage spIDs
-  // var thisDate_FreeTimeSlotSpIDs = [];
-  // var thisDateFreeSpIDs = [];
+
   $(document).on("click", "#select-time-btn", function () {
     var thisDateFreeSpIDs = [];
     var thisDate_FreeTimeSlotSpIDs = [];
@@ -300,21 +299,26 @@ $(document).ready(function () {
     ); // meken thama balanne me service eka dena okkoma sp lageyi appointment
     // ekak tyna sp lageyi wenasa
 
-    console.log(spIDsRealatedToService);
-    console.log(appSpWithNoDuplicates);
-
     if (difference.length == 1) {
-      assignedSp = difference[0]; //completed
-    } else if (difference.length > 1) {
-      //me service ekata adalawa inna sp lagen appointment nathi sp la*************
-      //difference array eke inna ayawa backend ekata yawala eyalagen aduma
-      // appointment thyna kenaawa assign krnwa
       $.ajax({
         type: "GET",
+        url: "http://localhost:8080/quickSalon_war_exploded/getLeastAppSp",
+        data: { spID: difference[0] },
+        async: false,
+        success: function (response) {
+          assignedSpID = response.employeeId;
+          assignedSpFname = response.firstName;
+          assignedSpLname = response.lastName;
+        },
+      });
+    } else if (difference.length > 1) {
+      $.ajax({
+        type: "POST",
         url: "http://localhost:8080/quickSalon_war_exploded/getLeastAppSp",
         data: { spIDs: difference },
         async: false,
         success: function (response) {
+          assignedSpID = response.employeeId;
           assignedSpFname = response.firstName;
           assignedSpLname = response.lastName;
         },
@@ -322,7 +326,6 @@ $(document).ready(function () {
     } else if (difference.length == 0) {
       //me service ekata adalawa inna okkoma sp lata appontment watila tynwa********
       appointmentList.map(function (app) {
-        // console.log(app.date + "-----" + dateWithFormat);
         if (app.date == dateWithFormat) {
           var hs = parseInt(selectedStartTime.split(":")[0]);
           if (hs > 0 && hs < 8) {
@@ -352,7 +355,6 @@ $(document).ready(function () {
         } else {
           // me dawase mokuth apppointment nathi aya
           thisDateFreeSpIDs.push(app.employeeID);
-          // console.log(app);
         }
       });
 
@@ -366,16 +368,25 @@ $(document).ready(function () {
 
       if (appOnlyAnotherDay.length != 0) {
         if (appOnlyAnotherDay.length == 1) {
-          //menna muwa kelinma assign krnna plwn
-          assignedSpID = appOnlyAnotherDay[0];
+          $.ajax({
+            type: "GET",
+            url: "http://localhost:8080/quickSalon_war_exploded/getLeastAppSp",
+            data: { spID: appOnlyAnotherDay[0] },
+            async: false,
+            success: function (response) {
+              assignedSpID = response.employeeId;
+              assignedSpFname = response.firstName;
+              assignedSpLname = response.lastName;
+            },
+          });
         } else {
-          //meyalawa backend ekata yawala aduma app gana tyna kena gnna oneh
           $.ajax({
             type: "POST",
             url: "http://localhost:8080/quickSalon_war_exploded/getLeastAppSp",
             data: { spIDs: appOnlyAnotherDay },
             async: false,
             success: function (response) {
+              assignedSpID = response.employeeId;
               assignedSpFname = response.firstName;
               assignedSpLname = response.lastName;
             },
@@ -384,10 +395,19 @@ $(document).ready(function () {
       } else {
         if (thisDate_FreeTimeSlotSpIDs.length != 0) {
           if (thisDate_FreeTimeSlotSpIDs.length == 1) {
-            console.log("dn mn inne meekee 2");
-            assignedSpID = thisDate_FreeTimeSlotSpIDs[0];
+            $.ajax({
+              type: "GET",
+              url:
+                "http://localhost:8080/quickSalon_war_exploded/getLeastAppSp",
+              data: { spID: thisDate_FreeTimeSlotSpIDs[0] },
+              async: false,
+              success: function (response) {
+                assignedSpID = response.employeeId;
+                assignedSpFname = response.firstName;
+                assignedSpLname = response.lastName;
+              },
+            });
           } else {
-            console.log("dn mn inne meekee 3");
             $.ajax({
               type: "POST",
               url:
@@ -395,7 +415,7 @@ $(document).ready(function () {
               data: { spIDs: thisDate_FreeTimeSlotSpIDs },
               async: false,
               success: function (response) {
-                console.log(response);
+                assignedSpID = response.employeeId;
                 assignedSpFname = response.firstName;
                 assignedSpLname = response.lastName;
               },
@@ -407,16 +427,16 @@ $(document).ready(function () {
       }
     }
 
-    // console.log("Me dawasee me welawa free nathi aya");
-    // console.log(thisDateThisTimeNotFree);
-    // console.log("Me dawase free slots tyana aya");
-    // console.log(thisDate_FreeTimeSlotSpIDs);
-    // console.log("Me dawase nathuwa anith dawasawala appointment tyna aya");
-    // console.log(thisDateFreeSpIDs);
-    // console.log("Me dawase nathuwa anith dawaswala witrk app tyna aya");
-    // console.log(appOnlyAnotherDay);
-    // console.log("okkoma appointment tika");
-    // console.log(appointmentList);
+    console.log("Me dawasee me welawa free nathi aya");
+    console.log(thisDateThisTimeNotFree);
+    console.log("Me dawase free slots tyana aya");
+    console.log(thisDate_FreeTimeSlotSpIDs);
+    console.log("Me dawase nathuwa anith dawasawala appointment tyna aya");
+    console.log(thisDateFreeSpIDs);
+    console.log("Me dawase nathuwa anith dawaswala witrk app tyna aya");
+    console.log(appOnlyAnotherDay);
+    console.log("okkoma appointment tika");
+    console.log(appointmentList);
 
     console.log(assignedSpID + " ----> " + assignedSpFname);
   });

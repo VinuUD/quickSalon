@@ -16,6 +16,25 @@ import java.util.ArrayList;
 public class LeastAppCountSpDetailsServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+            int spID = Integer.parseInt(request.getParameter("spID"));
+            ServiceProviderDAO serviceProviderDAO = new ServiceProviderDAOImple();
+            ServiceProvider sp = new ServiceProvider();
+
+
+        try {
+            sp = serviceProviderDAO.getSpDetails(spID);
+            String json = new Gson().toJson(sp);
+            response.setContentType("application/json");
+            response.setCharacterEncoding("UTF-8");
+            response.getWriter().write(json);
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
     }

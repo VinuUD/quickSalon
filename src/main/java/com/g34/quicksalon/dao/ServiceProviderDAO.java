@@ -44,5 +44,7 @@ public interface ServiceProviderDAO {
 
     public ArrayList<ManagerDetailsForView> getServiceProvidersDetails() throws Exception;
 
+    public ServiceProvider getSpDetails(int empID) throws Exception;
+
 
 }
