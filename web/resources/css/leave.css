@@ -1,11 +1,33 @@
+body{
+  background: var(--main-color);
+  background: linear-gradient(
+    -135deg,
+    var(--gradient-color1),
+    var(--gradient-color2)
+  );
+}
+.topBar {
+  background-color: #eee !important;
+
+}
+
+.back-btn{
+  position: relative;
+  left: 40%;
+}
 
 .form-container{
-    margin-left: 10px;
+   position: relative;
+   left: 0px;
+   margin-right: 140px;
+  height: fit-content;
+
 }
 
 .inner-div{ 
     display: grid;
     grid-template-columns: auto auto;
+    border: 2px solid black;
 }
 
 .background-image img{
