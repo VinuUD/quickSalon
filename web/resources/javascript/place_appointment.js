@@ -16,7 +16,21 @@ var monthArray = [
 var filledTimeSlots = [];
 var timeTaken = 0;
 var spIDsRealatedToService = [];
-var assignedSp = "";
+
+var allTimeSlots = [];
+var appListRelatedSp = [];
+
+///////////////////appointment data
+var serviceID = "";
+var serviceName = "";
+var assignedSpID = "";
+var assignedSpFname = "";
+var assignedSpLname = "";
+var assignedDate = "";
+var assignedStartTime = "";
+var assignedEndTime = "";
+
+customerAppArray = []; //customer's selected appointments
 
 //Time class
 class Time {
@@ -113,6 +127,22 @@ $(document).ready(function () {
     }
   );
 
+  $("#serviceProvider").change(function () {
+    appListRelatedSp = [];
+    var spID = $(this).val();
+    assignedSpID = $(this).val();
+
+    appointmentList.map(function (app) {
+      if (parseInt(app.employeeID) == parseInt(spID)) {
+        appListRelatedSp.push(app);
+      }
+    });
+
+    console.log(appListRelatedSp);
+    $(".td-white").css("background-color", "white");
+    displayAppointmentsOnCalendar(appListRelatedSp);
+  });
+
   var appointmentList = []; //all appointmentList from DB
 
   // populate Sp List with selected Service
@@ -123,6 +153,7 @@ $(document).ready(function () {
     //load the service providers relavent to the selected service
     $("#serviceProvider").html(`<option value="1111">Default</option>`);
     var selectedVal = $(this).val();
+    serviceID = $(this).val();
     $.ajax({
       type: "GET",
       url: "http://localhost:8080/quickSalon_war_exploded/spListService",
@@ -152,6 +183,8 @@ $(document).ready(function () {
     });
 
     displayAppointmentsOnCalendar(appointmentList);
+    // getAllSlots();
+    // console.log(allTimeSlots);
   });
 
   //Plot appointment on calendar
@@ -165,22 +198,92 @@ $(document).ready(function () {
     });
   }
 
+  function getAllSlots() {
+    allTimeSlots = [];
+    console.log("getallslots");
+    var startTimeH = 0;
+    var startTimeM = 0;
+    var endTimeH = 0;
+    var endTimeM = 0;
+    sm = 540;
+    while (sm < 1140) {
+      startTimeH = Math.floor(sm / 60) % 12;
+      startTimeM = sm % 60;
+
+      sm = sm + parseInt(timeTaken);
+      console.log(timeTaken);
+
+      endTimeH = Math.floor(sm / 60) % 12;
+      endTimeM = sm % 60;
+
+      allTimeSlots.push({
+        sH: startTimeH,
+        sM: startTimeM,
+        eH: endTimeH,
+        eM: endTimeM,
+      });
+    }
+  }
+
   var clickedDate = "";
 
   //Onclick day slots on calendar
   $(".day-btn").on("click", function () {
-    var id = $(this).attr("id");
-    clickedDate = id;
+    if ($("#serviceProvider").val() == 1111) {
+      console.log("sp wa thorala nathi welawa");
+      filledTimeSlots = [];
+      var id = $(this).attr("id");
+      clickedDate = id;
+      var mt = monthArray.indexOf(clickedDate.substr(4, 3)) + 1;
+      assignedDate = //2021-03-04
+        id.substr(0, 4) + "-" + "0" + mt + "-" + clickedDate.substr(7, 2);
 
-    //If not selected a service
-    if ($("#services").val() == 0) {
-      $("#services").css("border", "2px red solid");
+      //If not selected a service
+      if ($("#services").val() == 0) {
+        $("#services").css("border", "2px red solid");
+      } else {
+        //Display Free time slots table
+        $(".calendar-div").css("display", "none");
+        $(".time-slots-div").css("display", "block");
+
+        appointmentList.map(function (appointment) {
+          var year = id.substr(0, 4);
+          var month = id.substr(4, 3);
+          var day = id.substr(7);
+
+          var date = appointment.date.split("-");
+          //set date into 2020Jan05 format
+          // var selectId=day[0]+monthArray[parseInt(day[1])]+day[2];
+
+          if (
+            date[0] == year &&
+            date[1] == monthArray.indexOf(month) + 1 &&
+            parseInt(date[2]) == day
+          ) {
+            var startTime = appointment.startTime;
+            var endTime = appointment.endTime;
+            var hs = startTime.split(":")[0];
+            var ms = startTime.split(":")[1];
+
+            filledTimeSlots.push(new Time(hs, ms));
+          }
+        });
+
+        //This will populate the free slot table
+        console.log(filledTimeSlots);
+        freeSlots();
+      }
     } else {
-      //Display Free time slots table
+      var id = $(this).attr("id");
+      clickedDate = id;
+      var mt = monthArray.indexOf(clickedDate.substr(4, 3)) + 1;
+      assignedDate = //2021-03-04
+        id.substr(0, 4) + "-" + "0" + mt + "-" + clickedDate.substr(7, 2);
+      console.log("sp wa thorala thiyana welawa");
       $(".calendar-div").css("display", "none");
       $(".time-slots-div").css("display", "block");
-
-      appointmentList.map(function (appointment) {
+      filledTimeSlots = [];
+      appListRelatedSp.map(function (appointment) {
         var year = id.substr(0, 4);
         var month = id.substr(4, 3);
         var day = id.substr(7);
@@ -202,11 +305,10 @@ $(document).ready(function () {
           filledTimeSlots.push(new Time(hs, ms));
         }
       });
-
-      //This will populate the free slot table
+      console.log(filledTimeSlots);
       freeSlots();
     }
-
+    ///////////////////////////////////////////////////////
     function freeSlots() {
       timeTakenObj = new Time(0, parseInt(timeTaken)).add(new Time(0, 0)); //
       var sTime = new Time(9, 0);
@@ -216,6 +318,7 @@ $(document).ready(function () {
       while (sTime.hour != closeTime.hour) {
         filledTimeSlots.forEach((time) => {
           if (time.hour == sTime.hour && time.min == sTime.min) {
+            //wrong logic
             sTime = timeTakenObj.addTwentyFour(sTime);
           }
         });
@@ -240,6 +343,7 @@ $(document).ready(function () {
 
   //When click on + icon
   $(document).on("click", ".tr-icon", function () {
+    // console.log(allTimeSlots);
     $("#select-time-btn").prop("disabled", false);
 
     //clear all selected icons
@@ -259,85 +363,238 @@ $(document).ready(function () {
     //get Selected times
     selectedStartTime = $selectedTimeSlot[0].innerText;
     selectedEndTime = $selectedTimeSlot[1].innerText;
+
+    assignedStartTime = selectedStartTime;
+    assignedEndTime = selectedEndTime;
+
+    // $.ajax({
+    //   type: "POST",
+    //   url: "http://localhost:8080/quickSalon_war_exploded/getLeastAppSp",
+    //   data: { spIDs: [2, 21, 22] },
+    //   success: function (response) {
+    //     console.log(response);
+    //   },
+    // });
   });
 
   //When clicked Select Button
   var appSp = []; //appointment thiyana sp lage spIDs
-  // var thisDate_FreeTimeSlotSpIDs = [];
-  // var thisDateFreeSpIDs = [];
+
   $(document).on("click", "#select-time-btn", function () {
-    var thisDateFreeSpIDs = [];
-    var thisDate_FreeTimeSlotSpIDs = [];
-    var month = monthArray.indexOf(clickedDate.substr(4, 3)) + 1;
+    if ($("#serviceProvider").val() == 1111) {
+      var thisDateFreeSpIDs = [];
+      var thisDate_FreeTimeSlotSpIDs = [];
+      var thisDateThisTimeNotFree = [];
+      var month = monthArray.indexOf(clickedDate.substr(4, 3)) + 1;
 
-    var dateWithFormat = //2021-03-04
-      clickedDate.substr(0, 4) +
-      "-" +
-      "0" +
-      month +
-      "-" +
-      clickedDate.substr(7, 2);
+      var dateWithFormat = //2021-03-04
+        clickedDate.substr(0, 4) +
+        "-" +
+        "0" +
+        month +
+        "-" +
+        clickedDate.substr(7, 2);
 
-    appointmentList.map(function (app) {
-      appSp.push(app.employeeID);
+      appointmentList.map(function (app) {
+        appSp.push(app.employeeID);
+      });
+
+      var appSpWithNoDuplicates = [...new Set(appSp)];
+      let difference = spIDsRealatedToService.filter(
+        (x) => !appSpWithNoDuplicates.includes(x)
+      ); // meken thama balanne me service eka dena okkoma sp lageyi appointment
+      // ekak tyna sp lageyi wenasa
+
+      if (difference.length == 1) {
+        $.ajax({
+          type: "GET",
+          url: "http://localhost:8080/quickSalon_war_exploded/getLeastAppSp",
+          data: { spID: difference[0] },
+          async: false,
+          success: function (response) {
+            assignedSpID = response.employeeId;
+            assignedSpFname = response.firstName;
+            assignedSpLname = response.lastName;
+          },
+        });
+      } else if (difference.length > 1) {
+        $.ajax({
+          type: "POST",
+          url: "http://localhost:8080/quickSalon_war_exploded/getLeastAppSp",
+          data: { spIDs: difference },
+          async: false,
+          success: function (response) {
+            assignedSpID = response.employeeId;
+            assignedSpFname = response.firstName;
+            assignedSpLname = response.lastName;
+          },
+        });
+      } else if (difference.length == 0) {
+        //me service ekata adalawa inna okkoma sp lata appontment watila tynwa********
+        appointmentList.map(function (app) {
+          if (app.date == dateWithFormat) {
+            var hs = parseInt(selectedStartTime.split(":")[0]);
+            if (hs > 0 && hs < 8) {
+              hs = hs + 12;
+              thisDateFreeSpIDs;
+            }
+            var ms = parseInt(selectedStartTime.split(":")[1]);
+            var selectedTimeMinute = parseInt(hs * 60 + ms);
+
+            // console.log(selectedTimeMinute);
+
+            // for (var i = 0; i < appointmentList.length; i++) {
+            var appHs = parseInt(app.startTime.split(":")[0]);
+            var appMs = parseInt(app.startTime.split(":")[1]);
+
+            var appMinute = appHs * 60 + appMs;
+            // console.log(selectedTimeMinute + " " + appMinute);
+            if (
+              Math.abs(selectedTimeMinute - appMinute) >= parseInt(timeTaken)
+            ) {
+              // me date ekata adalawa illapu welaawa free denna plwn aya********
+              thisDate_FreeTimeSlotSpIDs.push(app.employeeID);
+            } else {
+              //meka athula inne dawasath samana wela welaawath samana una eun
+              thisDateThisTimeNotFree.push(app.employeeID);
+              //console.log(app);
+            }
+            // }
+          } else {
+            // me dawase mokuth apppointment nathi aya
+            thisDateFreeSpIDs.push(app.employeeID);
+          }
+        });
+
+        var appOnlyAnotherDay2 = thisDateFreeSpIDs.filter(
+          (x) => !thisDateThisTimeNotFree.includes(x)
+        );
+
+        var appOnlyAnotherDay = appOnlyAnotherDay2.filter(
+          (x) => !thisDate_FreeTimeSlotSpIDs.includes(x)
+        );
+
+        if (appOnlyAnotherDay.length != 0) {
+          if (appOnlyAnotherDay.length == 1) {
+            $.ajax({
+              type: "GET",
+              url:
+                "http://localhost:8080/quickSalon_war_exploded/getLeastAppSp",
+              data: { spID: appOnlyAnotherDay[0] },
+              async: false,
+              success: function (response) {
+                assignedSpID = response.employeeId;
+                assignedSpFname = response.firstName;
+                assignedSpLname = response.lastName;
+              },
+            });
+          } else {
+            $.ajax({
+              type: "POST",
+              url:
+                "http://localhost:8080/quickSalon_war_exploded/getLeastAppSp",
+              data: { spIDs: appOnlyAnotherDay },
+              async: false,
+              success: function (response) {
+                assignedSpID = response.employeeId;
+                assignedSpFname = response.firstName;
+                assignedSpLname = response.lastName;
+              },
+            });
+          }
+        } else {
+          if (thisDate_FreeTimeSlotSpIDs.length != 0) {
+            if (thisDate_FreeTimeSlotSpIDs.length == 1) {
+              $.ajax({
+                type: "GET",
+                url:
+                  "http://localhost:8080/quickSalon_war_exploded/getLeastAppSp",
+                data: { spID: thisDate_FreeTimeSlotSpIDs[0] },
+                async: false,
+                success: function (response) {
+                  assignedSpID = response.employeeId;
+                  assignedSpFname = response.firstName;
+                  assignedSpLname = response.lastName;
+                },
+              });
+            } else {
+              $.ajax({
+                type: "POST",
+                url:
+                  "http://localhost:8080/quickSalon_war_exploded/getLeastAppSp",
+                data: { spIDs: thisDate_FreeTimeSlotSpIDs },
+                async: false,
+                success: function (response) {
+                  assignedSpID = response.employeeId;
+                  assignedSpFname = response.firstName;
+                  assignedSpLname = response.lastName;
+                },
+              });
+            }
+          } else {
+            console.log("nothing to do here");
+          }
+        }
+      }
+
+      // console.log("Me dawasee me welawa free nathi aya");
+      // console.log(thisDateThisTimeNotFree);
+      // console.log("Me dawase free slots tyana aya");
+      // console.log(thisDate_FreeTimeSlotSpIDs);
+      // console.log("Me dawase nathuwa anith dawasawala appointment tyna aya");
+      // console.log(thisDateFreeSpIDs);
+      // console.log("Me dawase nathuwa anith dawaswala witrk app tyna aya");
+      // console.log(appOnlyAnotherDay);
+      // console.log("okkoma appointment tika");
+      // console.log(appointmentList);
+
+      // console.log(assignedSpID + " ----> " + assignedSpFname);
+    } else {
+      console.log("hellooooooooo");
+    }
+
+    $.ajax({
+      type: "GET",
+      url: "http://localhost:8080/quickSalon_war_exploded/getLeastAppSp",
+      data: { spID: assignedSpID },
+      async: false,
+      success: function (response) {
+        assignedSpID = response.employeeId;
+        assignedSpFname = response.firstName;
+        assignedSpLname = response.lastName;
+      },
     });
 
-    var appSpWithNoDuplicates = [...new Set(appSp)];
-    let difference = spIDsRealatedToService.filter(
-      (x) => !appSpWithNoDuplicates.includes(x)
-    ); // meken thama balanne me service eka dena okkoma sp lageyi appointment
-    // ekak tyna sp lageyi wenasa
+    $("#t02Tbody").append(
+      `<tr>
+      <td>${serviceID}</td>
+      <td>${assignedSpFname}</td>
+      <td>${assignedDate}</td>
+      <td>${assignedStartTime + " - " + assignedEndTime}</td>
+    </tr>`
+    );
 
-    console.log(spIDsRealatedToService);
-    console.log(appSpWithNoDuplicates);
+    $(".calendar-div").css("display", "block");
+    $(".time-slots-div").css("display", "none");
 
-    if (difference.length == 1) {
-      //we can assign this sp to the selected service
-      console.log(difference[0]);
-    } else if (difference.length > 1) {
-      //me service ekata adalawa inna sp lagen appointment nathi sp la*************
-      //difference array eke inna ayawa backend ekata yawala eyalagen aduma
-      // appointment thyna kenaawa assign krnwa
-      difference.map(function (x) {
-        console.log(x);
-      });
-    } else if (difference.length == 0) {
-      //me service ekata adalawa inna okkoma sp lata appontment watila tynwa********
-      appointmentList.map(function (app) {
-        // console.log(app.date + "-----" + dateWithFormat);
-        if (app.date == dateWithFormat) {
-          var hs = parseInt(selectedStartTime.split(":")[0]);
-          if (hs > 0 && hs < 8) {
-            hs = hs + 12;
-            thisDateFreeSpIDs;
-          }
-          var ms = parseInt(selectedStartTime.split(":")[1]);
-          var selectedTimeMinute = parseInt(hs * 60 + ms);
+    customerAppArray.push({
+      sID: serviceID,
+      spID: assignedSpID,
+      date: assignedDate,
+      startTime: assignedStartTime,
+      endTime: assignedEndTime,
+    });
 
-          // console.log(selectedTimeMinute);
+    $("#confirm").on("click", function () {
+      console.log("confirm eka clicked");
+    });
 
-          // for (var i = 0; i < appointmentList.length; i++) {
-          var appHs = parseInt(app.startTime.split(":")[0]);
-          var appMs = parseInt(app.startTime.split(":")[1]);
-
-          var appMinute = appHs * 60 + appMs;
-          // console.log(selectedTimeMinute + " " + appMinute);
-          if (Math.abs(selectedTimeMinute - appMinute) >= parseInt(timeTaken)) {
-            // me date ekata adalawa illapu welaawa free denna plwn aya********
-            thisDate_FreeTimeSlotSpIDs.push(app);
-          } else {
-            //meka athula inne dawasath samana wela welaawath samana una eun
-          }
-          // }
-        } else {
-          // me dawase mokuth apppointment nathi aya
-          thisDateFreeSpIDs.push(app);
-          // console.log(app);
-        }
-      });
-    }
-    console.log(thisDate_FreeTimeSlotSpIDs);
-    console.log(thisDateFreeSpIDs);
-    console.log(appointmentList);
+    console.log(serviceID);
+    console.log(assignedSpID);
+    console.log(assignedSpFname);
+    console.log(assignedSpLname);
+    console.log(assignedDate);
+    console.log(assignedStartTime);
+    console.log(assignedEndTime);
   });
 });

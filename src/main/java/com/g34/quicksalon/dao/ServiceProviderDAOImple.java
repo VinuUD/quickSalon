@@ -275,5 +275,25 @@ public class ServiceProviderDAOImple implements  ServiceProviderDAO{
         return  AllServiceProvidersDetails;
     }
 
+    public ServiceProvider getSpDetails(int empID) throws Exception
+    {
+        Connection	con = DBConnection.getConnection();
+        String query = "SELECT j4f9qe_employee.employeeID, j4f9qe_employee.firstName, j4f9qe_employee.lastName FROM j4f9qe_employee WHERE j4f9qe_employee.employeeID = ?";
+        PreparedStatement pst = con.prepareStatement(query);
+        pst.setInt(1,empID);
+        ResultSet rs = pst.executeQuery();
+        ServiceProvider sp = new ServiceProvider();
+
+        if(rs.next())
+        {
+            sp.setEmployeeId(rs.getInt(1));
+            sp.setFirstName(rs.getString(2));
+            sp.setLastName(rs.getString(3));
+
+        }
+
+        return  sp;
+    }
+
 }
 

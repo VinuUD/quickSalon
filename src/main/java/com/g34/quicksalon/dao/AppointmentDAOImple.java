@@ -4,9 +4,10 @@ import com.g34.quicksalon.database.DBConnection;
 import com.g34.quicksalon.model.Appointment;
 import com.g34.quicksalon.model.AppointmentServiceVIEW;
 import com.g34.quicksalon.model.AppointmentVIEWForUpperStaff;
-
+import com.g34.quicksalon.model.ServiceProvider;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class AppointmentDAOImple implements AppointmentDAO {
 
@@ -126,6 +127,7 @@ public class AppointmentDAOImple implements AppointmentDAO {
     }
 
 
+
     //    get all upcoming appointment by Date -- return (QId,Name,telephone,startTime,endTime,spName)
     @Override
     public ArrayList<AppointmentVIEWForUpperStaff> getAppointmentDeatilsByDate(String date) throws SQLException, ClassNotFoundException {
@@ -160,6 +162,60 @@ public class AppointmentDAOImple implements AppointmentDAO {
             return false;
         }
         return true;
+    }
+
+
+
+    public ServiceProvider getLeastAppCountSp(String[] arr) throws SQLException, ClassNotFoundException {
+        Connection con = DBConnection.getConnection();
+        ArrayList<Integer> appCountList = new ArrayList<Integer>();
+        ServiceProvider sp = new ServiceProvider();
+
+        int len = arr.length;
+        for(int i=0; i<len; i++)
+        {
+
+            String query = "SELECT * FROM `appointmentCount` WHERE employeeID = ?";
+            PreparedStatement pst = con.prepareStatement(query);
+            pst.setInt(1,Integer.parseInt(arr[i]));
+            ResultSet rs =  pst.executeQuery();
+
+            while(rs.next())
+            {
+                appCountList.add(rs.getInt(1));
+
+            }
+        }
+
+        int min = Collections.min(appCountList);
+        int minIndex = 0;
+
+        for(int j=0; j<appCountList.size();j++)
+        {
+            if(min == appCountList.get(j))
+            {
+                minIndex = j;
+                break;
+            }
+        }
+
+        int spID = Integer.parseInt(arr[minIndex]);
+
+        String query1 = "SELECT j4f9qe_employee.employeeID, j4f9qe_employee.firstName, j4f9qe_employee.lastName FROM j4f9qe_employee WHERE j4f9qe_employee.employeeID = ?";
+        PreparedStatement pst2 = con.prepareStatement(query1);
+        pst2.setInt(1,spID);
+        ResultSet rs2 = pst2.executeQuery();
+
+        if(rs2.next())
+        {
+            sp.setEmployeeId(rs2.getInt(1));
+            sp.setFirstName(rs2.getString(2));
+            sp.setLastName(rs2.getString(3));
+        }
+
+
+        return sp;
+
     }
 
 
