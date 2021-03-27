@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="../resources/css/sideNavbar.css">
     <link rel="stylesheet" href="../resources/css/leave.css">
     <link rel="stylesheet" href="../resources/css/mainDiv.css">
-    <link rel="stylesheet" href="../resources/css/34.css">
-    <link rel="stylesheet" href="../resources/css/frameWork/modal.css">
+    <!-- <link rel="stylesheet" href="../resources/css/34.css"> -->
+    <!-- <link rel="stylesheet" href="../resources/css/frameWork/modal.css"> -->
+    <!-- <link rel="stylesheet" href="../resources/css/frameWork/input.css"> -->
     <link rel="stylesheet" href="../resources/css/frameWork/style.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -28,97 +29,102 @@
     </div>
 
     <!-- ////////////////////////////// -->
-    <div id="main">
 
+    <div id="main">
         <div class="back">
             <div id="navIcon" onclick="openNav()" class="navIcon"><img src="../resources/icons/three.png" alt="Ooops">
             </div>
-            <button class="btn34" onclick=history.back()>Back</button>
-        </div>
-        <br><br>
-
-        <div class="topBar">
-            <b> Leave</b>
+            
         </div>
 
-        <div class="mainDiv">
+        <!-- <div cl></div> -->
+        <div class="mainDiv container">
+            <button class="btn34 back-btn" onclick=history.back()>Back</button>
+           
+            <div class="large-space">
+                <div class="heading topBar">Leave</div>
 
-            <div>
-                <div class="inner-div">
-                    <div class="form-container">
+                <div class="work-space">
+                    <!-- <div class="inner-div"> -->
+                        <div class="form-container">
 
-                        <div class="input-text-wrap">
-                            <label for="empid">Employee ID</label>
-                            <input type="text" id="empid" name="empid" disabled placeholder="For Auto Filled">
+                            <div class="input-text-wrap">
+                                <label for="empid">Employee ID</label>
+                                <input type="text" id="empid" name="empid" disabled placeholder="For Auto Filled">
+                            </div>
+
+                            <div class="input-text-wrap">
+                                <label for="empname">Employee Name</label>
+                                <input type="text" id="empname" name="empname">
+                            </div>
+                            <div id='search-box'>
+                                <ul id='search-list'>
+                                </ul>
+                            </div>
+
+
+                            <div class="input-text-wrap">
+                                <label for="fromdate">From</label>
+                                <input type="date" id="fromdate" name="fromdate">
+                            </div>
+
+                            <div class="input-text-wrap">
+                                <label for="todate">To</label>
+                                <input type="date" id="todate" name="todate">
+                            </div>
+
+                            <div class="input-text-wrap">
+                                <label for="fromtime">From Time</label>
+                                <input type="time" id="fromtime" name="fromtime">
+                            </div>
+
+                            <div class="input-text-wrap">
+                                <label for="totime">To Time</label>
+                                <input type="time" id="totime" name="totime">
+                            </div>
+
+                            <div class="input-text-wrap">
+                                <label for="leavetype">Leave Type</label>
+                                <input type="text" id="leavetype" name="leavetype">
+                            </div>
+
+                            <div class="add-leave-btn">
+                                <button class="btn34" id='addLeave'>Leave</button>
+                            </div>
+
                         </div>
 
-                        <div class="input-text-wrap">
-                            <label for="empname">Employee Name</label>
-                            <input type="text" id="empname" name="empname">
-                        </div>
-                        <div id='search-box'>
-                            <ul id='search-list'>
-                            </ul>
-                        </div>
-                       
-
-                        <div class="input-text-wrap">
-                            <label for="fromdate">From</label>
-                            <input type="date" id="fromdate" name="fromdate">
+                        <div class="background-image">
+                            <img src="../resources/images/leave1.png">
                         </div>
 
-                        <div class="input-text-wrap">
-                            <label for="todate">To</label>
-                            <input type="date" id="todate" name="todate">
-                        </div>
-
-                        <div class="input-text-wrap">
-                            <label for="fromtime">From Time</label>
-                            <input type="time" id="fromtime" name="fromtime">
-                        </div>
-
-                        <div class="input-text-wrap">
-                            <label for="totime">To Time</label>
-                            <input type="time" id="totime" name="totime">
-                        </div>
-
-                        <div class="input-text-wrap">
-                            <label for="leavetype">Leave Type</label>
-                            <input type="text" id="leavetype" name="leavetype">
-                        </div>
+                      
 
                     </div>
 
-                    <div class="background-image">
-                        <img src="../resources/images/leave1.png">
-                    </div>
-
-                    <div class="add-leave-btn">
-                        <button class="btn34" id='addLeave'>Leave</button>
-                    </div>
                 </div>
 
-            </div>
-
-            <div class="modal-background">
-            <div class="center">
-                <div class="password-success-modal">
-                  <div class="header">
-                    <h2>Add Leave</h2>
-                  </div>
-                  <div class="success-pic">
-                    <img id=success-pic src="../resources/icons/success.svg" alt="IMG">
-                  </div>
-                  <p id="p-status">Leave added!</p>
-                  <a href="http://localhost:8080/quickSalon_war_exploded/upperStaff/owner/ownerHome.html" id="model-btn">Ok</a>
-                </div>
-              </div>
-
-            </div>
+                <!-- <div class="modal-background">
+                    <div class="center">
+                        <div class="password-success-modal">
+                            <div class="header">
+                                <h2>Add Leave</h2>
+                            </div>
+                            <div class="success-pic">
+                                <img id=success-pic src="../resources/icons/success.svg" alt="IMG">
+                            </div>
+                            <p id="p-status">Leave added!</p>
+                            <a href="http://localhost:8080/quickSalon_war_exploded/upperStaff/owner/ownerHome.html"
+                                id="model-btn">Ok</a>
+                        </div>
+                    </div>
+                </div> -->
+            <!-- </div> -->
         </div>
-        </div>
-        <script src="../resources/javascript/side_navbar.js"></script>
-        <script src="../resources/javascript/leave.js"></script>
+    </div>
+    
+    <script src="../resources/javascript/side_navbar.js"></script>
+    <script src="../resources/javascript/leave.js"></script>
 </body>
 
 </html>
