@@ -1,106 +1,133 @@
- <!DOCTYPE html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../../resources/css/34.css">
-    
-    <link rel="stylesheet" type="text/css" href="../../resources/css/sideNavbar.css">
-    <link rel="stylesheet" type="text/css" href="../../resources/css/mainDiv.css">
-    <link rel="stylesheet" type="text/css" href="../../resources/css/goods_received.css">
-    <link rel="stylesheet" type="text/css" href="../../resources/css/dequeue_customer.css">
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-    />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<!DOCTYPE html>
 
-    <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-  />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" type="text/css" href="../../resources/css/34.css"> -->
 
-    
-
-    <title>Dequeue</title>
-  </head>
-  <body onresize="whenResizing()">
-
-    <div id="pop" class="popup"> <!-- popup for viewing GRN details -->
-      <div class="popup2">
-        <div class="top1">
-          <i><img onclick="hide()" src="../../resources/icons/cross.png" alt=""></i>
-          <b>Dequeue Appointment</b>
-        </div>
-
-        <b>Do you want to dequeue selected appointment?</b>
-
-
-        <div class="buttonDiv">
-            <button onclick="hide()" class="danger34">No</button>
-            <button onclick="hide()" class="btn-success34">Yes</button>
-        </div><!-- buttonDiv -->
-      </div> <!--popup2 -->
-    </div> <!-- popup -->
+  <link rel="stylesheet" type="text/css" href="../../resources/css/sideNavbar.css">
+  <link rel="stylesheet" type="text/css" href="../../resources/css/mainDiv.css">
+  <link rel="stylesheet" type="text/css" href="../../resources/css/goods_received.css">
+  <link rel="stylesheet" type="text/css" href="../../resources/css/dequeue_customer.css">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" type="text/css" href="../../resources/css/frameWork/style.css" />
 
 
 
-    <div id="mySidenav" class="sidenav">
-    </div> <!-- sidebar -->
+  <title>Dequeue Customer</title>
+</head>
 
-    <div id="main">
-      <div class="back">
-          <div id="navIcon" onclick="openNav()" class="navIcon" ><img  src="../../resources/icons/three.png" alt="Ooops" ></div>
+<body class="container" onresize=" whenResizing()">
+
+  <div id="mySidenav" class="sidenav">
+  </div> <!-- sidebar -->
+
+  <div id="main">
+    <div class="back">
+      <div id="navIcon" onclick="openNav()" class="navIcon"><img src="../../resources/icons/three.png" alt="Ooops">
       </div>
-      <br><br>
+    </div>
 
-      <div class="topBar">
-        <b>Dequeue</b>
-      </div> <!-- top bar -->
+    <div class="mainDiv container">
+      <div class="large-space">
+        <div class="heading">Dequeue Customer</div>
+        <div class="work-space">
 
-      <div class="mainDiv">
-        <div class="setDate">
+          <div class="inner-div">
+            <!-- Date Select Box -->
+            <div class="date-div">
+              <input type="date" id="date" />
+            </div>
 
-          <div class="from-date">
-            <label for="fromDate"> From :</label>
-            <input type="date" name="fromDate">
-          </div> <!--- from-date  -->
+            <!-- Start Table div -->
+            <div class="">
+              <table id="t02" class="table34">
+                <colspan>
+                  <col />
+                  <col />
+                  <col class="medium-column" />
+                  <col class="medium-column" />
+                </colspan>
+                <tr>
+                  <th>QID</th>
+                  <th>Customer Name</th>
+                  <th>Service</th>
+                  <th>Telephone</th>
+                  <th>Start Time</th>
+                  <th>End Time</th>
+                  <th>Service Provider</th>
+                  <th>Dequeue</th>
+                </tr>
+                <tbody id="aptTable" class="tbody">
+                  <!-- <tr>
+                    <td>102</td>
+                    <td>102</td>
+                    <td>102</td>
+                    <td>102</td>
+                    <td>102</td>
+                    <td>102</td>
+                    <td><button class="dequeue-btn btn btn-red">Dequeue</button></td>
+                  </tr> -->
+                
 
-          <div class="to-date">
-            <label for="toDate"> To   :</label>
-            <input type="date" name="toDate">
-          </div> <!-- to-date -->
+                </tbody>
 
-          <div class="search-container">
-            <input type="text" name="search" placeholder="Search.." id="search-bar">
-            <button type="submit" class="btn-search" id="btn-search"><i class="fas fa-search"></i></button>
-          </div> <!-- search-container -->
-        </div><!-- setDate -->
+                <br />
+              </table>
+            </div>
+            <!-- end of tableDiv34 -->
 
-        <div class="tableDiv34">
-          <table class="table34">
-            <tr>
-              <th>Appointment no</th>
-              <th>Customer ID</th>
-              <th>Full Name</th>
-              <th>Date</th>
-              <th>Time</th>
-              <th width="90px">Dequeue</th>
-            </tr>
-            <tbody id="tbl"></tbody>
-          </table>
-        </div>
+          </div>
 
-        <div class="buttonDiv">
+
+          <!-- <div class="setDate">
+
+            <div class="from-date">
+              <label for="fromDate"> Date :</label>
+              <input type="date" name="fromDate">
+            </div>
+      
+
+            <div class="tableDiv34">
+              <table class="table34">
+                <tr>
+                  <th>Appointment no</th>
+                  <th>Customer ID</th>
+                  <th>Full Name</th>
+                  <th>Date</th>
+                  <th>Time</th>
+                  <th width="90px">Dequeue</th>
+                </tr>
+                <tbody id="tbl"></tbody>
+              </table>
+            </div> -->
+
+          <!-- <div class="buttonDiv">
             <button onclick="window.location.href='manager_home.html'" class="danger34">Back</button>
             <button onclick="window.location.href='#'" class="btn-success34">New Sales</button>
-        </div><!-- buttonDiv -->
-      </div><!-- mainDiv -->
+          </div> -->
 
-      <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-      <script type="text/javascript" src="../../resources/javascript/dequeue_customer.js"></script>
-      <script type="text/javascript" src="../../resources/javascript/side_navbar_manager.js"></script>
 
-    </body>
+
+        </div>
+      </div>
+    </div>
+
+
+  </div><!-- mainDiv -->
+  </div>
+  
+
+
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript" src="../../resources/javascript/dequeue_customer.js"></script>
+  <script type="text/javascript" src="../../resources/javascript/side_navbar_manager.js"></script>
+  <script type="text/javascript" src="../../resources/javascript/side_navbar.js"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+</body>
+
 </html>

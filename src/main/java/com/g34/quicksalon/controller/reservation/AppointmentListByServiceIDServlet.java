@@ -1,7 +1,7 @@
 package com.g34.quicksalon.controller.reservation;
 
 import com.g34.quicksalon.dao.AppointmentDAO;
-import com.g34.quicksalon.dao.ApppointmentDAOImple;
+import com.g34.quicksalon.dao.AppointmentDAOImple;
 import com.g34.quicksalon.model.AppointmentServiceVIEW;
 import com.google.gson.Gson;
 
@@ -22,7 +22,7 @@ public class AppointmentListByServiceIDServlet extends HttpServlet {
         int serviceID= Integer.parseInt(request.getParameter("serviceID"));
 
         ArrayList<AppointmentServiceVIEW> appointments=new ArrayList<AppointmentServiceVIEW>();
-        AppointmentDAO appointmentDAO=new ApppointmentDAOImple();
+        AppointmentDAO appointmentDAO=new AppointmentDAOImple();
 
         try {
             appointments=appointmentDAO.getAllAppointmentDetailsByServiceID(serviceID);

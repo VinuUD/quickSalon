@@ -12,9 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.sql.Time;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class PersonalScheduleServlet extends HttpServlet {
 
@@ -52,7 +50,7 @@ public class PersonalScheduleServlet extends HttpServlet {
 
         ArrayList<PersonalSchedule> schedules=new ArrayList<>();
         ArrayList<Appointment> appointments=new ArrayList<>();
-        AppointmentDAO appointmentDAO = new ApppointmentDAOImple();
+        AppointmentDAO appointmentDAO = new AppointmentDAOImple();
         CustomerDAO customerDAO=new CustomerDAOImple();
         ServiceDAO serviceDAO=new ServiceDAOImple();
 

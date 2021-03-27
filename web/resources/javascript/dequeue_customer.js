@@ -1,41 +1,64 @@
-var journal = [
-    {appNo:"Q001", customerID:"CST001", fullName:"Mary Jane", date:"01/01/2020", time:"10.00 AM"},
-    {appNo:"Q001", customerID:"CST001", fullName:"Mary Jane", date:"01/01/2020", time:"10.00 AM"},
-    {appNo:"Q001", customerID:"CST001", fullName:"Mary Jane", date:"01/01/2020", time:"10.00 AM"},
-    {appNo:"Q001", customerID:"CST001", fullName:"Mary Jane", date:"01/01/2020", time:"10.00 AM"}
-  ];
+$(document).ready(function() {
+  
 
-  var i,j;
+    var now = new Date();
+    var day = ("0" + now.getDate()).slice(-2);
+    var month = ("0" + (now.getMonth() + 1)).slice(-2);
+    var today = now.getFullYear()+"-"+(month)+"-"+(day) ;
+    $('#date').val(today);
 
-  for(i=0;i<journal.length;i++)
-  {
-      console.log(journal[i].name);
-  }
+    //First Initial 
+    onChangeDate(today);
 
+    //On change date populate the table
+    $("#date").change(function(){
+        onChangeDate($(this).val())
+    });
 
-var text= "";
-for(i=0;i<journal.length;i++)
-{
-    text = text + "<tr>" +
-    "<td>" + journal[i].appNo + "</td>" +
-    "<td>" + journal[i].customerID + "</td>" +
-    "<td>" + journal[i].fullName + "</td>" +
-    "<td>" + journal[i].date + "</td>" +
-    "<td>" + journal[i].time + "</td>" +
-    "<td>" + "<button title='View AOD Details.' class = 'danger34' onclick = 'show()'>" + "<i class='fa fa-times'>"+ "</i>" +  "</button>" + "</td>" +
-     "</tr>";
+    //Dequeue Customer
+    // $("#date").change(function(){
+    //     onChangeDate($(this).val())
+    // });
 
-}
+    $(document).on("click", ".dequeue-btn ", function () {
 
-document.getElementById("tbl").innerHTML = text;
+        if (confirm("Confirm Dequeue ?") == true) {
+            var $row = $(this).closest("tr")
+            $tds = $row.find("td"); 
+            //console.log($tds[0].innerText)
 
-function show()
-{
-    document.getElementById("pop").style.display="block";
+            //post Requset for dequeue
+            $.post("http://localhost:8080/quickSalon_war_exploded/cancelAppointment", {
+                qId:$tds[0].innerText
+            },
+            function(data, status){
+               if(data==1){
+                   alert("Dequeue Confirmed !")
+                   location.reload();
+               }else{
+                alert("Dequeue Failed !")
+                location.reload();
+               }
+            }
+        );
+           
+        }
+        
+    });
 
-}
+    function onChangeDate(date){
+        $('#aptTable').empty();
+        // alert($(this).val())
+         $.post("http://localhost:8080/quickSalon_war_exploded/appointmentSP", {
+                    date:date
+                },
+                function(data, status){
+                    $.each(data, function( index, value ) {
+                        $('#aptTable').append(`<tr><td>${value.qId}</td><td>${value.custFirstName+' '+value.custLastName}</td> <td>${value.serviceName}</td> <td>${value.telephone}</td> <td>${value.startTime}</td> <td>${value.endTime}</td><td>${value.empFirstName+' '+value.empLastName}</td> <td><button class="dequeue-btn btn btn-red">Dequeue</button></td></tr>`);
+                    });
+                }
+            );
+    }
 
-function hide()
-{
-    document.getElementById("pop").style.display="none";
-}
+});
+

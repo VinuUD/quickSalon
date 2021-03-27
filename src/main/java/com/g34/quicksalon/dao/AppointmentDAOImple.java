@@ -3,11 +3,12 @@ package com.g34.quicksalon.dao;
 import com.g34.quicksalon.database.DBConnection;
 import com.g34.quicksalon.model.Appointment;
 import com.g34.quicksalon.model.AppointmentServiceVIEW;
+import com.g34.quicksalon.model.AppointmentVIEWForUpperStaff;
 
 import java.sql.*;
 import java.util.ArrayList;
 
-public class ApppointmentDAOImple implements AppointmentDAO {
+public class AppointmentDAOImple implements AppointmentDAO {
 
 
     public ArrayList<Appointment> getAllAppointments() {
@@ -123,5 +124,43 @@ public class ApppointmentDAOImple implements AppointmentDAO {
         }
         return appointments;
     }
+
+
+    //    get all upcoming appointment by Date -- return (QId,Name,telephone,startTime,endTime,spName)
+    @Override
+    public ArrayList<AppointmentVIEWForUpperStaff> getAppointmentDeatilsByDate(String date) throws SQLException, ClassNotFoundException {
+
+        ArrayList<AppointmentVIEWForUpperStaff> appointments=new ArrayList<>();
+        try {
+            PreparedStatement stmt=DBConnection.getConnection().prepareStatement("SELECT qID,firstName,LastName,telephone,serviceName,startTime,endTime,empFirstName,empLastName FROM j4f9qe_AppointmentViewForUS WHERE cancelledFlag=0 AND complete=0 AND date=(?);");
+            stmt.setString(1,date);
+            ResultSet resultSet = stmt.executeQuery();
+
+            while (resultSet.next()){
+                AppointmentVIEWForUpperStaff appointment=new AppointmentVIEWForUpperStaff(resultSet.getInt(1),resultSet.getString(2),resultSet.getString(3),resultSet.getString(4),resultSet.getString(5),resultSet.getString(6),resultSet.getString(7),resultSet.getString(8),resultSet.getString(9));
+                appointments.add(appointment);
+            }
+
+        } catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+        return appointments;
+
+    }
+
+    @Override
+    public boolean cancelAppointment(int qID) throws SQLException, ClassNotFoundException {
+
+        Connection connection =DBConnection.getConnection();
+        PreparedStatement stmt= connection.prepareStatement("UPDATE j4f9qe_appointments SET cancelledFlag=1 WHERE qID=(?);");
+        stmt.setInt(1,qID);
+        int success=stmt.executeUpdate();
+
+        if(success<=0){
+            return false;
+        }
+        return true;
+    }
+
 
 }
