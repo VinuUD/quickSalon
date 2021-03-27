@@ -253,6 +253,16 @@
         <url-pattern>/assignService</url-pattern>
     </servlet-mapping>
 
+    <!--    Servlet for assign service for SPs-->
+    <servlet>
+        <servlet-name>LeastAppSp</servlet-name>
+        <servlet-class>com.g34.quicksalon.controller.reservation.LeastAppCountSpDetailsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LeastAppSp</servlet-name>
+        <url-pattern>/getLeastAppSp</url-pattern>
+    </servlet-mapping>
+
     <!--Remove SP-->
     <servlet>
         <servlet-name>RemoveSPServlet</servlet-name>
