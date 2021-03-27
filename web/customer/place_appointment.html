@@ -26,7 +26,7 @@
 
   <body class="container" onresize="whenResizing()">
     <!-- side nav bar -->
-    <div id="mySidenav" class="sidenav">
+    <!-- <div id="mySidenav" class="sidenav">
       <div class="closeIcon">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
           >&times;</a
@@ -38,7 +38,7 @@
       <a href="#">Service / Packages</a>
       <a href="complaint.html">Complaint</a>
       <a href="#">Contact : 0713705748 <br>(saloon owner)</a>
-    </div>
+    </div> -->
 
     <!-- ////////////////////////////// -->
     <div id="main">
@@ -81,7 +81,7 @@
                   <thead>
                     <th class="tbl-head">Start Time</th>
                     <th class="tbl-head">End Time</th>
-                    <th class="tbl-head"></th>
+                    <th class="tbl-head">Add</th>
                   </thead>
                   <tbody id="time-slots" class="time-slots">                  
                     
@@ -117,38 +117,17 @@
                   <th>Date</th>
                   <th>Time</th>
                 </tr>
-                <tr>
-                  <td>Haircut</td>
-                  <td>Kamal</td>
-                  <td>30/01/2020</td>
-                  <td>07:00 - 07:30</td>
-                </tr>
-                <tr>
-                  <td>Haircut</td>
-                  <td>Kamal</td>
-                  <td>30/01/2020</td>
-                  <td>13:00 - 14:00</td>
-                </tr>
-                <tr>
-                  <td>Haircut</td>
-                  <td>Kamal</td>
-                  <td>31/01/2020</td>
-                  <td>09:00 - 09:30</td>
-                </tr>
-                <tr>
-                  <td>Haircut</td>
-                  <td>Kamal</td>
-                  <td>31/01/2020</td>
-                  <td>16:00 - 16:30</td>
-                </tr>
+                <tr></tr>
+                <tbody id="t02Tbody">
+                </tbody>
                 <br />
               </table>
             </div>
             <!-- end of tableDiv34 -->
 
             <div class="innerDiv">
-              <div type="submit" class="btn btn-red">Cancel</div>
-              <div type="submit" class="btn btn-green">Confirm</div>
+              <div type="submit" id="cancel" class="btn btn-red">Cancel</div>
+              <div type="submit" id="confirm" class="btn btn-green">Confirm</div>
             </div>
             <!-- end of innerDiv -->
           </div>
