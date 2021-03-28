@@ -37,6 +37,7 @@
 
 .buttons .container div {
   background: var(--blur-grey);
+  border-radius: 10px;
   padding-top: 10px;
   transition: all 500ms;
   z-index: 1;
@@ -50,10 +51,75 @@
   z-index: 1;
 }
 
-footer {
-  z-index: 1;
+/* Small screens */
+@media (max-width: 560px) {
+  .buttons {
+    margin-top: 0;
+  }
+
+  .buttons div {
+    border-bottom: #333 dashed 1px;
+    padding: 1.2rem 1 rem;
+    transition: all 1000ms;
+  }
+
+  .buttons .container {
+    transition: all 1000ms;
+  }
+
+  .buttons .container div h3 {
+    font-weight: normal;
+  }
+
+  .buttons p {
+    display: none;
+  }
+
+  .buttons div:hover > p {
+    display: block;
+  }
 }
 
-footer p {
-  z-index: 1;
+/* Landscape */
+@media (max-height:500px) {
+  .buttons {
+    margin-top: -210px;
+  }
+
+  .buttons p {
+    display: none;
+  }
+
+  .buttons .container div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    min-height: 40px;
+    max-height: 40px;
+    padding: 30px 0;
+  }
+
+  .buttons .container div h3{
+    display: none;
+  }
+
+  .buttons .container div i{
+    font-size: 2.5rem;
+  }
+
+  .buttons .container div:hover > h3 {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: normal;
+  }
+
+  .buttons .container div:hover > i {
+    display: none;
+  }
+
+  .content .logo {
+    height: 100px;
+    width: 100px;
+  }
 }
