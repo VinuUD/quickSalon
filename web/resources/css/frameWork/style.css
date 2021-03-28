@@ -56,7 +56,21 @@ html {
 /* medium main working area*/
 .medium-space {
   width: 80%;
+  height: 100%;
   min-height: 90vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  background: var(--off-white);
+}
+
+/* small main working area*/
+.small-space {
+  width: 60%;
+  height: 100%;
+  min-height: 80vh;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -76,11 +90,14 @@ html {
 }
 
 .work-space {
+  align-items: center;
   justify-content: center;
   width: 90%;
+  height: 80%;
   min-height: 80vh;
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
   padding: 15px;
   background: #ffffff;
 }
@@ -155,7 +172,7 @@ button {
 .btn {
   background-color: white;
   color: black;
-  min-width: 60px;
+  min-width: 80px;
   padding: 8px 12px;
   text-align: center;
   font-size: 15px;
@@ -288,4 +305,27 @@ select {
   box-sizing: border-box;
   border: none;
   border-bottom: 1px solid var(--main-color-dark);
+}
+
+.form34 .textarea-wrapper {
+  width: 100%;
+  min-width: 230px;
+	height:150px;
+	border:1px solid var(--main-color-dark);
+	border-left: 4px solid var(--main-color-dark);
+  border-right: 4px solid var(--main-color-dark);
+  padding: 20px;
+  margin-left: -20px;
+}
+
+.form34 textarea {
+	border: none;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+}
+
+.special-note {
+  color: var(--main-grey);
+  padding: 20px;
 }

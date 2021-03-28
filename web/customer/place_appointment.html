@@ -4,11 +4,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>New Appointment</title>
     <link rel="stylesheet" href="../resources/css/normal.css" />
-  
+
     <link rel="stylesheet" href="../resources/css/mainDiv.css" />
-    <link rel="stylesheet" href="../resources/css/place_appointment.css" />
     <link rel="stylesheet" href="../resources/css/frameWork/style.css" />
-    
+    <link rel="stylesheet" href="../resources/css/place_appointment.css" />
+
     <script
       src="https://kit.fontawesome.com/0f3db243e3.js"
       crossorigin="anonymous"
@@ -17,14 +17,14 @@
 
 
     <link rel="stylesheet" href="../resources/css/calendar/calendar.css" />
-   
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
   </head>
 
-  <body class="container" onresize="whenResizing()">
+  <body>
     <!-- side nav bar -->
     <!-- <div id="mySidenav" class="sidenav">
       <div class="closeIcon">
@@ -41,16 +41,14 @@
     </div> -->
 
     <!-- ////////////////////////////// -->
-    <div id="main">
-      <div class="back">
-        <div id="navIcon" onclick="openNav()" class="navIcon">
-         
-        </div>
-      </div>
-      <div class="mainDiv container">
-        <div class="large-space">
-          <div class="heading">Place an appointment</div>
-          <div class="work-space">
+    <div class="container">
+      <div class="medium-space">
+        <div class="heading">
+          Place an appointment
+        </div><!-- end of heading -->
+
+        <div class="work-space">
+          <div class="left-work-space">
             <div class="innerDiv" id="top-inner-div">
               <select name="services" id="services">
                 <option value="">Select Service</option>
@@ -59,20 +57,15 @@
               <select name="serviceProvider" id="serviceProvider">
                 <option value="1111">Default</option>
               </select>
+            </div><!-- end of innerDiv -->
 
-            
-            </div>
-            <!-- end of innerDiv -->
-
-            <div class="innerDiv">
-              <!-- Calendar div -->
-              <div class="">
-                <!-- <div class="date-time-div"> -->
-                <div class="calendar-div">
-                  <div class="calDiv">
-                    <div class="calendar" id="calendar"></div>
-                  </div>
+            <!-- Calendar div -->
+            <div class="">
+              <div class="calendar-div">
+                <div class="calDiv">
+                  <div class="calendar" id="calendar"></div>
                 </div>
+              </div>
 
               <div class="time-slots-div">
                 <table id="time-slots-table" class="time-slots-table">
@@ -80,27 +73,22 @@
                     <th class="tbl-head">Start Time</th>
                     <th class="tbl-head">End Time</th>
                     <th class="tbl-head">Add</th>
-                  </thead>
-                  <tbody id="time-slots" class="time-slots">                  
-                    
+                  </thead><!-- end of thead -->
 
-                  </tbody>
-                </table>
+                  <tbody id="time-slots" class="time-slots">
+                  </tbody><!-- end of tbody -->
+                </table><!-- end of time-slots-table -->
+
                 <div class="btn-bar">
                   <button class="btn btn-red">Back</button>
-
                   <button class="btn" id="select-time-btn" disabled>Select</button>
+                </div><!-- end of btn-bar -->
+              </div><!-- end of time-slots-div -->
+            </div><!-- end of innerDiv -->
+            <!-- End of Calendar div -->
+          </div><!-- end of left-work-space -->
 
-
-                </div>
-              </div>
-
-              <!-- End of Calendar div -->
-
-              <!-- </div> -->
-            </div>
-            <!-- end of innerDiv -->
-
+          <div class="right-work-space">
             <div class="table-div34">
               <table id="t02" class="table34">
                 <colspan>
@@ -108,36 +96,33 @@
                   <col />
                   <col class="medium-column" />
                   <col class="medium-column" />
-                </colspan>
+                </colspan><!-- end of colspan -->
+
                 <tr>
                   <th>Service</th>
                   <th>Service Provider</th>
                   <th>Date</th>
                   <th>Time</th>
                 </tr>
+
                 <tr></tr>
+
                 <tbody id="t02Tbody">
                 </tbody>
-                <br />
               </table>
-            </div>
-            <!-- end of tableDiv34 -->
+            </div><!-- end of tableDiv34 -->
 
             <div class="innerDiv">
               <div type="submit" id="cancel" class="btn btn-red">Cancel</div>
               <div type="submit" id="confirm" class="btn btn-green">Confirm</div>
-            </div>
-            <!-- end of innerDiv -->
-          </div>
-          <!-- end of work-space -->
-        </div>
-        <!-- end of large-space -->
-      </div>
+            </div><!-- end of innerDiv -->
+          </div><!-- end of right-work-space -->
+        </div><!-- end of work-space -->
+      </div><!-- end of medium-space -->
+    </div><!-- end of container -->
 
-    </div>
-    <!-- end of #main -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-   
+
     <script src="../resources/javascript/calendar/calendar.js"></script>
     <!-- <script src="../resources/javascript/calendar/timeSlots.js"></script> -->
     <script src="../resources/javascript/place_appointment.js"></script>
