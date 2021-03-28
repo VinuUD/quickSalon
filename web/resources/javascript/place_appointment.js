@@ -29,6 +29,7 @@ var assignedSpLname = "";
 var assignedDate = "";
 var assignedStartTime = "";
 var assignedEndTime = "";
+var noSpFlag = 0;
 
 customerAppArray = []; //customer's selected appointments
 
@@ -138,7 +139,7 @@ $(document).ready(function () {
       }
     });
 
-    console.log(appListRelatedSp);
+    // console.log(appListRelatedSp);
     $(".td-white").css("background-color", "white");
     displayAppointmentsOnCalendar(appListRelatedSp);
   });
@@ -200,7 +201,7 @@ $(document).ready(function () {
 
   function getAllSlots() {
     allTimeSlots = [];
-    console.log("getallslots");
+    // console.log("getallslots");
     var startTimeH = 0;
     var startTimeM = 0;
     var endTimeH = 0;
@@ -230,7 +231,7 @@ $(document).ready(function () {
   //Onclick day slots on calendar
   $(".day-btn").on("click", function () {
     if ($("#serviceProvider").val() == 1111) {
-      console.log("sp wa thorala nathi welawa");
+      // console.log("sp wa thorala nathi welawa");
       filledTimeSlots = [];
       var id = $(this).attr("id");
       clickedDate = id;
@@ -270,7 +271,7 @@ $(document).ready(function () {
         });
 
         //This will populate the free slot table
-        console.log(filledTimeSlots);
+        // console.log(filledTimeSlots);
         freeSlots();
       }
     } else {
@@ -279,7 +280,7 @@ $(document).ready(function () {
       var mt = monthArray.indexOf(clickedDate.substr(4, 3)) + 1;
       assignedDate = //2021-03-04
         id.substr(0, 4) + "-" + "0" + mt + "-" + clickedDate.substr(7, 2);
-      console.log("sp wa thorala thiyana welawa");
+      // console.log("sp wa thorala thiyana welawa");
       $(".calendar-div").css("display", "none");
       $(".time-slots-div").css("display", "block");
       filledTimeSlots = [];
@@ -305,11 +306,12 @@ $(document).ready(function () {
           filledTimeSlots.push(new Time(hs, ms));
         }
       });
-      console.log(filledTimeSlots);
+      // console.log(filledTimeSlots);
       freeSlots();
     }
     ///////////////////////////////////////////////////////
     function freeSlots() {
+      $("#time-slots").html(`<tr></tr>`);
       timeTakenObj = new Time(0, parseInt(timeTaken)).add(new Time(0, 0)); //
       var sTime = new Time(9, 0);
       var closeTime = new Time(19, 0);
@@ -379,8 +381,9 @@ $(document).ready(function () {
 
   //When clicked Select Button
   var appSp = []; //appointment thiyana sp lage spIDs
-
+  var isPresed = 0;
   $(document).on("click", "#select-time-btn", function () {
+    isPresed = 1;
     if ($("#serviceProvider").val() == 1111) {
       var thisDateFreeSpIDs = [];
       var thisDate_FreeTimeSlotSpIDs = [];
@@ -404,6 +407,8 @@ $(document).ready(function () {
         (x) => !appSpWithNoDuplicates.includes(x)
       ); // meken thama balanne me service eka dena okkoma sp lageyi appointment
       // ekak tyna sp lageyi wenasa
+
+      console.log(difference);
 
       if (difference.length == 1) {
         $.ajax({
@@ -433,10 +438,11 @@ $(document).ready(function () {
         //me service ekata adalawa inna okkoma sp lata appontment watila tynwa********
         appointmentList.map(function (app) {
           if (app.date == dateWithFormat) {
+            console.log(app);
             var hs = parseInt(selectedStartTime.split(":")[0]);
             if (hs > 0 && hs < 8) {
               hs = hs + 12;
-              thisDateFreeSpIDs;
+              // thisDateFreeSpIDs;
             }
             var ms = parseInt(selectedStartTime.split(":")[1]);
             var selectedTimeMinute = parseInt(hs * 60 + ms);
@@ -444,17 +450,33 @@ $(document).ready(function () {
             // console.log(selectedTimeMinute);
 
             // for (var i = 0; i < appointmentList.length; i++) {
+            // console.log(app.startTime + "kjadhfjahfkaj");
             var appHs = parseInt(app.startTime.split(":")[0]);
             var appMs = parseInt(app.startTime.split(":")[1]);
+            if (appHs > 0 && appHs < 8) {
+              appHs = appHs + 12;
+              // thisDateFreeSpIDs;
+            }
+
+            // console.log(appHs + "---------------------------------");
 
             var appMinute = appHs * 60 + appMs;
             // console.log(selectedTimeMinute + " " + appMinute);
+            console.log(appMinute);
+            // console.log(
+            //   selectedTimeMinute + "---" + appMinute + "---" + timeTaken
+            // );
             if (
               Math.abs(selectedTimeMinute - appMinute) >= parseInt(timeTaken)
             ) {
               // me date ekata adalawa illapu welaawa free denna plwn aya********
+
+              // console.log(app.employeeID);
               thisDate_FreeTimeSlotSpIDs.push(app.employeeID);
             } else {
+              // console.log(
+              //   "meka athula inne dawasath samana wela welaawath samana una eun"
+              // );
               //meka athula inne dawasath samana wela welaawath samana una eun
               thisDateThisTimeNotFree.push(app.employeeID);
               //console.log(app);
@@ -473,6 +495,12 @@ $(document).ready(function () {
         var appOnlyAnotherDay = appOnlyAnotherDay2.filter(
           (x) => !thisDate_FreeTimeSlotSpIDs.includes(x)
         );
+
+        thisDate_FreeTimeSlotSpIDs = thisDate_FreeTimeSlotSpIDs.filter(
+          (x) => !thisDateThisTimeNotFree.includes(x)
+        );
+
+        console.log(thisDate_FreeTimeSlotSpIDs);
 
         if (appOnlyAnotherDay.length != 0) {
           if (appOnlyAnotherDay.length == 1) {
@@ -533,68 +561,100 @@ $(document).ready(function () {
             }
           } else {
             console.log("nothing to do here");
+            noSpFlag = 1;
           }
         }
       }
 
-      // console.log("Me dawasee me welawa free nathi aya");
-      // console.log(thisDateThisTimeNotFree);
-      // console.log("Me dawase free slots tyana aya");
-      // console.log(thisDate_FreeTimeSlotSpIDs);
-      // console.log("Me dawase nathuwa anith dawasawala appointment tyna aya");
-      // console.log(thisDateFreeSpIDs);
-      // console.log("Me dawase nathuwa anith dawaswala witrk app tyna aya");
-      // console.log(appOnlyAnotherDay);
-      // console.log("okkoma appointment tika");
-      // console.log(appointmentList);
+      console.log("Me dawasee me welawa free nathi aya");
+      console.log(thisDateThisTimeNotFree);
+      console.log("Me dawase free slots tyana aya");
+      console.log(thisDate_FreeTimeSlotSpIDs);
+      console.log("Me dawase nathuwa anith dawasawala appointment tyna aya");
+      console.log(thisDateFreeSpIDs);
+      console.log("Me dawase nathuwa anith dawaswala witrk app tyna aya");
+      console.log(appOnlyAnotherDay);
+      console.log("okkoma appointment tika");
+      console.log(appointmentList);
 
-      // console.log(assignedSpID + " ----> " + assignedSpFname);
+      console.log(assignedSpID + " ----> " + assignedSpFname);
     } else {
-      console.log("hellooooooooo");
+      // console.log("hellooooooooo");
     }
 
-    $.ajax({
-      type: "GET",
-      url: "http://localhost:8080/quickSalon_war_exploded/getLeastAppSp",
-      data: { spID: assignedSpID },
-      async: false,
-      success: function (response) {
-        assignedSpID = response.employeeId;
-        assignedSpFname = response.firstName;
-        assignedSpLname = response.lastName;
-      },
-    });
+    if (noSpFlag == 0) {
+      $.ajax({
+        type: "GET",
+        url: "http://localhost:8080/quickSalon_war_exploded/getLeastAppSp",
+        data: { spID: assignedSpID },
+        async: false,
+        success: function (response) {
+          assignedSpID = response.employeeId;
+          assignedSpFname = response.firstName;
+          assignedSpLname = response.lastName;
+        },
+      });
 
-    $("#t02Tbody").append(
-      `<tr>
+      $("#t02Tbody").append(
+        `<tr>
       <td>${serviceID}</td>
       <td>${assignedSpFname}</td>
       <td>${assignedDate}</td>
       <td>${assignedStartTime + " - " + assignedEndTime}</td>
     </tr>`
-    );
+      );
 
-    $(".calendar-div").css("display", "block");
-    $(".time-slots-div").css("display", "none");
+      $(".calendar-div").css("display", "block");
+      $(".time-slots-div").css("display", "none");
 
-    customerAppArray.push({
-      sID: serviceID,
-      spID: assignedSpID,
-      date: assignedDate,
-      startTime: assignedStartTime,
-      endTime: assignedEndTime,
-    });
+      customerAppArray.push({
+        sID: serviceID,
+        spID: assignedSpID,
+        date: assignedDate,
+        startTime: assignedStartTime,
+        endTime: assignedEndTime,
+      });
+    } else {
+      alert("No Service Provider to assign!");
+      location.reload();
+    }
 
-    $("#confirm").on("click", function () {
+    // console.log(serviceID);
+    // console.log(assignedSpID);
+    // console.log(assignedSpFname);
+    // console.log(assignedSpLname);
+    // console.log(assignedDate);
+    // console.log(assignedStartTime);
+    // console.log(assignedEndTime);
+  });
+
+  var res = 0;
+  $("#confirm").on("click", function () {
+    console.log(customerAppArray);
+    if (isPresed == 1) {
       console.log("confirm eka clicked");
-    });
-
-    console.log(serviceID);
-    console.log(assignedSpID);
-    console.log(assignedSpFname);
-    console.log(assignedSpLname);
-    console.log(assignedDate);
-    console.log(assignedStartTime);
-    console.log(assignedEndTime);
+      if (confirm("Do you Confirm Appointment?")) {
+        customerAppArray.map(function (app) {
+          $.ajax({
+            type: "POST",
+            url: "http://localhost:8080/quickSalon_war_exploded/newAppointment",
+            data: app,
+            async: false,
+            success: function (response) {
+              res = response;
+            },
+          });
+        });
+        if (res == 1) {
+          alert("Appointment placed! See you seen");
+          location.reload();
+        } else {
+          alert("Appointment not placed! Try again!");
+          location.reload();
+        }
+      } else {
+        console.log("you pressed Cancle");
+      }
+    }
   });
 });

@@ -20,12 +20,14 @@
 .name-panel >div{
     margin: 10px;
 }
-
+#removeSP-btn{
+  width: 100px;
+}
 
 /* Serach box */
 #search-box{
     border: 1px black solid;
-    width: 375px;
+    width: 360px;
     max-height: 100px;
     overflow-y: scroll;
     overflow-x: hidden;

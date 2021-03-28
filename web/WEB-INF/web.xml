@@ -359,4 +359,37 @@
         <url-pattern>/appointmentsByserviceID</url-pattern>
     </servlet-mapping>
 
+
+<!--  CancelledFlag set =1-->
+    <servlet>
+        <servlet-name>CancelAppointmentServlet</servlet-name>
+        <servlet-class>com.g34.quicksalon.controller.reservation.CancelAppointmentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CancelAppointmentServlet</servlet-name>
+        <url-pattern>/cancelAppointment</url-pattern>
+    </servlet-mapping>
+
+<!--Get personal schedule of a sp upcoming -today-->
+    <servlet>
+        <servlet-name>UpcomingPersonalScheduleServlet</servlet-name>
+        <servlet-class>com.g34.quicksalon.controller.serviceProvider.UpcomingPersonalScheduleServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpcomingPersonalScheduleServlet</servlet-name>
+        <url-pattern>/serviceProvider/personalTodaySchedule</url-pattern>
+    </servlet-mapping>
+
+
+    <!--List appointments list by service ID-->
+    <servlet>
+        <servlet-name>newAppointment</servlet-name>
+        <servlet-class>com.g34.quicksalon.controller.reservation.NewAppointmentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>newAppointment</servlet-name>
+        <url-pattern>/newAppointment</url-pattern>
+    </servlet-mapping>
+
+
 </web-app>

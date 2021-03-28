@@ -10,78 +10,75 @@
   <link rel="stylesheet" href="../resources/css/sideNavbar.css">
   <link rel="stylesheet" href="../resources/css/view_personal_schedule.css">
   <link rel="stylesheet" href="../resources/css/mainDiv.css">
-  <link rel="stylesheet" href="../resources/css/34.css">
   <link rel="stylesheet" href="../resources/css/frameWork/modal.css">
   <link rel="stylesheet" href="../resources/css/frameWork/style.css">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src='../resources/javascript/main2.js'></script>
+
 </head>
 
-<body onresize="whenResizing()">
+<body class="container" onresize="whenResizing()">
   <!-- side nav bar -->
   <div id="mySidenav" class="sidenav">
-
+    <div class="closeIcon"><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></div>
+    <a href="#">todo set navbar data with scession handling</a>
+    <a href="#">todo set navbar data with scession handling</a>
   </div>
 
   <!-- ////////////////////////////// -->
-  <div id="main container">
-
+  <div id="main">
     <div class="back">
       <div id="navIcon" onclick="openNav()" class="navIcon"><img src="../resources/icons/three.png" alt="Ooops">
       </div>
       <button class="btn34" onclick=history.back()>Back</button>
     </div>
-    <br><br>
 
-    <div class="topBar">
-      <b>My Schedule</b>
-    </div>
 
-    <div class="mainDiv">
-      <div class="inner-div">
+    <div class="mainDiv container">
+      <div class="large-space">
+        <div class="heading">View Personal Schedule</div>
+        <div class="work-space">
 
-        <!-- Date Select Box -->
-        <div class="date-div">
-          <input type="date" id="date"/>
+          <div class="inner-div">
+            <!-- Date Select Box -->
+            <div class="date-div">
+              <input type="date" id="date" />
+            </div>
+
+            <!-- Start Table div -->
+            <div class="">
+              <table id="t02" class="table34">
+                <colspan>
+                  <col />
+                  <col />
+                  <col class="medium-column" />
+                  <col class="medium-column" />
+                </colspan>
+                <tr>
+                  <th>Name</th>
+                  <th>Service</th>
+                  <th>Telephone</th>
+                  <th>Start Time</th>
+                  <th>End Time</th>
+                </tr>
+                <tbody id="aptTable" class="tbody">
+
+                </tbody>
+
+                <br />
+              </table>
+            </div>
+            <!-- end of tableDiv34 -->
+
+          </div>
         </div>
-
-        <!-- Start Table div -->
-        <div class="">
-          <table id="t02" class="table34">
-            <colspan>
-              <col />
-              <col />
-              <col class="medium-column" />
-              <col class="medium-column" />
-            </colspan>
-            <tr>
-              <th>Name</th>
-              <th>Service</th>
-              <th>Telephone</th>
-              <th>Start Time</th>
-              <th>End Time</th>
-            </tr>
-            <tbody id="aptTable" class="tbody">
-
-            </tbody>
-            
-            <br />
-          </table>
-        </div>
-        <!-- end of tableDiv34 -->
-
-
-
-
-
-
       </div>
     </div>
+  </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="../resources/javascript/view_personal_schedule.js"></script>
-    <script src="../resources/javascript/side_navbar_sp.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+  </script>
+  <script src="../resources/javascript/view_personal_schedule.js"></script>
+  <script src="../resources/javascript/side_navbar_sp.js"></script>
 </body>
 
 </html>

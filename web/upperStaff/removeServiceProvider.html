@@ -9,15 +9,16 @@
     <link rel="stylesheet" href="../resources/css/normal.css">
     <link rel="stylesheet" href="../resources/css/sideNavbar.css">
     <link rel="stylesheet" href="../resources/css/mainDiv.css">
-    <link rel="stylesheet" href="../resources/css/34.css">
+    
     <link rel="stylesheet" href="../resources/css/removeSP.css">
     <link rel="stylesheet" href="../resources/css/frameWork/input.css">
+    <link rel="stylesheet" href="../resources/css/frameWork/style.css" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src='../resources/javascript/main2.js'></script>
 </head>
 
-<body onresize="whenResizing()">
+<body class="container" onresize="whenResizing()">
     <!-- side nav bar -->
     <div id="mySidenav" class="sidenav">
         <div class="closeIcon"><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></div>
@@ -28,92 +29,63 @@
 
     <!-- ////////////////////////////// -->
     <div id="main">
-
         <div class="back">
-            <div id="navIcon" onclick="openNav()" class="navIcon"><img src="../resources/icons/three.png" alt="Ooops">
+            <div id="navIcon" onclick="openNav()" class="navIcon">
+                <img src="../resources/icons/three.png" alt="Ooops" />
             </div>
             <button class="btn34" onclick=history.back()>Back</button>
         </div>
-        <br><br>
+        <div class="mainDiv container">
+            <div class="large-space">
+                <div class="heading">Remove Service Provider</div>
+                <div class="work-space">
+                    <div>
+                        <div class="inner-div">
 
-        <div class="topBar">
-            <b> Remove Service Provider </b>
-        </div>
-
-        <div class="mainDiv">
-
-            <div>
-                <div class="inner-div">
-                    
-                    <div class="name-panel">
-                        <div class="input-text-wrap">
-                            <label for="empid">Employee ID</label>
-                            <input type="text" id="empid" name="empid" disabled placeholder="For Auto Filled">
-                        </div>
-                        <div>
-                            <div class="input-text-wrap">
-                                <label for="empname">Employee Name</label>
-                                <input type="text" id="empname" name="empname">
+                            <div class="name-panel">
+                                <div class="input-text-wrap">
+                                    <label for="empid">Employee ID</label>
+                                    <input type="text" id="empid" name="empid" disabled placeholder="For Auto Filled">
+                                </div>
+                                <div>
+                                    <div class="input-text-wrap">
+                                        <label for="empname">Employee Name</label>
+                                        <input type="text" id="empname" name="empname">
+                                    </div>
+                                    <div id='search-box'>
+                                        <ul id='search-list'>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-                            <div id='search-box'>
-                                <ul id='search-list'>
-                                </ul>
+
+                            <div class="tableDiv34 tableDiv">
+                                <table id='table_temp' class="table34">
+                                    <thead>
+                                        <tr class="header">
+                                            <th>Queue Id</th>
+                                            <th>Date</th>
+                                            <th>Start Time</th>
+                                            <th>End Time</th>
+                                            <th>Operation</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody id="aptTable" class="tbody">
+
+                                    </tbody>
+                                </table>
+
                             </div>
-                        </div>
-                    </div>
 
-                    <div class="tableDiv34 tableDiv">
-                        <table id='table_temp' class="table34">
-                            <thead>
-                            <tr class="header">
-                                <th>Queue Id</th>
-                                <th>Date</th>
-                                <th>Start Time</th>
-                                <th>End Time</th>
-                                <th>Operation</th>
-
-                            </tr>
-                            </thead>
-                            <tbody id="aptTable" class="tbody">
-
-                            </tbody>
-                        </table>
-        
-                    </div>
-
-
-                    <!-- <div class="form-container">
-                        <div class="input-text-wrap">
-                            <label for="empid">Employee ID</label>
-                            <input type="text" id="empid" name="empid" disabled placeholder="For Auto Filled">
+                            <div class="add-leave-btn">
+                                <button class="btn btn-red " id='removeSP-btn'>Remove</button>
+                            </div>
                         </div>
 
-                        <div>
-                            <div class="input-text-wrap">
-                                <label for="empname">Employee Name</label>
-                                <input type="text" id="empname" name="empname">
-                            </div>
-                            <div id='search-box'>
-                                <ul id='search-list'>
-                                </ul>
-                            </div>
-
-                        </div> -->
-                        
-                    <!-- </div> -->
-
-                    <!-- <div class="background-image">
-                        <img src="../resources/images/leave1.png">
-                    </div> -->
-
-                    <div class="add-leave-btn">
-                        <button class="btn-danger34" id='removeSP-btn'>Remove</button>
                     </div>
-                </div>
 
-            </div>
-
-            <!-- <div class="modal-background">
+                    <!-- <div class="modal-background">
             <div class="center">
                 <div class="password-success-modal">
                   <div class="header">
@@ -128,10 +100,13 @@
               </div>
 
             </div> -->
+                </div>
+            </div>
         </div>
-        </div>
-        <script src="../resources/javascript/side_navbar.js"></script>
-        <script src="../resources/javascript/removeSP.js"></script>
+    </div>
+    
+            <script src="../resources/javascript/side_navbar.js"></script>
+            <script src="../resources/javascript/removeSP.js"></script>
 </body>
 
 </html>

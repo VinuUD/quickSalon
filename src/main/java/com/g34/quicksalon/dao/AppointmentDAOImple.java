@@ -1,15 +1,13 @@
 package com.g34.quicksalon.dao;
 
 import com.g34.quicksalon.database.DBConnection;
-import com.g34.quicksalon.model.Appointment;
-import com.g34.quicksalon.model.AppointmentServiceVIEW;
-import com.g34.quicksalon.model.ServiceProvider;
+import com.g34.quicksalon.model.*;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class ApppointmentDAOImple implements AppointmentDAO {
+public class AppointmentDAOImple implements AppointmentDAO {
 
 
     public ArrayList<Appointment> getAllAppointments() {
@@ -126,6 +124,65 @@ public class ApppointmentDAOImple implements AppointmentDAO {
         return appointments;
     }
 
+
+
+    //    get all upcoming appointment by Date -- return (QId,Name,telephone,startTime,endTime,spName)
+    @Override
+    public ArrayList<AppointmentVIEWForUpperStaff> getAppointmentDeatilsByDate(String date) throws SQLException, ClassNotFoundException {
+
+        ArrayList<AppointmentVIEWForUpperStaff> appointments=new ArrayList<>();
+        try {
+            PreparedStatement stmt=DBConnection.getConnection().prepareStatement("SELECT qID,firstName,LastName,telephone,serviceName,startTime,endTime,empFirstName,empLastName FROM j4f9qe_AppointmentViewForUS WHERE cancelledFlag=0 AND complete=0 AND date=(?);");
+            stmt.setString(1,date);
+            ResultSet resultSet = stmt.executeQuery();
+
+            while (resultSet.next()){
+                AppointmentVIEWForUpperStaff appointment=new AppointmentVIEWForUpperStaff(resultSet.getInt(1),resultSet.getString(2),resultSet.getString(3),resultSet.getString(4),resultSet.getString(5),resultSet.getString(6),resultSet.getString(7),resultSet.getString(8),resultSet.getString(9));
+                appointments.add(appointment);
+            }
+
+        } catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+        return appointments;
+
+    }
+
+    @Override
+    public boolean cancelAppointment(int qID) throws SQLException, ClassNotFoundException {
+
+        Connection connection =DBConnection.getConnection();
+        PreparedStatement stmt= connection.prepareStatement("UPDATE j4f9qe_appointments SET cancelledFlag=1 WHERE qID=(?);");
+        stmt.setInt(1,qID);
+        int success=stmt.executeUpdate();
+
+        if(success<=0){
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public ArrayList<PersonalSchedule> getTodayAppointmentsBySPID(int empID) throws SQLException, ClassNotFoundException {
+
+        ArrayList<PersonalSchedule> appointments=new ArrayList<>();
+        try {
+            PreparedStatement stmt=DBConnection.getConnection().prepareStatement("SELECT qID,firstName,lastName,serviceName,startTime,endTime FROM j4f9qe_personalschedule WHERE date=CURDATE() AND cancelledFlag=0 AND complete=0 AND (startTime> CURRENT_TIME() OR CURRENT_TIME() BETWEEN startTime AND endTime) AND userID=(?);");
+            stmt.setInt(1,empID);
+            ResultSet resultSet = stmt.executeQuery();
+
+            while (resultSet.next()){
+                PersonalSchedule appointment=new PersonalSchedule(resultSet.getInt(1),resultSet.getString(2),resultSet.getString(3),resultSet.getString(4),resultSet.getString(5),resultSet.getString(6),null);
+                appointments.add(appointment);
+            }
+
+        } catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+        return appointments;
+    }
+
+
     public ServiceProvider getLeastAppCountSp(String[] arr) throws SQLException, ClassNotFoundException {
         Connection con = DBConnection.getConnection();
         ArrayList<Integer> appCountList = new ArrayList<Integer>();
@@ -176,6 +233,49 @@ public class ApppointmentDAOImple implements AppointmentDAO {
 
         return sp;
 
+    }
+
+
+    public int placeNewAppointment(int serviceID, int spID,int custID, String date, String startTIme, String endTime) throws SQLException, ClassNotFoundException {
+        Connection con = DBConnection.getConnection();
+        String query = "INSERT INTO j4f9qe_appointments (j4f9qe_appointments.customerID, j4f9qe_appointments.date, j4f9qe_appointments.startTime, j4f9qe_appointments.endTime) VALUES (?,?,?,?)";
+        PreparedStatement pst = con.prepareStatement(query);
+
+        pst.setInt(1,custID);
+        pst.setString(2,date);
+        pst.setString(3,startTIme);
+        pst.setString(4,endTime);
+
+        int x = pst.executeUpdate();
+
+        int lastID = 0;
+        Statement st = con.createStatement();
+        String query2 = "SELECT LAST_INSERT_ID()";
+        ResultSet rs =  st.executeQuery(query2);
+        if(rs.next())
+        {
+            lastID = rs.getInt(1);
+            String query3 = "INSERT INTO j4f9qe_appointmentsassigned VALUES (?,?)";
+            String query4 = "INSERT INTO j4f9qe_appointmentservice VALUES (?,?)";
+            PreparedStatement pst2 = con.prepareStatement(query3);
+            PreparedStatement pst3 = con.prepareStatement(query4);
+            pst2.setInt(1,lastID);
+            pst2.setInt(2,spID);
+            pst2.executeUpdate();
+
+            pst3.setInt(1,lastID);
+            pst3.setInt(2,serviceID);
+            int y = pst3.executeUpdate();
+
+            return y;
+
+            
+        }
+
+
+
+
+        return 0;
     }
 
 }

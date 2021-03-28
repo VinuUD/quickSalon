@@ -1,7 +1,7 @@
 package com.g34.quicksalon.controller.reservation;
 
 import com.g34.quicksalon.dao.AppointmentDAO;
-import com.g34.quicksalon.dao.ApppointmentDAOImple;
+import com.g34.quicksalon.dao.AppointmentDAOImple;
 import com.g34.quicksalon.model.Appointment;
 import com.google.gson.Gson;
 
@@ -20,7 +20,7 @@ public class AppointmentSPServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ArrayList<Appointment> appointments=new ArrayList<Appointment>();
         int spID= Integer.parseInt(request.getParameter("spId"));
-        AppointmentDAO appointmentDAO=new ApppointmentDAOImple();
+        AppointmentDAO appointmentDAO=new AppointmentDAOImple();
         appointments=appointmentDAO.getAllAppointmentDetailsByEmpId(spID);
 
         String json = new Gson().toJson(appointments);
