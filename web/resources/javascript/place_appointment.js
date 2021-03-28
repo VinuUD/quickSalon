@@ -310,6 +310,7 @@ $(document).ready(function () {
     }
     ///////////////////////////////////////////////////////
     function freeSlots() {
+      $("#time-slots").html(`<tr></tr>`);
       timeTakenObj = new Time(0, parseInt(timeTaken)).add(new Time(0, 0)); //
       var sTime = new Time(9, 0);
       var closeTime = new Time(19, 0);
@@ -379,8 +380,9 @@ $(document).ready(function () {
 
   //When clicked Select Button
   var appSp = []; //appointment thiyana sp lage spIDs
-
+  var isPresed = 0;
   $(document).on("click", "#select-time-btn", function () {
+    isPresed = 1;
     if ($("#serviceProvider").val() == 1111) {
       var thisDateFreeSpIDs = [];
       var thisDate_FreeTimeSlotSpIDs = [];
@@ -585,10 +587,6 @@ $(document).ready(function () {
       endTime: assignedEndTime,
     });
 
-    $("#confirm").on("click", function () {
-      console.log("confirm eka clicked");
-    });
-
     console.log(serviceID);
     console.log(assignedSpID);
     console.log(assignedSpFname);
@@ -596,5 +594,33 @@ $(document).ready(function () {
     console.log(assignedDate);
     console.log(assignedStartTime);
     console.log(assignedEndTime);
+  });
+
+  var res = 0;
+  $("#confirm").on("click", function () {
+    console.log(customerAppArray);
+    if (isPresed == 1) {
+      console.log("confirm eka clicked");
+      if (confirm("Do you Confirm Appointment?")) {
+        customerAppArray.map(function (app) {
+          $.ajax({
+            type: "POST",
+            url: "http://localhost:8080/quickSalon_war_exploded/newAppointment",
+            data: app,
+            async: false,
+            success: function (response) {
+              res = response;
+            },
+          });
+        });
+        if (res == 1) {
+          alert("Appointment placed! See you seen");
+        } else {
+          alert("Appointment not placed! Try again!");
+        }
+      } else {
+        console.log("you pressed Cancle");
+      }
+    }
   });
 });

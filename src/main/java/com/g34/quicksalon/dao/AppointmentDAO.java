@@ -25,5 +25,7 @@ public interface AppointmentDAO {
 
     public ServiceProvider getLeastAppCountSp(String[] arr) throws SQLException, ClassNotFoundException;
 
+    public int placeNewAppointment(int serviceID, int spID,int custID, String date, String startTIme, String endTime) throws SQLException, ClassNotFoundException;
+
 
 }
