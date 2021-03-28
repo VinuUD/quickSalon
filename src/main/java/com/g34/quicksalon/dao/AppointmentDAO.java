@@ -3,11 +3,7 @@ package com.g34.quicksalon.dao;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.g34.quicksalon.model.Appointment;
-import com.g34.quicksalon.model.AppointmentServiceVIEW;
-import com.g34.quicksalon.model.AppointmentVIEWForUpperStaff;
-import com.g34.quicksalon.model.ServiceProvider;
-
+import com.g34.quicksalon.model.*;
 
 
 public interface AppointmentDAO {
@@ -29,8 +25,11 @@ public interface AppointmentDAO {
     public ArrayList<AppointmentVIEWForUpperStaff> getAppointmentDeatilsByDate(String date) throws SQLException, ClassNotFoundException;
 
     public ServiceProvider getLeastAppCountSp(String[] arr) throws SQLException, ClassNotFoundException;
-    
+
 
 //    Cancel appointment by cancelledFlag=1
     public boolean cancelAppointment(int qID) throws SQLException, ClassNotFoundException;
+
+    //Get all appointments of today by SPID
+    public ArrayList<PersonalSchedule> getTodayAppointmentsBySPID(int empID) throws SQLException, ClassNotFoundException;
 }

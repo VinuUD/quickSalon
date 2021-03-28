@@ -369,4 +369,17 @@
         <url-pattern>/cancelAppointment</url-pattern>
     </servlet-mapping>
 
+<!--Get personal schedule of a sp upcoming -today-->
+    <servlet>
+        <servlet-name>UpcomingPersonalScheduleServlet</servlet-name>
+        <servlet-class>com.g34.quicksalon.controller.serviceProvider.UpcomingPersonalScheduleServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpcomingPersonalScheduleServlet</servlet-name>
+        <url-pattern>/serviceProvider/personalTodaySchedule</url-pattern>
+    </servlet-mapping>
+
+
+
+
 </web-app>

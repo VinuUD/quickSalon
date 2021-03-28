@@ -41,7 +41,7 @@ public class LeastAppCountSpDetailsServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String[] spIDs = request.getParameterValues("spIDs[]");
-        AppointmentDAO appointments = new ApppointmentDAOImple();
+        AppointmentDAO appointments = new AppointmentDAOImple();
         ServiceProvider sp = new ServiceProvider();
         System.out.println("Dn mn inne meke");
         try {

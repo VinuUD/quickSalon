@@ -1,26 +1,68 @@
-.job-table-div{
-    overflow: auto;
-    align-items: center;
+
+.Appointment-box{
+    position: relative;
+    top: 100px;
+    border: 1px solid black;
+    width: 400px;
+    height: 420px;
+    background-color: #ddd;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: justify;
+
 
 }
 
+.Appointment-box>div{
+    margin: 20px;
 
+}
+h3{
+    margin-left: 30px;
+}
 
-.tb-btn
-{
-    width: 80px;
-    height: 20px;
-    cursor: pointer;
-    border-radius: 6px;
-    background-color :#48676c;
-    border: none;
-    color: #FFFFFF;
+.qid{
+
+    border: 1px solid black;
     text-align: center;
-
+    background-color: #b288d8;
+}
+.name{
+    border: 1px solid black;
 
 }
+.service{
+    border: 1px solid black;
 
-.tb-btn:hover
-{
-    background-color:#03a827;
+}
+.time{
+    border: 1px solid black;
+
+}
+.btn{
+    width: 100px;
+}
+
+.nxt-icon{
+    border: 1px solid black;
+    padding: 10px;
+    background: white;
+    float: right;
+
+    
+}
+i{
+    cursor: pointer;
+}
+
+.nxt-icon:hover{
+    background: #4caf50;
+}
+
+#complete-btn{
+    position: relative;
+    left: 120px;
+}
+
+#prev-icon{
+    display: none;
 }

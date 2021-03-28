@@ -58,6 +58,18 @@ public class PersonalSchedule {
         this.telephone = telephone;
     }
 
+    //constructor for complete job UI //qID,firstName,lastName,serviceName,startTime,endTime
+    public PersonalSchedule(int qID,String firstName,String lastName,String serviceName, String startTime, String endTime,String telephone) {
+        this.qID=qID;
+        this.serviceName = serviceName;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.telephone = telephone;
+
+    }
+
     public String getCustomerName() {
         return customerName;
     }

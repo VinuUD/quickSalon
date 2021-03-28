@@ -1,10 +1,8 @@
 package com.g34.quicksalon.dao;
 
 import com.g34.quicksalon.database.DBConnection;
-import com.g34.quicksalon.model.Appointment;
-import com.g34.quicksalon.model.AppointmentServiceVIEW;
-import com.g34.quicksalon.model.AppointmentVIEWForUpperStaff;
-import com.g34.quicksalon.model.ServiceProvider;
+import com.g34.quicksalon.model.*;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -164,6 +162,25 @@ public class AppointmentDAOImple implements AppointmentDAO {
         return true;
     }
 
+    @Override
+    public ArrayList<PersonalSchedule> getTodayAppointmentsBySPID(int empID) throws SQLException, ClassNotFoundException {
+
+        ArrayList<PersonalSchedule> appointments=new ArrayList<>();
+        try {
+            PreparedStatement stmt=DBConnection.getConnection().prepareStatement("SELECT qID,firstName,lastName,serviceName,startTime,endTime FROM j4f9qe_personalschedule WHERE date=CURDATE() AND cancelledFlag=0 AND complete=0 AND (startTime> CURRENT_TIME() OR CURRENT_TIME() BETWEEN startTime AND endTime) AND userID=(?);");
+            stmt.setInt(1,empID);
+            ResultSet resultSet = stmt.executeQuery();
+
+            while (resultSet.next()){
+                PersonalSchedule appointment=new PersonalSchedule(resultSet.getInt(1),resultSet.getString(2),resultSet.getString(3),resultSet.getString(4),resultSet.getString(5),resultSet.getString(6),null);
+                appointments.add(appointment);
+            }
+
+        } catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+        return appointments;
+    }
 
 
     public ServiceProvider getLeastAppCountSp(String[] arr) throws SQLException, ClassNotFoundException {
