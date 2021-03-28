@@ -63,7 +63,7 @@ function login(){
             window.location.href='../../quickSalon_war_exploded/serviceProvider/sp_home.html';
           }
           else if(parseInt(data)==4){
-            window.location.href='../../quickSalon_war_exploded/customer/cust_home.html';
+            window.location.href='../../quickSalon_war_exploded/customer/home.html';
           }
           else {
             alert(data);
