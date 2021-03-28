@@ -27,7 +27,7 @@ public class JavaMailUtil {
 
 
         MimeBodyPart mimeBodyPart = new MimeBodyPart();
-        mimeBodyPart.setContent("<h3>Password Reset</h3></br><b>"+msg+"</b>", "text/html");
+        mimeBodyPart.setContent("<h1>Quick Salon </h1><h3>Password Reset</h3></br><b>"+msg+"</b>", "text/html");
         Multipart multipart = new MimeMultipart();
         multipart.addBodyPart(mimeBodyPart);
         message.setContent(multipart);

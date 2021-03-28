@@ -11,6 +11,39 @@ $('#signup').click(function(){
     var password = $("#password").val().trim();
     var passwordRepeat = $("#password-repeat").val().trim();
 
+
+            $.ajax({
+            type: 'POST',
+            url: 'http://localhost:8080/quickSalon_war_exploded/registercustomer',
+            data: {
+                        fname:fname,
+                        lname:lname,
+                        uname:uname,
+                        contactno:contactno,
+                        nic:nic,
+                        email:email,
+                        address:address,
+                        password:password
+                    },
+            success:( function(response)
+            {
+                alert(response);
+
+                if(response ==1)
+                {
+                    alert("Customer Added successfully!");
+                    window.location.replace("http://localhost:8080/quickSalon_war_exploded/login.html");
+                }
+                else if(response==0){
+                    alert("Customer added failed");
+                }
+
+            })
+
+          });
+
+
+
     function isEmpty(myVar)
 {
     if(myVar === '')
@@ -158,7 +191,7 @@ const passwordMatch =() => {
     {
         $.ajax({
             type: 'POST',
-            url: 'registercustomer',
+            url: 'http://localhost:8080/quickSalon_war_exploded/registercustomer',
             data: {
                         fname:fname,
                         lname:lname,

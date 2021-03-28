@@ -1,0 +1,59 @@
+:root {
+  --main-color: #9053c7;
+  --main-color-dark: #7437aa;
+  --main-color-light: #b288d8;
+  --gradient-color1: #c850c0;
+  --gradient-color2: #4158d0;
+
+  --light-grey: #f2f2f2;
+  --main-grey: #8d8d8d;
+  --a3-grey: #aaa;
+  --d3-grey: #ddd;
+  --off-white: #eee;
+
+  --green: #4caf50;
+  --red: #f44336;
+
+  --blur-grey: rgba(57, 57, 57, .7);
+  --blur-grey-dark: rgba(34, 34, 34, .7);
+}
+
+.showcase::after {
+  background-image: url("../images/marketing-for-your-beauty-salon-2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: block;
+  filter: blur(10px);
+  -webkit-filter: blur(10px);
+  transition: all 1000ms;
+  z-index: -50;
+}
+
+.buttons {
+  margin-top: -300px;
+  z-index: 1;
+}
+
+.buttons .container div {
+  background: var(--blur-grey);
+  padding-top: 10px;
+  transition: all 500ms;
+  z-index: 1;
+}
+
+.buttons .container div:hover {
+  background: var(--blur-grey-dark);
+  border-radius: 10px;
+  padding-bottom: -10px;
+  transform: translateY(-5px);
+  z-index: 1;
+}
+
+footer {
+  z-index: 1;
+}
+
+footer p {
+  z-index: 1;
+}

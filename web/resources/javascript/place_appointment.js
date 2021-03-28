@@ -128,21 +128,7 @@ $(document).ready(function () {
     }
   );
 
-  $("#serviceProvider").change(function () {
-    appListRelatedSp = [];
-    var spID = $(this).val();
-    assignedSpID = $(this).val();
 
-    appointmentList.map(function (app) {
-      if (parseInt(app.employeeID) == parseInt(spID)) {
-        appListRelatedSp.push(app);
-      }
-    });
-
-    // console.log(appListRelatedSp);
-    $(".td-white").css("background-color", "white");
-    displayAppointmentsOnCalendar(appListRelatedSp);
-  });
 
   var appointmentList = []; //all appointmentList from DB
 
@@ -187,6 +173,23 @@ $(document).ready(function () {
     // getAllSlots();
     // console.log(allTimeSlots);
   });
+
+  $("#serviceProvider").change(function () {
+    appListRelatedSp = [];
+    var spID = $(this).val();
+    assignedSpID = $(this).val();
+
+    appointmentList.map(function (app) {
+      if (parseInt(app.employeeID) == parseInt(spID)) {
+        appListRelatedSp.push(app);
+      }
+    });
+
+    // console.log(appListRelatedSp);
+    $(".td-white").css("background-color", "white");
+    displayAppointmentsOnCalendar(appListRelatedSp);
+  });
+
 
   //Plot appointment on calendar
   function displayAppointmentsOnCalendar(apointments) {
@@ -256,11 +259,7 @@ $(document).ready(function () {
           //set date into 2020Jan05 format
           // var selectId=day[0]+monthArray[parseInt(day[1])]+day[2];
 
-          if (
-            date[0] == year &&
-            date[1] == monthArray.indexOf(month) + 1 &&
-            parseInt(date[2]) == day
-          ) {
+          if (date[0] == year && date[1] == monthArray.indexOf(month) + 1 && parseInt(date[2]) == day) {
             var startTime = appointment.startTime;
             var endTime = appointment.endTime;
             var hs = startTime.split(":")[0];
@@ -313,11 +312,12 @@ $(document).ready(function () {
     function freeSlots() {
       $("#time-slots").html(`<tr></tr>`);
       timeTakenObj = new Time(0, parseInt(timeTaken)).add(new Time(0, 0)); //
-      var sTime = new Time(9, 0);
-      var closeTime = new Time(19, 0);
-      var lunchTime = new Time(13, 0);
+      var sTime = new Time(9, 0); //open time
+      var closeTime = new Time(19, 0); //close time
+      var lunchTime = new Time(13, 0);  //lunch time 
 
       while (sTime.hour != closeTime.hour) {
+
         filledTimeSlots.forEach((time) => {
           if (time.hour == sTime.hour && time.min == sTime.min) {
             //wrong logic

@@ -85,6 +85,12 @@ body {
   transform: translateY(-5px);
 }
 
+.grid-4 {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
 .grid-3 {
   display: grid;
   grid-gap: 20px;
