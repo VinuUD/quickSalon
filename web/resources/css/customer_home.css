@@ -51,6 +51,39 @@
   z-index: 1;
 }
 
+button {
+  background-color: white;
+  color: black;
+  width: 80px;
+  padding: 8px 12px;
+  text-align: center;
+  font-size: 15px;
+  margin: 2px 2px;
+  border-radius: 3px;
+  transition-duration: 0.4s;
+  border: 2px solid var(--blur-grey);
+}
+
+.btn-red {
+  border: none;
+  border-radius: 10px;
+  background: var(--blur-grey);
+  color: white
+}
+
+.btn-red:hover {
+  background: var(--blur-grey-dark);
+}
+
+.logout-btn {
+  position: relative;
+  float: right;
+  margin-right: 20px;
+  /* left: 90%; */
+  top: 10px;
+  z-index: 5;
+}
+
 /* Small screens */
 @media (max-width: 560px) {
   .buttons {
@@ -77,6 +110,16 @@
 
   .buttons div:hover > p {
     display: block;
+  }
+
+  button {
+    border-radius: 12px;
+    width: 40px;
+  }
+
+  button span {
+    display: none;
+    min-width: 40px;
   }
 }
 

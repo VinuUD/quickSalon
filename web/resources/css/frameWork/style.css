@@ -331,5 +331,5 @@ select {
 }
 
 .logout-btn {
-  position: absolute;
+  width: 100%;
 }
