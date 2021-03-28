@@ -22,7 +22,7 @@ public class UpdateSPServlet extends HttpServlet {
 
         try {
             OwnerDAO owner = new OwnerDAOImple();
-            int x = owner.updateManager(eID, cNum,salary,email,address);
+            int x = owner.updateManager(eID, cNum,salary,address);
             res.getWriter().println(x);
 
         } catch (SQLException throwables) {

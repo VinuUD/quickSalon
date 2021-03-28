@@ -18,7 +18,7 @@ public interface OwnerDAO {
 
     public int removeManager(int id, String password) throws SQLException;
 
-    public int updateManager(int id, String cNum, int salary, String email, String address) throws SQLException;
+    public int updateManager(int id, String cNum, int salary, String address) throws SQLException;
 
     public boolean applyLeave(Leave leave) throws SQLException, ClassNotFoundException;
 

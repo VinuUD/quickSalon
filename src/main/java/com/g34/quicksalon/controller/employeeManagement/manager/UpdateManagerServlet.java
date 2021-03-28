@@ -16,12 +16,12 @@ public class UpdateManagerServlet extends HttpServlet {
         int eID = Integer.parseInt(req.getParameter("eID"));
         String cNum = req.getParameter("cNum");
         int salary = Integer.parseInt(req.getParameter("salary"));
-        String email = req.getParameter("email");
+
         String address = req.getParameter("address");
 
         try {
             OwnerDAO owner = new OwnerDAOImple();
-            int x = owner.updateManager(eID, cNum,salary,email,address);
+            int x = owner.updateManager(eID,cNum,salary,address);
             res.getWriter().println(x);
 
         } catch (SQLException throwables) {

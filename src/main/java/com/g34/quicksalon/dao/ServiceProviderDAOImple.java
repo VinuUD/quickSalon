@@ -264,11 +264,11 @@ public class ServiceProviderDAOImple implements  ServiceProviderDAO{
         Statement st = con.createStatement();
 
 
-        ResultSet rs = st.executeQuery("select j4f9qe_employee.employeeID, j4f9qe_employee.firstName, j4f9qe_employee.lastName, j4f9qe_employee.contactNum, j4f9qe_employee.nicNo, j4f9qe_employee.salary, j4f9qe_employee.email, j4f9qe_employee.address from j4f9qe_employee WHERE j4f9qe_employee.isUpperStaffFlag = 0 AND j4f9qe_employee.removedFlag = 0");
+        ResultSet rs = st.executeQuery("select j4f9qe_employee.employeeID, j4f9qe_employee.firstName, j4f9qe_employee.lastName, j4f9qe_employee.contactNum, j4f9qe_employee.nicNo, j4f9qe_employee.salary,  j4f9qe_employee.address from j4f9qe_employee WHERE j4f9qe_employee.isUpperStaffFlag = 0 AND j4f9qe_employee.removedFlag = 0");
 
         while(rs.next())
         {
-            AllServiceProvidersDetails.add(new ManagerDetailsForView(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8)));
+            AllServiceProvidersDetails.add(new ManagerDetailsForView(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),rs.getString(5), rs.getString(6), rs.getString(7)));
 
         }
 
