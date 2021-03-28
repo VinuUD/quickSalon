@@ -4,50 +4,40 @@
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <title>Page Title</title>
-  
-    <link rel="stylesheet" href="../resources/css/sideNavbar.css">
     <link rel="stylesheet" href="../resources/css/mainDiv.css">
     <link rel="stylesheet" href="../resources/css/34.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="../resources/css/normal.css">
+    <link rel="stylesheet" href="../resources/css/frameWork/style.css" />
+    <link rel="stylesheet" href="../resources/css/complaint.css" />
     <script src='../resources/javascript/main.js'></script>
-    <script src='../resources/javascript/side_navbar.js'></script>
 </head>
 
 
-<body onresize="whenResizing()">
-    <!-- side nav bar -->
-        <div id="mySidenav" class="sidenav">
-            <div class="closeIcon"><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></div>
-  
-            <a href="place_appointment.html">Place appointment</a>
-            <a href="manage_appointment.html">Manage appointment</a>
-            <a href="#">Service / Packages</a>
-            <a href="complaint.html">Complaint</a>
-            <a href="#">Contact : 0713705748 (saloon owner)</a>
+<body>
+  <!-- <div class="mainDiv"> -->
+  <div class="container">
+    <div class="small-space">
+      <div class="heading">
+        Enter Your Complaint
+      </div>
+      <div class="work-space">
+        <div class="special-note">Note: Only the owner will see your complaint</div>
+        <div class = "form34">
+          <div class="textarea-wrapper">
+            <textarea name="complaint" id="complaint"></textarea>
           </div>
-<!-- ////////////////////////////// -->
-<div id="main">
-    <div class="back">
-        <div id="navIcon" onclick="openNav()" class="navIcon"  ><img  src="../resources/icons/three.png" alt="Ooops" ></div>
-        <button class="btn34"  onclick=history.back()>back</button>
-    </div>
-    <br><br>
-    <div class="topBar">
-        <b>Enter your complaint</b>
-    </div>
-    <div class="mainDiv" >
-            <p style = "text-align:center;" > Note: only the owner of the saloon will see your complaint </p>
-        <div class = "form-container34" style = "text-align:center;"  >
-            <form action ="" method="get">
-              <textarea name="complaint" rows="5" cols="30" id="complaint"></textarea>
-                <br>
-                <br>
-                <input type ="submit" class ="btn34" value = "submit">
-            </form>
-        </div>
-    </div>
-</div>
+          <div class="innerDiv">
+            <button class ="btn btn-red">Back</button>
+            <button class ="btn btn-green">Submit</button>
+          </div>
+        </div><!-- end of form-container34 -->
+      </div><!-- end of work-space -->
+    </div><!-- end of large-space -->
+  </div>
+
+  <!-- </div> -->
+  <!-- end of mainDiv -->
 </body>
 
 
