@@ -329,3 +329,7 @@ select {
   color: var(--main-grey);
   padding: 20px;
 }
+
+.logout-btn {
+  width: 100%;
+}

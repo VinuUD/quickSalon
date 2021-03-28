@@ -109,17 +109,17 @@ public class OwnerDAOImple implements OwnerDAO {
 
     }
 
-    public int updateManager(int id, String cNum, int salary, String email, String address) throws SQLException {
-        String query = "UPDATE j4f9qe_employee SET j4f9qe_employee.salary = ? , j4f9qe_employee.email = ?, j4f9qe_employee.address = ?, j4f9qe_employee.contactNum = ?  WHERE j4f9qe_employee.employeeID = ?";
+    public int updateManager(int id, String cNum, int salary, String address) throws SQLException {
+        String query = "UPDATE j4f9qe_employee SET j4f9qe_employee.salary = ? ,  j4f9qe_employee.address = ?, j4f9qe_employee.contactNum = ?  WHERE j4f9qe_employee.employeeID = ?";
 
         PreparedStatement pst = con.prepareStatement(query);
 
 
         pst.setInt(1,salary);
-        pst.setString(2,email);
-        pst.setString(3,address);
-        pst.setString(4,cNum);
-        pst.setInt(5,id);
+
+        pst.setString(2,address);
+        pst.setString(3,cNum);
+        pst.setInt(4,id);
 
 
 
@@ -131,7 +131,7 @@ public class OwnerDAOImple implements OwnerDAO {
             catch (Exception e)
             {
                 System.out.println("mn inne catch block ekee, hu huuuu");
-                return 1;
+                return 0;
             }
 
 

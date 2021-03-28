@@ -336,7 +336,7 @@ $(document).ready(function () {
             (nxtSlot.hour < 10 ? "0" + nxtSlot.hour : nxtSlot.hour) +
             ":" +
             (nxtSlot.min < 10 ? nxtSlot.min + "0" : nxtSlot.min)
-          }</td> <td> <Butt id='tr-icon' class='tr-icon fa fa-fw fa-plus-square'></icon> </td> </tr>`
+          }</td> <td> <icon id='tr-icon' class='tr-icon fa fa-fw fa-plus-square'></icon> </td> </tr>`
         );
         sTime = timeTakenObj.addTwentyFour(sTime);
       }
