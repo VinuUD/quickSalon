@@ -32,10 +32,11 @@ public class RegisterCustomerServlet extends HttpServlet {
         String address=request.getParameter("address");
         String password=doHash(request.getParameter("password"));
 
+
         CustomerDetails customerDetails=new CustomerDetails(fname,lname,uname,contactno,nic,email,address,password);
+        out.println(""+customerDetails.getFirstName()+"-"+customerDetails.getUserName()+"-"+customerDetails.getContactNo());
 
         CustomerDAO customerDAO=new CustomerDAOImple();
-
         try {
             boolean s=customerDAO.registerCustomer(customerDetails);
             if(s){

@@ -32,6 +32,7 @@ public class CustomerDAOImple implements CustomerDAO {
             custId=rst.getInt(1);
         }
 
+
         return custId;
     }
 
@@ -56,10 +57,11 @@ public class CustomerDAOImple implements CustomerDAO {
         try {
             //1) add Customer to customer table
             customerID = addCustomer(customerDetails,connection);
+            System.out.println(customerID);
             //2)add user to j4f9qe_user table
             userID=registerUser(customerDetails,connection);
             //3)Update `j4f9qe_registeredcustomers` table
-            success=addRegisterdCustomer(customerDetails,customerID,userID,connection);
+           success=addRegisteredCustomer(customerDetails,customerID,userID,connection);
 
             //if success
             connection.commit();
@@ -79,13 +81,13 @@ public class CustomerDAOImple implements CustomerDAO {
     public int addCustomer(CustomerDetails customerDetails,Connection connection) throws SQLException, ClassNotFoundException {
 
         //for registeredCustomer usertype=1
-        int userType=1;
+        int accountType=1;
 
         PreparedStatement stmt= connection.prepareStatement("INSERT INTO j4f9qe_customer (firstname,lastname,telephone,accountType,registeredDate) VALUES (?,?,?,?,?)");
         stmt.setString(1,customerDetails.getFirstName());
         stmt.setString(2,customerDetails.getLastName());
         stmt.setString(3,customerDetails.getContactNo());
-        stmt.setInt(4,userType);
+        stmt.setInt(4,accountType);
         stmt.setString(5, String.valueOf(LocalDate.now()));
 
         int success=stmt.executeUpdate();
@@ -105,10 +107,11 @@ public class CustomerDAOImple implements CustomerDAO {
     public int registerUser(CustomerDetails customerDetails,Connection connection) throws SQLException, ClassNotFoundException {
 
         int userType=4;
-        PreparedStatement stmt= connection.prepareStatement("INSERT INTO j4f9qe_user (userName,password,userType) VALUES (?,?,?)");
-        stmt.setString(1,customerDetails.getUserName());
-        stmt.setString(2,customerDetails.getPassword());
-        stmt.setInt(3,userType);
+        PreparedStatement stmt= connection.prepareStatement("INSERT INTO j4f9qe_user(email,userName,password,userType) VALUES (?,?,?,?)");
+        stmt.setString(1,customerDetails.getEmail());
+        stmt.setString(2,customerDetails.getUserName());
+        stmt.setString(3,customerDetails.getPassword());
+        stmt.setInt(4,userType);
 
         int success=stmt.executeUpdate();
 
@@ -116,6 +119,7 @@ public class CustomerDAOImple implements CustomerDAO {
             return 0;
         }
         ResultSet rst=connection.createStatement().executeQuery("SELECT LAST_INSERT_ID()");
+
         int userID=0;
         if(rst.next()){
             userID=rst.getInt(1);
@@ -124,7 +128,7 @@ public class CustomerDAOImple implements CustomerDAO {
     }
 
     //Update `j4f9qe_registeredcustomers` table
-    public boolean addRegisterdCustomer(CustomerDetails customerDetails, int customerID, int userID,Connection connection) throws SQLException, ClassNotFoundException {
+    public boolean addRegisteredCustomer(CustomerDetails customerDetails, int customerID, int userID,Connection connection) throws SQLException, ClassNotFoundException {
 
         PreparedStatement stmt= connection.prepareStatement("INSERT INTO j4f9qe_registeredcustomers VALUES (?,?,?,?,?)");
         stmt.setInt(1,userID);
