@@ -359,6 +359,7 @@
         <url-pattern>/appointmentsByserviceID</url-pattern>
     </servlet-mapping>
 
+
 <!--  CancelledFlag set =1-->
     <servlet>
         <servlet-name>CancelAppointmentServlet</servlet-name>
@@ -380,6 +381,15 @@
     </servlet-mapping>
 
 
+    <!--List appointments list by service ID-->
+    <servlet>
+        <servlet-name>newAppointment</servlet-name>
+        <servlet-class>com.g34.quicksalon.controller.reservation.NewAppointmentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>newAppointment</servlet-name>
+        <url-pattern>/newAppointment</url-pattern>
+    </servlet-mapping>
 
 
 </web-app>

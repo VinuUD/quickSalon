@@ -1,0 +1,23 @@
+.small-space {
+  min-height: 0;
+  height: 700px;;
+  padding: 50px;
+}
+
+.work-space {
+  height: 85%;
+  min-height: 0;
+}
+
+.form34{
+  padding: 30px 0;
+  height:80%;
+}
+
+.form34 .textarea-wrapper {
+  height:65%;
+}
+
+.btn {
+  margin-top: 30px;
+}

@@ -105,17 +105,8 @@ input:focus {
 }
 
 @media screen and (min-width: 900px) {
-  .mainDiv {
-    width: 900px;
-  }
-
   .back {
-    width: 900px;
     margin: 0px auto 0px auto;
-  }
-
-  .topBar {
-    width: 908px;
   }
 }
 

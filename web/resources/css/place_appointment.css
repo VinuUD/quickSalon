@@ -1,3 +1,35 @@
+.work-space {
+  flex-direction: row;
+}
+
+.left-work-space {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+  height: 100%;
+  flex-grow: 1;
+}
+
+/* TODO fix background image css */
+.right-work-space {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-image: url("../images/placeAppoinment.png"); /* The image used */
+  background-position: right; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  box-sizing: border-box;
+  background-size: cover; /* Resize the background image to cover the entire container */
+  padding: 20px 0;
+  flex-grow: 1;
+}
+
 .calendar {
   width: 500px;
   border: 1px solid var(--main-color-dark);
@@ -76,7 +108,7 @@ td {
 .time-slots-table tr:hover {
   background-color: var(--light-grey);
 }
-/*   
+/*
     .time-slots-div{
       display: none;
     }
@@ -99,19 +131,6 @@ td {
 
 .btn-bar > button {
   margin-right: 100px;
-}
-
-/* /////////////////////////////////////////// */
-
-/* .innerDiv {
-  border: 4px solid black;
-} */
-.work-space {
-  background-image: url("../images/placeAppoinment.png") !important; /* The image used */
-
-  background-position: right !important; /* Center the image */
-  background-repeat: no-repeat !important; /* Do not repeat the image */
-  background-size: cover; /* Resize the background image to cover the entire container */
 }
 
 .calendar > .calendarDiv {

@@ -236,4 +236,46 @@ public class AppointmentDAOImple implements AppointmentDAO {
     }
 
 
+    public int placeNewAppointment(int serviceID, int spID,int custID, String date, String startTIme, String endTime) throws SQLException, ClassNotFoundException {
+        Connection con = DBConnection.getConnection();
+        String query = "INSERT INTO j4f9qe_appointments (j4f9qe_appointments.customerID, j4f9qe_appointments.date, j4f9qe_appointments.startTime, j4f9qe_appointments.endTime) VALUES (?,?,?,?)";
+        PreparedStatement pst = con.prepareStatement(query);
+
+        pst.setInt(1,custID);
+        pst.setString(2,date);
+        pst.setString(3,startTIme);
+        pst.setString(4,endTime);
+
+        int x = pst.executeUpdate();
+
+        int lastID = 0;
+        Statement st = con.createStatement();
+        String query2 = "SELECT LAST_INSERT_ID()";
+        ResultSet rs =  st.executeQuery(query2);
+        if(rs.next())
+        {
+            lastID = rs.getInt(1);
+            String query3 = "INSERT INTO j4f9qe_appointmentsassigned VALUES (?,?)";
+            String query4 = "INSERT INTO j4f9qe_appointmentservice VALUES (?,?)";
+            PreparedStatement pst2 = con.prepareStatement(query3);
+            PreparedStatement pst3 = con.prepareStatement(query4);
+            pst2.setInt(1,lastID);
+            pst2.setInt(2,spID);
+            pst2.executeUpdate();
+
+            pst3.setInt(1,lastID);
+            pst3.setInt(2,serviceID);
+            int y = pst3.executeUpdate();
+
+            return y;
+
+            
+        }
+
+
+
+
+        return 0;
+    }
+
 }
