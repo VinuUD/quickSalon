@@ -209,16 +209,19 @@ public class ServiceProviderDAOImple implements  ServiceProviderDAO{
     }
 
     public boolean addNewEmployee(ServiceProvider serviceProvider,Connection connection) throws SQLException {
-        PreparedStatement stmt= connection.prepareStatement("INSERT INTO j4f9qe_employee (nicNo,firstName,lastName,salary,enrollDate,resignDate,isUpperStaffFlag,onLeaveFlag,removedFlag,userID) VALUES (?,?,?,?,CURDATE(),?,?,?,?,?)");
+
+        PreparedStatement stmt= connection.prepareStatement("INSERT INTO j4f9qe_employee (nicNo,firstName,lastName,salary,contactNum,enrollDate,resignDate,isUpperStaffFlag,onLeaveFlag,removedFlag,userID,address) VALUES (?,?,?,?,?,CURDATE(),?,?,?,?,?,?)");
         stmt.setString(1,serviceProvider.getNicNo());
         stmt.setString(2,serviceProvider.getFirstName());
         stmt.setString(3,serviceProvider.getLastName());
         stmt.setDouble(4,serviceProvider.getSalary());
-        stmt.setString(5,null);
-        stmt.setInt(6,0);
+        stmt.setString(5,serviceProvider.getContactno());
+        stmt.setString(6,null);
         stmt.setInt(7,0);
         stmt.setInt(8,0);
-        stmt.setInt(9,serviceProvider.getUserID());
+        stmt.setInt(9,0);
+        stmt.setInt(10,serviceProvider.getUserID());
+        stmt.setString(11,serviceProvider.getAddress());
 
 //        stmt.setString(4,serviceProvider.getNicNo());
 //        stmt.setInt(2,employeeId);

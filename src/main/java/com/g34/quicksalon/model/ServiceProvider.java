@@ -11,6 +11,8 @@ public class ServiceProvider {
     private String email;
     private float salary;
     private String password;
+    private String contactno;
+    private String address;
 
     private String enrollDate;
     private String resignDate;
@@ -28,7 +30,15 @@ public class ServiceProvider {
         this.lastName = lastName;
     }
 
-    public ServiceProvider(int employeeId, String firstName, String lastName, String userName, String nicNo, String email, float salary, String password, String enrollDate, String resignDate, int isUpperStaffFlag, int onLeaveFlag, int removedFlag,int userID) {
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public ServiceProvider(int employeeId, String firstName, String lastName, String userName, String nicNo, String email, float salary, String password, String enrollDate, String resignDate, int isUpperStaffFlag, int onLeaveFlag, int removedFlag, int userID, String contactno, String address) {
         this.employeeId = employeeId;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -43,6 +53,9 @@ public class ServiceProvider {
         this.onLeaveFlag = onLeaveFlag;
         this.removedFlag = removedFlag;
         this.userID = userID;
+        this.contactno=contactno;
+        this.address=address;
+
     }
 
     public ServiceProvider(int employeeId, String nicNo, String firstName, String lastName, float salary, String enrollDate, String resignDate, int isUpperStaffFlag, int onLeaveFlag, int removedFlag) {
@@ -56,6 +69,14 @@ public class ServiceProvider {
         this.isUpperStaffFlag = isUpperStaffFlag;
         this.onLeaveFlag = onLeaveFlag;
         this.removedFlag = removedFlag;
+    }
+
+    public String getContactno() {
+        return contactno;
+    }
+
+    public void setContactno(String contactno) {
+        this.contactno = contactno;
     }
 
     public int getEmployeeId() {

@@ -44,22 +44,33 @@
             <div class="user-group">
                 <div class="group-title">Selected User Group</div>
 
-                <div id='userrow' class="group-tb"></div>
+                <div  class="group-tb">
+                    <table>
+                        <thead>
+                            <th></th>
+                        <th></th>
+                        </thead>
+                        <tbody id='userrow'>
+                            
+                        </tbody>
+                        
+                    </table>
+
+                </div>
 
                 <!-- Select User Group -->
                 <div class="select-sp">
                     <select id='usergroup'>
-                        <option value="3">
-                            <Select:d>Service Provider</Select:d>
-                        </option>
-                        <option value="4">Customer </option>
                         <option value="2"> Manager </option>
+                        <option value="3">Service Provider</option>
+                        <option value="4">Customer </option>
                     </select>
                 </div>
 
                 <div class="add-btn">
-                    <button id='addbtn' onclick="addUsrGroup()" class="btn34"><b>+</b></button>
+                    <button id='addbtn' class="btn34"><b>+</b></button>
                 </div>
+                
             </div>
 
             <div class='msg-box'>

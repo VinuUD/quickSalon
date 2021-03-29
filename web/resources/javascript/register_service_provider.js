@@ -1,4 +1,7 @@
 $( document ).ready(function() {
+   
+    $('#password').val("Sp123456");
+    // $('#password).attr('type', 'password');
 
     $.get("http://localhost:8080/quickSalon_war_exploded/registerSP", function(data, status){
         $('#empid').val(data);
@@ -22,6 +25,12 @@ $( document ).ready(function() {
         }else if ($('#salaryl').val() == '') {
             $('#salary').css("border", "4px red solid");
         }
+        else if ($('#address').val() == '') {
+            $('#address').css("border", "4px red solid");
+        }
+        else if ($('#contactno').val() == '') {
+            $('#salary').css("border", "4px red solid");
+        }
         else if ($('#password').val() == '') {
             $('#password').css("border", "4px red solid");
         }
@@ -36,6 +45,8 @@ $( document ).ready(function() {
                     uname: $("#uname").val(),
                     nic: $("#nic").val(),
                     email: $("#email").val(),
+                    contactno: $("#contactno").val(),
+                    address: $("#address").val(),
                     salary: $("#salary").val(),
                     password: $("#password").val()
                 },

@@ -1,11 +1,13 @@
 package com.g34.quicksalon.dao;
 
 import com.g34.quicksalon.database.DBConnection;
+import com.g34.quicksalon.model.Appointment;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class UserDAOImple implements UserDAO{
 
@@ -50,6 +52,24 @@ public class UserDAOImple implements UserDAO{
         }else{
             return false;
         }
+
+    }
+
+    @Override
+    public ArrayList<String> getUserEmails(int userType) throws SQLException, ClassNotFoundException {
+        ArrayList<String> email = new ArrayList<>();
+
+        PreparedStatement stmt = DBConnection.getConnection().prepareStatement("SELECT email FROM j4f9qe_user WHERE userType=?");
+        stmt.setInt(1, userType);
+
+        ResultSet resultSet = stmt.executeQuery();
+
+        while (resultSet.next()) {
+
+            email.add(resultSet.getString(1));
+        }
+
+        return email;
 
     }
 }
