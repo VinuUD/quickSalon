@@ -128,12 +128,11 @@ $(document).ready(function () {
     }
   );
 
-
-
   var appointmentList = []; //all appointmentList from DB
 
   // populate Sp List with selected Service
   $("#services").change(function () {
+    spIDsRealatedToService = [];
     $(".td-white").css("background-color", "white");
     timeTaken = $(this).find("option:selected").attr("id");
 
@@ -145,6 +144,7 @@ $(document).ready(function () {
       type: "GET",
       url: "http://localhost:8080/quickSalon_war_exploded/spListService",
       data: { id: `${selectedVal}` },
+      async: false,
       success: function (response) {
         response.map(function (sData) {
           spIDsRealatedToService.push(sData.employeeId);
@@ -156,6 +156,9 @@ $(document).ready(function () {
         });
       },
     });
+
+    console.log("me service ekata adala spIDs");
+    console.log(spIDsRealatedToService);
 
     //load all the appointments relevent to the selected service
     $.ajax({
@@ -189,7 +192,6 @@ $(document).ready(function () {
     $(".td-white").css("background-color", "white");
     displayAppointmentsOnCalendar(appListRelatedSp);
   });
-
 
   //Plot appointment on calendar
   function displayAppointmentsOnCalendar(apointments) {
@@ -259,7 +261,11 @@ $(document).ready(function () {
           //set date into 2020Jan05 format
           // var selectId=day[0]+monthArray[parseInt(day[1])]+day[2];
 
-          if (date[0] == year && date[1] == monthArray.indexOf(month) + 1 && parseInt(date[2]) == day) {
+          if (
+            date[0] == year &&
+            date[1] == monthArray.indexOf(month) + 1 &&
+            parseInt(date[2]) == day
+          ) {
             var startTime = appointment.startTime;
             var endTime = appointment.endTime;
             var hs = startTime.split(":")[0];
@@ -314,10 +320,9 @@ $(document).ready(function () {
       timeTakenObj = new Time(0, parseInt(timeTaken)).add(new Time(0, 0)); //
       var sTime = new Time(9, 0); //open time
       var closeTime = new Time(19, 0); //close time
-      var lunchTime = new Time(13, 0);  //lunch time 
+      var lunchTime = new Time(13, 0); //lunch time
 
       while (sTime.hour != closeTime.hour) {
-
         filledTimeSlots.forEach((time) => {
           if (time.hour == sTime.hour && time.min == sTime.min) {
             //wrong logic
@@ -474,9 +479,9 @@ $(document).ready(function () {
               // console.log(app.employeeID);
               thisDate_FreeTimeSlotSpIDs.push(app.employeeID);
             } else {
-              // console.log(
-              //   "meka athula inne dawasath samana wela welaawath samana una eun"
-              // );
+              console.log(
+                "meka athula inne dawasath samana wela welaawath samana una eun"
+              );
               //meka athula inne dawasath samana wela welaawath samana una eun
               thisDateThisTimeNotFree.push(app.employeeID);
               //console.log(app);
