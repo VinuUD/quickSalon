@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Reschedule</title>
+    <link rel="stylesheet" href="../resources/css/normal.css">
+    <link rel="stylesheet" href="../resources/css/34.css">
+    <link rel="stylesheet" href="../resources/css/frameWork/style.css" />
+    <link rel="stylesheet" href="../resources/css/calendar/calendar.css" />
+    <link rel="stylesheet" href="../resources/css/reschedule_appointment.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src='../resources/javascript/main.js'></script>
+
+</head>
+
+<body>
+<div class="container">
+  <div class="medium-space">
+    <div class="heading">
+      Reschedule
+    </div>
+
+    <div class="work-space">
+      <div class="table-div34">
+        <table id="t01" class=table34>
+          <colspan>
+            <col class="small-column">
+            <col class="large-column">
+            <col class="large-column">
+            <col class="medium-column">
+            <col class="medium-column">
+          </colspan>
+          <tr>
+            <th></th>
+            <th>Service</th>
+            <th>Service Provider</th>
+            <th>Date</th>
+            <th>Time</th>
+          </tr>
+          <tbody id="trow">
+
+          </tbody>
+        </table>
+      </div>
+      <!-- end of table -->
+
+      <!-- Calendar div -->
+      <div class="myCalendar">
+        <div class="calendar-div">
+          <div class="calDiv">
+            <div class="calendar" id="calendar"></div>
+          </div>
+        </div>
+
+        <div class="time-slots-div table-div34">
+        </div><!-- end of time-slots-div -->
+      </div><!-- end of myCalendar -->
+      <!-- End of Calendar div -->
+
+      <div class="innerDiv">
+        <div type="submit" id="cancel" class="btn btn-red">
+          <a href="manage_appointment.html">
+            Cancel
+          </a>
+        </div>
+        <div type="submit" id="confirm" class="btn btn-green">Update</div>
+      </div><!-- end of innerDiv -->
+    </div>
+    <!-- end of work-space -->
+  </div>
+  <!-- end of medium-space -->
+</div>
+<!-- end of container -->
+
+
+
+<!-- ////////////////////////////// -->
+
+<script src="../resources/javascript/calendar/calendar.js"></script>
+</body>
+
+</html>

@@ -1,4 +1,35 @@
-#main {
-  display: flex;
+.work-space {
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar {
+  width: 500px;
+  border: 1px solid var(--main-color-dark);
+  height: 400px;
+  padding: 10px;
+}
+
+.table-div34 {
+  max-width: 600px;
+}
+
+.innerDiv {
+  max-width: 600px;
+}
+
+a {
+  text-decoration: none;
+  transition: all 500ms;
+  color: black;
+}
+
+#cancel:hover > a {
+  color: white;
+}
+
+.center {
+  text-align: center;
+  justify-content: center;
 }

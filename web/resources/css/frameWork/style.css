@@ -307,7 +307,7 @@ select {
   border-bottom: 1px solid var(--main-color-dark);
 }
 
-.form34 .textarea-wrapper {
+.textarea-wrapper {
   width: 100%;
   min-width: 230px;
 	height:150px;

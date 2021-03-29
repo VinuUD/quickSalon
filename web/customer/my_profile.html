@@ -3,7 +3,7 @@
 <head>
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <title>Page Title</title>
+    <title>My Profile</title>
 
     <link rel="stylesheet" href="../resources/css/sideNavbar.css">
     <link rel="stylesheet" href="../resources/css/mainDiv.css">
@@ -11,62 +11,50 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="../resources/css/normal.css">
     <link rel="stylesheet" href="../resources/css/frameWork/style.css" />
+    <link rel="stylesheet" href="../resources/css/customer_profile.css">
     <script src='../resources/javascript/main.js'></script>
 </head>
 
 
-<body class="container" onresize="whenResizing()">
-  <!-- side nav bar -->
-      <div id="mySidenav" class="sidenav">
-          <div class="closeIcon"><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></div>
+<body>
+  <div class="container">
+    <div class="large-space">
+      <div class="heading">My profile</div>
+        <div class="work-space">
+          <div class="form34">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="fname" value="Chamara">
 
-          <a href="place_appointment.html">Place appointment</a>
-          <a href="manage_appointment.html">Manage appointment</a>
-          <a href="#">Service / Packages</a>
-          <a href="complaint.html">Complaint</a>
-          <a href="#">Contact : 0713705748 (saloon owner)</a>
-        </div>
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lname" value="Rambukwalla">
 
-<!-- ////////////////////////////// -->
-<div id="main">
+            <label for="uname">User Name</label>
+            <input type="text" id="uname" name="uname" value="chamara68">
 
-  <div class="back">
-      <div id="navIcon" onclick="openNav()" class="navIcon"  ><img  src="../resources/icons/three.png" alt="Ooops" ></div>
-  </div>
-  <br /><br />
-  <div class="large-space">
-    <div class="heading">My profile</div>
-      <div class="work-space">
-        <div class="form34">
-          <label for="fname">First Name</label>
-          <input type="text" id="fname" name="fname" value="Chamara">
+            <label for="cnum">Contact Number</label>
+            <input type="text" id="cnum" name="cnum" value="0114555524">
 
-          <label for="lname">Last Name</label>
-          <input type="text" id="lname" name="lname" value="Rambukwalla">
+            <label for="nic">NIC</label>
+            <input type="text" id="nic" name="nic" value="982555014v">
 
-          <label for="uname">User Name</label>
-          <input type="text" id="uname" name="uname" value="chamara68">
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" value="chamara@abc.xyz">
 
-          <label for="cnum">Contact Number</label>
-          <input type="text" id="cnum" name="cnum" value="0114555524">
+            <label for="address">Address</label>
+            <input type="text" id="address" name="address" value="Kurunegala">
+          </div>  <!-- end of form -->
 
-          <label for="nic">NIC</label>
-          <input type="text" id="nic" name="nic" value="982555014v">
-
-          <label for="email">Email</label>
-          <input type="text" id="email" name="email" value="chamara@abc.xyz">
-
-          <label for="address">Address</label>
-          <input type="text" id="address" name="address" value="Kurunegala">
-        </div>  <!-- end of form -->
-
-        <br /><br>
-        <div class="innerDiv">
-          <button class="btn btn-red">Back</button>
-          <button type="submit" class="btn btn-green">Save</button>
-        </div><!-- end of innerDiv -->
-      </div><!-- end of work-space -->
-    </div><!-- end of large-space -->
+          <br /><br>
+          <div class="innerDiv">
+            <div type="submit" id="cancel" class="btn btn-red">
+              <a href="home.html">
+                Back
+              </a>
+            </div>
+            <button type="submit" class="btn btn-green">Save</button>
+          </div><!-- end of innerDiv -->
+        </div><!-- end of work-space -->
+      </div><!-- end of large-space -->
   </div><!-- end of main -->
   <script src="../resources/javascript/side_navbar.js"></script>
 </body>

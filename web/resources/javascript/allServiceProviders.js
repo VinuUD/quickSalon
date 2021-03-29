@@ -1,9 +1,18 @@
 $("document").ready(function () {
-  $("#eID").val("fuckddd");
+  var ratingsDetails = [];
+  $.ajax({
+    type: "GET",
+    url: "http://localhost:8080/quickSalon_war_exploded/updateRatings",
+    async: false,
+    success: function (response) {
+      ratingsDetails = response;
+    },
+  });
+
   $.get(
     "http://localhost:8080/quickSalon_war_exploded/viewSp",
     function (response) {
-      console.log(response);
+      // console.log(response);
       response.map(function (x) {
         $("#tbl").append(
           "<tr>" +
@@ -36,10 +45,88 @@ $("document").ready(function () {
             "</i>" +
             "</button>" +
             "</td>" +
+            "<td>" +
+            "<icon id='plusIcon' class='plusIcon fa fa-fw fa-plus-square'>" +
+            "</icon>" +
+            "<icon id='minusIcon' class='minusIcon fa fa-fw fa-minus-square'>" +
+            "</icon>" +
+            "</td>" +
+            "<td class='ratingtd'>" +
+            "</td>" +
             "</tr>"
         );
-        console.log(x.email);
-        console.log(x.nic);
+        // console.log(x.email);
+        // console.log(x.nic);
+      });
+
+      var max = 10;
+      var def = 10;
+      var min = 0;
+
+      $(".ratingtd").html(def);
+      var i = 0;
+      $(".ratingtd").map(function () {
+        this.innerHTML = ratingsDetails[i].ratings;
+        i = i + 1;
+      });
+
+      //when clicked plus icon
+      $(".plusIcon").on("click", function () {
+        var currentRow = $(this).closest("tr");
+
+        var x = parseFloat(currentRow.find("td:eq(9)").text()) + 1;
+        var empID = parseInt(currentRow.find("td:eq(0)").text());
+
+        currentRow.find("td:eq(9)").html(x);
+        if (parseInt(currentRow.find("td:eq(9)").text()) > 19) {
+          currentRow.find("td:eq(9)").html("20");
+          console.log("blaaaa");
+        }
+
+        console.log(currentRow.find("td:eq(0)").text());
+
+        $.ajax({
+          type: "POST",
+          url: "http://localhost:8080/quickSalon_war_exploded/updateRatings",
+          data: {
+            empID: empID,
+            rateVal: parseFloat(currentRow.find("td:eq(9)").text()),
+          },
+          success: function (response) {
+            if (response == 1) {
+              console.log("success");
+            }
+          },
+        });
+      });
+      //when clicked minus icon
+      $(".minusIcon").on("click", function () {
+        var currentRow = $(this).closest("tr");
+
+        var y = parseFloat(currentRow.find("td:eq(9)").text()) - 1;
+        var empID = parseInt(currentRow.find("td:eq(0)").text());
+        // def = def + 0.5;
+        currentRow.find("td:eq(9)").html(y);
+        if (parseInt(currentRow.find("td:eq(9)").text()) < 1) {
+          currentRow.find("td:eq(9)").html("0");
+          console.log("blooo");
+        }
+
+        console.log(currentRow.find("td:eq(0)").text());
+
+        $.ajax({
+          type: "POST",
+          url: "http://localhost:8080/quickSalon_war_exploded/updateRatings",
+          data: {
+            empID: empID,
+            rateVal: parseFloat(currentRow.find("td:eq(9)").text()),
+          },
+          success: function (response) {
+            if (response == 1) {
+              console.log("success");
+            }
+          },
+        });
       });
 
       $("#myTable").on("click", ".btn34", function () {
@@ -76,7 +163,7 @@ $("document").ready(function () {
         $("#address").val(col7);
         //  console.log(inputFields);
 
-        // //////////////////////
+        //////////////////////////////////////////////////
         $("#updateManager").click(function () {
           var eID = $("#eID").val();
           var cNum = $("#cNum").val();
