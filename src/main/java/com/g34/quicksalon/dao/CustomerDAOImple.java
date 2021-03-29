@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class CustomerDAOImple implements CustomerDAO {
     
@@ -161,6 +162,34 @@ public class CustomerDAOImple implements CustomerDAO {
             throwables.printStackTrace();
         }
         return customerName;
+    }
+
+    @Override
+    public ArrayList<CustomerDetails> getCustomersByKey(String key) throws SQLException, ClassNotFoundException {
+
+        ArrayList<CustomerDetails> customerArray = new ArrayList<>();
+        try {
+            System.out.println("172");
+            Connection connection =DBConnection.getConnection();
+            String SQLquery = "SELECT * FROM j4f9qe_customer WHERE (customerID LIKE '%" + key + "%' OR firstName LIKE '%" + key + "%' OR lastName LIKE '%" + key + "%' OR telephone LIKE '%" + key + "%') AND accountType=1;";
+            PreparedStatement stmt= connection.prepareStatement(SQLquery);
+            System.out.println("176");
+            ResultSet resultSet=stmt.executeQuery();
+//            String firstName, String lastName, String contactNo, int customerID, String registeredDate
+            while(resultSet.next()){
+                customerArray.add(new CustomerDetails(
+                        resultSet.getInt(1),
+                        resultSet.getString(2),
+                        resultSet.getString(3),
+                        resultSet.getString(4),
+                        resultSet.getString(5)
+                )
+                );
+            }
+        } catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+        return customerArray;
     }
 
 }

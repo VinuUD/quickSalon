@@ -9,6 +9,9 @@ public class CustomerDetails {
     private String email;
     private String address;
     private String password;
+    private int userID;
+    private int customerID;
+    private String registeredDate;
 
     public CustomerDetails() {
     }
@@ -22,6 +25,14 @@ public class CustomerDetails {
         this.email = email;
         this.address = address;
         this.password = password;
+    }
+
+    public CustomerDetails( int customerID, String firstName, String lastName, String contactNo, String registeredDate) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.contactNo = contactNo;
+        this.customerID = customerID;
+        this.registeredDate = registeredDate;
     }
 
     public String getFirstName() {
@@ -87,4 +98,5 @@ public class CustomerDetails {
     public void setPassword(String password) {
         this.password = password;
     }
+
 }

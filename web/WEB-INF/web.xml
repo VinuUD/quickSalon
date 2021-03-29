@@ -406,10 +406,20 @@
         <servlet-name>NotifyUserServlet</servlet-name>
         <servlet-class>com.g34.quicksalon.controller.employeeManagement.NotifyUserServlet</servlet-class>
     </servlet>
+
     <servlet-mapping>
         <servlet-name>NotifyUserServlet</servlet-name>
         <url-pattern>/notifyUsers</url-pattern>
     </servlet-mapping>
 
+    <!--  All Customer Search -->
+    <servlet>
+        <servlet-name>AllCustomerServlet</servlet-name>
+        <servlet-class>com.g34.quicksalon.controller.customer.AllCustomerServlet</servlet-class>
+    </servlet>
 
+    <servlet-mapping>
+        <servlet-name>AllCustomerServlet</servlet-name>
+        <url-pattern>/allcustomers</url-pattern>
+    </servlet-mapping>
 </web-app>
