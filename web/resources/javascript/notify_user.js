@@ -71,7 +71,7 @@ $('#addbtn').on('click', function(){
 
         // $("#userrow").val($("#usergroup option:selected").text())
     
-        $("#userrow").append(`<tr><td id=${$("#usergroup option:selected").val()}>${$("#usergroup option:selected").text()}</td> <td><button id="remove" class='remove'>-</button><td> </tr>`)
+        $("#userrow").append(`<tr><td id=${$("#usergroup option:selected").val()}>${$("#usergroup option:selected").text()}</td> <td><button id="remove" class='remove'>-</button></td> </tr>`)
     
         selectedUserGroup.push($("#usergroup option:selected").val());
     
