@@ -113,11 +113,11 @@ $('#addbtn').on('click', function(){
 
 $('#send-btn').on('click', function(){
 
-
+    var msg=$("#msg").val()
 
     $.post("http://localhost:8080/quickSalon_war_exploded/notifyUsers", {
         userTypes:selectedUserGroup,
-        msg:$("")
+        msg:msg
     },
     function (data, status) {
         alert(data);

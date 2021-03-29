@@ -12,35 +12,35 @@ $('#signup').click(function(){
     var passwordRepeat = $("#password-repeat").val().trim();
 
 
-            $.ajax({
-            type: 'POST',
-            url: 'http://localhost:8080/quickSalon_war_exploded/registercustomer',
-            data: {
-                        fname:fname,
-                        lname:lname,
-                        uname:uname,
-                        contactno:contactno,
-                        nic:nic,
-                        email:email,
-                        address:address,
-                        password:password
-                    },
-            success:( function(response)
-            {
-                alert(response);
+        //     $.ajax({
+        //     type: 'POST',
+        //     url: 'http://localhost:8080/quickSalon_war_exploded/registercustomer',
+        //     data: {
+        //                 fname:fname,
+        //                 lname:lname,
+        //                 uname:uname,
+        //                 contactno:contactno,
+        //                 nic:nic,
+        //                 email:email,
+        //                 address:address,
+        //                 password:password
+        //             },
+        //     success:( function(response)
+        //     {
+        //         alert(response);
 
-                if(response ==1)
-                {
-                    alert("Customer Added successfully!");
-                    window.location.replace("http://localhost:8080/quickSalon_war_exploded/login.html");
-                }
-                else if(response==0){
-                    alert("Customer added failed");
-                }
+        //         if(response ==1)
+        //         {
+        //             alert("Customer Added successfully!");
+        //             window.location.replace("http://localhost:8080/quickSalon_war_exploded/login.html");
+        //         }
+        //         else if(response==0){
+        //             alert("Customer added failed");
+        //         }
 
-            })
+        //     })
 
-          });
+        //   });
 
 
 

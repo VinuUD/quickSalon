@@ -23,11 +23,6 @@ public class AllCustomerServlet extends HttpServlet {
         try {
             customerArray = customerDAO.getCustomersByKey(key);
 
-            for(int i=0; i<customerArray.size();i++){
-                System.out.println(customerArray.get(i).getFirstName());
-            }
-            
-            System.out.println("25"+key);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } catch (ClassNotFoundException e) {
@@ -36,9 +31,11 @@ public class AllCustomerServlet extends HttpServlet {
 
 
         String json = new Gson().toJson(customerArray);
+        System.out.println(json);
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         response.getWriter().write(json);
+
     }
 
     @Override

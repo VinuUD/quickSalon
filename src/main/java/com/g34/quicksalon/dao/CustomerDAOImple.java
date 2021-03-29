@@ -58,7 +58,7 @@ public class CustomerDAOImple implements CustomerDAO {
         try {
             //1) add Customer to customer table
             customerID = addCustomer(customerDetails,connection);
-            System.out.println(customerID);
+//            System.out.println(customerID);
             //2)add user to j4f9qe_user table
             userID=registerUser(customerDetails,connection);
             //3)Update `j4f9qe_registeredcustomers` table

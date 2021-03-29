@@ -34,7 +34,7 @@ public class RegisterCustomerServlet extends HttpServlet {
 
 
         CustomerDetails customerDetails=new CustomerDetails(fname,lname,uname,contactno,nic,email,address,password);
-        out.println(""+customerDetails.getFirstName()+"-"+customerDetails.getUserName()+"-"+customerDetails.getContactNo());
+//        out.println(""+customerDetails.getFirstName()+"-"+customerDetails.getUserName()+"-"+customerDetails.getContactNo());
 
         CustomerDAO customerDAO=new CustomerDAOImple();
         try {
