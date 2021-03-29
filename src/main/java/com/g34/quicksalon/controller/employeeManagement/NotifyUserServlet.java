@@ -5,6 +5,7 @@ import com.g34.quicksalon.dao.UserDAO;
 import com.g34.quicksalon.dao.UserDAOImple;
 import com.google.gson.Gson;
 
+import javax.mail.MessagingException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +20,7 @@ public class NotifyUserServlet extends HttpServlet {
 //        request.getParameterValues("userTypes");
         String[] userTypes = request.getParameterValues("userTypes[]");
 
-        String msg=request
+        String msg=request.getParameter("msg");
         UserDAO userDAO =new UserDAOImple();
         ArrayList<String> emails=new ArrayList<>();
         ArrayList<String> email1=new ArrayList<>();
@@ -39,13 +40,17 @@ public class NotifyUserServlet extends HttpServlet {
 //            System.out.println(userTypes[i]);
         }
 
-        for(int i = 0; i < emails.length;i++) {
+        for(int i = 0; i < emails.size()-1; i++) {
 
             //Send Emails
             JavaMailUtil javaMailUtil=new JavaMailUtil();
-            javaMailUtil.sendMail();
+            try {
+                javaMailUtil.sendMail(emails.get(i),msg);
+            } catch (MessagingException e) {
+                e.printStackTrace();
+            }
 
-          System.out.println(emails.get(i));
+            System.out.println(emails.get(i));
 
         }
 
