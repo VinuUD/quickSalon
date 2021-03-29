@@ -3,6 +3,7 @@ package com.g34.quicksalon.dao;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import com.g34.quicksalon.model.Ratings;
 import com.g34.quicksalon.model.Service;
 
 public interface ServiceDAO {
@@ -25,5 +26,10 @@ public interface ServiceDAO {
   public ArrayList<Service> getServiceDetailsByID(int serviceID) throws SQLException, ClassNotFoundException;
 
     public int removeService(int serviceID) throws SQLException, ClassNotFoundException;
+
+    public int updateRatings(int empID, int rateVal) throws SQLException, ClassNotFoundException;
+
+    public ArrayList<Ratings> getRatings() throws SQLException, ClassNotFoundException;
+
 
 }
