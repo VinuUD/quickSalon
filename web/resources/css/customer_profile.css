@@ -1,0 +1,13 @@
+.form34 {
+  max-width: 500px;
+}
+
+a {
+  text-decoration: none;
+  transition: all 500ms;
+  color: black;
+}
+
+#cancel:hover > a {
+  color: white;
+}

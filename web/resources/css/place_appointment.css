@@ -20,13 +20,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
-  background-image: url("../images/placeAppoinment.png"); /* The image used */
-  background-position: right; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
-  box-sizing: border-box;
-  background-size: cover; /* Resize the background image to cover the entire container */
   padding: 20px 0;
+  height: 100%;
   flex-grow: 1;
 }
 
@@ -135,4 +130,15 @@ td {
 
 .calendar > .calendarDiv {
   background-color: white;
+}
+
+.table-div34 {
+  margin-top: -340px;
+  width: 80%;
+}
+
+@media (max-width: 1532px) {
+  .table-div34 {
+    margin-top: 0;
+  }
 }
