@@ -1,67 +1,15 @@
+.work-space {
+  flex-direction: row;
+}
 
 .user-group{
     width: auto;
     height: auto;
 }
 
-
-.subDiv{
-    display: -ms-flexbox;
-    flex-direction: row;
-}
-
-.subDiv >div{
-    text-align: center;
-    padding: 20px;
-}
-
-.group-title{
-    border: 1px solid black;
-    height: 40px;
-    text-align: center;
-    padding-top: 20px;
-    font-size: 20px;
-    font-family: serif;
-    background-color: #48676c;
-    color: white;
-    font-style: oblique;
-
-}
-
-select {
-    border: 5px solid #96e6b3ff;
-    border-radius:15px ;
-    height: 40px;
-    color: black;
-    padding: 5px;
-    width: 250px;
-    font-size: 11px;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
-    outline: none;
-}
-
-select:hover{
-    border: 5px solid #48676c;
-}
-
 .select-sp{
-
     padding: 20px;
 }
-
-.btn:hover{
-
-    border: 3px solid  #48676c;
-}
-
-
-.group-tb{
-    border: 3px solid  #48676c;
-    width: auto;
-    height: 160px;
-}
-
-
 
 .row{
     display: grid;
@@ -71,7 +19,6 @@ select:hover{
     width: 100%;
     text-align: center;
     padding-top: 10px;
-
 }
 
 .remove{
@@ -80,8 +27,6 @@ select:hover{
     outline: none;
     color: white;
     background-color: rgb(209, 202, 202);
-
-
 }
 
 .remove:hover{
@@ -89,45 +34,46 @@ select:hover{
 }
 
 .msg-box{
-
     width: auto;
-
-}
-
-textarea{
-    border: 5px solid #96e6b3ff;
-    font-size: 14px;
-    border-radius: 15px;
-    width: auto;
-}
-
-textarea:hover{
-    border: 5px solid #48676c;
 }
 
 .send-btn button{
-    width: 200px;
+    width: 100px;
+    margin-top: 20px;
 }
 
-.send-btn button:hover{
-    background-color: green;
+.textarea-wrapper {
+  min-width: 0;
+  margin-top: -100px;
+}
+
+textarea {
+	border: none;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+}
+
+.table-div34 {
+  width: 50%;
 }
 
 /* Back btn */
 
 @media screen and (max-width:600px)
 {
-    textarea
+    .textarea-wrapper
     {
         width: 300px;
+        margin-left: 0;
     }
 }
 
 @media screen and (max-width:350px)
 {
-    textarea
+    .textarea-wrapper
     {
-        width: 250px;
+        width: 230px;
     }
 }
 
