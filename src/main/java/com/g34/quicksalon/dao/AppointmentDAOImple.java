@@ -192,7 +192,7 @@ public class AppointmentDAOImple implements AppointmentDAO {
         for(int i=0; i<len; i++)
         {
 
-            String query = "SELECT * FROM `appointmentCount` WHERE employeeID = ?";
+            String query = "SELECT * FROM j4f9qe_employeeratings WHERE employeeID = ?";
             PreparedStatement pst = con.prepareStatement(query);
             pst.setInt(1,Integer.parseInt(arr[i]));
             ResultSet rs =  pst.executeQuery();
@@ -204,19 +204,19 @@ public class AppointmentDAOImple implements AppointmentDAO {
             }
         }
 
-        int min = Collections.min(appCountList);
-        int minIndex = 0;
+        int max = Collections.max(appCountList);
+        int maxIndex = 0;
 
         for(int j=0; j<appCountList.size();j++)
         {
-            if(min == appCountList.get(j))
+            if(max == appCountList.get(j))
             {
-                minIndex = j;
+                maxIndex = j;
                 break;
             }
-        }
+        } 
 
-        int spID = Integer.parseInt(arr[minIndex]);
+        int spID = Integer.parseInt(arr[maxIndex]);
 
         String query1 = "SELECT j4f9qe_employee.employeeID, j4f9qe_employee.firstName, j4f9qe_employee.lastName FROM j4f9qe_employee WHERE j4f9qe_employee.employeeID = ?";
         PreparedStatement pst2 = con.prepareStatement(query1);

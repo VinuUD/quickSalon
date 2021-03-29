@@ -130,7 +130,17 @@ public class ManagerDetails {
     }
 
 
-
-
-
+    public ManagerDetails(String nic, String firstName, String lastName, String salary, String enrollDate, String resignDate, int isUpperStaffFlag, int onLeaveFlag, int removedFlag, String cNum, String address) {
+        this.nic = nic;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.salary = salary;
+        this.enrollDate = enrollDate;
+        this.resignDate = resignDate;
+        this.isUpperStaffFlag = isUpperStaffFlag;
+        this.onLeaveFlag = onLeaveFlag;
+        this.removedFlag = removedFlag;
+        this.cNum = cNum;
+        this.address = address;
+    }
 }

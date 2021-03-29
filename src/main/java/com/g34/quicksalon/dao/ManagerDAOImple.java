@@ -17,7 +17,7 @@ public class ManagerDAOImple implements ManagerDAO {
 
 		Connection	con = DBConnection.getConnection();
 
-		String query = "insert into j4f9qe_employee (nicNo,firstName,lastName,salary,email, address, enrollDate,resignDate,isUpperStaffFlag,onLeaveFlag,removedFlag,contactNum) values (?,?,?,?,?,?,?,?,?,?,?,?)";
+		String query = "insert into j4f9qe_employee (nicNo,firstName,lastName,salary, address, enrollDate,resignDate,isUpperStaffFlag,onLeaveFlag,removedFlag,contactNum) values (?,?,?,?,?,?,?,?,?,?,?)";
 
 
 		PreparedStatement pst = con.prepareStatement(query);
@@ -29,14 +29,14 @@ public class ManagerDAOImple implements ManagerDAO {
 		pst.setString(2, manager.getFirstName());
 		pst.setString(3, manager.getLastName());
 		pst.setString(4, manager.getSalary());
-		pst.setString(5, manager.getEmail());
-		pst.setString(6, manager.getAddress());
-		pst.setString(7, manager.getEnrollDate());
-		pst.setString(8, manager.getResignDate());
-		pst.setInt(9, manager.getIsUpperStaffFlag());
-		pst.setInt(10, manager.getOnLeaveFlag());
-		pst.setInt(11, manager.getRemovedFlag());
-		pst.setString(12, manager.getcNum());
+
+		pst.setString(5, manager.getAddress());
+		pst.setString(6, manager.getEnrollDate());
+		pst.setString(7, manager.getResignDate());
+		pst.setInt(8, manager.getIsUpperStaffFlag());
+		pst.setInt(9, manager.getOnLeaveFlag());
+		pst.setInt(10, manager.getRemovedFlag());
+		pst.setString(11, manager.getcNum());
 		int x = pst.executeUpdate();
 
 
