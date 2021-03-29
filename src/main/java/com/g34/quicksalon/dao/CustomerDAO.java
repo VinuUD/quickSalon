@@ -1,8 +1,10 @@
 package com.g34.quicksalon.dao;
 
+import com.g34.quicksalon.model.Customer;
 import com.g34.quicksalon.model.CustomerDetails;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public interface CustomerDAO {
     
@@ -12,5 +14,6 @@ public interface CustomerDAO {
 
     public String getCustomerNameByID(int customerID) throws SQLException, ClassNotFoundException;
 
-
+//    key = customer ID, customer name, contact number
+    public ArrayList<Customer> getCustomersByKey(String key) throws SQLException, ClassNotFoundException;
 }

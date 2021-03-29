@@ -26,18 +26,14 @@ public class NotifyUserServlet extends HttpServlet {
         ArrayList<String> email1=new ArrayList<>();
 
         for(int i = 0; i < userTypes.length;i++) {
-
             try {
                 email1= userDAO.getUserEmails(Integer.parseInt(userTypes[i]));
                 emails.addAll(email1);
-
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             }
-//            emails.addAll();
-//            System.out.println(userTypes[i]);
         }
 
         for(int i = 0; i < emails.size()-1; i++) {
@@ -45,19 +41,18 @@ public class NotifyUserServlet extends HttpServlet {
             //Send Emails
             JavaMailUtil javaMailUtil=new JavaMailUtil();
             try {
-                javaMailUtil.sendMail(emails.get(i),msg);
+                javaMailUtil.notifyUser(emails.get(i),msg);
+                response.getWriter().println(1);
             } catch (MessagingException e) {
+                response.getWriter().println(0);
                 e.printStackTrace();
             }
 
-            System.out.println(emails.get(i));
+
 
         }
 
-//        String json = new Gson().toJson(userTypes);
-//        response.setContentType("application/json");
-//        response.setCharacterEncoding("UTF-8");
-//        response.getWriter().write(json);
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -1,6 +1,7 @@
 package com.g34.quicksalon.dao;
 
 import com.g34.quicksalon.database.DBConnection;
+import com.g34.quicksalon.model.Customer;
 import com.g34.quicksalon.model.CustomerDetails;
 
 import java.sql.Connection;
@@ -8,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class CustomerDAOImple implements CustomerDAO {
     
@@ -57,7 +59,7 @@ public class CustomerDAOImple implements CustomerDAO {
         try {
             //1) add Customer to customer table
             customerID = addCustomer(customerDetails,connection);
-            System.out.println(customerID);
+//            System.out.println(customerID);
             //2)add user to j4f9qe_user table
             userID=registerUser(customerDetails,connection);
             //3)Update `j4f9qe_registeredcustomers` table
@@ -161,6 +163,43 @@ public class CustomerDAOImple implements CustomerDAO {
             throwables.printStackTrace();
         }
         return customerName;
+    }
+
+    @Override
+    public ArrayList<Customer> getCustomersByKey(String key) throws SQLException, ClassNotFoundException {
+
+        ArrayList<Customer> customerArray = new ArrayList<Customer>();
+
+//            System.out.println("172");
+            Connection connection =DBConnection.getConnection();
+            String SQLquery = "SELECT * FROM j4f9qe_customer WHERE (customerID LIKE '%" + key + "%' OR firstName LIKE '%" + key + "%' OR lastName LIKE '%" + key + "%' OR telephone LIKE '%" + key + "%') AND accountType=1;";
+            PreparedStatement stmt= connection.prepareStatement(SQLquery);
+//            System.out.println("176");
+            ResultSet resultSet=stmt.executeQuery();
+//            String firstName, String lastName, String contactNo, int customerID, String registeredDate
+//        private int customerID;
+//        private String firstName;
+//        private String lastName;
+//        private String telephone;
+//        private String registeredDate;
+//        private int accountType;
+            while(resultSet.next()){
+                customerArray.add(new Customer(
+                        resultSet.getInt(1),
+                        resultSet.getString(2),
+                        resultSet.getString(3),
+                        resultSet.getString(4),
+                        resultSet.getString(5),1
+                )
+                );
+//                System.out.println(resultSet.getInt(1));
+//                System.out.println(resultSet.getString(2));
+//                System.out.println(resultSet.getString(3));
+//                System.out.println(resultSet.getString(4));
+//                System.out.println(resultSet.getString(5));
+            }
+
+        return customerArray;
     }
 
 }

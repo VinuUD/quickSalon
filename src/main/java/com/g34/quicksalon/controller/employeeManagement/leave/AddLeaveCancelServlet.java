@@ -22,7 +22,7 @@ public class AddLeaveCancelServlet extends HttpServlet {
             boolean x = owner.cancelLeave(id);
             if(x == false)
             {
-                System.out.println("fuck");
+
                 res.getWriter().println(1);
             }
             if(x == true)
