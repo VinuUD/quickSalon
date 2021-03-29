@@ -112,13 +112,13 @@ body{
     height: auto;
 }
 
-.table{
+/* .table{
     flex: 1;
     height: fit-content;
     height: auto;
     margin: 0;
     text-align: left !important;
-}
+} */
 .calendar{
     width: fit-content;
 }
@@ -153,7 +153,7 @@ body{
     margin: 0px 0px 10px 10px;
 }
 
-.name-txt{
+/* .name-txt{
 
     border: 5px solid #48676c;
     border-radius:15px ;
@@ -163,12 +163,12 @@ body{
     width: 200px;
     font-size: 11px;
     outline: none;
-}
+} */
 
 
 /*Customer name Text Box */
 
-input{
+/* input{
 
     margin-top: 0 !important;
     background-color: white;
@@ -177,25 +177,22 @@ input{
     appearance: auto !important;
     -webkit-appearance: checkbox !important;
 
-}
-.row-1 label{
+} */
+/* .row-1 label{
     color: black;
     font-style: italic;
     font-size: 14px;
 
-}
+} */
 
-.name-txt:hover{
-    border: 5px solid #48676c;
-}
 
 
 /* Radio */
-.radio-toolbar {
+/* .radio-toolbar {
     margin: 10px;
     display: flex;
     flex-wrap: wrap;
-}
+} */
 
 .radio-toolbar input[type="radio"] {
 
@@ -224,7 +221,7 @@ input{
 }
 
 
-select {
+/* select {
     border: 5px solid #48676c;
     border-radius:15px ;
     height: 40px;
@@ -233,7 +230,7 @@ select {
     width: 150px;
     font-size: 14px ;
     outline: none;
-}
+} */
 
 select:hover{
     border: 5px solid #96e6b3ff;
@@ -253,3 +250,15 @@ select:hover{
     }
 }
 
+
+
+
+.calendar-div {
+    display: flexbox;
+    width: 100%;
+  }
+
+  .calendar > .calendarDiv {
+    background-color: white;
+  }
+  
