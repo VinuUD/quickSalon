@@ -18,3 +18,18 @@
 .innerDiv {
   max-width: 600px;
 }
+
+a {
+  text-decoration: none;
+  transition: all 500ms;
+  color: black;
+}
+
+#cancel:hover > a {
+  color: white;
+}
+
+.center {
+  text-align: center;
+  justify-content: center;
+}
