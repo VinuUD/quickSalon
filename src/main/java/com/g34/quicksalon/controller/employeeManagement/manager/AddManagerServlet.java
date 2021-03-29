@@ -2,59 +2,84 @@ package com.g34.quicksalon.controller.employeeManagement.manager;
 
 import java.io.IOException;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.Date;
 
 import com.g34.quicksalon.dao.ManagerDAO;
 import com.g34.quicksalon.dao.ManagerDAOImple;
+import com.g34.quicksalon.dao.ServiceProviderDAO;
+import com.g34.quicksalon.dao.ServiceProviderDAOImple;
 import com.g34.quicksalon.model.ManagerDetails;
+import com.g34.quicksalon.model.ServiceProvider;
 
 public class AddManagerServlet extends HttpServlet {
 	
-	public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException
 	{
-		LocalDate obj = LocalDate.now();
+		System.out.println("mn dn inne me servlet ekee");
+		int empID= Integer.parseInt(request.getParameter("empID"));
+		String fname=request.getParameter("fname");
+		String lname=request.getParameter("lname");
+		String uname=request.getParameter("uname");
+		String nic=request.getParameter("nic");
+		String email=request.getParameter("email");
+		String contactno=request.getParameter("contactno");
+//        String phoneNo=request.getParameter("contactno");
+		String address=request.getParameter("address");
+		String password=doHash(request.getParameter("password"));
+		float salary= Float.parseFloat(request.getParameter("salary"));
 
-		String nic = req.getParameter("nic");
-		String firstName = req.getParameter("firstName");
-		String lastName = req.getParameter("lastName");
-		String salary = req.getParameter("salary");
-		String enrollDate = obj.toString();
-		String resignDate = "1111-11-11";
-		int upFlag = 1;
-		int leaveFlag = 0;
-		int removeFlag = 0;
-		String cNum = req.getParameter("cNum");
-		String email = req.getParameter("email");
-		String address = req.getParameter("address");
+		ServiceProvider serviceProvider=new ServiceProvider(empID,fname,lname,uname,nic,email,salary,password,new Date().toString(),null,0,0,0,0,contactno,address);
+		ServiceProviderDAO serviceProviderDAO=new ServiceProviderDAOImple();
+		boolean success=false;
 
-
-
-		
-		ManagerDetails Manager = new ManagerDetails(nic, firstName, lastName, salary, enrollDate, resignDate, upFlag, leaveFlag, removeFlag, cNum, email, address);
-		
-		ManagerDAO managerDAO = new ManagerDAOImple();
-		
 		try {
-			int x = managerDAO.addManager(Manager);
-			if(x == 1)
-			{
-				res.getWriter().println(x);
-				System.out.println(x);
-			}
-			else
-			{
-				res.getWriter().println(x);
-				System.out.println(x);
-			}
+			success=serviceProviderDAO.registerManager(serviceProvider);
+			response.getWriter().println(success);
 
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
+		} catch (SQLException throwables) {
+			throwables.printStackTrace();
+		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
+
 		
+	}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//        Return empId for newly added SP
+		ServiceProviderDAO serviceProviderDAO=new ServiceProviderDAOImple();
+		try {
+			int empID=serviceProviderDAO.getLastEmployeeID();
+			response.getWriter().println(empID);
+		} catch (SQLException throwables) {
+			throwables.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public String doHash(String password){
+		try {
+			MessageDigest messageDigest=MessageDigest.getInstance("SHA-256");
+			messageDigest.update(password.getBytes());
+			byte[] hashedByte=messageDigest.digest();
+			StringBuilder sb=new StringBuilder();
+			for(byte b:hashedByte){
+				sb.append(String.format("%02x",b));
+			}
+			return  sb.toString();
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		}
+		return "";
 	}
 
 

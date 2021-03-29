@@ -37,8 +37,8 @@
         </div>
 
         <div class="pButton">
-          <button onclick="hide()" class="btn-danger34">yes</button>
-          <button class="btn-success34">
+          <button onclick="hide()" id="yes" class="btn-danger34">yes</button>
+          <button id="no" class="btn-success34">
             <a
               style="text-decoration: none; color: white"
               href="ownerHome.html"
@@ -124,13 +124,20 @@
             method="GET"
           >
             <div class="innerDiv">
-              <div><b>First Nameee &nbsp;&nbsp;&nbsp;&nbsp;</b></div>
+              <div><b>Employee ID &nbsp;&nbsp;&nbsp;&nbsp;</b></div>
+              <div class="inputDiv">
+                <input id="empID" type="text" name="empID" />
+              </div>
+            </div>
+
+            <div class="innerDiv">
+              <div><b>First Name &nbsp;&nbsp;&nbsp;&nbsp;</b></div>
               <div class="inputDiv">
                 <input
                   id="firstName"
                   onchange="cng()"
                   type="text"
-                  name="firstName"
+                  name="fname"
                 />
               </div>
             </div>
@@ -138,19 +145,25 @@
             <div class="innerDiv">
               <div><b>Last Name &nbsp;&nbsp;&nbsp;&nbsp;</b></div>
               <div class="inputDiv">
-                <input id="lastName" type="text" name="lastName" />
+                <input id="lastName" type="text" name="lname" />
               </div>
             </div>
 
             <div class="innerDiv">
-              <div><b>Contact Number &nbsp;</b></div>
+              <div><b>User Name &nbsp;&nbsp;&nbsp;&nbsp;</b></div>
+              <div class="inputDiv">
+                <input id="userID" type="text" name="uname" />
+              </div>
+            </div>
+
+            <div class="innerDiv">
+              <div><b>NIC &nbsp;</b></div>
               <div class="inputDiv">
                 <input
-                  id="cNum"
+                  id="nic"
+                  style="margin-left: 60px"
                   type="text"
-                  name="cNum"
-                  onchange="numberCheck()"
-                  style="margin-left: -28px"
+                  name="nic"
                 />
               </div>
             </div>
@@ -169,13 +182,14 @@
             </div>
 
             <div class="innerDiv">
-              <div><b>NIC &nbsp;</b></div>
+              <div><b>Contact Number &nbsp;</b></div>
               <div class="inputDiv">
                 <input
-                  id="nic"
-                  style="margin-left: 60px"
+                  id="cNum"
                   type="text"
-                  name="nic"
+                  name="contactno"
+                  onchange="numberCheck()"
+                  style="margin-left: -28px"
                 />
               </div>
             </div>
@@ -198,37 +212,20 @@
                 />
               </div>
             </div>
+            <div class="innerDiv">
+              <div><b>Password &nbsp;</b></div>
+              <div style="margin-left: 45px" class="inputDiv">
+                <input id="password" name="password" />
+              </div>
+            </div>
           </form>
         </div>
       </div>
 
       <div class="confirm">
-        <button onclick="confirm()" class="btn34">confirm</button>
+        <button id="confirm" class="btn34">Register</button>
       </div>
     </div>
-
-    <script type="text/javascript">
-      $(document).ready(function () {
-        var form = $("#myForm");
-
-        $("#submit").click(function () {
-          $.ajax({
-            type: "GET",
-            url: "registerManager.html/addManager",
-            data: form.serialize(),
-            success: function (response) {
-              if (response == 1) {
-                document.getElementById("mainPopupDiv").style.display = "block";
-              } else if (response == 0) {
-                alert("Manager Added unsuccess! please try again !");
-              }
-            },
-          });
-
-          document.getElementById("myForm").reset();
-        });
-      });
-    </script>
 
     <script src="../../resources/javascript/side_navbar.js"></script>
     <script src="../../resources/javascript/new.js"></script>

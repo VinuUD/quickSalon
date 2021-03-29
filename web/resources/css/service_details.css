@@ -176,6 +176,10 @@ img{
   background: lightgreen;
 }
 
+#serviceData th{
+  line-height: 40px;
+}
+
 #btn-search{
   padding: 6px;
   float: right;
@@ -202,7 +206,7 @@ img{
 
 .tableDiv34{
   overflow: auto !important;
-  
+
 }
 
 .buttonDiv
@@ -320,7 +324,7 @@ img{
 
 #services{
   width: 200px;
-  height: 20px;
+  height: 40px;
 }
 
 td{
