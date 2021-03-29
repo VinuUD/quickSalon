@@ -10,90 +10,60 @@
     <link rel="stylesheet" href="../resources/css/34.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="../resources/css/normal.css">
+    <link rel="stylesheet" href="../resources/css/frameWork/style.css" />
+    <link rel="stylesheet" href="../resources/css/manage_appointment.css" />
+    <script
+      src="https://kit.fontawesome.com/0f3db243e3.js"
+      crossorigin="anonymous"
+    ></script>
     <script defer  src='../resources/javascript/main.js'></script>
 </head>
 
+<body>
+  <div class="container">
+    <div class="medium-space">
+      <div class="heading">
+        Manage Appointments
+      </div>
 
-<body onresize="whenResizing()">
-    <!-- side nav bar -->
-        <div id="mySidenav" class="sidenav">
-            <div class="closeIcon"><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></div>
-
-            <a href="place_appointment.html">Place appointment</a>
-            <a href="manage_appointment.html">Manage appointment</a>
-            <a href="#">Service / Packages</a>
-            <a href="complaint.html">Complaint</a>
-            <a href="#">Contact : 0713705748 (saloon owner)</a>
-          </div>
-
-
-
-<!-- ////////////////////////////// -->
-<div id="main">
-
-    <div class="back">
-        <div id="navIcon" onclick="openNav()" class="navIcon"  ><img src="../resources/icons/three.png" alt="Ooops" ></div>
-        <button class="btn34"  onclick=history.back()>back</button>
-    </div>
-    <br><br>
-
-    <div class="topBar">
-        <caption>Appointments</caption>
-    </div>
-
-    <div class="mainDiv">
-        <div class = "tableDiv34" >
-
-        <table id="t01" class = "table34">
-
-            <tr>
-              <th>Date</th>
-              <th>Start time</th>
-              <th>Duration</th>
-              <th>View</th>
-              <th>Reshedule</th>
-            </tr>
+      <div class="work-space">
+        <div class="table-div34">
+          <table class="table34">
+            <colspan>
+              <col class="medium-column">
+              <col class="medium-column">
+              <col class="medium-column">
+              <col class="medium-column center">
+              <col class="medium-column center">
+            </colspan>
+            <th>Date</th>
+            <th>Start</th>
+            <th>Duration</th>
+            <th>View</th>
+            <th>Reschedule</th>
             <tr>
               <td>2020-5-6</td>
               <td>10.00 a.m</td>
               <td>20mins</td>
               <td>
-                        <button data-modal-target="#modal" class ="btn34">*</button>
-                        <div class="modal" id="modal">
-                        <div class="modal-header">
-                            <div class="title">view</div>
-                            <button data-close-button class="close-button">&times;</button>
-                        </div>
-                        <div class="modal-body">
-
-                            <table id="" class = "table34">
-                                <tr>
-                                <td style="background-color: white; ">Service</td>
-                                <td style="background-color: white; ">Service provider</td>
-                                </tr>
-                                <tr>
-                                <td style="background-color: white; "> </td>
-                                <td style="background-color: white; "></td>
-                                </tr>
-                            </table>
-
-
-
-                        </div>
-                                </div>
-                        </div>
-
-                        <div id="overlay"></div>
-                  </td>
-              <td>  <a href="reshedule.html"><button class="btn34">*</button></a></td>
+                <button class ="btn btn-small">
+                  <i class="fas fa-star-of-life"></i>
+                </button>
+              </td>
+              <td>
+                <a href="reshedule.html">
+                  <button class ="btn btn-small">
+                    <i class="fas fa-star-of-life"></i>
+                  </button>
+                </a>
+              </td>
             </tr>
           </table>
-          <div class = ""  >
-            <a href="place_appointment.html"><button class = "btn34" style="float:right;" >Place a new appointment</button></a>
         </div>
+      </div><!-- end of work-space -->
+    </div><!-- end of medium-space -->
+  </div><!-- end of container -->
 
-
-    </div>
 </div>
 <script src="../resources/javascript/side_navbar.js"></script>
 </body>
