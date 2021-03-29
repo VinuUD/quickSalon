@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="../resources/css/mainDiv.css">
     <link rel="stylesheet" href="../resources/css/modal.css">
     <link rel="stylesheet" href="../resources/css/frameWork/style.css" />
-    <link rel="stylesheet" href="../resources/css/notify_user.css">
     <link rel="stylesheet" href="../resources/css/normal.css">
+    <link rel="stylesheet" href="../resources/css/notify_user.css">
 </head>
 
 <body>
@@ -65,35 +65,45 @@
                 </div> -->
 
     <div class="work-space">
-        <div class="table-div34">
-          <table class="table34">
-            <colspan>
-              <col class="medium-column"/>
-              <col class="small-column" />
-            </colspan>
-            <tr>
-              <th>Selected</th>
-              <th>X</th>
-            </tr>
-            <tbody id="userrow">
-                
-            </tbody>
-          </table>
+        <div class="top-div">
+            <div class="table-div34">
+                <table class="table34">
+                    <thead class="user-group-head">
+                      <tr>
+                          <th>Selected</th>
+                          <th style="text-align:center; width: 50px;">X</th>
+                      </tr>
+                    </thead>
+                    
+                  <!-- <colspan>
+                    <col class="medium-column"/>
+                    <col class="small-column" />
+                  </colspan> -->
+                  
+                  <tbody id="userrow">
+                      
+                  </tbody>
+                </table>
+              </div>
+      
+              <div class="add-user-type">
+                  <div class="select-sp">
+                      <select id='usergroup'>
+                          <option value="3">
+                              <Select:d>Service Provider</Select:d>
+                          </option>
+                          <option value="4">Customer </option>
+                          <option value="2"> Manager </option>
+                      </select>
+                  </div>
+            
+                  <div class="add-btn">
+                      <button id='addbtn' onclick="addUsrGroup()" class="btn"><b>+</b></button>
+                  </div>
+              </div>
         </div>
-
-        <div class="select-sp">
-          <select id='usergroup'>
-              <option value="3">
-                  <Select:d>Service Provider</Select:d>
-              </option>
-              <option value="4">Customer </option>
-              <option value="2"> Manager </option>
-          </select>
-        </div>
-
-        <div class="add-btn">
-            <button id='addbtn' onclick="addUsrGroup()" class="btn"><b>+</b></button>
-        </div>
+        
+        
 
 
         <div class='msg-box'>

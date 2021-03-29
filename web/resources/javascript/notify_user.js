@@ -8,18 +8,18 @@ var selectedUserGroup=[];
 
 // }
 
-function remove(index){
-    users.splice(index,1);
+// function remove(index){
+//     users.splice(index,1);
 
-    content=''
-    users.forEach((user,index)=>{
-            content+="<div class='row'>"+user+"<button class='remove' onclick='remove("+index+")'>-</button></div>";
-        }
+//     content=''
+//     users.forEach((user,index)=>{
+//             content+="<div class='row'>"+user+"<button class='btn btn-small-red' onclick='remove("+index+")'>-</button></div>";
+//         }
 
-    );
+//     );
 
-    document.getElementById('userrow').innerHTML=content;
-}
+//     document.getElementById('userrow').innerHTML=content;
+// }
 
 
 
@@ -71,7 +71,7 @@ $('#addbtn').on('click', function(){
 
         // $("#userrow").val($("#usergroup option:selected").text())
     
-        $("#userrow").append(`<tr><td id=${$("#usergroup option:selected").val()}>${$("#usergroup option:selected").text()}</td> <td><button id="remove" class='remove'>-</button></td> </tr>`)
+        $("#userrow").append(`<tr><td id=${$("#usergroup option:selected").val()}>${$("#usergroup option:selected").text()}</td> <td><button id="remove" class='btn btn-small-red remove'>-</button></td> </tr>`)
     
         selectedUserGroup.push($("#usergroup option:selected").val());
     
