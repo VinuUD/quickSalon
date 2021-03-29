@@ -2,6 +2,7 @@ package com.g34.quicksalon.controller.customer;
 
 import com.g34.quicksalon.dao.CustomerDAO;
 import com.g34.quicksalon.dao.CustomerDAOImple;
+import com.g34.quicksalon.model.Customer;
 import com.g34.quicksalon.model.CustomerDetails;
 import com.google.gson.Gson;
 
@@ -18,11 +19,12 @@ public class AllCustomerServlet extends HttpServlet {
 
         CustomerDAO customerDAO = new CustomerDAOImple();
 
-        ArrayList<CustomerDetails> customerArray = new ArrayList<CustomerDetails>();
+        ArrayList<Customer> customerArray = new ArrayList<Customer>();
 
         try {
             customerArray = customerDAO.getCustomersByKey(key);
 
+//            }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } catch (ClassNotFoundException e) {
@@ -34,7 +36,7 @@ public class AllCustomerServlet extends HttpServlet {
         System.out.println(json);
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
-        response.getWriter().write(json);
+        response.getWriter().println(json);
 
     }
 
