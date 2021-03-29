@@ -160,11 +160,11 @@
 
     <servlet>
         <servlet-name>addManager</servlet-name>
-        <servlet-class>com.g34.quicksalon.controller.upperStaff.owner.AddManagerServlet</servlet-class>
+        <servlet-class>com.g34.quicksalon.controller.employeeManagement.manager.AddManagerServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>addManager</servlet-name>
-        <url-pattern>/upperStaff/owner/registerManager.html/addManager</url-pattern>
+        <url-pattern>/addManager</url-pattern>
     </servlet-mapping>
 
 

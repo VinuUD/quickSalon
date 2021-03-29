@@ -1,172 +1,127 @@
 <!DOCTYPE html>
-<html lang = "en">
-<head>
-    <meta charset='utf-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Register Service Provider</title>
 
-    <link rel="stylesheet" href="../resources/css/normal.css">
-    <link rel="stylesheet" href="../resources/css/sideNavbar.css">
-    <link rel="stylesheet" href="../resources/css/mainDiv.css">
-    <link rel="stylesheet" href="../resources/css/34.css">
-    <link rel="stylesheet" href="../resources/css/registerServiceProvider.css">
-    <link rel="stylesheet" href="../resources/css/frameWork/style.css">
+    <link rel="stylesheet" href="../resources/css/normal.css" />
+    <link rel="stylesheet" href="../resources/css/sideNavbar.css" />
+    <link rel="stylesheet" href="../resources/css/mainDiv.css" />
+    <link rel="stylesheet" href="../resources/css/34.css" />
+    <link
+      rel="stylesheet"
+      href="../resources/css/registerServiceProvider.css"
+    />
+    <link rel="stylesheet" href="../resources/css/frameWork/style.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src='../resources/javascript/main2.js'></script>
-</head>
+    <script src="../resources/javascript/main2.js"></script>
+  </head>
 
-<body onresize="whenResizing()">
-<!-- side nav bar -->
-<div id="mySidenav" class="sidenav">
-    <div class="closeIcon"><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></div>
-    <a href="#">todo set navbar data with scession handling</a>
-    <a href="#">todo set navbar data with scession handling</a>
-
-</div>
-
-
-
-<!-- ////////////////////////////// -->
-<div id="main">
-
-    <div class="back">
-        <div id="navIcon" onclick="openNav()" class="navIcon"  ><img  src="../resources/icons/three.png" alt="Ooops" ></div>
-        <button class="btn34">Back</button>
-    </div>
-    <br><br>
-
-    <div class="topBar">
-        <b> Register Service Provider</b>
+  <body onresize="whenResizing()">
+    <!-- side nav bar -->
+    <div id="mySidenav" class="sidenav">
+      <div class="closeIcon">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+          >&times;</a
+        >
+      </div>
+      <a href="#">todo set navbar data with scession handling</a>
+      <a href="#">todo set navbar data with scession handling</a>
     </div>
 
-    <div class="mainDiv">
-
-        <div class="inner-container">
-            <div class="form-container">
-                <div class="input-text-wrap">
-                    <label for="empid">Employee ID</label>
-                    <input type="text" id="empid" name="empid" disabled placeholder="Auto Generated">
-                </div>
-
-                <div class="input-text-wrap">
-                    <label for="fname">First Name</label>
-                    <input type="text" id="fname" name="fname">
-                </div>
-
-                <div class="input-text-wrap">
-                    <label for="lname">Last Name</label>
-                    <input type="text" id="lname" name="lname">
-                </div>
-
-                <div class="input-text-wrap">
-                    <label for="uname">User Name</label>
-                    <input type="text" id="uname" name="uname">
-                </div>
-
-                <div class="input-text-wrap">
-                    <label for="nic">NIC</label>
-                    <input type="text" id="nic" name="nic">
-                </div>
-
-                <div class="input-text-wrap">
-                    <label for="email">Email</label>
-                    <input type="text" id="email" name="email">
-                </div>
-
-                <div class="input-text-wrap">
-                    <label for="email">Contact No</label>
-                    <input type="text" id="contactno" name="contactno">
-                </div>
-
-                <div class="input-text-wrap">
-                    <label for="address">Address</label>
-                    <input type="text" id="address" name="contactno">
-                </div>
-
-                <div class="input-text-wrap">
-                    <label for="salary">Salary</label>
-                    <input type="text" id="salary" name="salary">
-                </div>
-
-                <div class="input-text-wrap">
-                    <label for="password">Password</label>
-                    <input type="text" id="password" name="password" placeholder="Temporary Pwd">
-                </div>
-
-
-            </div>
-
-            <div class="background-image">
-                <div>
-                    <img src="../resources/icons/registerSP.svg">
-                </div>
-                <div class="register-btn">
-                    <button id="register" class="btn34">Register</button>
-                </div>
-            </div>
-
-
-
-
-
-            <!-- <form action ="" method="get" > 
-                <table id="t01" class = "innerDiv"  >
-                    <tr style="background-color: white; ">
-                        <td><label for="spid">Service provider id</label></td>
-                        <td><input type="text" id="spid" name="spid"><br></td>
-                    </tr>
-    
-                    <tr style="background-color: white; ">
-                        <td><label for="fname2">First name</label></td>
-                        <td><input type="text" id="fname2" name="fname2"><br></td>
-                    </tr>
-    
-                    <tr style="background-color: white; ">
-                        <td><label for="lname2">Last name</label></td>
-                        <td><input type="text" id="lname2" name="lname2"><br></td>
-                    </tr>
-    
-                    <tr style="background-color: white; ">
-                        <td><label for="cnum">Contact number</label></td>
-                        <td><input type="text" id="cnum" name="cnum"><br></td>
-                    </tr>
-    
-                    <tr style="background-color: white; ">
-                        <td><label for="bday">Birthday</label></td>
-                        <td><input type="date" id="bday" name="bday"><br></td>
-                    </tr>
-                    
-                    <tr style="background-color: white; ">
-                        <td><label for="nic">NIC</label></td>
-                        <td><input type="text" id="nic" name="nic"><br></td>
-                    </tr>
-    
-                    <tr style="background-color: white; ">
-                        <td><label for="salary">Salary</label></td>
-                        <td> <input type="number" id="salary" name="salary"><br></td>
-                    </tr>
-    
-                    <tr style="background-color: white; ">
-                        <td></td>
-                        <td>   <input type ="submit" onclick="clickedreg();" class = "btn34" value = "Register"></td>
-                    </tr>
-    
-               
-            </table>
-               <br>
-              
-            </form>     -->
+    <!-- ////////////////////////////// -->
+    <div id="main">
+      <div class="back">
+        <div id="navIcon" onclick="openNav()" class="navIcon">
+          <img src="../resources/icons/three.png" alt="Ooops" />
         </div>
+        <button class="btn34">Back</button>
+      </div>
+      <br /><br />
 
+      <div class="topBar">
+        <b> Register Service Provider</b>
+      </div>
+
+      <div class="mainDiv">
+        <div class="inner-container">
+          <div class="form-container">
+            <div class="input-text-wrap">
+              <label for="empid">Employee ID</label>
+              <input
+                type="text"
+                id="empid"
+                name="empid"
+                disabled
+                placeholder="Auto Generated"
+              />
+            </div>
+
+            <div class="input-text-wrap">
+              <label for="fname">First Name</label>
+              <input type="text" id="fname" name="fname" />
+            </div>
+
+            <div class="input-text-wrap">
+              <label for="lname">Last Name</label>
+              <input type="text" id="lname" name="lname" />
+            </div>
+
+            <div class="input-text-wrap">
+              <label for="uname">User Name</label>
+              <input type="text" id="uname" name="uname" />
+            </div>
+
+            <div class="input-text-wrap">
+              <label for="nic">NIC</label>
+              <input type="text" id="nic" name="nic" />
+            </div>
+
+            <div class="input-text-wrap">
+              <label for="email">Email</label>
+              <input type="text" id="email" name="email" />
+            </div>
+
+            <div class="input-text-wrap">
+              <label for="email">Contact No</label>
+              <input type="text" id="contactno" name="contactno" />
+            </div>
+
+            <div class="input-text-wrap">
+              <label for="address">Address</label>
+              <input type="text" id="address" name="contactno" />
+            </div>
+
+            <div class="input-text-wrap">
+              <label for="salary">Salary</label>
+              <input type="text" id="salary" name="salary" />
+            </div>
+
+            <div class="input-text-wrap">
+              <label for="password">Password</label>
+              <input
+                type="text"
+                id="password"
+                name="password"
+                placeholder="Temporary Pwd"
+              />
+            </div>
+          </div>
+
+          <div class="background-image">
+            <div>
+              <img src="../resources/icons/registerSP.svg" />
+            </div>
+            <div class="register-btn">
+              <button id="register" class="btn34">Register</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-
-</div>
-
-
-<script src="../resources/javascript/side_navbar.js"></script>
-<script src="../resources/javascript/register_service_provider.js"></script>
-</body>
-
-
+    <script src="../resources/javascript/side_navbar.js"></script>
+    <script src="../resources/javascript/register_service_provider.js"></script>
+  </body>
 </html>

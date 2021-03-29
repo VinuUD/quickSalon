@@ -214,7 +214,7 @@ public class AppointmentDAOImple implements AppointmentDAO {
                 maxIndex = j;
                 break;
             }
-        } 
+        }
 
         int spID = Integer.parseInt(arr[maxIndex]);
 

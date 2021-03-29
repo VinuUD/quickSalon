@@ -29,6 +29,8 @@ public interface ServiceProviderDAO {
 //    Register SP
     public boolean registerServiceProvider(ServiceProvider serviceProvider) throws SQLException, ClassNotFoundException;
 
+    boolean registerManager(ServiceProvider serviceProvider) throws SQLException, ClassNotFoundException;
+
     //    Assign service to sp
     public  boolean assignServiceToSP(int serviceID,int spID) throws SQLException, ClassNotFoundException;
 
