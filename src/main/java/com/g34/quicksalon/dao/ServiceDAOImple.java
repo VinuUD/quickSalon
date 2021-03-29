@@ -1,13 +1,11 @@
 package com.g34.quicksalon.dao;
 
 import com.g34.quicksalon.database.DBConnection;
+import com.g34.quicksalon.model.Ratings;
 import com.g34.quicksalon.model.Service;
 import com.g34.quicksalon.model.ServiceProvider;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class ServiceDAOImple implements ServiceDAO {
@@ -156,5 +154,36 @@ public class ServiceDAOImple implements ServiceDAO {
         int x = stmt.executeUpdate();
         return x;
     }
+
+    public int updateRatings(int empID, int rateVal) throws SQLException, ClassNotFoundException {
+        Connection connection =DBConnection.getConnection();
+        PreparedStatement pst= connection.prepareStatement("UPDATE j4f9qe_ratings SET j4f9qe_ratings.rating = ? WHERE j4f9qe_ratings.empID = ?");
+        pst.setInt(1,rateVal);
+        pst.setInt(2,empID);
+
+        int x = pst.executeUpdate();
+
+
+
+        return x;
+
+
+    }
+
+    public ArrayList<Ratings> getRatings() throws SQLException, ClassNotFoundException {
+        ArrayList<Ratings> ratings = new ArrayList<>();
+        Connection connection =DBConnection.getConnection();
+        PreparedStatement pst2 = connection.prepareStatement("SELECT * FROM j4f9qe_ratings");
+        ResultSet rs = pst2.executeQuery();
+        while (rs.next())
+        {
+            ratings.add(new Ratings(rs.getInt(1),rs.getInt(2)));
+
+        }
+        return ratings;
+
+    }
+
+
 
 }
