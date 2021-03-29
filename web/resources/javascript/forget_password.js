@@ -19,7 +19,7 @@
       }
       if(check){
        ///CAll ajax request
-          $.get("forgetpassword", {email:email,},
+          $.get("http://localhost:8080/quickSalon_war_exploded/forgetpassword", {email:email},
               function(data, status){
                 if(data==0){
                     //User email not valid

@@ -5,77 +5,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notify User</title>
-    <link rel="stylesheet" href="../resources/css/notify_user.css">
-
     <link rel="stylesheet" href="../resources/css/34.css">
-    <link rel="stylesheet" href="../resources/css/sideNavbar.css">
     <link rel="stylesheet" href="../resources/css/mainDiv.css">
-
     <link rel="stylesheet" href="../resources/css/modal.css">
+    <link rel="stylesheet" href="../resources/css/frameWork/style.css" />
+    <link rel="stylesheet" href="../resources/css/notify_user.css">
+    <link rel="stylesheet" href="../resources/css/normal.css">
 </head>
 
-<body onresize="whenResizing()">
-<!-- side nav bar -->
-<div id="mySidenav" class="sidenav">
-    <div class="closeIcon"><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></div>
-    <a href="#">About</a>
-    <a href="#">Services</a>
-    <a href="#">Clients</a>
-    <a href="#">Contact</a>
-</div>
+<body>
 
-<div id="main">
-    <div class="back">
-        <div id="navIcon" onclick="openNav()" class="navIcon"><img src="/resources/icons/three.png" alt="Ooops">
+<div class="container">
+  <div class="medium-space">
+    <div class="heading">
+      Notify Users
+    </div>
+
+    <div class="work-space">
+        <div class="table-div34">
+          <table class="table34">
+            <colspan>
+              <col class="medium-column"/>
+              <col class="small-column" />
+            </colspan>
+            <tr>
+              <th>Selected</th>
+              <th>X</th>
+            </tr>
+            <tbody id="userrow"></tbody>
+          </table>
+        </div><!-- end of table-div34 -->
+
+        <div class="select-sp">
+          <select id='usergroup'>
+              <option value="3">
+                  <Select:d>Service Provider</Select:d>
+              </option>
+              <option value="4">Customer </option>
+              <option value="2"> Manager </option>
+          </select>
+        </div><!-- end of select-sp -->
+
+        <div class="add-btn">
+            <button id='addbtn' onclick="addUsrGroup()" class="btn"><b>+</b></button>
         </div>
-        <button id='back' class="btn34">Back</button>
-    </div>
-    </br></br>
 
-    <div class="topBar">
-        <b>Notify User</b>
-    </div>
+        <div class='msg-box'>
+          <div class="textarea-wrapper">
+            <textarea placeholder="Enter Your Message Here " rows="10" cols="70"></textarea>
+          </div>
 
-    <div class="mainDiv">
-        <div class="subDiv">
-
-
-            <!-- User Box -->
-            <div class="user-group">
-                <div class="group-title">Selected User Group</div>
-
-                <div id='userrow' class="group-tb"></div>
-
-                <!-- Select User Group -->
-                <div class="select-sp">
-                    <select id='usergroup'>
-                        <option>
-                            <Select:d>Service Provider</Select:d>
-                        </option>
-                        <option>Customer </option>
-                        <option> Manager </option>
-                    </select>
-                </div>
-
-                <div class="add-btn">
-                    <button id='addbtn' onclick="addUsrGroup()" class="btn34"><b>+</b></button>
-                </div>
-            </div>
-
-            <div class='msg-box'>
-                <div>
-                    <textarea placeholder="Enter Your Message Here " rows="10" cols="70"></textarea>
-                </div>
-
-                <div class="send-btn">
-                    <button id='send-btn' onclick="" class="btn34"><b>Send</b></button>
-                </div>
-
-            </div>
+          <div class="send-btn">
+            <button id='send-btn' onclick="" class="btn"><b>Send</b></button>
+          </div>
         </div>
-    </div>
-</div>
-</div>
+    </div><!-- end of work-space -->
+  </div><!-- end of large-space -->
+</div><!-- end of container -->
 
 <!-- Modal -->
 <div id="modal" class="modal">
@@ -98,6 +84,8 @@
     </div>
 </div>
 
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="../resources/javascript/modal.js"></script>
 <script src="../resources/javascript/notify_user.js"></script>
 <script src="../resources/javascript/side_navbar.js"></script>

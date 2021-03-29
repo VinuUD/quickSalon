@@ -1,24 +1,10 @@
 var users=[];
 
+var selectedUserGroup=[];
+
 function addUsrGroup(){
 
-    var usrGroup=document.getElementById("usergroup").value;
-
-    if(users.includes(usrGroup)){
-        alert("Already Selected !")
-
-    }
-    else{
-        users.push(usrGroup);
-    }
-    content=''
-    users.forEach((user,index)=>{
-            content+="<div class='row'>"+user+"<button class='remove' onclick='remove("+index+")'>-</button></div>";
-        }
-
-    );
-
-    document.getElementById('userrow').innerHTML=content;
+   
 
 }
 
@@ -56,3 +42,51 @@ window.onclick = function(event) {
         backmodal.style.display = "none";
     }
 }
+
+
+
+
+
+$('#addbtn').on('click', function(){
+    //load user group
+    var usrGroup=document.getElementById("usergroup").value;
+    if(users.includes(usrGroup)){
+        alert("Already Selected !")
+    }
+    else{
+        users.push(usrGroup);
+    }
+    content=''
+    users.forEach((user,index)=>{
+            content+="<div id= class='row'>"+user+"<button class='remove' onclick='remove("+index+")'>-</button></div>";
+        }
+    );
+    document.getElementById('userrow').innerHTML=content;
+
+
+    selectedUserGroup.push($("#usergroup").val());
+
+
+
+
+});
+
+$("#usergroup").change(function () {
+    var selectedVal = $(this).val();
+
+    // alert(selectedVal)
+
+});
+
+
+$('#send-btn').on('click', function(){
+
+    $.post("http://localhost:8080/quickSalon_war_exploded/notifyUsers", {
+       userGroup:selectedUserGroup
+    },
+    function (data, status) {
+
+        }
+    );
+
+});

@@ -401,6 +401,15 @@
         <servlet-name>updateRatings</servlet-name>
         <url-pattern>/updateRatings</url-pattern>
     </servlet-mapping>
+<!--    List of user emails -->
+    <servlet>
+        <servlet-name>NotifyUserServlet</servlet-name>
+        <servlet-class>com.g34.quicksalon.controller.employeeManagement.NotifyUserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>NotifyUserServlet</servlet-name>
+        <url-pattern>/notifyUsers</url-pattern>
+    </servlet-mapping>
 
 
 </web-app>
