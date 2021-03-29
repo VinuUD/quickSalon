@@ -23,10 +23,13 @@ public class RegisterSPServlet extends HttpServlet {
         String uname=request.getParameter("uname");
         String nic=request.getParameter("nic");
         String email=request.getParameter("email");
+        String contactno=request.getParameter("contactno");
+//        String phoneNo=request.getParameter("contactno");
+        String address=request.getParameter("address");
         String password=doHash(request.getParameter("password"));
         float salary= Float.parseFloat(request.getParameter("salary"));
 
-        ServiceProvider serviceProvider=new ServiceProvider(empID,fname,lname,uname,nic,email,salary,password,new Date().toString(),null,0,0,0,0);
+        ServiceProvider serviceProvider=new ServiceProvider(empID,fname,lname,uname,nic,email,salary,password,new Date().toString(),null,0,0,0,0,contactno,address);
         ServiceProviderDAO serviceProviderDAO=new ServiceProviderDAOImple();
         boolean success=false;
         try {

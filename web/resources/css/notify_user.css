@@ -8,7 +8,7 @@
 }
 
 .select-sp{
-    padding: 20px;
+    padding: 0px;
 }
 
 .row{
@@ -29,6 +29,7 @@
     background-color: rgb(209, 202, 202);
 }
 
+
 .remove:hover{
     background-color: red;
 }
@@ -44,7 +45,7 @@
 
 .textarea-wrapper {
   min-width: 0;
-  margin-top: -100px;
+  margin-top: 10px;
 }
 
 textarea {
@@ -56,6 +57,7 @@ textarea {
 
 .table-div34 {
   width: 50%;
+  max-width: 300px;
 }
 
 /* Back btn */
@@ -66,6 +68,7 @@ textarea {
     {
         width: 300px;
         margin-left: 0;
+        margin-top: 100px;
     }
 }
 
@@ -87,4 +90,39 @@ textarea {
     display: none;
     justify-content: center;
     align-items: center;
+}
+
+.small-column{
+    min-width: 10px;
+    max-width: 80px ;
+}
+
+.user-group-head{
+
+    text-align: center;
+}
+
+.add-user-type {
+    display: flex;
+    flex-direction: row;
+}
+
+.top-div {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen (max-width: 858px) {
+    .top-div {
+        flex-direction: column;
+    }
+
+    .add-user-type {
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+    }
 }
