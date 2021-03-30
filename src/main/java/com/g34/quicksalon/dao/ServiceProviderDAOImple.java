@@ -291,9 +291,9 @@ public class ServiceProviderDAOImple implements  ServiceProviderDAO{
         stmt.setDouble(4,serviceProvider.getSalary());
         stmt.setString(5,serviceProvider.getContactno());
         stmt.setString(6,null);
-        stmt.setInt(7,0);
+        stmt.setInt(7,1);
         stmt.setInt(8,0);
-        stmt.setInt(9,1);
+        stmt.setInt(9,0);
         stmt.setInt(10,serviceProvider.getUserID());
         stmt.setString(11,serviceProvider.getAddress());
 
@@ -353,7 +353,7 @@ public class ServiceProviderDAOImple implements  ServiceProviderDAO{
         Statement st = con.createStatement();
 
 
-        ResultSet rs = st.executeQuery("select j4f9qe_employee.employeeID, j4f9qe_employee.firstName, j4f9qe_employee.lastName, j4f9qe_employee.contactNum, j4f9qe_employee.nicNo, j4f9qe_employee.salary,  j4f9qe_employee.address from j4f9qe_employee WHERE j4f9qe_employee.isUpperStaffFlag = 0 AND j4f9qe_employee.removedFlag = 0");
+        ResultSet rs = st.executeQuery("select j4f9qe_employee.employeeID, j4f9qe_employee.firstName, j4f9qe_employee.lastName, j4f9qe_employee.contactNum, j4f9qe_employee.nicNo, j4f9qe_employee.salary,  j4f9qe_employee.address from j4f9qe_employee WHERE j4f9qe_employee.isUpperStaffFlag = 0 AND j4f9qe_employee.removedFlag = 0 AND j4f9qe_employee.onLeaveFlag = 0");
 
         while(rs.next())
         {

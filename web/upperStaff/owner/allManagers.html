@@ -44,9 +44,7 @@
           <div>
             <b>Salary </b> <input id="salary" type="text" value="1000000" />
           </div>
-          <div>
-            <b>Email </b> <input id="email" type="text" value="1000000" />
-          </div>
+
           <div>
             <b>Address </b> <input id="address" type="text" value="1000000" />
           </div>
@@ -114,33 +112,16 @@
           <div>
             <b>NIC &nbsp;</b> <input type="text" value="emp001" disabled />
           </div>
-          <div>
-            <b>Email </b> <input type="text" value="1000000" disabled />
-          </div>
+
           <div>
             <b>Address </b> <input type="text" value="1000000" disabled />
           </div>
         </div>
         <br />
 
-        <div class="tableDiv34">
-          <table class="table34">
-            <tr>
-              <th>Control functions</th>
-            </tr>
-            <tr>
-              <td>Add service provider</td>
-            </tr>
-            <tr>
-              <td>Remove service provider</td>
-            </tr>
-          </table>
-        </div>
-
         <div class="button">
           <button onclick="show2(), hide()" class="danger34">Remove</button>
           <button onclick="show3(),hide()" class="btn-danger34">Update</button>
-          <button onclick="hide()" class="btn-success34">Control access</button>
         </div>
       </div>
     </div>
@@ -192,6 +173,7 @@
                 "</td>" +
                 "<td>" +
                 x.firstName +
+                " " +
                 x.lastName +
                 "</td>" +
                 "<td>" +
@@ -204,9 +186,6 @@
                 x.salary +
                 "</td>" +
                 "<td style='display:none'>" +
-                x.email +
-                "</td>" +
-                "<td style='display:none'>" +
                 x.address +
                 "</td>" +
                 "<td>" +
@@ -217,20 +196,20 @@
                 "</td>" +
                 "</tr>"
             );
-            console.log(x.email);
+
             console.log(x.nic);
           });
 
           $("#myTable").on("click", ".btn34", function () {
             var currentRow = $(this).closest("tr");
 
-            var col1 = currentRow.find("td:eq(0)").text();
-            var col2 = currentRow.find("td:eq(1)").text();
-            var col3 = currentRow.find("td:eq(2)").text();
-            var col4 = currentRow.find("td:eq(3)").text();
-            var col5 = currentRow.find("td:eq(4)").text();
-            var col6 = currentRow.find("td:eq(5)").text();
-            var col7 = currentRow.find("td:eq(6)").text();
+            var col1 = currentRow.find("td:eq(0)").text(); //emp
+            var col2 = currentRow.find("td:eq(1)").text(); //fname  //lname
+            var col3 = currentRow.find("td:eq(2)").text(); //c num
+            var col4 = currentRow.find("td:eq(3)").text(); //nic
+            var col5 = currentRow.find("td:eq(4)").text(); //sal
+            var col6 = currentRow.find("td:eq(5)").text(); //address
+
             var data = col1 + "\n" + col2 + "\n" + col3 + "\n" + col4;
             $("#empHeader").html(col2);
             $("#updateHeader").html("Update " + col2);
@@ -244,30 +223,25 @@
             inputFields[3].value = col5;
             inputFields[4].value = col4;
             inputFields[5].value = col6;
-            inputFields[6].value = col7;
 
             $("#eID").val(col1);
             $("#name").val(col2);
             $("#cNum").val(col3);
             $("#salary").val(col5);
             $("#nic").val(col4);
-            $("#email").val(col6);
-            $("#address").val(col7);
-            //  console.log(inputFields);
+            $("#address").val(col6);
 
             // //////////////////////
             $("#updateManager").click(function () {
               var eID = $("#eID").val();
               var cNum = $("#cNum").val();
               var salary = $("#salary").val();
-              var email = $("#email").val();
               var address = $("#address").val();
               console.log("helooooooooooooooooooooo");
               var dataObj = {
                 eID: `${eID}`,
                 cNum: `${cNum}`,
                 salary: `${salary}`,
-                email: `${email}`,
                 address: `${address}`,
               };
 

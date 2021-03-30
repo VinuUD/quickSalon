@@ -17,7 +17,6 @@ public class UpdateSPServlet extends HttpServlet {
         int eID = Integer.parseInt(req.getParameter("eID"));
         String cNum = req.getParameter("cNum");
         int salary = Integer.parseInt(req.getParameter("salary"));
-        String email = req.getParameter("email");
         String address = req.getParameter("address");
 
         try {

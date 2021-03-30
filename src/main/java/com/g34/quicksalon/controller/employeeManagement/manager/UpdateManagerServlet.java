@@ -12,7 +12,7 @@ import java.sql.SQLException;
 public class UpdateManagerServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
-        System.out.println("mee update eka");
+
         int eID = Integer.parseInt(req.getParameter("eID"));
         String cNum = req.getParameter("cNum");
         int salary = Integer.parseInt(req.getParameter("salary"));

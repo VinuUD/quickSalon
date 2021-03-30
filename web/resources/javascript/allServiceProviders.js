@@ -12,7 +12,7 @@ $("document").ready(function () {
   $.get(
     "http://localhost:8080/quickSalon_war_exploded/viewSp",
     function (response) {
-      // console.log(response);
+      console.log(response);
       response.map(function (x) {
         $("#tbl").append(
           "<tr>" +
@@ -32,9 +32,6 @@ $("document").ready(function () {
             "</td>" +
             "<td style='display:none'>" +
             x.salary +
-            "</td>" +
-            "<td style='display:none'>" +
-            x.email +
             "</td>" +
             "<td style='display:none'>" +
             x.address +
@@ -74,12 +71,12 @@ $("document").ready(function () {
       $(".plusIcon").on("click", function () {
         var currentRow = $(this).closest("tr");
 
-        var x = parseFloat(currentRow.find("td:eq(9)").text()) + 1;
+        var x = parseFloat(currentRow.find("td:eq(8)").text()) + 1;
         var empID = parseInt(currentRow.find("td:eq(0)").text());
 
-        currentRow.find("td:eq(9)").html(x);
-        if (parseInt(currentRow.find("td:eq(9)").text()) > 19) {
-          currentRow.find("td:eq(9)").html("20");
+        currentRow.find("td:eq(8)").html(x);
+        if (parseInt(currentRow.find("td:eq(8)").text()) > 19) {
+          currentRow.find("td:eq(8)").html("20");
           console.log("blaaaa");
         }
 
@@ -90,7 +87,7 @@ $("document").ready(function () {
           url: "http://localhost:8080/quickSalon_war_exploded/updateRatings",
           data: {
             empID: empID,
-            rateVal: parseFloat(currentRow.find("td:eq(9)").text()),
+            rateVal: parseFloat(currentRow.find("td:eq(8)").text()),
           },
           success: function (response) {
             if (response == 1) {
@@ -103,12 +100,12 @@ $("document").ready(function () {
       $(".minusIcon").on("click", function () {
         var currentRow = $(this).closest("tr");
 
-        var y = parseFloat(currentRow.find("td:eq(9)").text()) - 1;
+        var y = parseFloat(currentRow.find("td:eq(8)").text()) - 1;
         var empID = parseInt(currentRow.find("td:eq(0)").text());
         // def = def + 0.5;
-        currentRow.find("td:eq(9)").html(y);
-        if (parseInt(currentRow.find("td:eq(9)").text()) < 1) {
-          currentRow.find("td:eq(9)").html("0");
+        currentRow.find("td:eq(8)").html(y);
+        if (parseInt(currentRow.find("td:eq(8)").text()) < 1) {
+          currentRow.find("td:eq(8)").html("0");
           console.log("blooo");
         }
 
@@ -119,7 +116,7 @@ $("document").ready(function () {
           url: "http://localhost:8080/quickSalon_war_exploded/updateRatings",
           data: {
             empID: empID,
-            rateVal: parseFloat(currentRow.find("td:eq(9)").text()),
+            rateVal: parseFloat(currentRow.find("td:eq(8)").text()),
           },
           success: function (response) {
             if (response == 1) {
@@ -132,14 +129,14 @@ $("document").ready(function () {
       $("#myTable").on("click", ".btn34", function () {
         var currentRow = $(this).closest("tr");
 
-        var col1 = currentRow.find("td:eq(0)").text();
-        var col2 = currentRow.find("td:eq(1)").text();
-        var col3 = currentRow.find("td:eq(2)").text();
-        var col4 = currentRow.find("td:eq(3)").text();
-        var col5 = currentRow.find("td:eq(4)").text();
-        var col6 = currentRow.find("td:eq(5)").text();
-        var col7 = currentRow.find("td:eq(6)").text();
-        var data = col1 + "\n" + col2 + "\n" + col3 + "\n" + col4;
+        var col1 = currentRow.find("td:eq(0)").text(); //emp
+        var col2 = currentRow.find("td:eq(1)").text(); //fname  //lname
+        var col3 = currentRow.find("td:eq(2)").text(); //c num
+        var col4 = currentRow.find("td:eq(3)").text(); //nic
+        var col5 = currentRow.find("td:eq(4)").text(); //sal
+        var col6 = currentRow.find("td:eq(5)").text(); //address
+        // var col7 = currentRow.find("td:eq(6)").text();
+        // var data = col1 + "\n" + col2 + "\n" + col3 + "\n" + col4;
         $("#empHeader").html(col2);
         $("#updateHeader").html("Update " + col2);
 
@@ -152,15 +149,14 @@ $("document").ready(function () {
         inputFields[3].value = col5;
         inputFields[4].value = col4;
         inputFields[5].value = col6;
-        inputFields[6].value = col7;
 
         $("#eID").val(col1);
         $("#name").val(col2);
         $("#cNum").val(col3);
         $("#salary").val(col5);
         $("#nic").val(col4);
-        $("#email").val(col6);
-        $("#address").val(col7);
+
+        $("#address").val(col6);
         //  console.log(inputFields);
 
         //////////////////////////////////////////////////
@@ -168,14 +164,12 @@ $("document").ready(function () {
           var eID = $("#eID").val();
           var cNum = $("#cNum").val();
           var salary = $("#salary").val();
-          var email = $("#email").val();
           var address = $("#address").val();
-          console.log("helooooooooooooooooooooo");
+
           var dataObj = {
             eID: `${eID}`,
             cNum: `${cNum}`,
             salary: `${salary}`,
-            email: `${email}`,
             address: `${address}`,
           };
 
