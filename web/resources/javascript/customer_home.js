@@ -14,4 +14,8 @@ $(document).ready(function() {
   $("#review").on("click",function (){
     window.location.href="./review.html";
   });
+
+  $("#my_profile").on("click",function (){
+    window.location.href="./my_profile.html";
+  });
 })
