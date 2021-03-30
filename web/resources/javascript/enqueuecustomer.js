@@ -50,38 +50,74 @@ var allAppointments;
 
 //Get all services
 $(document).ready(function () {
+
+  
   //1) GET service List of 
   $.get("http://localhost:8080/quickSalon_war_exploded/servicesp",
     function (data) {
+      console.log(data);
         $.each(data, function (index, service) {
+          
           // $("<option>").val(service.serviceID).text(service.serviceName).appendTo($select);
           $("#servicedropdownlist").append( `<option class="serviceOpt" id="${service.timeTaken}" value="${service.serviceID}"> ${service.serviceName} </option>`);
         })
       }
     );
 
-
-
-
     //2)All sps relevat to the selected service
     $("#servicedropdownlist").change(function () {
 
       spIDsRealatedToService = [];
       var selectedVal = $(this).val();
+         $.post("http://localhost:8080/quickSalon_war_exploded/appointmentSp", {
+                    serviceID:selectedVal,
+                },
+                function(data, status){
+
+                    $.each(data, function (index, appointment) {
+
+                      //set date into 2020Jan05 format
+                      res = appointment.day.replace(",", "").split(" ");
+                      day = res[1] < 10 ? "0" + res[1] : res[1];
+                      selectId = res[2] + res[0] + day;
+                      $("#" + selectId).css("background-color", "#F58F79");
+                  });
+                }
+            );
+    })
+
+    // $.get(
+    //   "http://localhost:8080/quickSalon_war_exploded/appointments",
+    //   function (responseJson) {
+    //     // var $select = $("#servicedropdownlist");
+    //     $.each(responseJson, function (index, appointment) {
+    //       //set date into 2020Jan05 format
+    //       res = appointment.day.replace(",", "").split(" ");
+    //       day = res[1] < 10 ? "0" + res[1] : res[1];
+    //       selectId = res[2] + res[0] + day;
+    //       $("#" + selectId).css("background-color", "#F58F79");
+    //     });
+    //   }
+    // );
+
+
+
+
+
       
-      $.ajax({
-        type: "POST",
-        url: "http://localhost:8080/quickSalon_war_exploded/appointmentSP",
-        data: { id: `${selectedVal}` },
-        success: function (response) {
-          console.log(response);
-          response.map(function (sData) {
-            spIDsRealatedToService.push(sData.employeeId);
-            $("#spdropdownlist").append(`<option value="${sData.employeeId}"> ${ sData.firstName + " " + sData.lastName}</option>`);
+      // $.ajax({
+      //   type: "POST",
+      //   url: "http://localhost:8080/quickSalon_war_exploded/appointmentSP",
+      //   data: id:selectedVal ,
+      //   success: function (response) {
+      //     console.log(response);
+      //     response.map(function (sData) {
+      //       spIDsRealatedToService.push(sData.employeeId);
+      //       $("#spdropdownlist").append(`<option value="${sData.employeeId}"> ${ sData.firstName + " " + sData.lastName}</option>`);
             
-          });
-        },
-      });
+      //     });
+      //   },
+      // });
     });
 
 
@@ -91,4 +127,3 @@ $(document).ready(function () {
 
 
 
-});

@@ -277,12 +277,13 @@ public class AppointmentDAOImple implements AppointmentDAO {
 
 
     @Override
-    public ArrayList<AppointmentServiceVIEW> getAllSPAppointmentByServiceID(int serviceID,int userID) throws SQLException, ClassNotFoundException {
+    public ArrayList<AppointmentServiceVIEW> getAllSPAppointmentByServiceID(int serviceID,int empID) throws SQLException, ClassNotFoundException {
         ArrayList<AppointmentServiceVIEW> appointments=new ArrayList<AppointmentServiceVIEW>();
         try {
 
-            PreparedStatement stmt=DBConnection.getConnection().prepareStatement("SELECT qID,date,startTime,endTime,cancelledFlag,serviceID,employeeID FROM j4f9qe_AppointemtServiceView WHERE cancelledFlag=0 AND serviceID=? AND ;");
+            PreparedStatement stmt=DBConnection.getConnection().prepareStatement("SELECT qID,date,startTime,endTime,cancelledFlag,serviceID,employeeID FROM j4f9qe_AppointemtServiceView WHERE cancelledFlag=0 AND serviceID=? AND employeeID =?;");
             stmt.setInt(1,serviceID);
+            stmt.setInt(2,empID);
             ResultSet resultSet = stmt.executeQuery();
             while (resultSet.next()) {
                 // qID,date,startTime,endTime,cancelledFlag,serviceID,employeeID

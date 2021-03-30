@@ -1,0 +1,118 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../web/resources/css/allManagers.css" />
+    <link rel="stylesheet" href="../../web/resources/css/34.css" />
+    <link rel="stylesheet" href="../../web/resources/css/popup2AllManagers.css" />
+    <link rel="stylesheet" href="../../web/resources/css/sideNavbar.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+    <title>All Managers</title>
+  </head>
+  <body onresize="whenResizing()">
+    <!-- //////////////////////////////////////// -->
+    <!-- update manager -->
+    <div id="pop3" class="popup3">
+      <div class="popup23">
+        <div class="top1">
+          <i
+            ><img
+              onclick="hide3(), show()"
+              src="../../resources/icons/cross.png"
+              alt=""
+          /></i>
+          <b id="updateHeader">Update EMP001</b>
+        </div>
+
+        
+        <div class="button3">
+          <button
+            id="updateManager"
+            onclick="hide3(), show()"
+            class="btn-success34"
+          >
+            Save
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- ////////////////////////////////////////// -->
+  
+    <div id="mySidenav" class="sidenav"></div>
+    <!-- sidebar -->
+
+    <div id="main">
+      <div class="back">
+        <div id="navIcon" onclick="openNav()" class="navIcon">
+          <img src="../../resources/icons/three.png" alt="Ooops" />
+        </div>
+        <button onclick="change()" class="btn34">
+          <a style="text-decoration: none; color: white" href="ownerHome.html">
+            home
+          </a>
+        </button>
+      </div>
+
+      <div class="topBar">
+        <b>Salon Schedule</b>
+      </div>
+      <div class="mainDiv">
+        <div class= "container">
+            <div class="large-space">
+              <div class="heading">View Personal Schedule</div>
+              <div class="work-space">
+      
+                <div>
+                  <!-- Date Select Box -->
+                  <div class="date-div">
+                    <input type="date" id="date" />
+                  </div>
+      
+                  <!-- Start Table div -->
+                  <div class="">
+                    <table id="t02" class="table34">
+                      <colspan>
+                        <col />
+                        <col />
+                        <col class="medium-column" />
+                        <col class="medium-column" />
+                      </colspan>
+                      <tr>
+                        <th>Name</th>
+                        <th>Service</th>
+                        <th>Telephone</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                      </tr>
+                      <tbody id="aptTable" class="tbody">
+      
+                      </tbody>
+      
+                      <br />
+                    </table>
+                  </div>
+                  <!-- end of tableDiv34 -->
+      
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+
+  
+    <script src="../../web/resources/javascript/upper_staff_salon_schedule.js"></script>
+
+    <script src="../../web/resources/javascript/side_navbar.js"></script>
+  </body>
+</html>

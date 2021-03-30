@@ -49,7 +49,7 @@ public interface ServiceProviderDAO {
     public ServiceProvider getSpDetails(int empID) throws Exception;
 
 
-
-
+//    returns Employee ID corresponding to given User ID
+    public int getSPIDByUserID(int UserID) throws SQLException, ClassNotFoundException;
 
 }

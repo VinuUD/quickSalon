@@ -10,6 +10,7 @@ public interface AppointmentDAO {
 
     public ArrayList<Appointment> getAllAppointments();
 
+
     public ArrayList<Integer> getAllAppointmentsBySP(int spId);
 
     public int placeAppointment(Appointment appointment) throws SQLException, ClassNotFoundException;
