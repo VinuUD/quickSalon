@@ -190,6 +190,7 @@ button:hover {
 .btn:hover {
   background-color: var(--main-color);
   color: white;
+  cursor: pointer;
 }
 
 .btn-green {
