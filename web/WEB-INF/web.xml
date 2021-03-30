@@ -453,4 +453,14 @@
         <url-pattern>/upperStaff/appointmentsByDate</url-pattern>
     </servlet-mapping>
 
+<!--    Dequeue customer -service  provider-->
+    <servlet>
+        <servlet-name>DequeueCustomerServlet</servlet-name>
+        <servlet-class>com.g34.quicksalon.controller.reservation.DequeueCustomerServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DequeueCustomerServlet</servlet-name>
+        <url-pattern>/dequeueCustomer</url-pattern>
+    </servlet-mapping>
+
 </web-app>

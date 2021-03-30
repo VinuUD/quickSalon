@@ -41,7 +41,7 @@
                 <div>
                     <label for="servicedropdownlist">Service</label>
                     <select id="servicedropdownlist" class="select-opt" >
-                        <!-- <option value="0">Not selected</option> -->
+                        <option value="0">Please  Select</option>
                     </select>
                 </div>
                 <!-- Service provider -->
@@ -55,19 +55,54 @@
 
 
             <div class="row-2">
-                <!-- Calendar -->
-                <!-- <div class="calDiv">
-                    <div class="calendar" id="calendar"></div>
-                </div> -->
-                 <!-- Calendar div -->
-            <div class="">
-              <div class="calendar-div">
-                <div class="calDiv">
-                  <div class="calendar" id="calendar"></div>
-                </div>
-              </div>
+                <div class="content-div">
 
-                <div class="tableDiv34 table">
+                    <div class="calendar-time">
+                        <div class="calDiv">
+                            <div class="calendar" id="calendar"></div>
+                        </div>
+                    </div>
+
+                    <div class="time-div">
+                        <div class="time-slots-div">
+                            <h3>Allocated Time Slots</h3>
+                            <table id="time-slots-table" class="table34 time-slots-table">
+
+                                <thead>
+                                    <th class="tbl-head">Start Time</th>
+                                    <th class="tbl-head">End Time</th>
+                                    <!-- <th class="tbl-head"></th> -->
+                                </thead>
+                                <tbody id="time-slots" class="time-slots">
+                                    <tr>
+                                        <td>12:00</td>
+                                        <td>13:00</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>12:00</td>
+                                        <td>13:00</td>
+
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                        <div class="btn-bar">
+                            <button class="btn btn-red">Back</button>
+                            <button class="btn" id="select-time-btn" disabled>Select</button>
+                        </div>
+                    </div>
+                  
+                </div>
+
+            
+            </div>
+                <!-- end of time-slots-div -->
+            
+
+                <!-- <div class="tableDiv34 table">
                     <table id="apt-table" class="table34">
                         <thead>
                         <tr>
@@ -83,7 +118,7 @@
                         </tbody>
                     </table>
                     </br>
-                    <!-- Button -bottem -->
+              
                     <div class="cancel-btn">
                         <button class="danger34">Cancel</button>
                     </div>
@@ -92,7 +127,7 @@
                             <button type="submit" id="confirm" class="btn34" >Confirm</button>
                     </div>
 
-                </div>
+                </div> -->
 
 
             </div>
@@ -145,14 +180,14 @@
     </div>
 
     <!-- Modal -->
-    <div id="modal" class="modal">
+    <!-- <div id="modal" class="modal">
         <div class="modal-cont">
             <div class="title">Please Confirm !</div>
             <div class="cont">Are you sure you want to continue ?</div>
             <button id='cancel' class="cancel-modal-btn btn-danger34">Cancel</button>
             <button class="confirm-modal-btn btn-success34" onclick="placeAppointment()">Confirm</button>
         </div>
-    </div>
+    </div> -->
 </div>
 
 

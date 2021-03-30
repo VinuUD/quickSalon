@@ -97,7 +97,7 @@ body{
 .row-1{
     display: inline-flex;
     /*flex-direction: column;*/
-    text-align: center;
+    /* text-align: center; */
 }
 
 .row-1 > div{
@@ -120,21 +120,15 @@ body{
     height: 50px !important;
 }
 
-/* .table{
-    flex: 1;
-    height: fit-content;
-    height: auto;
-    margin: 0;
-    text-align: left !important;
-} */
-.calendar{
+
+/* .calendar{
     width: fit-content;
-}
+} */
 
 .calDiv{
     margin-top: 20px;
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     height: auto;
 }
 
@@ -161,88 +155,6 @@ body{
     margin: 0px 0px 10px 10px;
 }
 
-/* .name-txt{
-
-    border: 5px solid #48676c;
-    border-radius:15px ;
-    height: 40px;
-    color: black;
-    padding: 5px;
-    width: 200px;
-    font-size: 11px;
-    outline: none;
-} */
-
-
-/*Customer name Text Box */
-
-/* input{
-
-    margin-top: 0 !important;
-    background-color: white;
-    color: black !important;
-    font-size: 14px !important;
-    appearance: auto !important;
-    -webkit-appearance: checkbox !important;
-
-} */
-/* .row-1 label{
-    color: black;
-    font-style: italic;
-    font-size: 14px;
-
-} */
-
-
-
-/* Radio */
-/* .radio-toolbar {
-    margin: 10px;
-    display: flex;
-    flex-wrap: wrap;
-} */
-
-/* .radio-toolbar input[type="radio"] {
-
-    opacity: 0;
-    width: 0;
-}
-
-.radio-toolbar label {
-    display: block;
-    background-color: #f1f1f1;
-    width: 60px;
-    margin: 10px;
-    text-align: center;
-    line-height: 40px;
-    font-size: 16px;
-    cursor: pointer;
-
-}
-
-.radio-toolbar label:hover {
-    background-color:rgb(164, 164, 216);
-}
-
-.radio-toolbar input[type="radio"]:checked + label {
-    background-color: blue;
-} */
-
-
-/* select {
-    border: 5px solid #48676c;
-    border-radius:15px ;
-    height: 40px;
-    color: black;
-    padding: 5px;
-    width: 150px;
-    font-size: 14px ;
-    outline: none;
-} */
-
-/* select:hover{
-    border: 5px solid #96e6b3ff;
-} */
 
 
 @media screen and (max-width:800px)
@@ -267,13 +179,7 @@ body{
     justify-content: center;
   }
   
-  .calendar {
-    width: 500px;
-    border: 1px solid var(--main-color-dark);
-    height: 400px;
-    padding: 10px;
-  }
-  
+ 
   .table-div34 {
     max-width: 600px;
     margin-top: 200px !important;
@@ -310,4 +216,45 @@ body{
   button{
       width: 100px !important;
   }
-  
+
+  /* +++++++++++++++++ */
+  .calendar-time{
+     display: flexbox;
+     /* display: none; */
+    
+  }
+
+  .content-div{
+    width: 100%;
+    height: 500px;
+    border: 1px solid black;
+  }
+
+  .time-div{
+    /* display: none; */
+    display: inline;
+    border: 2px solid red;
+    width: 100px;
+
+  }
+
+  h3{
+      text-align: center;
+  }
+
+  .btn-bar{
+      margin-left: 140px;
+  }
+
+  .time-slots-table{
+      max-height: 400px;
+      overflow-y: scroll;
+  }
+
+  .calendar {
+    width: 500px;
+    border: 1px solid var(--main-color-dark);
+    height: 400px;
+    padding: 10px;
+  } 
+   

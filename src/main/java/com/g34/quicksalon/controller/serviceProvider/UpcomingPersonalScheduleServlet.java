@@ -26,9 +26,9 @@ public class UpcomingPersonalScheduleServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ArrayList<PersonalSchedule> schedules=new ArrayList<>();
         //get session data
-        HttpSession session= request.getSession();
-        int userID=(Integer) session.getAttribute("userID");
-//        int userID= Integer.parseInt(request.getParameter("userID"));
+//        HttpSession session= request.getSession();
+//        int userID=(Integer) session.getAttribute("userID");
+        int userID=33; // Integer.parseInt(request.getParameter("userID"));
 
         AppointmentDAO appointmentDAO=new AppointmentDAOImple();
         try {

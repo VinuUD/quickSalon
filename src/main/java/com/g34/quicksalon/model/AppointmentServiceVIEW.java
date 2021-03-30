@@ -1,5 +1,7 @@
 package com.g34.quicksalon.model;
 
+import java.util.Date;
+
 public class AppointmentServiceVIEW {
 
     private int qID;
@@ -9,7 +11,7 @@ public class AppointmentServiceVIEW {
     private int cancelledFlag;
     private int serviceID;
     private int employeeID;
-
+    private Date day;
 
 
     public AppointmentServiceVIEW(int qID, String date, String startTime, String endTime, int cancelledFlag, int serviceID, int employeeID) {
@@ -23,6 +25,19 @@ public class AppointmentServiceVIEW {
     }
 
     public AppointmentServiceVIEW() {
+    }
+    public AppointmentServiceVIEW(int qID, Date date, String startTime) {
+        this.qID = qID;
+        this.day = date;
+        this.startTime = startTime;
+    }
+
+    public Date getDay() {
+        return day;
+    }
+
+    public void setDay(Date day) {
+        this.day = day;
     }
 
     public int getqID() {
