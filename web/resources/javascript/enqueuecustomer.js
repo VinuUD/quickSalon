@@ -52,6 +52,11 @@ var allAppointments;
 //Get all services
 $(document).ready(function () {
 
+  // cancel-btn redirect to home
+  $("#cancel-btn").on("click", function () {
+    window.location.href="./sp_home.html";    
+  });
+
   //1) GET service List of 
   $.get("http://localhost:8080/quickSalon_war_exploded/servicesp",
     function (data) {
@@ -123,7 +128,7 @@ $(document).ready(function () {
       //2021Mar13
       //"day": "Mar 9, 2021"
     });
- 
+    
     // var id = $(this).attr("id");
     // clickedDate = id;
     // var mt = monthArray.indexOf(clickedDate.substr(4, 3)) + 1;
@@ -206,7 +211,7 @@ $(document).ready(function () {
       //     });
       //   },
       // });
-    });
+});
 
 
 
