@@ -112,6 +112,14 @@ body{
     height: auto;
 }
 
+.name-txt{
+    height: 50px !important;
+}
+
+.select-opt{
+    height: 50px !important;
+}
+
 /* .table{
     flex: 1;
     height: fit-content;
@@ -194,7 +202,7 @@ body{
     flex-wrap: wrap;
 } */
 
-.radio-toolbar input[type="radio"] {
+/* .radio-toolbar input[type="radio"] {
 
     opacity: 0;
     width: 0;
@@ -218,7 +226,7 @@ body{
 
 .radio-toolbar input[type="radio"]:checked + label {
     background-color: blue;
-}
+} */
 
 
 /* select {
@@ -232,9 +240,9 @@ body{
     outline: none;
 } */
 
-select:hover{
+/* select:hover{
     border: 5px solid #96e6b3ff;
-}
+} */
 
 
 @media screen and (max-width:800px)
@@ -251,14 +259,55 @@ select:hover{
 }
 
 
+/* For calendar */
 
-
-.calendar-div {
-    display: flexbox;
-    width: 100%;
+.work-space {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .calendar {
+    width: 500px;
+    border: 1px solid var(--main-color-dark);
+    height: 400px;
+    padding: 10px;
+  }
+  
+  .table-div34 {
+    max-width: 600px;
+    margin-top: 200px !important;
+  }
+  
+  .innerDiv {
+    max-width: 600px;
+  }
+  
+  a {
+    text-decoration: none;
+    transition: all 500ms;
+    color: black;
+  }
+  
+  #cancel:hover > a {
+    color: white;
+  }
+  
+  .center {
+    text-align: center;
+    justify-content: center;
   }
 
-  .calendar > .calendarDiv {
-    background-color: white;
+  #servicedropdownlist{
+      margin-top: 8px;
+      width: 250px;
+  }
+  #spdropdownlist{
+    margin-top: 10px;
+    width: 250px;
+  }
+
+  button{
+      width: 100px !important;
   }
   
