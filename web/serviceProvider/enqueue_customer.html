@@ -88,49 +88,48 @@
 
                                         </tbody>
                                     </table>
-
-                                </div>
-                                <div class="btn-bar">
-                                    <button class="btn btn-red">Back</button>
-                                    <button class="btn" id="select-time-btn" disabled>Select</button>
                                 </div>
                             </div>
-                        
                         </div>
-
-                    
                     </div>
                         <!-- end of time-slots-div -->
                     
-
-                        <div class="tableDiv34 table">
-                            <table id="apt-table" class="table34">
-                                <thead>
-                                <tr>
-                                    <th>Service</th>
-                                    <th>Service Provider</th>
-                                    <th>Date</th>
-                                    <th>Time</th>
-                                    <th>Remove</th>
-                                </tr>
-                                </thead>
-                                <tbody id='table_appointment'>
-
-                                </tbody>
-                            </table>
-                            </br>
-                    
-                            <div class="cancel-btn">
-                                <button class="danger34">Cancel</button>
-                            </div>
-
-                            <diV class="confirm-btn">
-                                    <button type="submit" id="confirm" class="btn34" >Confirm</button>
-                            </div>
-
+                    <div class="row-1">
+                        <div>
+                            <label for="apt-date">Date</label>
+                            <input type="date" id="apt-date" name="apt-date"> 
                         </div>
 
+                        <div id="apt-time-div">
+                            <label for="apt-time">Time</label>
+                            <input type="time" id="apt-time" name="apt-time"> 
+                        </div>
+                    </div>
+                        
+                    <div class="tableDiv34 table">
+                        <table id="apt-table" class="table34">
+                            <thead>
+                            <tr>
+                                <th>Service</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Remove</th>
+                            </tr>
+                            </thead>
+                            <tbody id='table_appointment'>
+                            </tbody>
+                        </table>
+                        </br>
+                
+                        <div class="cancel-btn">
+                            <button class="danger34">Cancel</button>
+                        </div>
 
+                        <diV class="confirm-btn">
+                                <button type="submit" id="confirm" class="btn34" >Confirm</button>
+                        </div>
+                    </div> 
+                    <!-- end of tableDiv 34 -->
                 </div>
                 <!-- end of subDiv -->
             </div>

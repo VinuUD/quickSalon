@@ -267,3 +267,10 @@ body{
     margin-right: 160px;
   }
    
+  input {
+    height: 40px;
+  }
+
+  #apt-time-div {
+    margin-left: 100px;
+  }
