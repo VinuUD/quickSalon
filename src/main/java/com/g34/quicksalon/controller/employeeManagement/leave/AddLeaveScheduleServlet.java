@@ -21,8 +21,6 @@ public class AddLeaveScheduleServlet extends HttpServlet {
 
         try {
             OwnerDAO owner = new OwnerDAOImple();
-
-
             ArrayList<AppointmentDetailsForLeave> appointmentDetails = new ArrayList<>();
             appointmentDetails = owner.appointmentDetails();
 
@@ -30,8 +28,6 @@ public class AddLeaveScheduleServlet extends HttpServlet {
             res.setContentType("application/json");
             res.setCharacterEncoding("UTF-8");
             res.getWriter().write(json1);
-
-
 
 
         } catch (SQLException throwables) {

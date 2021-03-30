@@ -23,7 +23,7 @@ $(document).ready(function () {
             function (data) {
 
                 if(data[0].holdFlag==1){
-                    $("#service-status").css("background","rgb(207, 89, 144)");
+                    $("#service-status").css("background","#f44336");
                 }else{
                     $("#service-status").css("background","lightgreen");
                 }

@@ -417,10 +417,20 @@
         <servlet-name>AllCustomerServlet</servlet-name>
         <servlet-class>com.g34.quicksalon.controller.customer.AllCustomerServlet</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>AllCustomerServlet</servlet-name>
         <url-pattern>/allcustomers</url-pattern>
+    </servlet-mapping>
+
+
+<!--    -->
+    <servlet>
+        <servlet-name>ServiceListSPServlet</servlet-name>
+        <servlet-class>com.g34.quicksalon.controller.serviceProvider.ServiceListSPServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServiceListSPServlet</servlet-name>
+        <url-pattern>/servicesp</url-pattern>
     </servlet-mapping>
 
     <!--  close Saloon-->
@@ -428,7 +438,6 @@
         <servlet-name>closeSaloon</servlet-name>
         <servlet-class>com.g34.quicksalon.controller.reservation.CloseSaloonServlet</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>closeSaloon</servlet-name>
         <url-pattern>/closeSaloon</url-pattern>
@@ -444,4 +453,14 @@
         <servlet-name>updateCustomer</servlet-name>
         <url-pattern>/updateCustomer</url-pattern>
     </servlet-mapping>
+<!--    Alll appointments by Date-->
+    <servlet>
+        <servlet-name>AllAppointmentsByDateServlet</servlet-name>
+        <servlet-class>com.g34.quicksalon.controller.reservation.AllAppointmentsByDateServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AllAppointmentsByDateServlet</servlet-name>
+        <url-pattern>/upperStaff/appointmentsByDate</url-pattern>
+    </servlet-mapping>
+
 </web-app>

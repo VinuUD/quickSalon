@@ -16,7 +16,7 @@
 //        HttpServletRequest request=(HttpServletRequest) req;
 //        HttpServletResponse response=(HttpServletResponse) resp;
 //        HttpSession session = request.getSession(false);
-
+//
 //        if (session == null) {
 //            // Session is not created.
 //            response.sendRedirect("../restricted.html");

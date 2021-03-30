@@ -41,6 +41,7 @@ public class UpcomingAppointmentSPServlet extends HttpServlet {
 
     }
 
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int empID= Integer.parseInt(request.getParameter("empID"));
 

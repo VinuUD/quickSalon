@@ -183,6 +183,7 @@ public class AppointmentDAOImple implements AppointmentDAO {
     }
 
 
+
     public ServiceProvider getLeastAppCountSp(String[] arr) throws SQLException, ClassNotFoundException {
         Connection con = DBConnection.getConnection();
         ArrayList<Integer> appCountList = new ArrayList<Integer>();
@@ -278,11 +279,28 @@ public class AppointmentDAOImple implements AppointmentDAO {
 
             
         }
-
-
-
-
         return 0;
     }
+
+
+    @Override
+    public ArrayList<AppointmentServiceVIEW> getAllSPAppointmentByServiceID(int serviceID,int empID) throws SQLException, ClassNotFoundException {
+        ArrayList<AppointmentServiceVIEW> appointments=new ArrayList<AppointmentServiceVIEW>();
+        try {
+
+            PreparedStatement stmt=DBConnection.getConnection().prepareStatement("SELECT qID,date,startTime,endTime,cancelledFlag,serviceID,employeeID FROM j4f9qe_AppointemtServiceView WHERE cancelledFlag=0 AND serviceID=? AND employeeID =?;");
+            stmt.setInt(1,serviceID);
+            stmt.setInt(2,empID);
+            ResultSet resultSet = stmt.executeQuery();
+            while (resultSet.next()) {
+                // qID,date,startTime,endTime,cancelledFlag,serviceID,employeeID
+                appointments.add(new AppointmentServiceVIEW(resultSet.getInt(1),resultSet.getString(2),resultSet.getString(3),resultSet.getString(4),resultSet.getInt(5),resultSet.getInt(6),resultSet.getInt(7)));
+            }
+        } catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+        return appointments;
+    }
+
 
 }

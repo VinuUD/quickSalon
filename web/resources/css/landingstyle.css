@@ -83,6 +83,7 @@ body {
   border-radius: 10px;
   padding-bottom: -10px;
   transform: translateY(-5px);
+  cursor: pointer;
 }
 
 .grid-4 {
