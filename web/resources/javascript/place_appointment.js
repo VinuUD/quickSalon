@@ -30,8 +30,11 @@ var assignedDate = "";
 var assignedStartTime = "";
 var assignedEndTime = "";
 var noSpFlag = 0;
+var toDayAppointmentSp = [];
 
 customerAppArray = []; //customer's selected appointments
+var spListWithApp = [];
+var noAppSp = [];
 
 //Time class
 class Time {
@@ -175,6 +178,16 @@ $(document).ready(function () {
     displayAppointmentsOnCalendar(appointmentList);
     // getAllSlots();
     // console.log(allTimeSlots);
+    appointmentList.map(function (app) {
+      spListWithApp.push(app.employeeID);
+    });
+
+    spListWithApp = [...new Set(spListWithApp)];
+
+    noAppSp = spIDsRealatedToService.filter((x) => !spListWithApp.includes(x));
+
+    console.log("me tyenne no appSp");
+    console.log(noAppSp);
   });
 
   $("#serviceProvider").change(function () {
@@ -204,55 +217,74 @@ $(document).ready(function () {
     });
   }
 
-  function getAllSlots() {
-    allTimeSlots = [];
-    // console.log("getallslots");
-    var startTimeH = 0;
-    var startTimeM = 0;
-    var endTimeH = 0;
-    var endTimeM = 0;
-    sm = 540;
-    while (sm < 1140) {
-      startTimeH = Math.floor(sm / 60) % 12;
-      startTimeM = sm % 60;
-
-      sm = sm + parseInt(timeTaken);
-      console.log(timeTaken);
-
-      endTimeH = Math.floor(sm / 60) % 12;
-      endTimeM = sm % 60;
-
-      allTimeSlots.push({
-        sH: startTimeH,
-        sM: startTimeM,
-        eH: endTimeH,
-        eM: endTimeM,
-      });
-    }
-  }
-
   var clickedDate = "";
 
   //Onclick day slots on calendar
   $(".day-btn").on("click", function () {
-    if ($("#serviceProvider").val() == 1111) {
-      // console.log("sp wa thorala nathi welawa");
-      filledTimeSlots = [];
-      var id = $(this).attr("id");
-      clickedDate = id;
-      var mt = monthArray.indexOf(clickedDate.substr(4, 3)) + 1;
-      assignedDate = //2021-03-04
-        id.substr(0, 4) + "-" + "0" + mt + "-" + clickedDate.substr(7, 2);
+    var id = $(this).attr("id");
+    clickedDate = id;
+    var mt = monthArray.indexOf(clickedDate.substr(4, 3)) + 1;
+    assignedDate = //2021-03-04
+      id.substr(0, 4) + "-" + "0" + mt + "-" + clickedDate.substr(7, 2);
+    var today = new Date();
+    var clickedDay = new Date(assignedDate);
+    console.log(today);
+    console.log(clickedDay);
 
-      //If not selected a service
-      if ($("#services").val() == 0) {
-        $("#services").css("border", "2px red solid");
+    if (clickedDay > today) {
+      if ($("#serviceProvider").val() == 1111) {
+        // console.log("sp wa thorala nathi welawa");
+        filledTimeSlots = [];
+
+        //If not selected a service
+        if ($("#services").val() == 0) {
+          $("#services").css("border", "2px red solid");
+        } else {
+          //Display Free time slots table
+          $(".calendar-div").css("display", "none");
+          $(".time-slots-div").css("display", "block");
+
+          appointmentList.map(function (appointment) {
+            var year = id.substr(0, 4);
+            var month = id.substr(4, 3);
+            var day = id.substr(7);
+
+            var date = appointment.date.split("-");
+            //set date into 2020Jan05 format
+            // var selectId=day[0]+monthArray[parseInt(day[1])]+day[2];
+
+            if (
+              date[0] == year &&
+              date[1] == monthArray.indexOf(month) + 1 &&
+              parseInt(date[2]) == day
+            ) {
+              var startTime = appointment.startTime;
+              var endTime = appointment.endTime;
+              var hs = startTime.split(":")[0];
+              var ms = startTime.split(":")[1];
+
+              filledTimeSlots.push(new Time(hs, ms));
+            }
+          });
+
+          filledTimeSlots.push(new Time(13, 0));
+
+          //This will populate the free slot table
+          console.log("me tyenne filledTimeSlots");
+          console.log(filledTimeSlots);
+          AllfreeSlots();
+        }
       } else {
-        //Display Free time slots table
+        var id = $(this).attr("id");
+        clickedDate = id;
+        var mt = monthArray.indexOf(clickedDate.substr(4, 3)) + 1;
+        assignedDate = //2021-03-04
+          id.substr(0, 4) + "-" + "0" + mt + "-" + clickedDate.substr(7, 2);
+        // console.log("sp wa thorala thiyana welawa");
         $(".calendar-div").css("display", "none");
         $(".time-slots-div").css("display", "block");
-
-        appointmentList.map(function (appointment) {
+        filledTimeSlots = [];
+        appListRelatedSp.map(function (appointment) {
           var year = id.substr(0, 4);
           var month = id.substr(4, 3);
           var day = id.substr(7);
@@ -271,80 +303,60 @@ $(document).ready(function () {
             var hs = startTime.split(":")[0];
             var ms = startTime.split(":")[1];
 
+            toDayAppointmentSp.push(appointment.employeeID);
+
             filledTimeSlots.push(new Time(hs, ms));
           }
         });
 
-        //This will populate the free slot table
-        // console.log(filledTimeSlots);
-        freeSlots();
+        filledTimeSlots.push(new Time(13, 0));
+        AllfreeSlots();
       }
-    } else {
-      var id = $(this).attr("id");
-      clickedDate = id;
-      var mt = monthArray.indexOf(clickedDate.substr(4, 3)) + 1;
-      assignedDate = //2021-03-04
-        id.substr(0, 4) + "-" + "0" + mt + "-" + clickedDate.substr(7, 2);
-      // console.log("sp wa thorala thiyana welawa");
-      $(".calendar-div").css("display", "none");
-      $(".time-slots-div").css("display", "block");
-      filledTimeSlots = [];
-      appListRelatedSp.map(function (appointment) {
-        var year = id.substr(0, 4);
-        var month = id.substr(4, 3);
-        var day = id.substr(7);
 
-        var date = appointment.date.split("-");
-        //set date into 2020Jan05 format
-        // var selectId=day[0]+monthArray[parseInt(day[1])]+day[2];
+      function AllfreeSlots() {
+        $("#time-slots").html(`<tr></tr>`);
+        timeTakenObj = new Time(0, parseInt(timeTaken)).add(new Time(0, 0)); //
+        var sTime = new Time(9, 0); //open time
+        var closeTime = new Time(19, 0); //close time
+        var lunchTime = new Time(13, 0); //lunch time
 
-        if (
-          date[0] == year &&
-          date[1] == monthArray.indexOf(month) + 1 &&
-          parseInt(date[2]) == day
-        ) {
-          var startTime = appointment.startTime;
-          var endTime = appointment.endTime;
-          var hs = startTime.split(":")[0];
-          var ms = startTime.split(":")[1];
-
-          filledTimeSlots.push(new Time(hs, ms));
-        }
-      });
-      // console.log(filledTimeSlots);
-      freeSlots();
-    }
-    ///////////////////////////////////////////////////////
-    function freeSlots() {
-      $("#time-slots").html(`<tr></tr>`);
-      timeTakenObj = new Time(0, parseInt(timeTaken)).add(new Time(0, 0)); //
-      var sTime = new Time(9, 0); //open time
-      var closeTime = new Time(19, 0); //close time
-      var lunchTime = new Time(13, 0); //lunch time
-
-      while (sTime.hour != closeTime.hour) {
-        filledTimeSlots.forEach((time) => {
-          if (time.hour == sTime.hour && time.min == sTime.min) {
+        while (sTime.hour != closeTime.hour) {
+          if (lunchTime.hour == sTime.hour && lunchTime.min == sTime.min) {
             //wrong logic
             sTime = timeTakenObj.addTwentyFour(sTime);
           }
-        });
-
-        var nxtSlot = timeTakenObj.add(sTime);
-        var thisSlot = sTime.add(new Time(0, 0));
-        $("#time-slots").append(
-          `<tr id="timeSlotTr"><td>${
-            (thisSlot.hour < 10 ? "0" + thisSlot.hour : thisSlot.hour) +
-            ":" +
-            (thisSlot.min < 10 ? thisSlot.min + "0" : thisSlot.min)
-          }</td> <td>${
-            (nxtSlot.hour < 10 ? "0" + nxtSlot.hour : nxtSlot.hour) +
-            ":" +
-            (nxtSlot.min < 10 ? nxtSlot.min + "0" : nxtSlot.min)
-          }</td> <td> <icon id='tr-icon' class='tr-icon fa fa-fw fa-plus-square'></icon> </td> </tr>`
-        );
-        sTime = timeTakenObj.addTwentyFour(sTime);
+          var nxtSlot = timeTakenObj.add(sTime);
+          var thisSlot = sTime.add(new Time(0, 0));
+          $("#time-slots").append(
+            `<tr id="timeSlotTr"><td>${
+              (thisSlot.hour < 10 ? "0" + thisSlot.hour : thisSlot.hour) +
+              ":" +
+              (thisSlot.min < 10 ? thisSlot.min + "0" : thisSlot.min)
+            }</td> <td>${
+              (nxtSlot.hour < 10 ? "0" + nxtSlot.hour : nxtSlot.hour) +
+              ":" +
+              (nxtSlot.min < 10 ? nxtSlot.min + "0" : nxtSlot.min)
+            }</td> <td> <icon id='tr-icon' class='tr-icon fa fa-fw fa-plus-square'></icon> </td> </tr>`
+          );
+          sTime = timeTakenObj.addTwentyFour(sTime);
+        }
       }
+    } else {
+      alert("Please Select the valid date!");
+      location.reload();
+    }
+  });
+
+  $("#backBtn").click(function () {
+    $(".calendar-div").css("display", "block");
+    $(".time-slots-div").css("display", "none");
+  });
+
+  $("#cancel").click(function () {
+    if (confirm("Do you want to cancel?")) {
+      window.location.replace(
+        "http://localhost:8080/quickSalon_war_exploded/customer/home.html"
+      );
     }
   });
 
@@ -373,15 +385,6 @@ $(document).ready(function () {
 
     assignedStartTime = selectedStartTime;
     assignedEndTime = selectedEndTime;
-
-    // $.ajax({
-    //   type: "POST",
-    //   url: "http://localhost:8080/quickSalon_war_exploded/getLeastAppSp",
-    //   data: { spIDs: [2, 21, 22] },
-    //   success: function (response) {
-    //     console.log(response);
-    //   },
-    // });
   });
 
   //When clicked Select Button
