@@ -308,20 +308,6 @@ public class ServiceProviderDAOImple implements  ServiceProviderDAO{
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     @Override
     public ArrayList<PersonalSchedule> getAppointmentsSPByDate(int userID, String date) throws SQLException, ClassNotFoundException {
         ArrayList<PersonalSchedule> appointments=new ArrayList<>();
@@ -382,6 +368,23 @@ public class ServiceProviderDAOImple implements  ServiceProviderDAO{
         }
 
         return  sp;
+    }
+
+    @Override
+    public int getSPIDByUserID(int userID) throws SQLException, ClassNotFoundException {
+
+
+        Connection connection =DBConnection.getConnection();
+        PreparedStatement stmt = connection.prepareStatement("SELECT employeeID FROM j4f9qe_employee WHERE userID = ?;");
+        stmt.setInt(1,userID);
+
+        ResultSet resultSet = stmt.executeQuery();
+
+        if(resultSet.next()){
+            return resultSet.getInt(1);
+        }
+
+        return 0;
     }
 
 }
