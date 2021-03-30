@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="../resources/css/mainDiv.css">
     <!-- <link rel="stylesheet" href="../resources/css/34.css"> -->
     <link rel="stylesheet" href="../resources/css/sideNavbar.css">
-    <link rel="stylesheet" href="../resources/css/enqueuecustomer.css">
+
     <link rel="stylesheet" href="../resources/css/calendar/calendar.css">
     <link rel="stylesheet" href="../resources/css/modal.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -14,6 +14,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <link rel="stylesheet" href="../resources/css/frameWork/style.css" />
+    <link rel="stylesheet" href="../resources/css/enqueuecustomer.css">
     <title>Enqueue Customer</title>
 </head>
 
@@ -23,117 +24,121 @@
           <div class="heading">Enqueue Customer</div>
             <div class="work-space">
 
-        <div class="subDiv">
-            <div class="row-1">
-                <!-- Name box -->
-                <div>
-                    <label for="cname">Customer Name</label>
-                    <input id="cname" class="name-txt" type="text" required>
-                </div>
-
-                <div>
-                    <label for="teleno">Telephone No</label>
-                    <input id="teleno" class="name-txt"  type="text" required>
-                </div>
-            </br>
-
-                <!--Select box  -->
-                <div>
-                    <label for="servicedropdownlist">Service</label>
-                    <select id="servicedropdownlist" class="select-opt" >
-                        <option value="0">Please  Select</option>
-                    </select>
-                </div>
-                <!-- Service provider -->
-                <!-- <div>
-                    <label for="spdropdownlist">Service Provider</label>
-                    <select id="spdropdownlist" class="select-sp">
-                        <option value="0">Default</option>
-                    </select>
-                </div> -->
-            </div>
-
-
-            <div class="row-2">
-                <div class="content-div">
-
-                    <div class="calendar-time">
-                        <div class="calDiv">
-                            <div class="calendar" id="calendar"></div>
+                <div class="subDiv">
+                    <div class="row-1">
+                        <!-- Name box -->
+                        <div>
+                            <label for="cname">Customer Name</label>
+                            <input id="cname" class="name-txt" type="text" required>
                         </div>
+
+                        <div>
+                            <label for="teleno">Telephone No</label>
+                            <input id="teleno" class="name-txt"  type="text" required>
+                        </div>
+                    </br>
+
+                        <!--Select box  -->
+                        <div>
+                            <label for="servicedropdownlist">Service</label>
+                            <select id="servicedropdownlist" class="select-opt" >
+                                <option value="0">Please  Select</option>
+                            </select>
+                        </div>
+                        <!-- Service provider -->
+                        <!-- <div>
+                            <label for="spdropdownlist">Service Provider</label>
+                            <select id="spdropdownlist" class="select-sp">
+                                <option value="0">Default</option>
+                            </select>
+                        </div> -->
                     </div>
 
-                    <div class="time-div">
-                        <div class="time-slots-div">
-                            <h3>Allocated Time Slots</h3>
-                            <table id="time-slots-table" class="table34 time-slots-table">
 
+                    <div class="row-2">
+                        <div class="content-div">
+
+                            <div class="calendar-time">
+                                <div class="calDiv">
+                                    <div class="calendar" id="calendar"></div>
+                                </div>
+                            </div>
+
+                            <div class="time-div">
+                                <div class="time-slots-div">
+                                    <h3>Allocated Time Slots</h3>
+                                    <table id="time-slots-table" class="table34 time-slots-table">
+
+                                        <thead>
+                                            <th class="tbl-head">Start Time</th>
+                                            <th class="tbl-head">End Time</th>
+                                            <!-- <th class="tbl-head"></th> -->
+                                        </thead>
+                                        <tbody id="time-slots" class="time-slots">
+                                            <tr>
+                                                <td>12:00</td>
+                                                <td>13:00</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>12:00</td>
+                                                <td>13:00</td>
+
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                                <div class="btn-bar">
+                                    <button class="btn btn-red">Back</button>
+                                    <button class="btn" id="select-time-btn" disabled>Select</button>
+                                </div>
+                            </div>
+                        
+                        </div>
+
+                    
+                    </div>
+                        <!-- end of time-slots-div -->
+                    
+
+                        <div class="tableDiv34 table">
+                            <table id="apt-table" class="table34">
                                 <thead>
-                                    <th class="tbl-head">Start Time</th>
-                                    <th class="tbl-head">End Time</th>
-                                    <!-- <th class="tbl-head"></th> -->
+                                <tr>
+                                    <th>Service</th>
+                                    <th>Service Provider</th>
+                                    <th>Date</th>
+                                    <th>Time</th>
+                                    <th>Remove</th>
+                                </tr>
                                 </thead>
-                                <tbody id="time-slots" class="time-slots">
-                                    <tr>
-                                        <td>12:00</td>
-                                        <td>13:00</td>
-
-                                    </tr>
-                                    <tr>
-                                        <td>12:00</td>
-                                        <td>13:00</td>
-
-                                    </tr>
+                                <tbody id='table_appointment'>
 
                                 </tbody>
                             </table>
+                            </br>
+                    
+                            <div class="cancel-btn">
+                                <button class="danger34">Cancel</button>
+                            </div>
+
+                            <diV class="confirm-btn">
+                                    <button type="submit" id="confirm" class="btn34" >Confirm</button>
+                            </div>
 
                         </div>
-                        <div class="btn-bar">
-                            <button class="btn btn-red">Back</button>
-                            <button class="btn" id="select-time-btn" disabled>Select</button>
-                        </div>
-                    </div>
-                  
+
+
                 </div>
-
-            
+                <!-- end of subDiv -->
             </div>
-                <!-- end of time-slots-div -->
-            
-
-                <!-- <div class="tableDiv34 table">
-                    <table id="apt-table" class="table34">
-                        <thead>
-                        <tr>
-                            <th>Service</th>
-                            <th>Service Provider</th>
-                            <th>Date</th>
-                            <th>Time</th>
-                            <th>Remove</th>
-                        </tr>
-                        </thead>
-                        <tbody id='table_appointment'>
-
-                        </tbody>
-                    </table>
-                    </br>
-              
-                    <div class="cancel-btn">
-                        <button class="danger34">Cancel</button>
-                    </div>
-
-                    <diV class="confirm-btn">
-                            <button type="submit" id="confirm" class="btn34" >Confirm</button>
-                    </div>
-
-                </div> -->
-
-
-            </div>
+            <!-- end of work space -->
         </div>
+        <!-- end of large space -->
     </div>
-        </div>
+    <!-- end of container -->
 
 
     <!-- Pop up time box -->
