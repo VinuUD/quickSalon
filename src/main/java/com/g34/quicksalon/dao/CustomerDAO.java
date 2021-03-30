@@ -16,4 +16,6 @@ public interface CustomerDAO {
 
 //    key = customer ID, customer name, contact number
     public ArrayList<Customer> getCustomersByKey(String key) throws SQLException, ClassNotFoundException;
+
+    public int updateCustomer(int userID, String fname, String lname,String uname, int cnum, String nic,String email, String address) throws SQLException, ClassNotFoundException;
 }

@@ -2,7 +2,7 @@ $("document").ready(function () {
   console.log("ksdjfhsd");
   $.get("ourStaff.html/ourStaff", function (response) {
     response.map(function (data) {
-      if (data.upperStaffFlag == 1) {
+      if (data.upperStaffFlag == 5) {
         // card component
         var div_card = document.createElement("div");
         div_card.setAttribute("class", "card");
@@ -34,7 +34,7 @@ $("document").ready(function () {
         div_card.appendChild(div_card_details);
 
         document.getElementById("owner_card_container").appendChild(div_card);
-      } else if (data.upperStaffFlag == 2) {
+      } else if (data.upperStaffFlag == 1) {
         // card component
         var div_card = document.createElement("div");
         div_card.setAttribute("class", "card");
