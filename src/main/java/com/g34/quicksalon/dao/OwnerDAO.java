@@ -28,7 +28,7 @@ public interface OwnerDAO {
 
     public int addClosingDates(String fromDate, String toDate) throws SQLException, ClassNotFoundException;
 
-
+    public String getOwnerEmail() throws SQLException, ClassNotFoundException;
 
 
 }
