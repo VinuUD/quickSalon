@@ -26,6 +26,8 @@ public interface OwnerDAO {
 
     public int removeServiceProvider(int id, String password) throws SQLException;
 
+    public int addClosingDates(String fromDate, String toDate) throws SQLException, ClassNotFoundException;
+
 
 
 
