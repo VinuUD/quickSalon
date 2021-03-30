@@ -66,7 +66,6 @@ $(document).ready(function () {
 
     //2)All sps relevat to the selected service
     $("#servicedropdownlist").change(function () {
-
       spIDsRealatedToService = [];
       var selectedVal = $(this).val();
          $.post("http://localhost:8080/quickSalon_war_exploded/appointmentSp", {

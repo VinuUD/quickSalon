@@ -49,6 +49,7 @@
   padding-bottom: -10px;
   transform: translateY(-5px);
   z-index: 1;
+  cursor: pointer;
 }
 
 button {
@@ -173,3 +174,4 @@ button {
     width: 100px;
   }
 }
+
