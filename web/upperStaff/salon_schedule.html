@@ -2,10 +2,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../web/resources/css/allManagers.css" />
-    <link rel="stylesheet" href="../../web/resources/css/34.css" />
-    <link rel="stylesheet" href="../../web/resources/css/popup2AllManagers.css" />
-    <link rel="stylesheet" href="../../web/resources/css/sideNavbar.css" />
+    <link rel="stylesheet" href="../resources/css/allManagers.css" />
+    <link rel="stylesheet" href="../resources/css/34.css" />
+    <link rel="stylesheet" href="../resources/css/popup2AllManagers.css" />
+    <link rel="stylesheet" href="../resources/css/sideNavbar.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -14,10 +15,10 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
     />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
-    <title>All Managers</title>
+    <title>Salon Schedule</title>
   </head>
   <body onresize="whenResizing()">
     <!-- //////////////////////////////////////// -->
@@ -58,7 +59,7 @@
         </div>
         <button onclick="change()" class="btn34">
           <a style="text-decoration: none; color: white" href="ownerHome.html">
-            home
+            Home
           </a>
         </button>
       </div>
@@ -68,9 +69,6 @@
       </div>
       <div class="mainDiv">
         <div class= "container">
-            <div class="large-space">
-              <div class="heading">View Personal Schedule</div>
-              <div class="work-space">
       
                 <div>
                   <!-- Date Select Box -->
@@ -88,11 +86,13 @@
                         <col class="medium-column" />
                       </colspan>
                       <tr>
-                        <th>Name</th>
-                        <th>Service</th>
+                        <th>Customer Name</th>
                         <th>Telephone</th>
+                        <th>Service</th>
                         <th>Start Time</th>
                         <th>End Time</th>
+                        <th>Service Provider</th>
+                        
                       </tr>
                       <tbody id="aptTable" class="tbody">
       
@@ -110,9 +110,9 @@
       </div>
     </div>
 
-  
-    <script src="../../web/resources/javascript/upper_staff_salon_schedule.js"></script>
+ 
+    <script src="../resources/javascript/upper_staff_salon_schedule.js"></script>
 
-    <script src="../../web/resources/javascript/side_navbar.js"></script>
+    <script src="../resources/javascript/side_navbar.js"></script>
   </body>
 </html>

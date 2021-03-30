@@ -450,7 +450,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>AllAppointmentsByDateServlet</servlet-name>
-        <url-pattern>upperStaff/appointmentsByDate</url-pattern>
+        <url-pattern>/upperStaff/appointmentsByDate</url-pattern>
     </servlet-mapping>
 
 </web-app>
