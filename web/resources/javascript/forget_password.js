@@ -12,12 +12,14 @@
       var email = input.val().trim();
       var check=true;
       //loading spinner is enabled
-      $('#spinner-center').show();
+      
       if(validate(input) == false){
           showValidate(input);
           check = false;
       }
       if(check){
+        // Start spinner animation
+        $('#spinner-center').show();
        ///CAll ajax request
           $.get("http://localhost:8080/quickSalon_war_exploded/forgetpassword", {email:email},
               function(data, status){
