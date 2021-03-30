@@ -171,5 +171,18 @@ public class OwnerDAOImple implements OwnerDAO {
         return true;
     }
 
+    public int addClosingDates(String fromDate, String toDate) throws SQLException, ClassNotFoundException {
+        Connection connection = DBConnection.getConnection();
+        PreparedStatement pst= connection.prepareStatement("INSERT INTO j4f9qe_closesaloon VALUES (?,?)");
+        pst.setString(1,fromDate);
+        pst.setString(2,toDate);
+
+        int x = pst.executeUpdate();
+
+        return x;
+
+
+    }
+
 
 }

@@ -422,4 +422,15 @@
         <servlet-name>AllCustomerServlet</servlet-name>
         <url-pattern>/allcustomers</url-pattern>
     </servlet-mapping>
+
+    <!--  close Saloon-->
+    <servlet>
+        <servlet-name>closeSaloon</servlet-name>
+        <servlet-class>com.g34.quicksalon.controller.reservation.CloseSaloonServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>closeSaloon</servlet-name>
+        <url-pattern>/closeSaloon</url-pattern>
+    </servlet-mapping>
 </web-app>

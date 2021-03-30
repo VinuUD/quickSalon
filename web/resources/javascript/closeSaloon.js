@@ -23,38 +23,53 @@ function show() {
 }
 
 $("document").ready(function () {
-  var fromDate = null;
-  var toDate = null;
+  var fromDate = "";
+  var toDate = "";
+  var msg = "";
 
-  $("#fromDate").change(function () {
-    // $(this).val().getMonth();
-    // fromDate = new Date($(this).val());
-    console.log($(this).val());
-    alert($(this).val());
+  $("#fromDate").on("change", function () {
+    fromDate = $(this).val();
   });
 
-  $("#toDate").change(function () {
+  $("#toDate").on("change", function () {
     toDate = $(this).val();
   });
 
   $("#send").click(function () {
-    console.log(fromDate + " " + toDate);
-    // $.ajax({
-    //   type: "GET",
-    //   url: "addLeave.html/confirm",
-    //   data: { id: `${selectedVal}` },
-    //   success: function (response) {
-    //     console.log(response);
-    //     if (response == 1) {
-    //       alert("Leave added Successfully!");
-    //       location.reload();
-    //     } else if (response == 0) {
-    //       alert(
-    //         "Leave added Unsuccessfully!! please try again !"
-    //       );
-    //       location.reload();
-    //     }
-    //   },
-    // });
+    if (
+      $("#fromDate").val() == "" ||
+      $("#toDate").val() == "" ||
+      $("#msg").val() == ""
+    ) {
+      alert("Please fill all the fields!");
+    } else {
+      msg = $("#msg").val();
+      if (confirm("confirm Dates?")) {
+        $.ajax({
+          type: "GET",
+          url: "http://localhost:8080/quickSalon_war_exploded/closeSaloon",
+          data: { fromDate: fromDate, toDate: toDate, msg: msg },
+          success: function (response) {
+            console.log(response);
+            if (response == 1) {
+              alert("Added Closing Dates !");
+              location.reload();
+            } else if (response == 0) {
+              alert("please try again !");
+              location.reload();
+            }
+          },
+        });
+
+        $.ajax({
+          type: "POST",
+          url: "http://localhost:8080/quickSalon_war_exploded/closeSaloon",
+          data: { msg: msg },
+          success: function (response) {
+            console.log(response);
+          },
+        });
+      }
+    }
   });
 });
