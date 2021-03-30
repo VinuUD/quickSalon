@@ -22,14 +22,18 @@ public interface ServiceDAO {
 
     public int updateServiceTable(Service service) throws SQLException, ClassNotFoundException;
 
-  //Get all service Details of a service By serviceID
-  public ArrayList<Service> getServiceDetailsByID(int serviceID) throws SQLException, ClassNotFoundException;
+    //Get all service Details of a service By serviceID
+     public ArrayList<Service> getServiceDetailsByID(int serviceID) throws SQLException, ClassNotFoundException;
 
     public int removeService(int serviceID) throws SQLException, ClassNotFoundException;
 
     public int updateRatings(int empID, int rateVal) throws SQLException, ClassNotFoundException;
 
     public ArrayList<Ratings> getRatings() throws SQLException, ClassNotFoundException;
+
+
+    //Get service By service provider's userID
+    public ArrayList<Service> getServiceByuserID(int userID) throws SQLException, ClassNotFoundException;
 
 
 }

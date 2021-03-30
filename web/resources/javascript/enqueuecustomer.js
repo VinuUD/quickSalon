@@ -50,8 +50,8 @@ var allAppointments;
 
 //Get all services
 $(document).ready(function () {
-  //1) GET service List
-  $.get("http://localhost:8080/quickSalon_war_exploded/serviceList",
+  //1) GET service List of 
+  $.get("http://localhost:8080/quickSalon_war_exploded/servicesp",
     function (data) {
         $.each(data, function (index, service) {
           // $("<option>").val(service.serviceID).text(service.serviceName).appendTo($select);
@@ -61,20 +61,34 @@ $(document).ready(function () {
     );
 
 
+
+
     //2)All sps relevat to the selected service
     $("#servicedropdownlist").change(function () {
 
-        $.get("http://localhost:8080/quickSalon_war_exploded/serviceList",
-             function (responseJson) {
-                allServices = responseJson;
-                var $select = $("#servicedropdownlist");
-                $.each(responseJson, function (index, service) {
-                  $("<option>").val(index).text(service.serviceName).appendTo($select);
-               });
-              }
-         );
-
+      spIDsRealatedToService = [];
+      var selectedVal = $(this).val();
+      
+      $.ajax({
+        type: "POST",
+        url: "http://localhost:8080/quickSalon_war_exploded/appointmentSP",
+        data: { id: `${selectedVal}` },
+        success: function (response) {
+          console.log(response);
+          response.map(function (sData) {
+            spIDsRealatedToService.push(sData.employeeId);
+            $("#spdropdownlist").append(`<option value="${sData.employeeId}"> ${ sData.firstName + " " + sData.lastName}</option>`);
+            
+          });
+        },
+      });
     });
+
+
+    //3)load all appointments related to sp
+
+
+
 
 
 });

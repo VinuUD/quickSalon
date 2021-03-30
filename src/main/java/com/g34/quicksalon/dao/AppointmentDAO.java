@@ -34,4 +34,8 @@ public interface AppointmentDAO {
 
     //Get all appointments of today by SPID
     public ArrayList<PersonalSchedule> getTodayAppointmentsBySPID(int empID) throws SQLException, ClassNotFoundException;
+
+    //Get all Appointment of a SP by service ID
+    public ArrayList<AppointmentServiceVIEW> getAllSPAppointmentByServiceID(int serviceID,int userID) throws SQLException, ClassNotFoundException;
+
 }

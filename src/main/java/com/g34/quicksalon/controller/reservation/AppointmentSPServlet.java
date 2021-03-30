@@ -13,7 +13,19 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class AppointmentSPServlet extends HttpServlet {
+
+    //Get appointment list of a sp by serviceID
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        //        HttpSession session= request.getSession();
+//        int userID=(Integer) session.getAttribute("userID");
+
+        int userID=33;
+        int serviceID= Integer.parseInt(request.getParameter("serviceID"));
+
+        
+
+
 
     }
 

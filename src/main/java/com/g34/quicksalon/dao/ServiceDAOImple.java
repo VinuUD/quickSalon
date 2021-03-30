@@ -184,6 +184,26 @@ public class ServiceDAOImple implements ServiceDAO {
 
     }
 
+    @Override
+    public ArrayList<Service> getServiceByuserID(int userID) throws SQLException, ClassNotFoundException {
+
+        ArrayList<Service> service=new ArrayList<>();
+        try {
+            Connection connection =DBConnection.getConnection();
+            PreparedStatement stmt= connection.prepareStatement("SELECT s.serviceID,s.serviceName,s.timeTaken FROM j4f9qe_employee e INNER JOIN j4f9qe_servicesprovided sp ON e.employeeID = sp.serviceProviderID INNER JOIN j4f9qe_service s ON sp.serviceID = s.serviceID WHERE e.userID=(?);");
+            stmt.setInt(1,userID);
+
+            ResultSet resultSet=stmt.executeQuery();
+
+            while (resultSet.next()) {
+                service.add(new Service(resultSet.getInt(1), resultSet.getString(2),resultSet.getString(3)));
+            }
+        } catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+        return service;
+
+    }
 
 
 }

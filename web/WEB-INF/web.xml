@@ -417,9 +417,19 @@
         <servlet-name>AllCustomerServlet</servlet-name>
         <servlet-class>com.g34.quicksalon.controller.customer.AllCustomerServlet</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>AllCustomerServlet</servlet-name>
         <url-pattern>/allcustomers</url-pattern>
+    </servlet-mapping>
+
+
+<!--    -->
+    <servlet>
+        <servlet-name>ServiceListSPServlet</servlet-name>
+        <servlet-class>com.g34.quicksalon.controller.serviceProvider.ServiceListSPServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServiceListSPServlet</servlet-name>
+        <url-pattern>/servicesp</url-pattern>
     </servlet-mapping>
 </web-app>

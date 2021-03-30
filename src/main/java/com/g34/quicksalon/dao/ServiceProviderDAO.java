@@ -49,4 +49,7 @@ public interface ServiceProviderDAO {
     public ServiceProvider getSpDetails(int empID) throws Exception;
 
 
+
+
+
 }

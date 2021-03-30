@@ -55,6 +55,7 @@ public class LoginServlet extends HttpServlet {
                 HttpSession session = request.getSession();
                 session.setAttribute("userID",userLoginModel.getId());
                 session.setAttribute("username", userLoginModel.getUsername());
+                session.setAttribute("email", userLoginModel.getEmail());
                 session.setAttribute("userType", userType);
 
                 switch (userType) {
