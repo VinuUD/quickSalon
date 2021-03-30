@@ -1,4 +1,11 @@
 $(document).ready(function() {
+
+  //GET session data
+  $.get("http://localhost:8080/quickSalon_war_exploded/session", function (username) {
+    document.getElementById("welcome-message").innerText='Welcome '+username; 
+  });
+
+  //logout
   $("#place_appointment").on("click",function (){
     window.location.href="./place_appointment.html";
   });
@@ -18,4 +25,16 @@ $(document).ready(function() {
   $("#my_profile").on("click",function (){
     window.location.href="./my_profile.html";
   });
+
+  $('#logout').on('click', function(){
+    $.get("http://localhost:8080/quickSalon_war_exploded/logout",
+        function(data, status){
+            window.location.href="../";
+        }
+    );
+  });
+
+
+
 })
+
