@@ -68,7 +68,8 @@ button {
   border: none;
   border-radius: 10px;
   background: var(--blur-grey);
-  color: white
+  color: white;
+  margin-left: 10px;
 }
 
 .btn-red:hover {
@@ -76,6 +77,8 @@ button {
 }
 
 .logout-btn {
+  display: flex;
+  flex-direction: row;
   position: relative;
   float: right;
   margin-right: 20px;
@@ -86,6 +89,10 @@ button {
 
 /* Small screens */
 @media (max-width: 560px) {
+  .logout-btn {
+    flex-direction: column;
+  }
+
   .buttons {
     margin-top: 0;
   }
