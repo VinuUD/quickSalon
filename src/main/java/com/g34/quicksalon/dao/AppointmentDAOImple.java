@@ -187,8 +187,15 @@ public class AppointmentDAOImple implements AppointmentDAO {
         Connection con = DBConnection.getConnection();
         ArrayList<Integer> appCountList = new ArrayList<Integer>();
         ServiceProvider sp = new ServiceProvider();
-
         int len = arr.length;
+
+        for(int k=0; k<len; k++)
+        {
+            System.out.print(arr[k]);
+        }
+
+
+
         for(int i=0; i<len; i++)
         {
 
@@ -199,7 +206,7 @@ public class AppointmentDAOImple implements AppointmentDAO {
 
             while(rs.next())
             {
-                appCountList.add(rs.getInt(1));
+                appCountList.add(rs.getInt(4));
 
             }
         }

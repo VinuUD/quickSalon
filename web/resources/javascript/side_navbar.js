@@ -44,7 +44,10 @@ function tgl() {
 }
 
 $(document).ready(function () {
-  $("#mySidenav").load("sideNav.html", function () {
-    tgl();
-  });
+  $("#mySidenav").load(
+    "http://localhost:8080/quickSalon_war_exploded/upperStaff/owner/sideNav.html",
+    function () {
+      tgl();
+    }
+  );
 });

@@ -507,6 +507,8 @@ $(document).ready(function () {
 
         console.log(thisDate_FreeTimeSlotSpIDs);
 
+        appOnlyAnotherDay = [...new Set(appOnlyAnotherDay)];
+
         if (appOnlyAnotherDay.length != 0) {
           if (appOnlyAnotherDay.length == 1) {
             $.ajax({
