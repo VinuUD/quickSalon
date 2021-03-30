@@ -25,8 +25,7 @@ public class OurStaffServlet extends HttpServlet {
             res.setContentType("application/json");
             res.setCharacterEncoding("UTF-8");
             res.getWriter().write(json);
-            String name = staffDetails.get(0).getFirstName();
-            System.out.println(name);
+
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();

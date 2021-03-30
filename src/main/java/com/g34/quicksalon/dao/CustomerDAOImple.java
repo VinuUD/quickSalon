@@ -202,6 +202,44 @@ public class CustomerDAOImple implements CustomerDAO {
         return customerArray;
     }
 
+        public int updateCustomer(int userID, String fname, String lname,String uname, int cnum, String nic,String email, String address) throws SQLException, ClassNotFoundException {
+        Connection  connection = DBConnection.getConnection();
+
+        int custID = 0;
+
+        PreparedStatement pst1 = connection.prepareStatement("UPDATE j4f9qe_user SET j4f9qe_user.email = ? , j4f9qe_user.userName = ? WHERE j4f9qe_user.userID = ?");
+        pst1.setString(1,email);
+        pst1.setString(2,uname);
+        pst1.setInt(3,userID);
+        int x = pst1.executeUpdate();
+
+        PreparedStatement pst2 = connection.prepareStatement("UPDATE j4f9qe_registerdcustomers SET j4f9qe_registerdcustomers.email = ? , j4f9qe_registerdcustomers.address = ?, j4f9qe_registerdcustomers.nic = ? WHERE j4f9qe_registerdcustomers.userID = ?");
+        pst2.setString(1,email);
+        pst2.setString(2,address);
+        pst2.setString(3,nic);
+        pst2.setInt(4,userID);
+        pst2.executeUpdate();
+
+        PreparedStatement pst3 = connection.prepareStatement("SELECT  j4f9qe_registerdcustomers.customerID FROM  j4f9qe_registerdcustomers WHERE j4f9qe_registerdcustomers.userID = ?");
+        pst3.setInt(1,userID);
+
+        ResultSet rs = pst3.executeQuery();
+
+        if (rs.next())
+        {
+            custID = rs.getInt(1);
+        }
+
+        PreparedStatement pst4 = connection.prepareStatement("UPDATE j4f9qe_customer SET j4f9qe_customer.firstName = ?, j4f9qe_customer.lastName = ?, j4f9qe_customer.telephone = ? WHERE j4f9qe_customer.customerID = ?");
+        pst4.setString(1,fname);
+        pst4.setString(2, lname);
+        pst4.setInt(3,cnum);
+        pst4.setInt(4,custID);
+        int y = pst4.executeUpdate();
+
+        return y;
+    }
+
 }
 
 

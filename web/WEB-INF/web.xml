@@ -443,6 +443,16 @@
         <url-pattern>/closeSaloon</url-pattern>
     </servlet-mapping>
 
+    <!--  update Customer-->
+    <servlet>
+        <servlet-name>updateCustomer</servlet-name>
+        <servlet-class>com.g34.quicksalon.controller.customer.UpdateCustomerServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>updateCustomer</servlet-name>
+        <url-pattern>/updateCustomer</url-pattern>
+    </servlet-mapping>
 <!--    Alll appointments by Date-->
     <servlet>
         <servlet-name>AllAppointmentsByDateServlet</servlet-name>

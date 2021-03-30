@@ -2,47 +2,6 @@ var users=[];
 
 var selectedUserGroup=[];
 
-// function addUsrGroup(){
-
-   
-
-// }
-
-// function remove(index){
-//     users.splice(index,1);
-
-//     content=''
-//     users.forEach((user,index)=>{
-//             content+="<div class='row'>"+user+"<button class='btn btn-small-red' onclick='remove("+index+")'>-</button></div>";
-//         }
-
-//     );
-
-//     document.getElementById('userrow').innerHTML=content;
-// }
-
-
-
-// document.getElementById("back").onclick=function(event){
-//     backmodal.style.display='block'
-// }
-
-
-// document.getElementById("send-btn").onclick=function(event){
-//     modal.style.display='block'
-// }
-
-
-// document.getElementById("No").onclick=function(event){
-//     backmodal.style.display='none'
-// }
-
-// window.onclick = function(event) {
-//     if (event.target == document.getElementById("backmodal")) {
-//         backmodal.style.display = "none";
-//     }
-// }
-
 $(document).on("click", ".remove", function () {
 
     var id=$(this).closest('td').siblings().attr("id");
