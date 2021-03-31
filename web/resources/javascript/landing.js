@@ -6,3 +6,13 @@ $(window).scroll(function(){
   $('.title').css('opacity', 1 - opacityVal);
   $('.text').css('opacity', 1 - opacityVal);
 });
+
+// salon-schedule
+
+$(document).ready(function () {
+
+  $("#salon-schedule").on("click", function () {
+    window.location.href = 'http://localhost:8080/quickSalon_war_exploded/salon_schedule.html'
+  })
+
+})
