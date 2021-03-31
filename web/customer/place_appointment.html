@@ -15,7 +15,6 @@
     ></script>
     <script defer src="../resources/javascript/main.js"></script>
 
-
     <link rel="stylesheet" href="../resources/css/calendar/calendar.css" />
 
     <link
@@ -43,9 +42,8 @@
     <!-- ////////////////////////////// -->
     <div class="container">
       <div class="medium-space">
-        <div class="heading">
-          Place an appointment
-        </div><!-- end of heading -->
+        <div class="heading">Place an appointment</div>
+        <!-- end of heading -->
 
         <div class="work-space">
           <div class="left-work-space">
@@ -57,7 +55,8 @@
               <select name="serviceProvider" id="serviceProvider">
                 <option value="1111">Default</option>
               </select>
-            </div><!-- end of innerDiv -->
+            </div>
+            <!-- end of innerDiv -->
 
             <!-- Calendar div -->
             <div class="">
@@ -73,20 +72,28 @@
                     <th class="tbl-head">Start Time</th>
                     <th class="tbl-head">End Time</th>
                     <th class="tbl-head">Add</th>
-                  </thead><!-- end of thead -->
+                  </thead>
+                  <!-- end of thead -->
 
-                  <tbody id="time-slots" class="time-slots">
-                  </tbody><!-- end of tbody -->
-                </table><!-- end of time-slots-table -->
+                  <tbody id="time-slots" class="time-slots"></tbody>
+                  <!-- end of tbody -->
+                </table>
+                <!-- end of time-slots-table -->
 
                 <div class="btn-bar">
-                  <button class="btn btn-red">Back</button>
-                  <button class="btn" id="select-time-btn" disabled>Select</button>
-                </div><!-- end of btn-bar -->
-              </div><!-- end of time-slots-div -->
-            </div><!-- end of innerDiv -->
+                  <button id="backBtn" class="btn btn-red">Back</button>
+                  <button class="btn" id="select-time-btn" disabled>
+                    Select
+                  </button>
+                </div>
+                <!-- end of btn-bar -->
+              </div>
+              <!-- end of time-slots-div -->
+            </div>
+            <!-- end of innerDiv -->
             <!-- End of Calendar div -->
-          </div><!-- end of left-work-space -->
+          </div>
+          <!-- end of left-work-space -->
 
           <div class="right-work-space">
             <div class="table-div34">
@@ -95,8 +102,8 @@
                   <col class="medium-column" />
                   <col class="medium-column" />
                   <col />
-                  <col />
-                </colspan><!-- end of colspan -->
+                  <col /> </colspan
+                ><!-- end of colspan -->
 
                 <tr>
                   <th>Service</th>
@@ -107,19 +114,26 @@
 
                 <tr></tr>
 
-                <tbody id="t02Tbody">
-                </tbody>
+                <tbody id="t02Tbody"></tbody>
               </table>
-            </div><!-- end of tableDiv34 -->
+            </div>
+            <!-- end of tableDiv34 -->
 
             <div class="innerDiv">
-              <div type="submit" id="cancel" class="btn btn-red">Cancel</div>
-              <div type="submit" id="confirm" class="btn btn-green">Confirm</div>
-            </div><!-- end of innerDiv -->
-          </div><!-- end of right-work-space -->
-        </div><!-- end of work-space -->
-      </div><!-- end of medium-space -->
-    </div><!-- end of container -->
+              <div id="cancel" class="btn btn-red">Cancel</div>
+              <div type="submit" id="confirm" class="btn btn-green">
+                Confirm
+              </div>
+            </div>
+            <!-- end of innerDiv -->
+          </div>
+          <!-- end of right-work-space -->
+        </div>
+        <!-- end of work-space -->
+      </div>
+      <!-- end of medium-space -->
+    </div>
+    <!-- end of container -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
