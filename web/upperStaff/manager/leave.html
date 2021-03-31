@@ -1,87 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset='utf-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Add Leave</title>
 
-    <link rel="stylesheet" href="../../resources/css/normal.css">
-    <link rel="stylesheet" href="../../resources/css/leave.css">
-    <link rel="stylesheet" href="../../resources/css/mainDiv.css">
+    <link rel="stylesheet" href="../../resources/css/normal.css" />
+    <link rel="stylesheet" href="../../resources/css/leave.css" />
+    <link rel="stylesheet" href="../../resources/css/mainDiv.css" />
     <!-- <link rel="stylesheet" href="../resources/css/34.css"> -->
     <!-- <link rel="stylesheet" href="../resources/css/frameWork/modal.css"> -->
     <!-- <link rel="stylesheet" href="../resources/css/frameWork/input.css"> -->
-    <link rel="stylesheet" href="../../resources/css/frameWork/style.css">
+    <link rel="stylesheet" href="../../resources/css/frameWork/style.css" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src='../resources/javascript/main2.js'></script>
-</head>
+    <script src="../resources/javascript/main2.js"></script>
+  </head>
 
-<body onresize="whenResizing()">
-
+  <body onresize="whenResizing()">
     <div>
+      <!-- <div cl></div> -->
+      <div class="mainDiv container">
+        <div class="large-space">
+          <div class="heading topBar">Leave</div>
 
-        <!-- <div cl></div> -->
-        <div class="mainDiv container">
+          <div class="work-space">
+            <!-- <div class="inner-div"> -->
+            <div class="form-container">
+              <div class="input-text-wrap">
+                <label for="empid">Employee ID</label>
+                <input
+                  type="text"
+                  id="empid"
+                  name="empid"
+                  disabled
+                  placeholder="For Auto Filled"
+                />
+              </div>
 
-            <div class="large-space">
-                <div class="heading topBar">Leave</div>
+              <div class="input-text-wrap">
+                <label for="empname">Employee Name</label>
+                <input type="text" id="empname" name="empname" />
+              </div>
+              <div id="search-box">
+                <ul id="search-list"></ul>
+              </div>
 
-                <div class="work-space">
-                    <!-- <div class="inner-div"> -->
-                        <div class="form-container">
+              <div class="input-text-wrap">
+                <label for="fromdate">From</label>
+                <input type="date" id="fromdate" name="fromdate" />
+              </div>
 
-                            <div class="input-text-wrap">
-                                <label for="empid">Employee ID</label>
-                                <input type="text" id="empid" name="empid" disabled placeholder="For Auto Filled">
-                            </div>
+              <div class="input-text-wrap">
+                <label for="todate">To</label>
+                <input type="date" id="todate" name="todate" />
+              </div>
 
-                            <div class="input-text-wrap">
-                                <label for="empname">Employee Name</label>
-                                <input type="text" id="empname" name="empname">
-                            </div>
-                            <div id='search-box'>
-                                <ul id='search-list'>
-                                </ul>
-                            </div>
+              <div class="input-text-wrap">
+                <label for="fromtime">From Time</label>
+                <input type="time" id="fromtime" name="fromtime" />
+              </div>
 
+              <div class="input-text-wrap">
+                <label for="totime">To Time</label>
+                <input type="time" id="totime" name="totime" />
+              </div>
 
-                            <div class="input-text-wrap">
-                                <label for="fromdate">From</label>
-                                <input type="date" id="fromdate" name="fromdate">
-                            </div>
+              <div class="input-text-wrap">
+                <label for="leavetype">Leave Type</label>
+                <input type="text" id="leavetype" name="leavetype" />
+              </div>
+            </div>
+            <div class="innerDiv">
+              <button class="btn btn-red" onclick="history.back()">Back</button>
+              <button class="btn" id="addLeave">Leave</button>
+            </div>
+          </div>
+        </div>
 
-                            <div class="input-text-wrap">
-                                <label for="todate">To</label>
-                                <input type="date" id="todate" name="todate">
-                            </div>
-
-                            <div class="input-text-wrap">
-                                <label for="fromtime">From Time</label>
-                                <input type="time" id="fromtime" name="fromtime">
-                            </div>
-
-                            <div class="input-text-wrap">
-                                <label for="totime">To Time</label>
-                                <input type="time" id="totime" name="totime">
-                            </div>
-
-                            <div class="input-text-wrap">
-                                <label for="leavetype">Leave Type</label>
-                                <input type="text" id="leavetype" name="leavetype">
-                            </div>
-
-                        </div>
-                        <div class="innerDiv">
-                          <button class="btn btn-red" onclick=history.back()>Back</button>
-                          <button class="btn" id='addLeave'>Leave</button>
-                        </div>
-                    </div>
-
-                </div>
-
-                <!-- <div class="modal-background">
+        <!-- <div class="modal-background">
                     <div class="center">
                         <div class="password-success-modal">
                             <div class="header">
@@ -96,12 +93,11 @@
                         </div>
                     </div>
                 </div> -->
-            <!-- </div> -->
-        </div>
+        <!-- </div> -->
+      </div>
     </div>
 
     <script src="../resources/javascript/side_navbar.js"></script>
-    <script src="../resources/javascript/leave.js"></script>
-</body>
-
+    <script src="../../resources/javascript/leave.js"></script>
+  </body>
 </html>
