@@ -12,6 +12,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -24,6 +25,8 @@ public class NewAppointmentServlet extends HttpServlet {
             String date = request.getParameter("date");
             String startTime = request.getParameter("startTime");
             String endTime = request.getParameter("endTime");
+            HttpSession session= request.getSession();
+//             int custID=(Integer) session.getAttribute("userID");
             int custID = 4;
 
         AppointmentDAO newApp = new AppointmentDAOImple();
