@@ -126,9 +126,10 @@ body{
 } */
 
 .calDiv{
+    width: auto;
     margin-top: 20px;
     display: flex;
-    /* justify-content: center; */
+    justify-content: center;
     height: auto;
 }
 
@@ -177,6 +178,8 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: auto;
+    min-height: 80%;
   }
   
  
@@ -226,16 +229,15 @@ body{
 
   .content-div{
     width: 100%;
-    height: 500px;
-    border: 1px solid black;
+    min-height: 500px;
   }
 
   .time-div{
     /* display: none; */
-    display: inline;
-    border: 2px solid red;
-    width: 100px;
-
+    /* display: inline; */
+    /* border: 2px solid red; */
+    width: 100%;
+    height: auto;
   }
 
   h3{
@@ -243,7 +245,8 @@ body{
   }
 
   .btn-bar{
-      margin-left: 140px;
+      margin-left: 80px;
+      width: 100%;
   }
 
   .time-slots-table{
@@ -257,4 +260,17 @@ body{
     height: 400px;
     padding: 10px;
   } 
+
+  #select-time-btn {
+    position: relative;  
+    float: right;
+    margin-right: 160px;
+  }
    
+  input {
+    height: 40px;
+  }
+
+  #apt-time-div {
+    margin-left: 100px;
+  }
