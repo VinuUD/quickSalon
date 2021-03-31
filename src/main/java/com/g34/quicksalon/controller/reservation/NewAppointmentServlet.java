@@ -25,9 +25,13 @@ public class NewAppointmentServlet extends HttpServlet {
             String date = request.getParameter("date");
             String startTime = request.getParameter("startTime");
             String endTime = request.getParameter("endTime");
-            HttpSession session= request.getSession();
-             int custID=(Integer) session.getAttribute("userID");
-//            int custID = 4;
+//            HttpSession session= request.getSession();
+//             int custID=(Integer) session.getAttribute("userID");
+
+
+
+
+            int custID = 4;
 
         AppointmentDAO newApp = new AppointmentDAOImple();
         try {

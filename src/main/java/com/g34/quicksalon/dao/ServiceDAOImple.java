@@ -162,12 +162,8 @@ public class ServiceDAOImple implements ServiceDAO {
         pst.setInt(2,empID);
 
         int x = pst.executeUpdate();
-
-
-
+        System.out.println(x);
         return x;
-
-
     }
 
     public ArrayList<Ratings> getRatings() throws SQLException, ClassNotFoundException {

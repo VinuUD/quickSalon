@@ -89,7 +89,7 @@ public class ServiceProviderDAOImple implements  ServiceProviderDAO{
         ArrayList<ServiceProvider> serviceProviders=new ArrayList<>();
 
         try {
-            PreparedStatement stmt=DBConnection.getConnection().prepareStatement("SELECT employeeID,firstName,lastName FROM j4f9qe_employee WHERE isUpperStaffFlag = 0");
+            PreparedStatement stmt=DBConnection.getConnection().prepareStatement("SELECT employeeID,firstName,lastName FROM j4f9qe_employee WHERE isUpperStaffFlag = 0 AND removedFlag = 0");
 
             ResultSet resultSet = stmt.executeQuery();
 
@@ -169,7 +169,9 @@ public class ServiceProviderDAOImple implements  ServiceProviderDAO{
 
         int success=stmt.executeUpdate();
         if(success>0){
+            System.out.println(234);
             return true;
+
         }else{
             return false;
         }

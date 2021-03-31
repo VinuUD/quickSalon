@@ -215,6 +215,8 @@ $(document).ready(function () {
       //   location.reload();
     });
 
+    
+
     $("#confirm").on("click", function () {
       if (Empty() && emailCheck() && numberCheck() && salaryCheck()) {
         // if (confirm("Do you want to the add Manager?")) {

@@ -115,6 +115,8 @@ $("document").ready(function () {
         spIDs: spIDs,
       };
 
+      console.log(spIDs);
+
       $.ajax({
         type: "GET",
         url: "http://localhost:8080/quickSalon_war_exploded/updateService",

@@ -34,22 +34,23 @@ public class updateServiceServlet extends HttpServlet {
         ServiceProviderDAO serviceProviderDAO = new ServiceProviderDAOImple();
         try {
             int delete = serviceProviderDAO.deleteServiceFromServiceProvided(serviceID);
-            if(delete > 0)
-            {
+            System.out.println("methantawath awa");
+            System.out.println(delete);
+
+                System.out.println("methanta awa");
                 int len = spIDs.length;
                 for(int i=0; i<len; i++)
                 {
                     serviceProviderDAO.assignServiceToSP(serviceID, Integer.parseInt(spIDs[i]));
+                    System.out.println(spIDs[i]);
                 }
-            }
+
 
 
 
             int x = serviceDAO.updateServiceTable(service);
             response.getWriter().println(x);
             System.out.println(x);
-
-
 
 
         } catch (ClassNotFoundException | SQLException e) {

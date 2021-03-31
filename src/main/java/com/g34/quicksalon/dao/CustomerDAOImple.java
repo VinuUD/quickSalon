@@ -240,6 +240,23 @@ public class CustomerDAOImple implements CustomerDAO {
         return y;
     }
 
+    @Override
+    public int getCustomerIDbyUserID(int userID) throws SQLException, ClassNotFoundException {
+
+        Connection connection =DBConnection.getConnection();
+        PreparedStatement stmt = connection.prepareStatement("SELECT customerID FROM j4f9qe_employee WHERE userID = ?;");
+        stmt.setInt(1,userID);
+
+        ResultSet resultSet = stmt.executeQuery();
+
+        if(resultSet.next()){
+            return resultSet.getInt(1);
+        }
+
+        return 0;
+
+
+    }
 
 
 }

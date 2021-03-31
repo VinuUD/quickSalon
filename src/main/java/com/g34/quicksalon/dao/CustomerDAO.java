@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public interface CustomerDAO {
-    
+
     public int addWalkInCustomers(String fName,String lName,String telephone) throws SQLException, ClassNotFoundException;
 
     public boolean registerCustomer(CustomerDetails customerDetails) throws SQLException, ClassNotFoundException;
@@ -20,4 +20,5 @@ public interface CustomerDAO {
 
     public int updateCustomer(int userID, String fname, String lname,String uname, int cnum, String nic,String email, String address) throws SQLException, ClassNotFoundException;
 
+    public int getCustomerIDbyUserID(int userID) throws SQLException, ClassNotFoundException;
 }
