@@ -59,7 +59,7 @@ public class ServiceProviderDAOImple implements  ServiceProviderDAO{
     public ArrayList<ServiceProvider> getSPListByservice(int serviceId) throws SQLException, ClassNotFoundException {
 
         ArrayList<ServiceProvider> serviceProviders = new ArrayList<>();
-            PreparedStatement stmt=DBConnection.getConnection().prepareStatement("SELECT employeeID,firstName,lastName FROM j4f9qe_employee WHERE employeeID IN(SELECT serviceProviderID FROM j4f9qe_servicesprovided WHERE serviceID=?);");
+            PreparedStatement stmt=DBConnection.getConnection().prepareStatement("SELECT employeeID,firstName,lastName FROM j4f9qe_employee WHERE employeeID IN(SELECT serviceProviderID FROM j4f9qe_servicesprovided WHERE serviceID=? AND j4f9qe_employee.removedFlag = 0);");
             stmt.setInt(1,serviceId);
             ResultSet resultSet = stmt.executeQuery();
             while (resultSet.next()) {

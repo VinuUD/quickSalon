@@ -228,6 +228,7 @@ $(document).ready(function () {
       id.substr(0, 4) + "-" + "0" + mt + "-" + clickedDate.substr(7, 2);
     var today = new Date();
     var clickedDay = new Date(assignedDate);
+    today.setDate(today.getDate() - 1);
     console.log(today);
     console.log(clickedDay);
 
