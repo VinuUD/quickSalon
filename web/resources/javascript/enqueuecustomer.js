@@ -98,7 +98,7 @@ $(document).ready(function () {
 
       $('#time-slots').empty();
 
-      console.log(appointments);
+      // console.log(appointments);
 
       var date=$(this).attr("id");
 
@@ -114,7 +114,7 @@ $(document).ready(function () {
         
         
         if(selectId==date){
-          console.log('selecrt'+selectId);
+          // console.log('selecrt'+selectId);
           //plot on table
             $('#time-slots').append(` <tr><td>${appointment.startTime}</td> <td>${"hello"}</td></tr>`);
 
