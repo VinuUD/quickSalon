@@ -6,41 +6,25 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <title>Add Leave</title>
 
-    <link rel="stylesheet" href="../resources/css/normal.css">
-    <link rel="stylesheet" href="../resources/css/sideNavbar.css">
-    <link rel="stylesheet" href="../resources/css/leave.css">
-    <link rel="stylesheet" href="../resources/css/mainDiv.css">
+    <link rel="stylesheet" href="../../resources/css/normal.css">
+    <link rel="stylesheet" href="../../resources/css/leave.css">
+    <link rel="stylesheet" href="../../resources/css/mainDiv.css">
     <!-- <link rel="stylesheet" href="../resources/css/34.css"> -->
     <!-- <link rel="stylesheet" href="../resources/css/frameWork/modal.css"> -->
     <!-- <link rel="stylesheet" href="../resources/css/frameWork/input.css"> -->
-    <link rel="stylesheet" href="../resources/css/frameWork/style.css">
+    <link rel="stylesheet" href="../../resources/css/frameWork/style.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src='../resources/javascript/main2.js'></script>
 </head>
 
 <body onresize="whenResizing()">
-    <!-- side nav bar -->
-    <div id="mySidenav" class="sidenav">
-        <div class="closeIcon"><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></div>
-        <a href="#">todo set navbar data with scession handling</a>
-        <a href="#">todo set navbar data with scession handling</a>
 
-    </div>
-
-    <!-- ////////////////////////////// -->
-
-    <div id="main">
-        <div class="back">
-            <div id="navIcon" onclick="openNav()" class="navIcon"><img src="../resources/icons/three.png" alt="Ooops">
-            </div>
-            
-        </div>
+    <div>
 
         <!-- <div cl></div> -->
         <div class="mainDiv container">
-            <button class="btn34 back-btn" onclick=history.back()>Back</button>
-           
+
             <div class="large-space">
                 <div class="heading topBar">Leave</div>
 
@@ -88,18 +72,11 @@
                                 <input type="text" id="leavetype" name="leavetype">
                             </div>
 
-                            <div class="add-leave-btn">
-                                <button class="btn34" id='addLeave'>Leave</button>
-                            </div>
-
                         </div>
-
-                        <div class="background-image">
-                            <img src="../resources/images/leave1.png">
+                        <div class="innerDiv">
+                          <button class="btn btn-red" onclick=history.back()>Back</button>
+                          <button class="btn" id='addLeave'>Leave</button>
                         </div>
-
-                      
-
                     </div>
 
                 </div>
@@ -122,7 +99,7 @@
             <!-- </div> -->
         </div>
     </div>
-    
+
     <script src="../resources/javascript/side_navbar.js"></script>
     <script src="../resources/javascript/leave.js"></script>
 </body>

@@ -1,0 +1,134 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../resources/css/allManagers.css" />
+    <link rel="stylesheet" href="../../resources/css/34.css" />
+    <link rel="stylesheet" href="../../resources/css/popup2AllManagers.css" />
+    <link rel="stylesheet" href="../../resources/css/sideNavbar.css" />
+    <link rel="stylesheet" href="../../resources/css/allServices.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+    <title>All Services</title>
+  </head>
+  <body onresize="whenResizing()">
+
+    <div>
+      <div class="back">
+        <button class="btn34">
+          <a style="text-decoration: none; color: white" href="manager_home.html">
+            home
+          </a>
+        </button>
+      </div>
+
+      <div class="topBar">
+        <b>Services</b>
+      </div>
+      <div class="mainDiv">
+        <div class="tableDiv34">
+          <table id="myTable" class="table34">
+            <tr>
+              <th>Service ID</th>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Time Taken</th>
+              <th>Price</th>
+              <th>HoldFlag</th>
+              <th>Update</th>
+            </tr>
+            <tbody id="tbl"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      $("document").ready(function () {
+        $.post(
+          "http://localhost:8080/quickSalon_war_exploded/serviceList",
+          function (response) {
+            response.map(function (x) {
+              $("#tbl").append(
+                "<tr>" +
+                  "<td>" +
+                  x.serviceID +
+                  "</td>" +
+                  "<td>" +
+                  x.serviceName +
+                  "</td>" +
+                  "<td>" +
+                  x.serviceDescription +
+                  "</td>" +
+                  "<td>" +
+                  x.timeTaken +
+                  "</td>" +
+                  "<td>" +
+                  x.price +
+                  "</td>" +
+                  "<td>" +
+                  x.holdFlag +
+                  "</td>" +
+                  "<td>" +
+                  "<button title='view employee details' class = 'btn34' onclick = 'show(event)'>" +
+                  "Update" +
+                  "</i>" +
+                  "</button>" +
+                  "</td>" +
+                  "</tr>"
+              );
+            });
+
+            $("#myTable").on("click", ".btn34", function () {
+              var currentRow = $(this).closest("tr");
+
+              var col1 = currentRow.find("td:eq(0)").text();
+              var col2 = currentRow.find("td:eq(1)").text();
+              var col3 = currentRow.find("td:eq(2)").text();
+              var col4 = currentRow.find("td:eq(3)").text();
+              var col5 = currentRow.find("td:eq(4)").text();
+              var col6 = currentRow.find("td:eq(5)").text();
+
+              var data = col1 + "\n" + col2 + "\n" + col3 + "\n" + col4;
+
+              console.log(data);
+              window.location = "updateService.html?id=" + col1;
+
+              // $("#updateManager").click(function () {
+
+              //   $.ajax({
+              //     type: "GET",
+              //     url: "allManagers.html/update",
+              //     data: dataObj,
+              //     success: function (response) {
+              //       console.log(response);
+              //       if (response == 1) {
+              //         alert("Manager Update Successfully!");
+              //         location.reload();
+              //       } else if (response == 0) {
+              //         alert("Manager update Unsuccessfully!! please try again !");
+              //         location.reload();
+              //       }
+              //     },
+              //   });
+              // });
+            });
+          }
+        );
+      });
+    </script>
+
+    <script src="../../resources/javascript/allManagers.js"></script>
+
+    <script src="../../resources/javascript/side_navbar.js"></script>
+  </body>
+</html>
