@@ -89,7 +89,7 @@ public class ServiceProviderDAOImple implements  ServiceProviderDAO{
         ArrayList<ServiceProvider> serviceProviders=new ArrayList<>();
 
         try {
-            PreparedStatement stmt=DBConnection.getConnection().prepareStatement("SELECT employeeID,firstName,lastName FROM j4f9qe_employee WHERE firstName LIKE '"+name+"%';");
+            PreparedStatement stmt=DBConnection.getConnection().prepareStatement("SELECT employeeID,firstName,lastName FROM j4f9qe_employee WHERE isUpperStaffFlag = 0");
 
             ResultSet resultSet = stmt.executeQuery();
 
