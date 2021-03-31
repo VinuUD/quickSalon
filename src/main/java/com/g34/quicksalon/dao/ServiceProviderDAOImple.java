@@ -104,6 +104,26 @@ public class ServiceProviderDAOImple implements  ServiceProviderDAO{
         return serviceProviders;
     }
 
+    public ArrayList<ServiceProvider> getServiceProvidersByNameS(String name) {
+
+        ArrayList<ServiceProvider> serviceProviders=new ArrayList<>();
+
+        try {
+            PreparedStatement stmt=DBConnection.getConnection().prepareStatement("SELECT employeeID,firstName,lastName FROM j4f9qe_employee WHERE isUpperStaffFlag = 0");
+
+            ResultSet resultSet = stmt.executeQuery();
+
+            while (resultSet.next()){
+                ServiceProvider serviceProvider=new ServiceProvider(resultSet.getInt(1),resultSet.getString(2),resultSet.getString(3));
+                serviceProviders.add(serviceProvider);
+            }
+
+        } catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+        return serviceProviders;
+    }
+
     @Override
     public int getLastEmployeeID() throws SQLException, ClassNotFoundException {
 
