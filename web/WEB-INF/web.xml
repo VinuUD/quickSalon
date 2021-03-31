@@ -394,11 +394,11 @@
 
     <!--update Ratings Servlet-->
     <servlet>
-        <servlet-name>updateRatings</servlet-name>
+        <servlet-name>updateRatin</servlet-name>
         <servlet-class>com.g34.quicksalon.controller.serviceProvider.updateRatingsServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>updateRatings</servlet-name>
+        <servlet-name>updateRatin</servlet-name>
         <url-pattern>/updateRatings</url-pattern>
     </servlet-mapping>
 <!--    List of user emails -->
