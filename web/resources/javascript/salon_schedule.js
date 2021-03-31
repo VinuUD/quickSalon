@@ -15,7 +15,7 @@ $(document).ready(function () {
         }
     );
 
-    //Requst for load Free time slots
+    //Requst for load alocated time slots
 
    
       

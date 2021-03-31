@@ -39,4 +39,7 @@ public interface AppointmentDAO {
     //Get all Appointment of a SP by service ID
     public ArrayList<AppointmentServiceVIEW> getAllSPAppointmentByServiceID(int serviceID,int userID) throws SQLException, ClassNotFoundException;
 
+
+    //    Cancel appointment by complete=1
+    public boolean dequeueAppointment(int qID) throws SQLException, ClassNotFoundException;
 }

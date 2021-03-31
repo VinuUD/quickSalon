@@ -130,7 +130,7 @@ public class OwnerDAOImple implements OwnerDAO {
             }
             catch (Exception e)
             {
-                System.out.println("mn inne catch block ekee, hu huuuu");
+                System.out.println("mn inne catch block ekee");
                 return 0;
             }
 
@@ -182,6 +182,21 @@ public class OwnerDAOImple implements OwnerDAO {
         return x;
 
 
+    }
+
+    @Override
+    public String getOwnerEmail() throws SQLException, ClassNotFoundException {
+        Connection connection = DBConnection.getConnection();
+        PreparedStatement pst= connection.prepareStatement("SELECT email FROM j4f9qe_user WHERE userType = 1;");
+
+        ResultSet resultSet = pst.executeQuery();
+
+        if(resultSet.next()){
+            return resultSet.getString(1);
+        }
+        else {
+            return null;
+        }
     }
 
 

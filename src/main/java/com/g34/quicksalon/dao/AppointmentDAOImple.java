@@ -115,7 +115,7 @@ public class AppointmentDAOImple implements AppointmentDAO {
             stmt.setInt(1,serviceID);
             ResultSet resultSet = stmt.executeQuery();
             while (resultSet.next()) {
-                                                                                     // qID,date,startTime,endTime,cancelledFlag,serviceID,employeeID
+                // qID,date,startTime,endTime,cancelledFlag,serviceID,employeeID
                 appointments.add(new AppointmentServiceVIEW(resultSet.getInt(1),resultSet.getString(2),resultSet.getString(3),resultSet.getString(4),resultSet.getInt(5),resultSet.getInt(6),resultSet.getInt(7)));
             }
         } catch (SQLException | ClassNotFoundException throwables) {
@@ -144,6 +144,8 @@ public class AppointmentDAOImple implements AppointmentDAO {
         } catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
         }
+
+
         return appointments;
 
     }
@@ -163,12 +165,12 @@ public class AppointmentDAOImple implements AppointmentDAO {
     }
 
     @Override
-    public ArrayList<PersonalSchedule> getTodayAppointmentsBySPID(int empID) throws SQLException, ClassNotFoundException {
+    public ArrayList<PersonalSchedule> getTodayAppointmentsBySPID(int userID) throws SQLException, ClassNotFoundException {
 
         ArrayList<PersonalSchedule> appointments=new ArrayList<>();
         try {
             PreparedStatement stmt=DBConnection.getConnection().prepareStatement("SELECT qID,firstName,lastName,serviceName,startTime,endTime FROM j4f9qe_personalschedule WHERE date=CURDATE() AND cancelledFlag=0 AND complete=0 AND (startTime> CURRENT_TIME() OR CURRENT_TIME() BETWEEN startTime AND endTime) AND userID=(?);");
-            stmt.setInt(1,empID);
+            stmt.setInt(1,userID);
             ResultSet resultSet = stmt.executeQuery();
 
             while (resultSet.next()){
@@ -288,18 +290,33 @@ public class AppointmentDAOImple implements AppointmentDAO {
         ArrayList<AppointmentServiceVIEW> appointments=new ArrayList<AppointmentServiceVIEW>();
         try {
 
-            PreparedStatement stmt=DBConnection.getConnection().prepareStatement("SELECT qID,date,startTime,endTime,cancelledFlag,serviceID,employeeID FROM j4f9qe_AppointemtServiceView WHERE cancelledFlag=0 AND serviceID=? AND employeeID =?;");
+            PreparedStatement stmt=DBConnection.getConnection().prepareStatement("SELECT qID,date,startTime FROM j4f9qe_AppointemtServiceView WHERE cancelledFlag=0 AND serviceID=? AND employeeID =?;");
             stmt.setInt(1,serviceID);
             stmt.setInt(2,empID);
             ResultSet resultSet = stmt.executeQuery();
             while (resultSet.next()) {
                 // qID,date,startTime,endTime,cancelledFlag,serviceID,employeeID
-                appointments.add(new AppointmentServiceVIEW(resultSet.getInt(1),resultSet.getString(2),resultSet.getString(3),resultSet.getString(4),resultSet.getInt(5),resultSet.getInt(6),resultSet.getInt(7)));
+                appointments.add(new AppointmentServiceVIEW(resultSet.getInt(1),resultSet.getDate(2),resultSet.getString(3)));
             }
         } catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
         }
         return appointments;
+    }
+
+    @Override
+    public boolean dequeueAppointment(int qID) throws SQLException, ClassNotFoundException {
+
+        Connection connection =DBConnection.getConnection();
+        PreparedStatement stmt= connection.prepareStatement("UPDATE j4f9qe_appointments SET complete=1 WHERE qID=(?);");
+        stmt.setInt(1,qID);
+        int success=stmt.executeUpdate();
+
+        if(success<=0){
+            return false;
+        }
+        return true;
+
     }
 
 
