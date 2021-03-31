@@ -24,7 +24,7 @@
           <i class="far fa-user-circle"></i>
           <span>Profile</span>
         </button>
-        <button id="logout" class="btn btn-red" onclick="logout()">
+        <button id="logout" class="btn btn-red" onclick="logout()>
           <i class="fa fa-sign-out"></i>
           <span>Logout</span>
         </button>
@@ -39,23 +39,29 @@
     </header>
 
     <section class="manager">
-      <div class="container grid-3 center">
-        <div id="all_service">
+      <div class="container grid-4 center">
+        <div id="add_leave">
           <i class="fas fa-users-cog fa-3x"></i>
-          <h3>Services</h3>
-          <p>View/Manage services</p>
+          <h3>Add Leave</h3>
+          <p>Give leave to service providers</p>
         </div>
 
-        <div id="employee_management">
+        <div id="all_sp">
           <i class="fas fa-users fa-3x"></i>
-          <h3>Employee Management</h3>
-          <p>Manage employees</p>
+          <h3>Service Providers</h3>
+          <p>View/Manage Service providers</p>
         </div>
 
-        <div id="deq_customer">
+        <div id="add_sp">
+          <i class="fas fa-plus-square fa-3x"></i>
+          <h3>Register SP</h3>
+          <p>Register a new service provider</p>
+        </div>
+
+        <div id="back">
           <i class="fas fa-minus-square fa-3x"></i>
-          <h3>Dequeue Customer</h3>
-          <p>Remove an appointment</p>
+          <h3>Back</h3>
+          <p>Back to Home</p>
         </div>
       </div>
     </section>
@@ -63,6 +69,5 @@
     </div>
     <script type="text/javascript" src="../../resources/javascript/manager_home.js"></script>
     <script type="text/javascript" src="../../resources/javascript/logout.js"></script>
-
   </body>
 </html>

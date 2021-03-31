@@ -53,4 +53,8 @@ $(document).ready(function () {
       );
     }
   });
+
+  $("#manager_back").on("click",function (){
+    window.location.href="./employee_management.html";
+  });
 });

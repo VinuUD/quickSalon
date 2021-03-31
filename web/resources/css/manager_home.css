@@ -1,59 +1,176 @@
-#main{
-  display:block;
-  align-items: center;
-  background: url("../images/marketing-for-your-beauty-salon-2.jpg") no-repeat;
-  background-position: center;
+:root {
+  --main-color: #9053c7;
+  --main-color-dark: #7437aa;
+  --main-color-light: #b288d8;
+  --gradient-color1: #c850c0;
+  --gradient-color2: #4158d0;
+
+  --light-grey: #f2f2f2;
+  --main-grey: #8d8d8d;
+  --a3-grey: #aaa;
+  --d3-grey: #ddd;
+  --off-white: #eee;
+
+  --green: #4caf50;
+  --red: #f44336;
+
+  --blur-grey: rgba(57, 57, 57, .7);
+  --blur-grey-dark: rgba(34, 34, 34, .7);
+}
+
+.showcase::after {
+  background-image: url("../images/marketing-for-your-beauty-salon-2.jpg");
   background-size: cover;
-  height: 100vh;
-  transition: .5s;
-}
-
-body{
-  padding: 0 !important;
-}
-
-#welcome-message{
-  position: flex;
-  margin-top: 100px;
-  padding:15px 25px;
-  width: 50%;
-  background: rgba(67, 90, 102, .5);
+  background-repeat: no-repeat;
   background-position: center;
-  border-radius: 5px;
-  text-transform: uppercase;
-  text-shadow: 2px 2px 5px #48676c;
-  font-weight: 600;
-  font-size: 50px;
-  color:white;
-  top:10%;
-  left: 10%;
-  right: 10%;
+  display: block;
+  filter: blur(10px);
+  -webkit-filter: blur(10px);
+  transition: all 1000ms;
+  z-index: -50;
+}
+
+.manager {
+  margin-top: -300px;
+  z-index: 1;
+}
+
+.manager .container div {
+  background: var(--blur-grey);
+  border-radius: 10px;
+  padding-top: 10px;
+  transition: all 500ms;
+  z-index: 1;
+}
+
+.manager .container div:hover {
+  background: var(--blur-grey-dark);
+  border-radius: 10px;
+  padding-bottom: -10px;
+  transform: translateY(-5px);
+  z-index: 1;
+  cursor: pointer;
+}
+
+button {
+  background-color: white;
+  color: black;
+  width: 80px;
+  padding: 8px 12px;
   text-align: center;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  transition: all .5s;
+  font-size: 15px;
+  margin: 2px 2px;
+  border-radius: 3px;
+  transition-duration: 0.4s;
+  border: 2px solid var(--blur-grey);
 }
 
-#profile-picture{
-  width: 50px;
-  height:50px;
-  background: url("../icons/download.png") no-repeat;
-  background-size: cover;
-  border-radius: 50px;
+.btn-red {
+  border: none;
+  border-radius: 10px;
+  background: var(--blur-grey);
+  color: white;
+  margin-left: 10px;
+}
+
+.btn-red:hover {
+  background: var(--blur-grey-dark);
+}
+
+.logout-btn {
+  display: flex;
+  flex-direction: row;
+  position: relative;
   float: right;
-  /* margin-top: 1rem; */
-  margin-top: 12px;
-  margin-right: 40px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  transition: all 0.1s;
+  margin-right: 20px;
+  /* left: 90%; */
+  top: 10px;
+  z-index: 5;
 }
 
-#profile-picture:hover{
-  width: 52px;
-  height:52px;
-  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
+/* Small screens */
+@media (max-width: 560px) {
+  .logout-btn {
+    flex-direction: column;
+  }
+
+  .manager {
+    margin-top: 0;
+  }
+
+  .manager div {
+    border-bottom: #333 dashed 1px;
+    padding: 1.2rem 1 rem;
+    transition: all 1000ms;
+  }
+
+  .manager .container {
+    transition: all 1000ms;
+  }
+
+  .manager .container div h3 {
+    font-weight: normal;
+  }
+
+  .manager p {
+    display: none;
+  }
+
+  .manager div:hover > p {
+    display: block;
+  }
+
+  button {
+    border-radius: 12px;
+    width: 40px;
+  }
+
+  button span {
+    display: none;
+    min-width: 40px;
+  }
 }
 
-#navIcon{
-  margin-top: 20px;
-  /* display: flex; */
+/* Landscape */
+@media (max-height:500px) {
+  .manager {
+    margin-top: -210px;
+  }
+
+  .manager p {
+    display: none;
+  }
+
+  .manager .container div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    min-height: 40px;
+    max-height: 40px;
+    padding: 30px 0;
+  }
+
+  .manager .container div h3{
+    display: none;
+  }
+
+  .manager .container div i{
+    font-size: 2.5rem;
+  }
+
+  .manager .container div:hover > h3 {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: normal;
+  }
+
+  .manager .container div:hover > i {
+    display: none;
+  }
+
+  .content .logo {
+    height: 100px;
+    width: 100px;
+  }
 }

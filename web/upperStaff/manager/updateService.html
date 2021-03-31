@@ -1,0 +1,136 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../resources/css/updateService.css" />
+    <link rel="stylesheet" href="../../resources/css/34.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <title>Update Service</title>
+  </head>
+  <body>
+    <!-- ////////////////////////////////////////// -->
+    <!-- remove package -->
+    <div id="removePopup" class="mainPopupDiv">
+      <div class="innerPopupDiv">
+        <div class="top1">
+          <i
+            ><img
+              style="
+                height: 20px;
+                width: 20px;
+                margin-right: 10px;
+                cursor: pointer;
+              "
+              onclick="hideRemove()"
+              src="../../resources/icons/cross.png"
+              alt=""
+          /></i>
+          <b style="margin: 0px auto 0px auto">Remove Package</b>
+        </div>
+        <div class="pwd"><b> Enter password </b> <input type="password" /></div>
+
+        <div class="button1">
+          <button onclick="hideRemove()" class="danger34">Remove</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ////////////////////////////////////////////// -->
+
+    <div>
+      <div class="back" id="us_back">
+        <button class="btn34">back</button>
+      </div>
+
+      <div class="topBar">
+        <b>Update Service</b>
+      </div>
+
+      <div class="mainDiv">
+        <div class="innerDiv">
+          <div><b>Service ID</b></div>
+          <div class="inputDiv">
+            <input id="serviceID" disabled type="text" />
+          </div>
+        </div>
+
+        <div class="innerDiv">
+          <div><b>Service Title</b></div>
+          <div class="inputDiv"><input id="serviceTitle" type="text" /></div>
+        </div>
+
+        <div class="innerDiv">
+          <div><b>Description &nbsp;</b></div>
+          <div class="inputDiv">
+            <input id="serviceDescription" type="text" />
+          </div>
+        </div>
+
+        <div class="innerDiv">
+          <div><b style="margin-right: 55px">Price </b></div>
+          <div class="inputDiv"><input id="price" type="text" /></div>
+        </div>
+
+        <div class="innerDiv">
+          <div><b>Time Duration</b></div>
+          <div style="margin-left: -7px" class="inputDiv">
+            <input id="timeDuration" type="text" />
+          </div>
+        </div>
+
+        <div class="innerDiv">
+          <div><b>Hold Service </b></div>
+          <div class="inputDiv">
+            <select name="" id="holdFlag">
+              <option value="no">No</option>
+              <option value="yes">Yes</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <div class="tableDiv34">
+            <table id="table34" class="table34">
+              <tr>
+                <th>Service providers</th>
+                <th style="text-align: center">Remove</th>
+              </tr>
+              <tr>
+                <td><select id="select-sp" class="blo"></select></td>
+                <td></td>
+                <!-- <td style="text-align: center;"><i onclick="remove(this)"><img class="cross"  src="../../resources/icons/cross.png" alt=""></i></td>  -->
+              </tr>
+
+              <tbody id="assign-sp"></tbody>
+              <tr>
+                <td>
+                  <img
+                    id="plus"
+                    src="../../resources/icons/plus.png"
+                    alt=""
+                    class="plus"
+                    onclick="add()"
+                  />
+                </td>
+                <td></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="buttonDiv">
+          <button id="remove" class="danger34">Remove</button>
+          <button id="save" class="btn-success34">Save</button>
+          <button id="cancel" class="btn-success34">cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="../../resources/javascript/updateService.js"></script>
+  </body>
+</html>

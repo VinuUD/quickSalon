@@ -1,0 +1,182 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../resources/css/allManagers.css" />
+    <link rel="stylesheet" href="../../resources/css/34.css" />
+    <link rel="stylesheet" href="../../resources/css/popup2AllManagers.css" />
+    <link rel="stylesheet" href="../../resources/css/sideNavbar.css" />
+    <link rel="stylesheet" href="../../resources/css/allServiceProviders.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+    <title>All Service Providers</title>
+  </head>
+  <body>
+    <!-- //////////////////////////////////////// -->
+    <!-- update manager -->
+    <div id="pop3" class="popup3">
+      <div class="popup23">
+        <div class="top1">
+          <i
+            ><img
+              onclick="hide3(), show()"
+              src="../../resources/icons/cross.png"
+              alt=""
+          /></i>
+          <b id="updateHeader">Update EMP001</b>
+        </div>
+
+        <div class="bar">
+          <div><b>Emplyee ID </b> <input id="eID" type="text" disabled /></div>
+          <div><b>Name </b> <input id="name" type="text" disabled /></div>
+          <div>
+            <b>Contact Num </b>
+            <input id="cNum" type="text" value="0710157140" />
+          </div>
+          <div>
+            <b>Salary </b> <input id="salary" type="text" value="1000000" />
+          </div>
+
+          <div>
+            <b>Address </b> <input id="address" type="text" value="1000000" />
+          </div>
+          <div><b>NIC </b> <input id="nic" type="text" disabled /></div>
+        </div>
+
+        <div class="button3">
+          <button
+            id="updateManager"
+            onclick="hide3(), show()"
+            class="btn-success34"
+          >
+            Save
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- ////////////////////////////////////////// -->
+    <!-- remove manager -->
+    <div id="pop1" class="popup1">
+      <div class="popup21">
+        <div class="top1">
+          <i
+            ><img
+              onclick="hide2(), show()"
+              src="../../resources/icons/cross.png"
+              alt=""
+          /></i>
+          <b>Remove Manager</b>
+        </div>
+        <div class="pwd">
+          <b> Enter password </b> <input id="password" type="password" />
+        </div>
+
+        <div class="button1">
+          <button id="removeManager" onclick="hide2()" class="danger34">
+            Remove
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ////////////////////////////////////////////// meka thama oya view button eka click krhma ena popup eka -->
+    <div id="pop" class="popup">
+      <div class="popup2">
+        <div class="top1">
+          <i
+            ><img onclick="hide()" src="../../resources/icons/cross.png" alt=""
+          /></i>
+          <b id="empHeader">EMP001</b>
+        </div>
+
+        <div id="inDiv" class="bar">
+          <div>
+            <b>Employee Id </b>
+            <input type="text" value="Shehan Sandeepa" disabled />
+          </div>
+          <div><b>Name </b> <input type="text" value="emp001" disabled /></div>
+          <div>
+            <b>Contact Num </b> <input type="text" value="emp001" disabled />
+          </div>
+          <div>
+            <b>Salary </b> <input type="text" value="emp001" disabled />
+          </div>
+          <div>
+            <b>NIC &nbsp;</b> <input type="text" value="emp001" disabled />
+          </div>
+
+          <div>
+            <b>Address </b> <input type="text" value="1000000" disabled />
+          </div>
+        </div>
+        <br />
+        <br />
+        <!--
+        <div class="tableDiv34">
+          <table class="table34">
+            <tr>
+              <th>Control functions</th>
+            </tr>
+            <tr>
+              <td>Add service provider</td>
+            </tr>
+            <tr>
+              <td>Remove service provider</td>
+            </tr>
+          </table>
+        </div> -->
+
+        <div class="button">
+          <button onclick="show2(), hide()" class="danger34">Remove</button>
+          <button onclick="show3(),hide()" class="btn-danger34">Update</button>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="back">
+        <div id="navIcon" onclick="openNav()" class="navIcon">
+          <img src="../../resources/icons/three.png" alt="Ooops" />
+        </div>
+        <button onclick="change()" class="btn34">
+          <a style="text-decoration: none; color: white" href="manager_home.html">
+            home
+          </a>
+        </button>
+      </div>
+
+      <div class="topBar">
+        <b>Service Providers</b>
+      </div>
+      <div class="mainDiv">
+        <div class="tableDiv34">
+          <table id="myTable" class="table34">
+            <tr>
+              <th>Employee ID</th>
+              <th>Name</th>
+              <th>Contact Num</th>
+              <th>NIC</th>
+              <th>View</th>
+              <th>Rate</th>
+              <th>Rating</th>
+            </tr>
+            <tbody id="tbl"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script src="../../resources/javascript/allManagers.js"></script>
+    <script src="../../resources/javascript/side_navbar.js"></script>
+    <script src="../../resources/javascript/allServiceProviders.js"></script>
+  </body>
+</html>

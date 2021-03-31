@@ -154,4 +154,8 @@ $("document").ready(function () {
     window.location =
       "http://localhost:8080/quickSalon_war_exploded/upperStaff/allServices.html";
   });
+
+  $("#us_back").on("click", function () {
+    window.location.href = "./allServices.html";
+  });
 });
