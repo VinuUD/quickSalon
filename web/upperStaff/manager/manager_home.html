@@ -40,6 +40,7 @@
 
     <section class="manager">
       <div class="container grid-3 center">
+
         <div id="all_service">
           <i class="fas fa-users-cog fa-3x"></i>
           <h3>Services</h3>
@@ -57,12 +58,33 @@
           <h3>Dequeue Customer</h3>
           <p>Remove an appointment</p>
         </div>
+
+          <div >
+
+          </div>
+
+          <div id="report">
+              <i class="fas fa-minus-square fa-3x"></i>
+              <h3>Reports</h3>
+              <p>See the reports</p>
+          </div>
+
+          <div >
+
+          </div>
+
       </div>
     </section>
 
     </div>
     <script type="text/javascript" src="../../resources/javascript/manager_home.js"></script>
     <script type="text/javascript" src="../../resources/javascript/logout.js"></script>
+
+  <script>
+      $("#report").on("click",function (){
+          window.location.href="../generate_report.html";
+      });
+  </script>
 
   </body>
 </html>

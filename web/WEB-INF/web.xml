@@ -473,4 +473,13 @@
         <url-pattern>/dequeueCustomer</url-pattern>
     </servlet-mapping>
 
+
+    <servlet>
+        <servlet-name>reportgenservlet</servlet-name>
+        <servlet-class>com.g34.quicksalon.controller.upperStaff.reportGenerate</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>reportgenservlet</servlet-name>
+        <url-pattern>/upperStaff/report</url-pattern>
+    </servlet-mapping>
 </web-app>

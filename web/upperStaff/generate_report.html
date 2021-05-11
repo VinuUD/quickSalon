@@ -9,7 +9,14 @@
     <link rel="stylesheet" href="../resources/css/sideNavbar.css">
     <link rel="stylesheet" href="../resources/css/mainDiv.css">
     <link rel="stylesheet" href="../resources/css/34.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
     <script src='../resources/javascript/main2.js'></script>
 </head>
 
@@ -27,57 +34,206 @@
 
 <!-- ////////////////////////////// -->
 <div id="main">
-
-  <div class="back">
+    <div class="back">
       <div id="navIcon" onclick="openNav()" class="navIcon"  ><img  src="../resources/icons/three.png" alt="Ooops" ></div>
       <button class="btn34"  onclick=history.back()>back</button>
   </div>
-  <br><br>
-
+  <br>
   <div class="topBar">
       <b>Report generator</b> 
   </div>
-
   <div class="mainDiv">
-    <div class="innerDiv">
       <div class="innerDiv">
-        <form action="/action_page.php"  >
-          <label for="services">Type</label>
-          <select name="services" id="services">
-            <option value="haircut">stock</option>
-            <option value="hairmassage">Hair massage</option>
-            <option value="beardcut">Beard cut</option>
-            <option value="tatto">Tatto</option>
-          </select> 
-        </form>  
-      </div>
+        <form id="subform" class="hider"  action="report" method="POST" >
+          <label >Type</label>
+          <select name="services" id="services" >
+            <option value="complaint">complaint</option>
+            <option value="leave">leave</option>
+          </select>
       <div class="innerDiv">
-        <form action ="" method="get">
-          <label for="rom">From</label>
+          <label for="from">From</label>
           <input type="date" id="from" name="from"><br>
           <label for="to">To</label>
           <input type="date" id="to" name="to"><br>
-         <br>
+
          <div class="innerDiv">
-          <input type ="submit" class = "btn34" value = "Generate" >
+          <input type ="submit" class = "btn34" value = "Generate" ID="SUBMIT" >
         </div>
-         
-      </form>   
       </div>
-       
+      </form>
+      </div>
+    </div>
+
+    <div class="tableDiv34 print-container">
+    <table name="complaint" id="myTable" class="table34">
+        <tr>
+            <th>ComplaintID</th>
+            <th>CustomerID</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Details</th>
+        </tr>
+        <tbody id="tbl"></tbody>
+    </table>
+        <table name="leave" id="myTable2" class="table34">
+            <tr>
+                <th>Leave ID</th>
+                <th>Leaver ID</th>
+                <th>Is Approved</th>
+                <th>From Date</th>
+                <th>To Date</th>
+                <th>From Time</th>
+                <th>To Time</th>
+                <th>Leave Type</th>
+            </tr>
+            <tbody id="tbl2"></tbody>
+        </table>
     </div>
 
 
-               
-    </div>
-         
-     
-      
 
-  
-</div> 
+    <style>
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+
+            .hider {
+                display: none;
+            }
+            .print-container, .print-container * {
+                visibility: visible;
+            }
+            .print-container {
+                position: absolute;
+                left: 0px;
+                top: 0px;
+            }
+        }
+    </style>
+    <div class="innerDiv">
+        <BUTTON  class = "btn34 " onclick="window.print();" ID="print" >Print report</BUTTON>
+    </div>
+
+
+
+</div>
+
+
+  <script>
+            $("document").ready(function () {
+                var k = 0 ;
+                var m = 0 ;
+                $("#myTable").addClass("hidden");
+                $("#myTable2").addClass("hidden");
+                $("#print").addClass("hidden");
+
+                $("#SUBMIT").click(function(event){
+                    event.preventDefault();
+                    var formdata = $("#subform").serialize();
+                    var e = document.getElementById("services");
+                    var services = e.value;
+
+
+                    console.log(formdata);
+                    $.post(
+                        "http://localhost:8081/quickSalon_war_exploded/upperStaff/report" ,
+                        formdata ,
+                        function (data , satus){
+
+
+                            if(services == 'complaint'){
+                                $("#myTable").removeClass("hidden");
+
+                                $("#myTable2").addClass("hidden");
+
+                                    if ( k == 0){
+                                        k = 1;
+                                        data.map(function (x) {
+                                        $("#tbl").append(
+                                            "<tr>" +
+                                            "<td>" +
+                                            x.complaintID +
+                                            "</td>" +
+                                            "<td>" +
+                                            x.customerID +
+                                            "</td>" +
+                                            "<td>" +
+                                            x.date +
+                                            "</td>" +
+                                            "<td>" +
+                                            x.time +
+                                            "</td>" +
+                                            "<td>" +
+                                            x.details +
+                                            "</td>" +
+                                            "</tr>"
+                                        );
+                                    });
+                                        $("#print").removeClass("hidden");
+                                }
+                               /* console.log("status " + status);*/
+                            }
+                            else if(services == 'leave'){
+                                $("#myTable").addClass("hidden");
+
+                                $("#myTable2").removeClass("hidden");
+
+                                    if ( m == 0){
+                                        m=1;
+                                        data.map(function (x) {
+                                        $("#tbl2").append(
+                                            "<tr>" +
+                                            "<td>" +
+                                            x.leaveID +
+                                            "</td>" +
+                                            "<td>" +
+                                            x.leaverID +
+                                            "</td>" +
+                                            "<td>" +
+                                            x.isApproved +
+                                            "</td>" +
+                                            "<td>" +
+                                            x.fromDate +
+                                            "</td>" +
+                                            "<td>" +
+                                            x.toDate +
+                                            "</td>" +
+                                            "<td>" +
+                                            x.fromTime +
+                                            "</td>" +
+                                            "<td>" +
+                                            x.toTime +
+                                            "</td>" +
+                                            "<td>" +
+                                            x.leaveType +
+                                            "</td>" +
+                                            "</tr>"
+                                        );
+                                    });
+                                        $("#print").removeClass("hidden");
+                                    }
+                              /*  console.log("Data " + data[0].leaveType);*/
+                              /*  console.log("status " + status);*/
+                            }
+                        }
+
+                    )
+
+                })
+          });
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style>
+    .hidden{
+        display: none;
+    }
+</style>
 <script src="../resources/javascript/side_navbar.js"></script>
+  <!-- newly created = upper saff eke report_generate,java file eklak haduwa as a servlet ., xml mapping eka kala eekata , dao eka k haduwa reportDAO kiyala   , leave ekata model ekak hadala thibba db eke column dala complain ekata aluth ekak haduwa  reportDAO and reportDAOImple haduwa  Leave model use kale naha .leave2 gatta hadala-->
 </body>
 
 
 </html>
+
+

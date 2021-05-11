@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 
@@ -25,7 +26,6 @@ public class ViewSPsServlet extends HttpServlet {
             ArrayList<ManagerDetailsForView> spDetails = new ArrayList<>();
             spDetails = sp.getServiceProvidersDetails();
             int name = spDetails.get(0).getEmpId();
-
 
             String json = new Gson().toJson(spDetails);
             res.setContentType("application/json");

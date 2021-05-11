@@ -24,7 +24,6 @@ public class ServiceDAOImple implements ServiceDAO {
         return services;
     }
 
-
     public boolean  addServicetoAppointments(int qId,int serviceId) throws SQLException, ClassNotFoundException {
 
         Connection connection =DBConnection.getConnection();
@@ -122,8 +121,6 @@ public class ServiceDAOImple implements ServiceDAO {
         int x = stmt.executeUpdate();
         return x;
     }
-
-
 
 //    Get all deatails of service with give serviceID
     @Override
