@@ -2,11 +2,11 @@
 
 Quick Salon is a comprehensive Salon Management System that we built for the Second Year Group Project at UCSC.
 
-It was built for a salon with the 4 actoes,
+It was built for a salon with the 4 actors,
 * Owner
 * Manager
 * Service Provider
-* Actor.
+* Customer.
 
 The system has,
 * Queue Management
