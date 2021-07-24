@@ -14,5 +14,5 @@ The system has,
 * Report Generation funcitonalities.
 
 The technologies used were Java, HTML, CSS, JS, java ee, mysql, ajax / jquery, sessions, servlet and no frameworks were used.
-✌ ❤
+(mvc architecture) ✌ ❤
  
